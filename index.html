@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Максим и Диана | Свадьба" />
 
-  <!-- Twitter Card - маленькое фото сбоку -->
+  <!-- Twitter Card - маленькое фото справа -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Максим и Диана | Приглашение на свадьбу" />
   <meta name="twitter:description" content="Приглашаем вас на нашу свадьбу! 03.10.2026, агроусадьба «Тихий Край»." />
@@ -65,7 +65,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 60px 20px 50px;
+      padding: 40px 20px 50px;
       background-image: linear-gradient(180deg, rgba(15,26,15,0.7) 0%, rgba(15,26,15,0.3) 50%, rgba(15,26,15,0.85) 100%), 
                         url('IMG_7327.JPG');
       background-size: cover;
@@ -75,7 +75,7 @@
     }
     .caller-info {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 0;
       color: #fff;
     }
     .caller-subtitle {
@@ -333,10 +333,11 @@
       font-weight: 500;
     }
     .wedding-day {
-      background-color: #2a5a2a;
-      color: #e8e0d6;
-      font-weight: 700;
+      border: 2px solid #4a7a4a;
       border-radius: 50%;
+      font-weight: 700;
+      color: #e8e0d6;
+      background: transparent;
     }
     .divider {
       width: 40px;
@@ -410,22 +411,24 @@
       border-top: 1px dashed #3a5a3a;
       padding-top: 10px;
     }
-    .venue-image-container {
-      width: 100%;
-      max-width: 340px;
-      height: 220px;
-      overflow: hidden;
-      margin-top: 10px;
-      background-color: #1a2a1a;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #5a7a5a;
+    .map-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 28px;
+      background: #2a5a2a;
+      color: #e8e0d6;
+      text-decoration: none;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-style: italic;
-      border: 1px dashed #3a5a3a;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      border-radius: 2px;
+      transition: background 0.25s;
+      border: none;
+      cursor: pointer;
+    }
+    .map-button:hover {
+      background: #3a7a3a;
     }
 
     /* Тайминг */
@@ -515,6 +518,7 @@
       font-size: 40px;
       margin-bottom: 20px;
       opacity: 0.6;
+      font-family: serif;
     }
 
     /* ----- АНКЕТА ГОСТЯ ----- */
@@ -943,7 +947,7 @@
           <div class="calendar-month">Октябрь 2026</div>
           <div class="calendar-grid">
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
-            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
+            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day wedding-day">3 ♥</div><div class="day">4</div>
             <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
             <div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
             <div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div>
@@ -961,10 +965,8 @@
         <div class="location-info">
           <p class="venue-name">Агроусадьба «Тихий Край»</p>
           <p class="venue-address">Брестская область, Липово, ул. Суворова 17</p>
-          <p class="venue-note">📍 Вход со стороны двора, ориентир — большие ворота с кованым декором</p>
-        </div>
-        <div class="venue-image-container">
-          <span>Фото агроусадьбы</span>
+          <p class="venue-note">Вход со стороны двора, ориентир — большие ворота с кованым декором</p>
+          <a href="https://maps.google.com/maps?q=Брестская+область+Липово+ул.+Суворова+17" target="_blank" class="map-button">Посмотреть на карте</a>
         </div>
       </div>
 
@@ -982,7 +984,7 @@
       </div>
 
       <div class="inv-wish fade-in-element">
-        <div class="wish-icon">🤍</div>
+        <div class="wish-icon">♥</div>
         <p class="wish-text">
           Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
         </p>
@@ -993,7 +995,7 @@
         <div class="form-header">
           <span class="form-tag">[Анкета гостя]</span>
           <h2 class="form-title">АНКЕТА<br>ГОСТЯ</h2>
-          <p class="form-deadline">📅 Пожалуйста, заполните до 15 сентября 2026</p>
+          <p class="form-deadline">Пожалуйста, заполните до 15 сентября 2026</p>
         </div>
 
         <div class="form-group">
@@ -1047,13 +1049,13 @@
       <div class="inv-info fade-in-element">
         <h2 class="info-title">Важная информация</h2>
         <div class="info-item">
-          <div class="info-item-title">🛂 Паспорт</div>
+          <div class="info-item-title">Паспорт</div>
           <div class="info-item-text">
             Так как наша свадьба проходит в Брестской области, при проезде через пост вам понадобится паспорт. Пожалуйста, не забудьте взять его с собой.
           </div>
         </div>
         <div class="info-item">
-          <div class="info-item-title">🚐 Трансфер</div>
+          <div class="info-item-title">Трансфер</div>
           <div class="info-item-text">
             Мы организуем подвоз для гостей. Если вам нужен трансфер, отметьте это в анкете, и мы свяжемся с вами для уточнения деталей.
           </div>
@@ -1068,14 +1070,14 @@
         </div>
         <div class="contacts-list">
           <div class="contact-item">
-            <span class="contact-name">👰 Диана</span>
+            <span class="contact-name">Диана</span>
             <span class="contact-phone">+375 29 123-45-67</span>
-            <a href="https://t.me/diana_wedding" class="contact-link">📱 Telegram: @diana_wedding</a>
+            <a href="https://t.me/diana_wedding" class="contact-link">Telegram: @diana_wedding</a>
           </div>
           <div class="contact-item">
-            <span class="contact-name">🤵 Максим</span>
+            <span class="contact-name">Максим</span>
             <span class="contact-phone">+375 29 765-43-21</span>
-            <a href="https://t.me/maxim_wedding" class="contact-link">📱 Telegram: @maxim_wedding</a>
+            <a href="https://t.me/maxim_wedding" class="contact-link">Telegram: @maxim_wedding</a>
           </div>
         </div>
       </div>
@@ -1119,19 +1121,6 @@
       let startX = 0, currentX = 0, maxSlide = 0;
       let isCallAccepted = false;
 
-      // Воспроизведение музыки при загрузке
-      if (ringtone) {
-        document.addEventListener('touchstart', function playOnFirstTouch() {
-          ringtone.play().catch(e => console.log('Autoplay prevented, waiting for user interaction'));
-          document.removeEventListener('touchstart', playOnFirstTouch);
-        }, { once: true });
-        
-        document.addEventListener('click', function playOnFirstClick() {
-          ringtone.play().catch(e => console.log('Autoplay prevented, waiting for user interaction'));
-          document.removeEventListener('click', playOnFirstClick);
-        }, { once: true });
-      }
-
       function updateMaxSlide() {
         if (track && btn) maxSlide = track.offsetWidth - btn.offsetWidth - 12;
       }
@@ -1173,8 +1162,7 @@
         if (isCallAccepted) return;
         isCallAccepted = true;
         if (ringtone) {
-          ringtone.pause();
-          ringtone.currentTime = 0;
+          ringtone.play().catch(e => console.log('Ошибка воспроизведения музыки:', e));
         }
         setTimeout(() => {
           if (callScreen) {
