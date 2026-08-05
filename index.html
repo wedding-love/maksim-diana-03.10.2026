@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=yes">
+  <title>Максим и Диана | Приглашение на свадьбу</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0f1a0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 430px;
+      height: 100%;
+      height: 100dvh;
+      position: relative;
+      background-color: #0f1a0f;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    }
+
+    /* ----- Экран звонка ----- */
+    .call-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 20px 50px;
+      background-image: linear-gradient(180deg, rgba(15,26,15,0.7) 0%, rgba(15,26,15,0.3) 50%, rgba(15,26,15,0.85) 100%), 
+                        url('пара.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 20;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .caller-info {
+      text-align: center;
+      margin-top: 20px;
+      color: #fff;
+    }
+    .caller-subtitle {
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      opacity: 0.85;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-family: 'Cormorant Garamond', serif;
+      animation: fadeInDown 1s ease forwards;
+    }
+    .caller-name {
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      font-family: 'Cormorant Garamond', serif;
+      animation: fadeInDown 1s ease 0.2s forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slider-container {
+      width: 100%;
+      padding: 0 10px;
+      animation: fadeInUp 1s ease 0.4s forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slider-track {
+      position: relative;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .slider-text {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .slider-button {
+      position: absolute;
+      left: 6px;
+      width: 64px;
+      height: 64px;
+      background-color: #34c759;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      cursor: grab;
+    }
+    .slider-button:active {
+      cursor: grabbing;
+    }
+    .phone-icon {
+      width: 30px;
+      height: 30px;
+      fill: #fff;
+    }
+
+    /* ----- Экран приглашения ----- */
+    .invitation-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      background-color: #1a2a1a;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1), visibility 1s;
+      z-index: 10;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      color: #e8e0d6;
+    }
+    .invitation-screen.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Анимация появления при прокрутке */
+    .fade-in-element {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1), transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .fade-in-element.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-image {
+      opacity: 0;
+      transform: scale(1.05);
+      transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .fade-in-image.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Hero */
+    .inv-hero {
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      background: linear-gradient(180deg, rgba(15,26,15,0.7) 0%, rgba(15,26,15,0.1) 30%, rgba(15,26,15,0.1) 70%, rgba(15,26,15,0.85) 100%), 
+                  url('пара.jpg') center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 80px 30px 60px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .hero-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      text-align: center;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .hero-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      text-align: center;
+      letter-spacing: 8px;
+      opacity: 0.9;
+      margin-top: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+    .love-text {
+      align-self: flex-end;
+      text-align: right;
+      max-width: 260px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      line-height: 1.6;
+      opacity: 0.85;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    /* Приглашение */
+    .inv-details {
+      padding: 80px 30px;
+      background-color: #1e3020;
+      color: #e8e0d6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-top: 1px solid #3a5a3a;
+      border-bottom: 1px solid #3a5a3a;
+    }
+    .invite-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      text-align: right;
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: -8px;
+      letter-spacing: 3px;
+      color: #8aaa8a;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .invite-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      line-height: 0.9;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-align: left;
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 25px;
+      color: #e8e0d6;
+    }
+    .invite-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 45px;
+      text-align: left;
+      width: 100%;
+      max-width: 320px;
+      border-left: 2px solid #5a7a5a;
+      padding-left: 20px;
+      color: #c8d0c0;
+      font-weight: 500;
+      font-style: italic;
+    }
+    .calendar-wrap {
+      width: 100%;
+      max-width: 320px;
+    }
+    .calendar-month {
+      font-family: 'Cormorant Garamond', serif;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      font-size: 20px;
+      margin-bottom: 25px;
+      font-weight: 700;
+      text-align: center;
+      color: #e8e0d6;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 14px 5px;
+      text-align: center;
+    }
+    .day-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #8aaa8a;
+      margin-bottom: 6px;
+    }
+    .day {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e8e0d6;
+      font-weight: 500;
+    }
+    .wedding-day {
+      background-color: #2a5a2a;
+      color: #e8e0d6;
+      font-weight: 700;
+      border-radius: 50%;
+    }
+    .divider {
+      width: 40px;
+      height: 1px;
+      background-color: #5a7a5a;
+      margin-top: 50px;
+    }
+
+    /* Локация */
+    .inv-location {
+      background-color: #162016;
+      color: #e8e0d6;
+      padding: 80px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #3a5a3a;
+    }
+    .location-header {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 35px;
+    }
+    .location-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      text-align: right;
+      margin-bottom: -8px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #8aaa8a;
+    }
+    .location-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      line-height: 0.9;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #e8e0d6;
+    }
+    .location-info {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    .venue-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 24px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+      color: #e8e0d6;
+    }
+    .venue-address {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #a0b8a0;
+      font-style: italic;
+    }
+    .venue-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #8aaa8a;
+      font-style: italic;
+      margin-top: 6px;
+      border-top: 1px dashed #3a5a3a;
+      padding-top: 10px;
+    }
+    .venue-image-container {
+      width: 100%;
+      max-width: 340px;
+      height: 220px;
+      overflow: hidden;
+      margin-top: 10px;
+      background-color: #1a2a1a;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5a7a5a;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      border: 1px dashed #3a5a3a;
+    }
+
+    /* Тайминг */
+    .inv-timing {
+      background-color: #1e3020;
+      color: #e8e0d6;
+      padding: 80px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #3a5a3a;
+    }
+    .timing-header {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 40px;
+    }
+    .timing-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      text-align: right;
+      margin-bottom: -8px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #8aaa8a;
+    }
+    .timing-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      line-height: 0.9;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #e8e0d6;
+    }
+    .timeline-list {
+      width: 100%;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .time-item {
+      display: flex;
+      align-items: baseline;
+      border-bottom: 1px dashed #3a5a3a;
+      padding-bottom: 10px;
+    }
+    .time-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      min-width: 85px;
+      letter-spacing: 1px;
+      color: #e8e0d6;
+    }
+    .time-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      margin-left: 15px;
+      font-style: italic;
+      color: #c8d0c0;
+    }
+
+    /* Пожелание */
+    .inv-wish {
+      background-color: #162016;
+      color: #e8e0d6;
+      padding: 60px 30px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #3a5a3a;
+      text-align: center;
+    }
+    .wish-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      line-height: 1.8;
+      max-width: 340px;
+      font-style: italic;
+      color: #c8d0c0;
+    }
+    .wish-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      opacity: 0.6;
+    }
+
+    /* ----- АНКЕТА ГОСТЯ ----- */
+    .inv-form {
+      background-color: #1a2a1a;
+      color: #e8e0d6;
+      padding: 80px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #3a5a3a;
+    }
+    .form-header {
+      width: 100%;
+      max-width: 340px;
+      margin-bottom: 35px;
+    }
+    .form-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      text-align: right;
+      margin-bottom: -8px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #8aaa8a;
+    }
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 58px;
+      line-height: 0.9;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #e8e0d6;
+    }
+    .form-deadline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: #8aaa8a;
+      margin-top: 10px;
+      text-align: left;
+    }
+    .form-group {
+      width: 100%;
+      max-width: 340px;
+      margin-bottom: 28px;
+    }
+    .form-label {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      font-style: italic;
+      color: #e8e0d6;
+    }
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      border: 1px solid #3a5a3a;
+      background: #0f1a0f;
+      outline: none;
+      transition: border 0.2s;
+      color: #e8e0d6;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 2px;
+    }
+    .form-input:focus {
+      border-color: #5a8a5a;
+    }
+    .form-input::placeholder {
+      color: #5a7a5a;
+    }
+    .form-select {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      border: 1px solid #3a5a3a;
+      background: #0f1a0f;
+      outline: none;
+      transition: border 0.2s;
+      color: #e8e0d6;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238aaa8a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 12px;
+      border-radius: 2px;
+    }
+    .form-select:focus {
+      border-color: #5a8a5a;
+    }
+    .form-select option {
+      background: #1a2a1a;
+      color: #e8e0d6;
+    }
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 5px;
+    }
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      cursor: pointer;
+      color: #e8e0d6;
+      font-weight: 500;
+    }
+    .radio-option input {
+      width: 18px;
+      height: 18px;
+      accent-color: #4a7a4a;
+      margin: 0;
+      flex-shrink: 0;
+    }
+    .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      border: 1px solid #3a5a3a;
+      background: #0f1a0f;
+      resize: vertical;
+      min-height: 80px;
+      outline: none;
+      color: #e8e0d6;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 2px;
+    }
+    .form-textarea:focus {
+      border-color: #5a8a5a;
+    }
+    .form-textarea::placeholder {
+      color: #5a7a5a;
+    }
+    .form-submit {
+      width: 100%;
+      max-width: 340px;
+      padding: 16px;
+      background: #2a5a2a;
+      color: #e8e0d6;
+      border: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      cursor: pointer;
+      transition: background 0.25s;
+      margin-top: 20px;
+      text-transform: uppercase;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 2px;
+    }
+    .form-submit:hover {
+      background: #3a7a3a;
+    }
+
+    /* ----- ИНФО БЛОК (паспорт + подвоз) ----- */
+    .inv-info {
+      background-color: #162016;
+      color: #e8e0d6;
+      padding: 60px 30px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #3a5a3a;
+      text-align: center;
+    }
+    .info-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      letter-spacing: 2px;
+      color: #e8e0d6;
+    }
+    .info-item {
+      max-width: 340px;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    .info-item:last-child {
+      margin-bottom: 0;
+    }
+    .info-item-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #8aaa8a;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .info-item-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #c8d0c0;
+      font-style: italic;
+    }
+
+    /* ----- КОНТАКТЫ ----- */
+    .inv-contacts {
+      background-color: #1a2a1a;
+      color: #e8e0d6;
+      padding: 60px 30px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #3a5a3a;
+    }
+    .contacts-header {
+      width: 100%;
+      max-width: 340px;
+      margin-bottom: 35px;
+    }
+    .contacts-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      text-align: right;
+      margin-bottom: -8px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #8aaa8a;
+    }
+    .contacts-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 58px;
+      line-height: 0.9;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #e8e0d6;
+    }
+    .contacts-list {
+      width: 100%;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-bottom: 15px;
+      border-bottom: 1px dashed #3a5a3a;
+    }
+    .contact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .contact-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #e8e0d6;
+    }
+    .contact-phone {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: #c8d0c0;
+    }
+    .contact-link {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: #8aaa8a;
+      text-decoration: none;
+    }
+    .contact-link:hover {
+      color: #aacaaa;
+    }
+
+    /* ----- ТАЙМЕР ----- */
+    .countdown-section {
+      background-color: #162016;
+      padding: 60px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .countdown-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      letter-spacing: 2px;
+      color: #e8e0d6;
+      text-align: center;
+    }
+    .countdown-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+    .countdown-item {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .countdown-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1;
+      color: #e8e0d6;
+    }
+    .countdown-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #8aaa8a;
+      font-style: italic;
+    }
+    .countdown-separator {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      color: #5a7a5a;
+      opacity: 0.6;
+      margin: 0 2px;
+      line-height: 1;
+    }
+
+    @media (max-width: 400px) {
+      .location-title, .timing-title, .invite-title {
+        font-size: 54px;
+      }
+      .countdown-number {
+        font-size: 42px;
+      }
+      .countdown-separator {
+        font-size: 32px;
+      }
+      .inv-form {
+        padding: 60px 20px;
+      }
+      .form-title {
+        font-size: 48px;
+      }
+      .form-label {
+        font-size: 18px;
+      }
+      .form-input, .form-select, .form-textarea {
+        font-size: 18px;
+        padding: 12px 14px;
+      }
+      .radio-option {
+        font-size: 18px;
+        gap: 8px;
+      }
+      .contacts-title {
+        font-size: 48px;
+      }
+      .hero-names {
+        font-size: 28px;
+        letter-spacing: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Экран звонка -->
+    <div class="call-screen" id="callScreen">
+      <audio id="ringtone" loop preload="auto">
+        <source src="Spokojjnaya_fonovaya_muzyka_onovaya_muzyka_Muzyka_dlya_sna_Rasslablyayushhaya_Muzyka_dlya_Sna_Spokojjnaya_muzyka_dlya_sna_-_Muzyka_dlya_garmonii_i_ljogkogo_vechernego_otdykha_80052187 (1).mp3" type="audio/mpeg">
+      </audio>
+      <div class="caller-info">
+        <div class="caller-subtitle">входящий вызов</div>
+        <div class="caller-name">Максим и Диана</div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-track" id="sliderTrack">
+          <div class="slider-text">ответьте</div>
+          <div class="slider-button" id="sliderBtn">
+            <svg class="phone-icon" viewBox="0 0 24 24">
+              <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Экран приглашения -->
+    <div class="invitation-screen" id="invScreen">
+      <div class="inv-hero fade-in-element">
+        <div>
+          <div class="hero-names">МАКСИМ И ДИАНА</div>
+          <div class="hero-date">03.10.2026</div>
+        </div>
+        <div class="love-text">
+          Любовь — это когда весь мир помещается в одном человеке.
+        </div>
+      </div>
+
+      <div class="inv-details fade-in-element">
+        <span class="invite-tag">[Детали]</span>
+        <h2 class="invite-title">INVI<br>TATION</h2>
+        <p class="invite-desc">
+          Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
+        </p>
+        <div class="calendar-wrap">
+          <div class="calendar-month">Октябрь 2026</div>
+          <div class="calendar-grid">
+            <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
+            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
+            <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
+            <div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
+            <div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div>
+            <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="day"></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+      </div>
+
+      <div class="inv-location fade-in-element">
+        <div class="location-header">
+          <span class="location-tag">[Место]</span>
+          <h2 class="location-title">LOCA<br>TION</h2>
+        </div>
+        <div class="location-info">
+          <p class="venue-name">Агроусадьба «Тихий Край»</p>
+          <p class="venue-address">Брестская область, Липово, ул. Суворова 17</p>
+          <p class="venue-note">📍 Вход со стороны двора, ориентир — большие ворота с кованым декором</p>
+        </div>
+        <div class="venue-image-container">
+          <span>Фото агроусадьбы</span>
+        </div>
+      </div>
+
+      <div class="inv-timing fade-in-element">
+        <div class="timing-header">
+          <span class="timing-tag">[Расписание]</span>
+          <h2 class="timing-title">TIME<br>LINE</h2>
+        </div>
+        <div class="timeline-list">
+          <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Приветственный фуршет (Welcome)</span></div>
+          <div class="time-item"><span class="time-value">14:30</span><span class="time-desc">Торжественная церемония</span></div>
+          <div class="time-item"><span class="time-value">15:30</span><span class="time-desc">Свадебный банкет</span></div>
+          <div class="time-item"><span class="time-value">00:00</span><span class="time-desc">Завершение вечера</span></div>
+        </div>
+      </div>
+
+      <div class="inv-wish fade-in-element">
+        <div class="wish-icon">🤍</div>
+        <p class="wish-text">
+          Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
+        </p>
+      </div>
+
+      <!-- АНКЕТА ГОСТЯ -->
+      <div class="inv-form fade-in-element">
+        <div class="form-header">
+          <span class="form-tag">[Анкета гостя]</span>
+          <h2 class="form-title">АНКЕТА<br>ГОСТЯ</h2>
+          <p class="form-deadline">📅 Пожалуйста, заполните до 15 сентября 2026</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ваше имя и фамилия</label>
+          <input type="text" class="form-input" placeholder="Иванов Иван">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Вы планируете присутствовать?</label>
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="attendance" value="yes"> Буду точно</label>
+            <label class="radio-option"><input type="radio" name="attendance" value="maybe"> Не знаю</label>
+            <label class="radio-option"><input type="radio" name="attendance" value="no"> Не буду</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Количество гостей (включая вас)</label>
+          <select class="form-select" name="guestCount">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Предпочтения по напиткам</label>
+          <select class="form-select" name="drink">
+            <option value="wine">Вино</option>
+            <option value="champagne">Шампанское</option>
+            <option value="soft">Безалкогольное</option>
+            <option value="no">Не употребляю</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Песня, под которую вы точно выйдете на танцпол</label>
+          <input type="text" class="form-input" placeholder="Название и исполнитель">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Особые пожелания по меню</label>
+          <textarea class="form-textarea" placeholder="Аллергии, вегетарианство, другие предпочтения..."></textarea>
+        </div>
+
+        <button class="form-submit">Отправить</button>
+      </div>
+
+      <!-- ИНФО БЛОК: паспорт и подвоз -->
+      <div class="inv-info fade-in-element">
+        <h2 class="info-title">Важная информация</h2>
+        <div class="info-item">
+          <div class="info-item-title">🛂 Паспорт</div>
+          <div class="info-item-text">
+            Так как наша свадьба проходит в Брестской области, при проезде через пост вам понадобится паспорт. Пожалуйста, не забудьте взять его с собой.
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-item-title">🚐 Трансфер</div>
+          <div class="info-item-text">
+            Мы организуем подвоз для гостей. Если вам нужен трансфер, отметьте это в анкете, и мы свяжемся с вами для уточнения деталей.
+          </div>
+        </div>
+      </div>
+
+      <!-- КОНТАКТЫ -->
+      <div class="inv-contacts fade-in-element">
+        <div class="contacts-header">
+          <span class="contacts-tag">[Контакты]</span>
+          <h2 class="contacts-title">СВЯЗЬ</h2>
+        </div>
+        <div class="contacts-list">
+          <div class="contact-item">
+            <span class="contact-name">👰 Диана</span>
+            <span class="contact-phone">+375 29 123-45-67</span>
+            <a href="https://t.me/diana_wedding" class="contact-link">📱 Telegram: @diana_wedding</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-name">🤵 Максим</span>
+            <span class="contact-phone">+375 29 765-43-21</span>
+            <a href="https://t.me/maxim_wedding" class="contact-link">📱 Telegram: @maxim_wedding</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="countdown-section fade-in-element">
+        <div class="countdown-title">До свадьбы осталось</div>
+        <div class="countdown-row" id="countdownRow">
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">00</span>
+            <span class="countdown-label">дн</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">00</span>
+            <span class="countdown-label">ч</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">00</span>
+            <span class="countdown-label">мин</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">00</span>
+            <span class="countdown-label">сек</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const track = document.getElementById('sliderTrack');
+      const btn = document.getElementById('sliderBtn');
+      const callScreen = document.getElementById('callScreen');
+      const invScreen = document.getElementById('invScreen');
+      const ringtone = document.getElementById('ringtone');
+      
+      let isDragging = false;
+      let startX = 0, currentX = 0, maxSlide = 0;
+      let isCallAccepted = false;
+
+      // Воспроизведение музыки при загрузке
+      if (ringtone) {
+        document.addEventListener('touchstart', function playOnFirstTouch() {
+          ringtone.play().catch(e => console.log('Autoplay prevented, waiting for user interaction'));
+          document.removeEventListener('touchstart', playOnFirstTouch);
+        }, { once: true });
+        
+        document.addEventListener('click', function playOnFirstClick() {
+          ringtone.play().catch(e => console.log('Autoplay prevented, waiting for user interaction'));
+          document.removeEventListener('click', playOnFirstClick);
+        }, { once: true });
+      }
+
+      function updateMaxSlide() {
+        if (track && btn) maxSlide = track.offsetWidth - btn.offsetWidth - 12;
+      }
+      window.addEventListener('load', updateMaxSlide);
+      window.addEventListener('resize', updateMaxSlide);
+
+      function getX(e) { return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX; }
+
+      function onDragStart(e) {
+        if (isCallAccepted) return;
+        e.preventDefault();
+        isDragging = true;
+        startX = getX(e);
+        btn.style.transition = 'none';
+      }
+      function onDragMove(e) {
+        if (!isDragging || isCallAccepted) return;
+        if (e.type === 'touchmove') e.preventDefault();
+        let walk = getX(e) - startX;
+        if (walk < 0) walk = 0;
+        if (walk > maxSlide) walk = maxSlide;
+        currentX = walk;
+        btn.style.transform = `translateX(${currentX}px)`;
+      }
+      function onDragEnd() {
+        if (!isDragging || isCallAccepted) return;
+        isDragging = false;
+        if (currentX >= maxSlide - 20) {
+          btn.style.transition = 'transform 0.2s ease-out';
+          btn.style.transform = `translateX(${maxSlide}px)`;
+          acceptCall();
+        } else {
+          btn.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
+          btn.style.transform = `translateX(0px)`;
+          currentX = 0;
+        }
+      }
+      function acceptCall() {
+        if (isCallAccepted) return;
+        isCallAccepted = true;
+        if (ringtone) {
+          ringtone.pause();
+          ringtone.currentTime = 0;
+        }
+        setTimeout(() => {
+          if (callScreen) {
+            callScreen.style.opacity = '0';
+            callScreen.style.visibility = 'hidden';
+          }
+          setTimeout(() => {
+            if (invScreen) {
+              invScreen.classList.add('active');
+              requestAnimationFrame(() => {
+                handleScrollAnimation();
+              });
+            }
+          }, 400);
+        }, 150);
+      }
+
+      btn.addEventListener('touchstart', onDragStart, {passive: false});
+      document.addEventListener('touchmove', onDragMove, {passive: false});
+      document.addEventListener('touchend', onDragEnd);
+      btn.addEventListener('mousedown', onDragStart);
+      document.addEventListener('mousemove', onDragMove);
+      document.addEventListener('mouseup', onDragEnd);
+
+      function isElementInViewport(el, offset = 0.15) {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        return rect.top <= windowHeight * (1 - offset) && rect.bottom >= 0;
+      }
+
+      function handleScrollAnimation() {
+        const fadeElements = document.querySelectorAll('.fade-in-element:not(.visible)');
+        const fadeImages = document.querySelectorAll('.fade-in-image:not(.visible)');
+        
+        fadeElements.forEach(el => {
+          if (isElementInViewport(el, 0.2)) {
+            el.classList.add('visible');
+          }
+        });
+        
+        fadeImages.forEach(el => {
+          if (isElementInViewport(el, 0.25)) {
+            el.classList.add('visible');
+          }
+        });
+      }
+
+      if (invScreen) {
+        invScreen.addEventListener('scroll', handleScrollAnimation, { passive: true });
+      }
+
+      // Таймер обратного отсчёта
+      function startCountdown() {
+        const weddingDate = new Date('2026-10-03T14:00:00');
+        function updateTimer() {
+          const now = new Date();
+          const diff = weddingDate - now;
+          if (diff <= 0) {
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            return;
+          }
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+          document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+          document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+          document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+          document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+        }
+        updateTimer();
+        setInterval(updateTimer, 1000);
+      }
+      startCountdown();
+    })();
+  </script>
+</body>
+</html>
