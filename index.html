@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Максим и Диана | Свадьба" />
 
-  <!-- Twitter Card -->
+  <!-- Twitter Card - маленькое фото сбоку -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Максим и Диана | Приглашение на свадьбу" />
   <meta name="twitter:description" content="Приглашаем вас на нашу свадьбу! 03.10.2026, агроусадьба «Тихий Край»." />
@@ -184,23 +184,21 @@
     /* Анимация появления при прокрутке */
     .fade-in-element {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(30px);
       transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1), transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
     }
     .fade-in-element.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* Анимация для букв */
-    .char-animate {
+    .fade-in-image {
       opacity: 0;
-      transform: translateY(20px);
-      animation: charFadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+      transform: scale(1.05);
+      transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
     }
-    @keyframes charFadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .fade-in-image.visible {
+      opacity: 1;
+      transform: scale(1);
     }
 
     /* Hero */
@@ -225,9 +223,6 @@
       text-transform: uppercase;
       font-weight: 600;
     }
-    .hero-names .char-animate {
-      display: inline-block;
-    }
     .hero-date {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
@@ -237,9 +232,6 @@
       margin-top: 12px;
       font-weight: 400;
       text-transform: uppercase;
-    }
-    .hero-date .char-animate {
-      display: inline-block;
     }
     .love-text {
       align-self: flex-end;
@@ -252,29 +244,17 @@
       font-weight: 400;
       font-style: italic;
     }
-    .love-text .char-animate {
-      display: inline-block;
-    }
-
-    /* Блоки с чередованием */
-    .block-dark {
-      background-color: #1a2a1a;
-      border-top: 1px solid #3a5a3a;
-      border-bottom: 1px solid #3a5a3a;
-    }
-    .block-light {
-      background-color: #162016;
-      border-top: 1px solid #3a5a3a;
-      border-bottom: 1px solid #3a5a3a;
-    }
 
     /* Приглашение */
     .inv-details {
       padding: 80px 30px;
+      background-color: #1e3020;
       color: #e8e0d6;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-top: 1px solid #3a5a3a;
+      border-bottom: 1px solid #3a5a3a;
     }
     .invite-tag {
       font-family: 'Cormorant Garamond', serif;
@@ -301,9 +281,6 @@
       margin-bottom: 25px;
       color: #e8e0d6;
     }
-    .invite-title .char-animate {
-      display: inline-block;
-    }
     .invite-desc {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
@@ -318,9 +295,6 @@
       font-weight: 500;
       font-style: italic;
     }
-    .invite-desc .char-animate {
-      display: inline-block;
-    }
     .calendar-wrap {
       width: 100%;
       max-width: 320px;
@@ -334,9 +308,6 @@
       font-weight: 700;
       text-align: center;
       color: #e8e0d6;
-    }
-    .calendar-month .char-animate {
-      display: inline-block;
     }
     .calendar-grid {
       display: grid;
@@ -362,21 +333,10 @@
       font-weight: 500;
     }
     .wedding-day {
-      background-color: transparent;
+      background-color: #2a5a2a;
       color: #e8e0d6;
       font-weight: 700;
-      position: relative;
-      font-size: 22px;
-    }
-    .wedding-day::after {
-      content: '♥';
-      position: absolute;
-      font-size: 20px;
-      color: #8aaa8a;
-      top: -2px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0.7;
+      border-radius: 50%;
     }
     .divider {
       width: 40px;
@@ -387,11 +347,13 @@
 
     /* Локация */
     .inv-location {
-      padding: 80px 30px;
+      background-color: #162016;
       color: #e8e0d6;
+      padding: 80px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-bottom: 1px solid #3a5a3a;
     }
     .location-header {
       width: 100%;
@@ -417,12 +379,10 @@
       font-weight: 700;
       color: #e8e0d6;
     }
-    .location-title .char-animate {
-      display: inline-block;
-    }
     .location-info {
       width: 100%;
       max-width: 320px;
+      margin-bottom: 25px;
       text-align: left;
     }
     .venue-name {
@@ -433,19 +393,12 @@
       letter-spacing: 1px;
       color: #e8e0d6;
     }
-    .venue-name .char-animate {
-      display: inline-block;
-    }
     .venue-address {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       line-height: 1.5;
       color: #a0b8a0;
       font-style: italic;
-      margin-bottom: 10px;
-    }
-    .venue-address .char-animate {
-      display: inline-block;
     }
     .venue-note {
       font-family: 'Cormorant Garamond', serif;
@@ -457,66 +410,33 @@
       border-top: 1px dashed #3a5a3a;
       padding-top: 10px;
     }
-    .venue-note .char-animate {
-      display: inline-block;
-    }
-
-    /* Дресс-код */
-    .inv-dresscode {
-      padding: 80px 30px;
-      color: #e8e0d6;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .dresscode-header {
+    .venue-image-container {
       width: 100%;
-      max-width: 320px;
-      margin-bottom: 30px;
-    }
-    .dresscode-tag {
+      max-width: 340px;
+      height: 220px;
+      overflow: hidden;
+      margin-top: 10px;
+      background-color: #1a2a1a;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5a7a5a;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: #8aaa8a;
-    }
-    .dresscode-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #e8e0d6;
-      text-align: left;
-    }
-    .dresscode-title .char-animate {
-      display: inline-block;
-    }
-    .dresscode-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      line-height: 1.8;
-      max-width: 320px;
+      font-size: 18px;
       font-style: italic;
-      color: #c8d0c0;
-    }
-    .dresscode-text .char-animate {
-      display: inline-block;
+      border: 1px dashed #3a5a3a;
     }
 
     /* Тайминг */
     .inv-timing {
-      padding: 80px 30px;
+      background-color: #1e3020;
       color: #e8e0d6;
+      padding: 80px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-bottom: 1px solid #3a5a3a;
     }
     .timing-header {
       width: 100%;
@@ -542,9 +462,6 @@
       font-weight: 700;
       color: #e8e0d6;
     }
-    .timing-title .char-animate {
-      display: inline-block;
-    }
     .timeline-list {
       width: 100%;
       max-width: 320px;
@@ -557,9 +474,6 @@
       align-items: baseline;
       border-bottom: 1px dashed #3a5a3a;
       padding-bottom: 10px;
-    }
-    .time-item .char-animate {
-      display: inline-block;
     }
     .time-value {
       font-family: 'Cormorant Garamond', serif;
@@ -580,11 +494,13 @@
 
     /* Пожелание */
     .inv-wish {
-      padding: 60px 30px 80px;
+      background-color: #162016;
       color: #e8e0d6;
+      padding: 60px 30px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-bottom: 1px solid #3a5a3a;
       text-align: center;
     }
     .wish-text {
@@ -595,24 +511,21 @@
       font-style: italic;
       color: #c8d0c0;
     }
-    .wish-text .char-animate {
-      display: inline-block;
-    }
     .wish-icon {
       font-size: 40px;
       margin-bottom: 20px;
-      opacity: 0.5;
-      font-family: 'Cormorant Garamond', serif;
-      color: #8aaa8a;
+      opacity: 0.6;
     }
 
     /* ----- АНКЕТА ГОСТЯ ----- */
     .inv-form {
-      padding: 80px 25px;
+      background-color: #1a2a1a;
       color: #e8e0d6;
+      padding: 80px 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-bottom: 1px solid #3a5a3a;
     }
     .form-header {
       width: 100%;
@@ -638,9 +551,6 @@
       font-weight: 700;
       color: #e8e0d6;
     }
-    .form-title .char-animate {
-      display: inline-block;
-    }
     .form-deadline {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
@@ -648,9 +558,6 @@
       color: #8aaa8a;
       margin-top: 10px;
       text-align: left;
-    }
-    .form-deadline .char-animate {
-      display: inline-block;
     }
     .form-group {
       width: 100%;
@@ -666,9 +573,6 @@
       letter-spacing: 0.5px;
       font-style: italic;
       color: #e8e0d6;
-    }
-    .form-label .char-animate {
-      display: inline-block;
     }
     .form-input {
       width: 100%;
@@ -691,10 +595,36 @@
     .form-input::placeholder {
       color: #5a7a5a;
     }
+    .form-select {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      border: 1px solid #3a5a3a;
+      background: #0f1a0f;
+      outline: none;
+      transition: border 0.2s;
+      color: #e8e0d6;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238aaa8a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 12px;
+      border-radius: 2px;
+    }
+    .form-select:focus {
+      border-color: #5a8a5a;
+    }
+    .form-select option {
+      background: #1a2a1a;
+      color: #e8e0d6;
+    }
     .radio-group {
       display: flex;
-      flex-direction: column;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 20px;
       margin-top: 5px;
     }
     .radio-option {
@@ -713,6 +643,28 @@
       accent-color: #4a7a4a;
       margin: 0;
       flex-shrink: 0;
+    }
+    .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      border: 1px solid #3a5a3a;
+      background: #0f1a0f;
+      resize: vertical;
+      min-height: 80px;
+      outline: none;
+      color: #e8e0d6;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 2px;
+    }
+    .form-textarea:focus {
+      border-color: #5a8a5a;
+    }
+    .form-textarea::placeholder {
+      color: #5a7a5a;
     }
     .form-submit {
       width: 100%;
@@ -740,11 +692,13 @@
 
     /* ----- ИНФО БЛОК (паспорт + подвоз) ----- */
     .inv-info {
-      padding: 60px 30px 80px;
+      background-color: #162016;
       color: #e8e0d6;
+      padding: 60px 30px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-bottom: 1px solid #3a5a3a;
       text-align: center;
     }
     .info-title {
@@ -754,9 +708,6 @@
       margin-bottom: 25px;
       letter-spacing: 2px;
       color: #e8e0d6;
-    }
-    .info-title .char-animate {
-      display: inline-block;
     }
     .info-item {
       max-width: 340px;
@@ -775,9 +726,6 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    .info-item-title .char-animate {
-      display: inline-block;
-    }
     .info-item-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
@@ -785,17 +733,16 @@
       color: #c8d0c0;
       font-style: italic;
     }
-    .info-item-text .char-animate {
-      display: inline-block;
-    }
 
     /* ----- КОНТАКТЫ ----- */
     .inv-contacts {
-      padding: 60px 30px 80px;
+      background-color: #1a2a1a;
       color: #e8e0d6;
+      padding: 60px 30px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-bottom: 1px solid #3a5a3a;
     }
     .contacts-header {
       width: 100%;
@@ -821,9 +768,6 @@
       font-weight: 700;
       color: #e8e0d6;
     }
-    .contacts-title .char-animate {
-      display: inline-block;
-    }
     .contacts-list {
       width: 100%;
       max-width: 340px;
@@ -848,16 +792,10 @@
       font-weight: 700;
       color: #e8e0d6;
     }
-    .contact-name .char-animate {
-      display: inline-block;
-    }
     .contact-phone {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       color: #c8d0c0;
-    }
-    .contact-phone .char-animate {
-      display: inline-block;
     }
     .contact-link {
       font-family: 'Cormorant Garamond', serif;
@@ -871,11 +809,11 @@
 
     /* ----- ТАЙМЕР ----- */
     .countdown-section {
+      background-color: #162016;
       padding: 60px 20px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: #1a2a1a;
     }
     .countdown-title {
       font-family: 'Cormorant Garamond', serif;
@@ -885,9 +823,6 @@
       letter-spacing: 2px;
       color: #e8e0d6;
       text-align: center;
-    }
-    .countdown-title .char-animate {
-      display: inline-block;
     }
     .countdown-row {
       display: flex;
@@ -927,7 +862,7 @@
     }
 
     @media (max-width: 400px) {
-      .location-title, .timing-title, .invite-title, .dresscode-title {
+      .location-title, .timing-title, .invite-title {
         font-size: 54px;
       }
       .countdown-number {
@@ -945,7 +880,7 @@
       .form-label {
         font-size: 18px;
       }
-      .form-input {
+      .form-input, .form-select, .form-textarea {
         font-size: 18px;
         padding: 12px 14px;
       }
@@ -988,246 +923,27 @@
 
     <!-- Экран приглашения -->
     <div class="invitation-screen" id="invScreen">
-      <!-- HERO -->
       <div class="inv-hero fade-in-element">
         <div>
-          <div class="hero-names">
-            <span class="char-animate" style="animation-delay:0.1s;">М</span>
-            <span class="char-animate" style="animation-delay:0.15s;">А</span>
-            <span class="char-animate" style="animation-delay:0.2s;">К</span>
-            <span class="char-animate" style="animation-delay:0.25s;">С</span>
-            <span class="char-animate" style="animation-delay:0.3s;">И</span>
-            <span class="char-animate" style="animation-delay:0.35s;">М</span>
-            <span class="char-animate" style="animation-delay:0.45s;">И</span>
-            <span class="char-animate" style="animation-delay:0.5s;">Д</span>
-            <span class="char-animate" style="animation-delay:0.55s;">И</span>
-            <span class="char-animate" style="animation-delay:0.6s;">А</span>
-            <span class="char-animate" style="animation-delay:0.65s;">Н</span>
-            <span class="char-animate" style="animation-delay:0.7s;">А</span>
-          </div>
-          <div class="hero-date">
-            <span class="char-animate" style="animation-delay:0.8s;">0</span>
-            <span class="char-animate" style="animation-delay:0.85s;">3</span>
-            <span class="char-animate" style="animation-delay:0.9s;">.</span>
-            <span class="char-animate" style="animation-delay:0.95s;">1</span>
-            <span class="char-animate" style="animation-delay:1s;">0</span>
-            <span class="char-animate" style="animation-delay:1.05s;">.</span>
-            <span class="char-animate" style="animation-delay:1.1s;">2</span>
-            <span class="char-animate" style="animation-delay:1.15s;">0</span>
-            <span class="char-animate" style="animation-delay:1.2s;">2</span>
-            <span class="char-animate" style="animation-delay:1.25s;">6</span>
-          </div>
+          <div class="hero-names">МАКСИМ И ДИАНА</div>
+          <div class="hero-date">03.10.2026</div>
         </div>
         <div class="love-text">
-          <span class="char-animate" style="animation-delay:1.4s;">Л</span>
-          <span class="char-animate" style="animation-delay:1.45s;">ю</span>
-          <span class="char-animate" style="animation-delay:1.5s;">б</span>
-          <span class="char-animate" style="animation-delay:1.55s;">о</span>
-          <span class="char-animate" style="animation-delay:1.6s;">в</span>
-          <span class="char-animate" style="animation-delay:1.65s;">ь</span>
-          <span class="char-animate" style="animation-delay:1.7s;"> </span>
-          <span class="char-animate" style="animation-delay:1.75s;">—</span>
-          <span class="char-animate" style="animation-delay:1.8s;"> </span>
-          <span class="char-animate" style="animation-delay:1.85s;">э</span>
-          <span class="char-animate" style="animation-delay:1.9s;">т</span>
-          <span class="char-animate" style="animation-delay:1.95s;">о</span>
-          <span class="char-animate" style="animation-delay:2.0s;"> </span>
-          <span class="char-animate" style="animation-delay:2.05s;">к</span>
-          <span class="char-animate" style="animation-delay:2.1s;">о</span>
-          <span class="char-animate" style="animation-delay:2.15s;">г</span>
-          <span class="char-animate" style="animation-delay:2.2s;">д</span>
-          <span class="char-animate" style="animation-delay:2.25s;">а</span>
-          <span class="char-animate" style="animation-delay:2.3s;"> </span>
-          <span class="char-animate" style="animation-delay:2.35s;">в</span>
-          <span class="char-animate" style="animation-delay:2.4s;">е</span>
-          <span class="char-animate" style="animation-delay:2.45s;">с</span>
-          <span class="char-animate" style="animation-delay:2.5s;">ь</span>
-          <span class="char-animate" style="animation-delay:2.55s;"> </span>
-          <span class="char-animate" style="animation-delay:2.6s;">м</span>
-          <span class="char-animate" style="animation-delay:2.65s;">и</span>
-          <span class="char-animate" style="animation-delay:2.7s;">р</span>
-          <span class="char-animate" style="animation-delay:2.75s;"> </span>
-          <span class="char-animate" style="animation-delay:2.8s;">п</span>
-          <span class="char-animate" style="animation-delay:2.85s;">о</span>
-          <span class="char-animate" style="animation-delay:2.9s;">м</span>
-          <span class="char-animate" style="animation-delay:2.95s;">е</span>
-          <span class="char-animate" style="animation-delay:3.0s;">щ</span>
-          <span class="char-animate" style="animation-delay:3.05s;">а</span>
-          <span class="char-animate" style="animation-delay:3.1s;">е</span>
-          <span class="char-animate" style="animation-delay:3.15s;">т</span>
-          <span class="char-animate" style="animation-delay:3.2s;">с</span>
-          <span class="char-animate" style="animation-delay:3.25s;">я</span>
-          <span class="char-animate" style="animation-delay:3.3s;"> </span>
-          <span class="char-animate" style="animation-delay:3.35s;">в</span>
-          <span class="char-animate" style="animation-delay:3.4s;"> </span>
-          <span class="char-animate" style="animation-delay:3.45s;">о</span>
-          <span class="char-animate" style="animation-delay:3.5s;">д</span>
-          <span class="char-animate" style="animation-delay:3.55s;">н</span>
-          <span class="char-animate" style="animation-delay:3.6s;">о</span>
-          <span class="char-animate" style="animation-delay:3.65s;">м</span>
-          <span class="char-animate" style="animation-delay:3.7s;"> </span>
-          <span class="char-animate" style="animation-delay:3.75s;">ч</span>
-          <span class="char-animate" style="animation-delay:3.8s;">е</span>
-          <span class="char-animate" style="animation-delay:3.85s;">л</span>
-          <span class="char-animate" style="animation-delay:3.9s;">о</span>
-          <span class="char-animate" style="animation-delay:3.95s;">в</span>
-          <span class="char-animate" style="animation-delay:4.0s;">е</span>
-          <span class="char-animate" style="animation-delay:4.05s;">к</span>
-          <span class="char-animate" style="animation-delay:4.1s;">е</span>
-          <span class="char-animate" style="animation-delay:4.15s;">.</span>
+          Любовь — это когда весь мир помещается в одном человеке.
         </div>
       </div>
 
-      <!-- INVITATION - блок тёмный -->
-      <div class="inv-details block-dark fade-in-element">
-        <span class="invite-tag fade-in-element">[Детали]</span>
-        <h2 class="invite-title">
-          <span class="char-animate" style="animation-delay:0.1s;">I</span>
-          <span class="char-animate" style="animation-delay:0.15s;">N</span>
-          <span class="char-animate" style="animation-delay:0.2s;">V</span>
-          <span class="char-animate" style="animation-delay:0.25s;">I</span>
-          <span class="char-animate" style="animation-delay:0.3s;">T</span>
-          <span class="char-animate" style="animation-delay:0.35s;">A</span>
-          <span class="char-animate" style="animation-delay:0.4s;">T</span>
-          <span class="char-animate" style="animation-delay:0.45s;">I</span>
-          <span class="char-animate" style="animation-delay:0.5s;">O</span>
-          <span class="char-animate" style="animation-delay:0.55s;">N</span>
-        </h2>
+      <div class="inv-details fade-in-element">
+        <span class="invite-tag">[Детали]</span>
+        <h2 class="invite-title">INVI<br>TATION</h2>
         <p class="invite-desc">
-          <span class="char-animate" style="animation-delay:0.6s;">Д</span>
-          <span class="char-animate" style="animation-delay:0.65s;">о</span>
-          <span class="char-animate" style="animation-delay:0.7s;">р</span>
-          <span class="char-animate" style="animation-delay:0.75s;">о</span>
-          <span class="char-animate" style="animation-delay:0.8s;">г</span>
-          <span class="char-animate" style="animation-delay:0.85s;">и</span>
-          <span class="char-animate" style="animation-delay:0.9s;">е</span>
-          <span class="char-animate" style="animation-delay:0.95s;"> </span>
-          <span class="char-animate" style="animation-delay:1.0s;">д</span>
-          <span class="char-animate" style="animation-delay:1.05s;">р</span>
-          <span class="char-animate" style="animation-delay:1.1s;">у</span>
-          <span class="char-animate" style="animation-delay:1.15s;">з</span>
-          <span class="char-animate" style="animation-delay:1.2s;">ь</span>
-          <span class="char-animate" style="animation-delay:1.25s;">я</span>
-          <span class="char-animate" style="animation-delay:1.3s;">,</span>
-          <span class="char-animate" style="animation-delay:1.35s;"> </span>
-          <span class="char-animate" style="animation-delay:1.4s;">м</span>
-          <span class="char-animate" style="animation-delay:1.45s;">ы</span>
-          <span class="char-animate" style="animation-delay:1.5s;"> </span>
-          <span class="char-animate" style="animation-delay:1.55s;">р</span>
-          <span class="char-animate" style="animation-delay:1.6s;">а</span>
-          <span class="char-animate" style="animation-delay:1.65s;">д</span>
-          <span class="char-animate" style="animation-delay:1.7s;">ы</span>
-          <span class="char-animate" style="animation-delay:1.75s;"> </span>
-          <span class="char-animate" style="animation-delay:1.8s;">п</span>
-          <span class="char-animate" style="animation-delay:1.85s;">р</span>
-          <span class="char-animate" style="animation-delay:1.9s;">и</span>
-          <span class="char-animate" style="animation-delay:1.95s;">г</span>
-          <span class="char-animate" style="animation-delay:2.0s;">л</span>
-          <span class="char-animate" style="animation-delay:2.05s;">а</span>
-          <span class="char-animate" style="animation-delay:2.1s;">с</span>
-          <span class="char-animate" style="animation-delay:2.15s;">и</span>
-          <span class="char-animate" style="animation-delay:2.2s;">т</span>
-          <span class="char-animate" style="animation-delay:2.25s;">ь</span>
-          <span class="char-animate" style="animation-delay:2.3s;"> </span>
-          <span class="char-animate" style="animation-delay:2.35s;">в</span>
-          <span class="char-animate" style="animation-delay:2.4s;">а</span>
-          <span class="char-animate" style="animation-delay:2.45s;">с</span>
-          <span class="char-animate" style="animation-delay:2.5s;"> </span>
-          <span class="char-animate" style="animation-delay:2.55s;">н</span>
-          <span class="char-animate" style="animation-delay:2.6s;">а</span>
-          <span class="char-animate" style="animation-delay:2.65s;"> </span>
-          <span class="char-animate" style="animation-delay:2.7s;">н</span>
-          <span class="char-animate" style="animation-delay:2.75s;">а</span>
-          <span class="char-animate" style="animation-delay:2.8s;">ш</span>
-          <span class="char-animate" style="animation-delay:2.85s;">у</span>
-          <span class="char-animate" style="animation-delay:2.9s;"> </span>
-          <span class="char-animate" style="animation-delay:2.95s;">с</span>
-          <span class="char-animate" style="animation-delay:3.0s;">в</span>
-          <span class="char-animate" style="animation-delay:3.05s;">а</span>
-          <span class="char-animate" style="animation-delay:3.1s;">д</span>
-          <span class="char-animate" style="animation-delay:3.15s;">ь</span>
-          <span class="char-animate" style="animation-delay:3.2s;">б</span>
-          <span class="char-animate" style="animation-delay:3.25s;">у</span>
-          <span class="char-animate" style="animation-delay:3.3s;">.</span>
-          <span class="char-animate" style="animation-delay:3.35s;"> </span>
-          <span class="char-animate" style="animation-delay:3.4s;">Э</span>
-          <span class="char-animate" style="animation-delay:3.45s;">т</span>
-          <span class="char-animate" style="animation-delay:3.5s;">о</span>
-          <span class="char-animate" style="animation-delay:3.55s;"> </span>
-          <span class="char-animate" style="animation-delay:3.6s;">б</span>
-          <span class="char-animate" style="animation-delay:3.65s;">у</span>
-          <span class="char-animate" style="animation-delay:3.7s;">д</span>
-          <span class="char-animate" style="animation-delay:3.75s;">е</span>
-          <span class="char-animate" style="animation-delay:3.8s;">т</span>
-          <span class="char-animate" style="animation-delay:3.85s;"> </span>
-          <span class="char-animate" style="animation-delay:3.9s;">о</span>
-          <span class="char-animate" style="animation-delay:3.95s;">с</span>
-          <span class="char-animate" style="animation-delay:4.0s;">о</span>
-          <span class="char-animate" style="animation-delay:4.05s;">б</span>
-          <span class="char-animate" style="animation-delay:4.1s;">е</span>
-          <span class="char-animate" style="animation-delay:4.15s;">н</span>
-          <span class="char-animate" style="animation-delay:4.2s;">н</span>
-          <span class="char-animate" style="animation-delay:4.25s;">ы</span>
-          <span class="char-animate" style="animation-delay:4.3s;">й</span>
-          <span class="char-animate" style="animation-delay:4.35s;"> </span>
-          <span class="char-animate" style="animation-delay:4.4s;">д</span>
-          <span class="char-animate" style="animation-delay:4.45s;">е</span>
-          <span class="char-animate" style="animation-delay:4.5s;">н</span>
-          <span class="char-animate" style="animation-delay:4.55s;">ь</span>
-          <span class="char-animate" style="animation-delay:4.6s;">,</span>
-          <span class="char-animate" style="animation-delay:4.65s;"> </span>
-          <span class="char-animate" style="animation-delay:4.7s;">и</span>
-          <span class="char-animate" style="animation-delay:4.75s;"> </span>
-          <span class="char-animate" style="animation-delay:4.8s;">н</span>
-          <span class="char-animate" style="animation-delay:4.85s;">а</span>
-          <span class="char-animate" style="animation-delay:4.9s;">м</span>
-          <span class="char-animate" style="animation-delay:4.95s;"> </span>
-          <span class="char-animate" style="animation-delay:5.0s;">в</span>
-          <span class="char-animate" style="animation-delay:5.05s;">а</span>
-          <span class="char-animate" style="animation-delay:5.1s;">ж</span>
-          <span class="char-animate" style="animation-delay:5.15s;">н</span>
-          <span class="char-animate" style="animation-delay:5.2s;">о</span>
-          <span class="char-animate" style="animation-delay:5.25s;">,</span>
-          <span class="char-animate" style="animation-delay:5.3s;"> </span>
-          <span class="char-animate" style="animation-delay:5.35s;">ч</span>
-          <span class="char-animate" style="animation-delay:5.4s;">т</span>
-          <span class="char-animate" style="animation-delay:5.45s;">о</span>
-          <span class="char-animate" style="animation-delay:5.5s;">б</span>
-          <span class="char-animate" style="animation-delay:5.55s;">ы</span>
-          <span class="char-animate" style="animation-delay:5.6s;"> </span>
-          <span class="char-animate" style="animation-delay:5.65s;">в</span>
-          <span class="char-animate" style="animation-delay:5.7s;">ы</span>
-          <span class="char-animate" style="animation-delay:5.75s;"> </span>
-          <span class="char-animate" style="animation-delay:5.8s;">б</span>
-          <span class="char-animate" style="animation-delay:5.85s;">ы</span>
-          <span class="char-animate" style="animation-delay:5.9s;">л</span>
-          <span class="char-animate" style="animation-delay:5.95s;">и</span>
-          <span class="char-animate" style="animation-delay:6.0s;"> </span>
-          <span class="char-animate" style="animation-delay:6.05s;">р</span>
-          <span class="char-animate" style="animation-delay:6.1s;">я</span>
-          <span class="char-animate" style="animation-delay:6.15s;">д</span>
-          <span class="char-animate" style="animation-delay:6.2s;">о</span>
-          <span class="char-animate" style="animation-delay:6.25s;">м</span>
-          <span class="char-animate" style="animation-delay:6.3s;">.</span>
+          Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </p>
         <div class="calendar-wrap">
-          <div class="calendar-month">
-            <span class="char-animate" style="animation-delay:6.4s;">О</span>
-            <span class="char-animate" style="animation-delay:6.45s;">к</span>
-            <span class="char-animate" style="animation-delay:6.5s;">т</span>
-            <span class="char-animate" style="animation-delay:6.55s;">я</span>
-            <span class="char-animate" style="animation-delay:6.6s;">б</span>
-            <span class="char-animate" style="animation-delay:6.65s;">р</span>
-            <span class="char-animate" style="animation-delay:6.7s;">ь</span>
-            <span class="char-animate" style="animation-delay:6.75s;"> </span>
-            <span class="char-animate" style="animation-delay:6.8s;">2</span>
-            <span class="char-animate" style="animation-delay:6.85s;">0</span>
-            <span class="char-animate" style="animation-delay:6.9s;">2</span>
-            <span class="char-animate" style="animation-delay:6.95s;">6</span>
-          </div>
+          <div class="calendar-month">Октябрь 2026</div>
           <div class="calendar-grid">
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
-            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day wedding-day">3</div><div class="day">4</div>
+            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
             <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
             <div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
             <div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div>
@@ -1237,607 +953,56 @@
         <div class="divider"></div>
       </div>
 
-      <!-- LOCATION - блок светлый -->
-      <div class="inv-location block-light fade-in-element">
+      <div class="inv-location fade-in-element">
         <div class="location-header">
-          <span class="location-tag fade-in-element">[Место]</span>
-          <h2 class="location-title">
-            <span class="char-animate" style="animation-delay:0.1s;">L</span>
-            <span class="char-animate" style="animation-delay:0.15s;">O</span>
-            <span class="char-animate" style="animation-delay:0.2s;">C</span>
-            <span class="char-animate" style="animation-delay:0.25s;">A</span>
-            <span class="char-animate" style="animation-delay:0.3s;">T</span>
-            <span class="char-animate" style="animation-delay:0.35s;">I</span>
-            <span class="char-animate" style="animation-delay:0.4s;">O</span>
-            <span class="char-animate" style="animation-delay:0.45s;">N</span>
-          </h2>
+          <span class="location-tag">[Место]</span>
+          <h2 class="location-title">LOCA<br>TION</h2>
         </div>
         <div class="location-info">
-          <p class="venue-name">
-            <span class="char-animate" style="animation-delay:0.5s;">А</span>
-            <span class="char-animate" style="animation-delay:0.55s;">г</span>
-            <span class="char-animate" style="animation-delay:0.6s;">р</span>
-            <span class="char-animate" style="animation-delay:0.65s;">о</span>
-            <span class="char-animate" style="animation-delay:0.7s;">у</span>
-            <span class="char-animate" style="animation-delay:0.75s;">с</span>
-            <span class="char-animate" style="animation-delay:0.8s;">а</span>
-            <span class="char-animate" style="animation-delay:0.85s;">д</span>
-            <span class="char-animate" style="animation-delay:0.9s;">ь</span>
-            <span class="char-animate" style="animation-delay:0.95s;">б</span>
-            <span class="char-animate" style="animation-delay:1.0s;">а</span>
-            <span class="char-animate" style="animation-delay:1.05s;"> </span>
-            <span class="char-animate" style="animation-delay:1.1s;">«</span>
-            <span class="char-animate" style="animation-delay:1.15s;">Т</span>
-            <span class="char-animate" style="animation-delay:1.2s;">и</span>
-            <span class="char-animate" style="animation-delay:1.25s;">х</span>
-            <span class="char-animate" style="animation-delay:1.3s;">и</span>
-            <span class="char-animate" style="animation-delay:1.35s;">й</span>
-            <span class="char-animate" style="animation-delay:1.4s;"> </span>
-            <span class="char-animate" style="animation-delay:1.45s;">К</span>
-            <span class="char-animate" style="animation-delay:1.5s;">р</span>
-            <span class="char-animate" style="animation-delay:1.55s;">а</span>
-            <span class="char-animate" style="animation-delay:1.6s;">й</span>
-            <span class="char-animate" style="animation-delay:1.65s;">»</span>
-          </p>
-          <p class="venue-address">
-            <span class="char-animate" style="animation-delay:1.7s;">Б</span>
-            <span class="char-animate" style="animation-delay:1.75s;">р</span>
-            <span class="char-animate" style="animation-delay:1.8s;">е</span>
-            <span class="char-animate" style="animation-delay:1.85s;">с</span>
-            <span class="char-animate" style="animation-delay:1.9s;">т</span>
-            <span class="char-animate" style="animation-delay:1.95s;">с</span>
-            <span class="char-animate" style="animation-delay:2.0s;">к</span>
-            <span class="char-animate" style="animation-delay:2.05s;">а</span>
-            <span class="char-animate" style="animation-delay:2.1s;">я</span>
-            <span class="char-animate" style="animation-delay:2.15s;"> </span>
-            <span class="char-animate" style="animation-delay:2.2s;">о</span>
-            <span class="char-animate" style="animation-delay:2.25s;">б</span>
-            <span class="char-animate" style="animation-delay:2.3s;">л</span>
-            <span class="char-animate" style="animation-delay:2.35s;">а</span>
-            <span class="char-animate" style="animation-delay:2.4s;">с</span>
-            <span class="char-animate" style="animation-delay:2.45s;">т</span>
-            <span class="char-animate" style="animation-delay:2.5s;">ь</span>
-            <span class="char-animate" style="animation-delay:2.55s;">,</span>
-            <span class="char-animate" style="animation-delay:2.6s;"> </span>
-            <span class="char-animate" style="animation-delay:2.65s;">Л</span>
-            <span class="char-animate" style="animation-delay:2.7s;">и</span>
-            <span class="char-animate" style="animation-delay:2.75s;">п</span>
-            <span class="char-animate" style="animation-delay:2.8s;">о</span>
-            <span class="char-animate" style="animation-delay:2.85s;">в</span>
-            <span class="char-animate" style="animation-delay:2.9s;">о</span>
-            <span class="char-animate" style="animation-delay:2.95s;">,</span>
-            <span class="char-animate" style="animation-delay:3.0s;"> </span>
-            <span class="char-animate" style="animation-delay:3.05s;">у</span>
-            <span class="char-animate" style="animation-delay:3.1s;">л</span>
-            <span class="char-animate" style="animation-delay:3.15s;">.</span>
-            <span class="char-animate" style="animation-delay:3.2s;"> </span>
-            <span class="char-animate" style="animation-delay:3.25s;">С</span>
-            <span class="char-animate" style="animation-delay:3.3s;">у</span>
-            <span class="char-animate" style="animation-delay:3.35s;">в</span>
-            <span class="char-animate" style="animation-delay:3.4s;">о</span>
-            <span class="char-animate" style="animation-delay:3.45s;">р</span>
-            <span class="char-animate" style="animation-delay:3.5s;">о</span>
-            <span class="char-animate" style="animation-delay:3.55s;">в</span>
-            <span class="char-animate" style="animation-delay:3.6s;">а</span>
-            <span class="char-animate" style="animation-delay:3.65s;"> </span>
-            <span class="char-animate" style="animation-delay:3.7s;">1</span>
-            <span class="char-animate" style="animation-delay:3.75s;">7</span>
-          </p>
-          <p class="venue-note">
-            <span class="char-animate" style="animation-delay:3.8s;">В</span>
-            <span class="char-animate" style="animation-delay:3.85s;">х</span>
-            <span class="char-animate" style="animation-delay:3.9s;">о</span>
-            <span class="char-animate" style="animation-delay:3.95s;">д</span>
-            <span class="char-animate" style="animation-delay:4.0s;"> </span>
-            <span class="char-animate" style="animation-delay:4.05s;">с</span>
-            <span class="char-animate" style="animation-delay:4.1s;">о</span>
-            <span class="char-animate" style="animation-delay:4.15s;"> </span>
-            <span class="char-animate" style="animation-delay:4.2s;">с</span>
-            <span class="char-animate" style="animation-delay:4.25s;">т</span>
-            <span class="char-animate" style="animation-delay:4.3s;">о</span>
-            <span class="char-animate" style="animation-delay:4.35s;">р</span>
-            <span class="char-animate" style="animation-delay:4.4s;">о</span>
-            <span class="char-animate" style="animation-delay:4.45s;">н</span>
-            <span class="char-animate" style="animation-delay:4.5s;">ы</span>
-            <span class="char-animate" style="animation-delay:4.55s;"> </span>
-            <span class="char-animate" style="animation-delay:4.6s;">д</span>
-            <span class="char-animate" style="animation-delay:4.65s;">в</span>
-            <span class="char-animate" style="animation-delay:4.7s;">о</span>
-            <span class="char-animate" style="animation-delay:4.75s;">р</span>
-            <span class="char-animate" style="animation-delay:4.8s;">а</span>
-            <span class="char-animate" style="animation-delay:4.85s;">,</span>
-            <span class="char-animate" style="animation-delay:4.9s;"> </span>
-            <span class="char-animate" style="animation-delay:4.95s;">о</span>
-            <span class="char-animate" style="animation-delay:5.0s;">р</span>
-            <span class="char-animate" style="animation-delay:5.05s;">и</span>
-            <span class="char-animate" style="animation-delay:5.1s;">е</span>
-            <span class="char-animate" style="animation-delay:5.15s;">н</span>
-            <span class="char-animate" style="animation-delay:5.2s;">т</span>
-            <span class="char-animate" style="animation-delay:5.25s;">и</span>
-            <span class="char-animate" style="animation-delay:5.3s;">р</span>
-            <span class="char-animate" style="animation-delay:5.35s;"> </span>
-            <span class="char-animate" style="animation-delay:5.4s;">—</span>
-            <span class="char-animate" style="animation-delay:5.45s;"> </span>
-            <span class="char-animate" style="animation-delay:5.5s;">б</span>
-            <span class="char-animate" style="animation-delay:5.55s;">о</span>
-            <span class="char-animate" style="animation-delay:5.6s;">л</span>
-            <span class="char-animate" style="animation-delay:5.65s;">ь</span>
-            <span class="char-animate" style="animation-delay:5.7s;">ш</span>
-            <span class="char-animate" style="animation-delay:5.75s;">и</span>
-            <span class="char-animate" style="animation-delay:5.8s;">е</span>
-            <span class="char-animate" style="animation-delay:5.85s;"> </span>
-            <span class="char-animate" style="animation-delay:5.9s;">в</span>
-            <span class="char-animate" style="animation-delay:5.95s;">о</span>
-            <span class="char-animate" style="animation-delay:6.0s;">р</span>
-            <span class="char-animate" style="animation-delay:6.05s;">о</span>
-            <span class="char-animate" style="animation-delay:6.1s;">т</span>
-            <span class="char-animate" style="animation-delay:6.15s;">а</span>
-            <span class="char-animate" style="animation-delay:6.2s;"> </span>
-            <span class="char-animate" style="animation-delay:6.25s;">с</span>
-            <span class="char-animate" style="animation-delay:6.3s;"> </span>
-            <span class="char-animate" style="animation-delay:6.35s;">к</span>
-            <span class="char-animate" style="animation-delay:6.4s;">о</span>
-            <span class="char-animate" style="animation-delay:6.45s;">в</span>
-            <span class="char-animate" style="animation-delay:6.5s;">а</span>
-            <span class="char-animate" style="animation-delay:6.55s;">н</span>
-            <span class="char-animate" style="animation-delay:6.6s;">ы</span>
-            <span class="char-animate" style="animation-delay:6.65s;">м</span>
-            <span class="char-animate" style="animation-delay:6.7s;"> </span>
-            <span class="char-animate" style="animation-delay:6.75s;">д</span>
-            <span class="char-animate" style="animation-delay:6.8s;">е</span>
-            <span class="char-animate" style="animation-delay:6.85s;">к</span>
-            <span class="char-animate" style="animation-delay:6.9s;">о</span>
-            <span class="char-animate" style="animation-delay:6.95s;">р</span>
-            <span class="char-animate" style="animation-delay:7.0s;">о</span>
-            <span class="char-animate" style="animation-delay:7.05s;">м</span>
-          </p>
+          <p class="venue-name">Агроусадьба «Тихий Край»</p>
+          <p class="venue-address">Брестская область, Липово, ул. Суворова 17</p>
+          <p class="venue-note">📍 Вход со стороны двора, ориентир — большие ворота с кованым декором</p>
+        </div>
+        <div class="venue-image-container">
+          <span>Фото агроусадьбы</span>
         </div>
       </div>
 
-      <!-- DRESS CODE - блок тёмный -->
-      <div class="inv-dresscode block-dark fade-in-element">
-        <div class="dresscode-header">
-          <span class="dresscode-tag fade-in-element">[Дресс-код]</span>
-          <h2 class="dresscode-title">
-            <span class="char-animate" style="animation-delay:0.1s;">D</span>
-            <span class="char-animate" style="animation-delay:0.15s;">R</span>
-            <span class="char-animate" style="animation-delay:0.2s;">E</span>
-            <span class="char-animate" style="animation-delay:0.25s;">S</span>
-            <span class="char-animate" style="animation-delay:0.3s;">S</span>
-            <span class="char-animate" style="animation-delay:0.35s;"> </span>
-            <span class="char-animate" style="animation-delay:0.4s;">C</span>
-            <span class="char-animate" style="animation-delay:0.45s;">O</span>
-            <span class="char-animate" style="animation-delay:0.5s;">D</span>
-            <span class="char-animate" style="animation-delay:0.55s;">E</span>
-          </h2>
-        </div>
-        <p class="dresscode-text">
-          <span class="char-animate" style="animation-delay:0.6s;">Э</span>
-          <span class="char-animate" style="animation-delay:0.65s;">л</span>
-          <span class="char-animate" style="animation-delay:0.7s;">е</span>
-          <span class="char-animate" style="animation-delay:0.75s;">г</span>
-          <span class="char-animate" style="animation-delay:0.8s;">а</span>
-          <span class="char-animate" style="animation-delay:0.85s;">н</span>
-          <span class="char-animate" style="animation-delay:0.9s;">т</span>
-          <span class="char-animate" style="animation-delay:0.95s;">н</span>
-          <span class="char-animate" style="animation-delay:1.0s;">ы</span>
-          <span class="char-animate" style="animation-delay:1.05s;">й</span>
-          <span class="char-animate" style="animation-delay:1.1s;"> </span>
-          <span class="char-animate" style="animation-delay:1.15s;">с</span>
-          <span class="char-animate" style="animation-delay:1.2s;">т</span>
-          <span class="char-animate" style="animation-delay:1.25s;">и</span>
-          <span class="char-animate" style="animation-delay:1.3s;">л</span>
-          <span class="char-animate" style="animation-delay:1.35s;">ь</span>
-          <span class="char-animate" style="animation-delay:1.4s;"> </span>
-          <span class="char-animate" style="animation-delay:1.45s;">в</span>
-          <span class="char-animate" style="animation-delay:1.5s;"> </span>
-          <span class="char-animate" style="animation-delay:1.55s;">т</span>
-          <span class="char-animate" style="animation-delay:1.6s;">ё</span>
-          <span class="char-animate" style="animation-delay:1.65s;">м</span>
-          <span class="char-animate" style="animation-delay:1.7s;">н</span>
-          <span class="char-animate" style="animation-delay:1.75s;">о</span>
-          <span class="char-animate" style="animation-delay:1.8s;">-</span>
-          <span class="char-animate" style="animation-delay:1.85s;">з</span>
-          <span class="char-animate" style="animation-delay:1.9s;">е</span>
-          <span class="char-animate" style="animation-delay:1.95s;">л</span>
-          <span class="char-animate" style="animation-delay:2.0s;">ё</span>
-          <span class="char-animate" style="animation-delay:2.05s;">н</span>
-          <span class="char-animate" style="animation-delay:2.1s;">о</span>
-          <span class="char-animate" style="animation-delay:2.15s;">м</span>
-          <span class="char-animate" style="animation-delay:2.2s;"> </span>
-          <span class="char-animate" style="animation-delay:2.25s;">ц</span>
-          <span class="char-animate" style="animation-delay:2.3s;">в</span>
-          <span class="char-animate" style="animation-delay:2.35s;">е</span>
-          <span class="char-animate" style="animation-delay:2.4s;">т</span>
-          <span class="char-animate" style="animation-delay:2.45s;">е</span>
-          <span class="char-animate" style="animation-delay:2.5s;">.</span>
-          <span class="char-animate" style="animation-delay:2.55s;"> </span>
-          <span class="char-animate" style="animation-delay:2.6s;">П</span>
-          <span class="char-animate" style="animation-delay:2.65s;">р</span>
-          <span class="char-animate" style="animation-delay:2.7s;">и</span>
-          <span class="char-animate" style="animation-delay:2.75s;">в</span>
-          <span class="char-animate" style="animation-delay:2.8s;">е</span>
-          <span class="char-animate" style="animation-delay:2.85s;">т</span>
-          <span class="char-animate" style="animation-delay:2.9s;">с</span>
-          <span class="char-animate" style="animation-delay:2.95s;">т</span>
-          <span class="char-animate" style="animation-delay:3.0s;">в</span>
-          <span class="char-animate" style="animation-delay:3.05s;">у</span>
-          <span class="char-animate" style="animation-delay:3.1s;">й</span>
-          <span class="char-animate" style="animation-delay:3.15s;">т</span>
-          <span class="char-animate" style="animation-delay:3.2s;">е</span>
-          <span class="char-animate" style="animation-delay:3.25s;"> </span>
-          <span class="char-animate" style="animation-delay:3.3s;">с</span>
-          <span class="char-animate" style="animation-delay:3.35s;">в</span>
-          <span class="char-animate" style="animation-delay:3.4s;">о</span>
-          <span class="char-animate" style="animation-delay:3.45s;">й</span>
-          <span class="char-animate" style="animation-delay:3.5s;"> </span>
-          <span class="char-animate" style="animation-delay:3.55s;">и</span>
-          <span class="char-animate" style="animation-delay:3.6s;">н</span>
-          <span class="char-animate" style="animation-delay:3.65s;">д</span>
-          <span class="char-animate" style="animation-delay:3.7s;">и</span>
-          <span class="char-animate" style="animation-delay:3.75s;">в</span>
-          <span class="char-animate" style="animation-delay:3.8s;">и</span>
-          <span class="char-animate" style="animation-delay:3.85s;">д</span>
-          <span class="char-animate" style="animation-delay:3.9s;">у</span>
-          <span class="char-animate" style="animation-delay:3.95s;">а</span>
-          <span class="char-animate" style="animation-delay:4.0s;">л</span>
-          <span class="char-animate" style="animation-delay:4.05s;">ь</span>
-          <span class="char-animate" style="animation-delay:4.1s;">н</span>
-          <span class="char-animate" style="animation-delay:4.15s;">о</span>
-          <span class="char-animate" style="animation-delay:4.2s;">с</span>
-          <span class="char-animate" style="animation-delay:4.25s;">т</span>
-          <span class="char-animate" style="animation-delay:4.3s;">ь</span>
-          <span class="char-animate" style="animation-delay:4.35s;"> </span>
-          <span class="char-animate" style="animation-delay:4.4s;">и</span>
-          <span class="char-animate" style="animation-delay:4.45s;"> </span>
-          <span class="char-animate" style="animation-delay:4.5s;">с</span>
-          <span class="char-animate" style="animation-delay:4.55s;">о</span>
-          <span class="char-animate" style="animation-delay:4.6s;">з</span>
-          <span class="char-animate" style="animation-delay:4.65s;">д</span>
-          <span class="char-animate" style="animation-delay:4.7s;">а</span>
-          <span class="char-animate" style="animation-delay:4.75s;">в</span>
-          <span class="char-animate" style="animation-delay:4.8s;">а</span>
-          <span class="char-animate" style="animation-delay:4.85s;">й</span>
-          <span class="char-animate" style="animation-delay:4.9s;">т</span>
-          <span class="char-animate" style="animation-delay:4.95s;">е</span>
-          <span class="char-animate" style="animation-delay:5.0s;"> </span>
-          <span class="char-animate" style="animation-delay:5.05s;">а</span>
-          <span class="char-animate" style="animation-delay:5.1s;">т</span>
-          <span class="char-animate" style="animation-delay:5.15s;">м</span>
-          <span class="char-animate" style="animation-delay:5.2s;">о</span>
-          <span class="char-animate" style="animation-delay:5.25s;">с</span>
-          <span class="char-animate" style="animation-delay:5.3s;">ф</span>
-          <span class="char-animate" style="animation-delay:5.35s;">е</span>
-          <span class="char-animate" style="animation-delay:5.4s;">р</span>
-          <span class="char-animate" style="animation-delay:5.45s;">у</span>
-          <span class="char-animate" style="animation-delay:5.5s;"> </span>
-          <span class="char-animate" style="animation-delay:5.55s;">э</span>
-          <span class="char-animate" style="animation-delay:5.6s;">т</span>
-          <span class="char-animate" style="animation-delay:5.65s;">о</span>
-          <span class="char-animate" style="animation-delay:5.7s;">г</span>
-          <span class="char-animate" style="animation-delay:5.75s;">о</span>
-          <span class="char-animate" style="animation-delay:5.8s;"> </span>
-          <span class="char-animate" style="animation-delay:5.85s;">д</span>
-          <span class="char-animate" style="animation-delay:5.9s;">н</span>
-          <span class="char-animate" style="animation-delay:5.95s;">я</span>
-          <span class="char-animate" style="animation-delay:6.0s;">.</span>
-        </p>
-      </div>
-
-      <!-- TIMING - блок светлый -->
-      <div class="inv-timing block-light fade-in-element">
+      <div class="inv-timing fade-in-element">
         <div class="timing-header">
-          <span class="timing-tag fade-in-element">[Расписание]</span>
-          <h2 class="timing-title">
-            <span class="char-animate" style="animation-delay:0.1s;">T</span>
-            <span class="char-animate" style="animation-delay:0.15s;">I</span>
-            <span class="char-animate" style="animation-delay:0.2s;">M</span>
-            <span class="char-animate" style="animation-delay:0.25s;">E</span>
-            <span class="char-animate" style="animation-delay:0.3s;">L</span>
-            <span class="char-animate" style="animation-delay:0.35s;">I</span>
-            <span class="char-animate" style="animation-delay:0.4s;">N</span>
-            <span class="char-animate" style="animation-delay:0.45s;">E</span>
-          </h2>
+          <span class="timing-tag">[Расписание]</span>
+          <h2 class="timing-title">TIME<br>LINE</h2>
         </div>
         <div class="timeline-list">
-          <div class="time-item">
-            <span class="time-value char-animate" style="animation-delay:0.5s;">14:00</span>
-            <span class="time-desc char-animate" style="animation-delay:0.55s;">Приветственный фуршет</span>
-          </div>
-          <div class="time-item">
-            <span class="time-value char-animate" style="animation-delay:0.6s;">14:30</span>
-            <span class="time-desc char-animate" style="animation-delay:0.65s;">Торжественная церемония</span>
-          </div>
-          <div class="time-item">
-            <span class="time-value char-animate" style="animation-delay:0.7s;">15:30</span>
-            <span class="time-desc char-animate" style="animation-delay:0.75s;">Свадебный банкет</span>
-          </div>
-          <div class="time-item">
-            <span class="time-value char-animate" style="animation-delay:0.8s;">00:00</span>
-            <span class="time-desc char-animate" style="animation-delay:0.85s;">Завершение вечера</span>
-          </div>
+          <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Приветственный фуршет (Welcome)</span></div>
+          <div class="time-item"><span class="time-value">14:30</span><span class="time-desc">Торжественная церемония</span></div>
+          <div class="time-item"><span class="time-value">15:30</span><span class="time-desc">Свадебный банкет</span></div>
+          <div class="time-item"><span class="time-value">00:00</span><span class="time-desc">Завершение вечера</span></div>
         </div>
       </div>
 
-      <!-- WISH - блок тёмный -->
-      <div class="inv-wish block-dark fade-in-element">
-        <div class="wish-icon">♥</div>
+      <div class="inv-wish fade-in-element">
+        <div class="wish-icon">🤍</div>
         <p class="wish-text">
-          <span class="char-animate" style="animation-delay:0.1s;">С</span>
-          <span class="char-animate" style="animation-delay:0.15s;">а</span>
-          <span class="char-animate" style="animation-delay:0.2s;">м</span>
-          <span class="char-animate" style="animation-delay:0.25s;">ы</span>
-          <span class="char-animate" style="animation-delay:0.3s;">й</span>
-          <span class="char-animate" style="animation-delay:0.35s;"> </span>
-          <span class="char-animate" style="animation-delay:0.4s;">ц</span>
-          <span class="char-animate" style="animation-delay:0.45s;">е</span>
-          <span class="char-animate" style="animation-delay:0.5s;">н</span>
-          <span class="char-animate" style="animation-delay:0.55s;">н</span>
-          <span class="char-animate" style="animation-delay:0.6s;">ы</span>
-          <span class="char-animate" style="animation-delay:0.65s;">й</span>
-          <span class="char-animate" style="animation-delay:0.7s;"> </span>
-          <span class="char-animate" style="animation-delay:0.75s;">п</span>
-          <span class="char-animate" style="animation-delay:0.8s;">о</span>
-          <span class="char-animate" style="animation-delay:0.85s;">д</span>
-          <span class="char-animate" style="animation-delay:0.9s;">а</span>
-          <span class="char-animate" style="animation-delay:0.95s;">р</span>
-          <span class="char-animate" style="animation-delay:1.0s;">о</span>
-          <span class="char-animate" style="animation-delay:1.05s;">к</span>
-          <span class="char-animate" style="animation-delay:1.1s;"> </span>
-          <span class="char-animate" style="animation-delay:1.15s;">д</span>
-          <span class="char-animate" style="animation-delay:1.2s;">л</span>
-          <span class="char-animate" style="animation-delay:1.25s;">я</span>
-          <span class="char-animate" style="animation-delay:1.3s;"> </span>
-          <span class="char-animate" style="animation-delay:1.35s;">н</span>
-          <span class="char-animate" style="animation-delay:1.4s;">а</span>
-          <span class="char-animate" style="animation-delay:1.45s;">с</span>
-          <span class="char-animate" style="animation-delay:1.5s;"> </span>
-          <span class="char-animate" style="animation-delay:1.55s;">—</span>
-          <span class="char-animate" style="animation-delay:1.6s;"> </span>
-          <span class="char-animate" style="animation-delay:1.65s;">э</span>
-          <span class="char-animate" style="animation-delay:1.7s;">т</span>
-          <span class="char-animate" style="animation-delay:1.75s;">о</span>
-          <span class="char-animate" style="animation-delay:1.8s;"> </span>
-          <span class="char-animate" style="animation-delay:1.85s;">в</span>
-          <span class="char-animate" style="animation-delay:1.9s;">а</span>
-          <span class="char-animate" style="animation-delay:1.95s;">ш</span>
-          <span class="char-animate" style="animation-delay:2.0s;">е</span>
-          <span class="char-animate" style="animation-delay:2.05s;"> </span>
-          <span class="char-animate" style="animation-delay:2.1s;">п</span>
-          <span class="char-animate" style="animation-delay:2.15s;">р</span>
-          <span class="char-animate" style="animation-delay:2.2s;">и</span>
-          <span class="char-animate" style="animation-delay:2.25s;">с</span>
-          <span class="char-animate" style="animation-delay:2.3s;">у</span>
-          <span class="char-animate" style="animation-delay:2.35s;">т</span>
-          <span class="char-animate" style="animation-delay:2.4s;">с</span>
-          <span class="char-animate" style="animation-delay:2.45s;">т</span>
-          <span class="char-animate" style="animation-delay:2.5s;">в</span>
-          <span class="char-animate" style="animation-delay:2.55s;">и</span>
-          <span class="char-animate" style="animation-delay:2.6s;">е</span>
-          <span class="char-animate" style="animation-delay:2.65s;">,</span>
-          <span class="char-animate" style="animation-delay:2.7s;"> </span>
-          <span class="char-animate" style="animation-delay:2.75s;">в</span>
-          <span class="char-animate" style="animation-delay:2.8s;">а</span>
-          <span class="char-animate" style="animation-delay:2.85s;">ш</span>
-          <span class="char-animate" style="animation-delay:2.9s;">и</span>
-          <span class="char-animate" style="animation-delay:2.95s;"> </span>
-          <span class="char-animate" style="animation-delay:3.0s;">у</span>
-          <span class="char-animate" style="animation-delay:3.05s;">л</span>
-          <span class="char-animate" style="animation-delay:3.1s;">ы</span>
-          <span class="char-animate" style="animation-delay:3.15s;">б</span>
-          <span class="char-animate" style="animation-delay:3.2s;">к</span>
-          <span class="char-animate" style="animation-delay:3.25s;">и</span>
-          <span class="char-animate" style="animation-delay:3.3s;"> </span>
-          <span class="char-animate" style="animation-delay:3.35s;">и</span>
-          <span class="char-animate" style="animation-delay:3.4s;"> </span>
-          <span class="char-animate" style="animation-delay:3.45s;">т</span>
-          <span class="char-animate" style="animation-delay:3.5s;">ё</span>
-          <span class="char-animate" style="animation-delay:3.55s;">п</span>
-          <span class="char-animate" style="animation-delay:3.6s;">л</span>
-          <span class="char-animate" style="animation-delay:3.65s;">ы</span>
-          <span class="char-animate" style="animation-delay:3.7s;">е</span>
-          <span class="char-animate" style="animation-delay:3.75s;"> </span>
-          <span class="char-animate" style="animation-delay:3.8s;">с</span>
-          <span class="char-animate" style="animation-delay:3.85s;">л</span>
-          <span class="char-animate" style="animation-delay:3.9s;">о</span>
-          <span class="char-animate" style="animation-delay:3.95s;">в</span>
-          <span class="char-animate" style="animation-delay:4.0s;">а</span>
-          <span class="char-animate" style="animation-delay:4.05s;">.</span>
-          <span class="char-animate" style="animation-delay:4.1s;"> </span>
-          <span class="char-animate" style="animation-delay:4.15s;">В</span>
-          <span class="char-animate" style="animation-delay:4.2s;">и</span>
-          <span class="char-animate" style="animation-delay:4.25s;">д</span>
-          <span class="char-animate" style="animation-delay:4.3s;">е</span>
-          <span class="char-animate" style="animation-delay:4.35s;">т</span>
-          <span class="char-animate" style="animation-delay:4.4s;">ь</span>
-          <span class="char-animate" style="animation-delay:4.45s;"> </span>
-          <span class="char-animate" style="animation-delay:4.5s;">в</span>
-          <span class="char-animate" style="animation-delay:4.55s;">а</span>
-          <span class="char-animate" style="animation-delay:4.6s;">с</span>
-          <span class="char-animate" style="animation-delay:4.65s;"> </span>
-          <span class="char-animate" style="animation-delay:4.7s;">р</span>
-          <span class="char-animate" style="animation-delay:4.75s;">я</span>
-          <span class="char-animate" style="animation-delay:4.8s;">д</span>
-          <span class="char-animate" style="animation-delay:4.85s;">о</span>
-          <span class="char-animate" style="animation-delay:4.9s;">м</span>
-          <span class="char-animate" style="animation-delay:4.95s;"> </span>
-          <span class="char-animate" style="animation-delay:5.0s;">в</span>
-          <span class="char-animate" style="animation-delay:5.05s;"> </span>
-          <span class="char-animate" style="animation-delay:5.1s;">э</span>
-          <span class="char-animate" style="animation-delay:5.15s;">т</span>
-          <span class="char-animate" style="animation-delay:5.2s;">о</span>
-          <span class="char-animate" style="animation-delay:5.25s;">т</span>
-          <span class="char-animate" style="animation-delay:5.3s;"> </span>
-          <span class="char-animate" style="animation-delay:5.35s;">д</span>
-          <span class="char-animate" style="animation-delay:5.4s;">е</span>
-          <span class="char-animate" style="animation-delay:5.45s;">н</span>
-          <span class="char-animate" style="animation-delay:5.5s;">ь</span>
-          <span class="char-animate" style="animation-delay:5.55s;"> </span>
-          <span class="char-animate" style="animation-delay:5.6s;">—</span>
-          <span class="char-animate" style="animation-delay:5.65s;"> </span>
-          <span class="char-animate" style="animation-delay:5.7s;">в</span>
-          <span class="char-animate" style="animation-delay:5.75s;">о</span>
-          <span class="char-animate" style="animation-delay:5.8s;">т</span>
-          <span class="char-animate" style="animation-delay:5.85s;"> </span>
-          <span class="char-animate" style="animation-delay:5.9s;">ч</span>
-          <span class="char-animate" style="animation-delay:5.95s;">т</span>
-          <span class="char-animate" style="animation-delay:6.0s;">о</span>
-          <span class="char-animate" style="animation-delay:6.05s;"> </span>
-          <span class="char-animate" style="animation-delay:6.1s;">д</span>
-          <span class="char-animate" style="animation-delay:6.15s;">е</span>
-          <span class="char-animate" style="animation-delay:6.2s;">л</span>
-          <span class="char-animate" style="animation-delay:6.25s;">а</span>
-          <span class="char-animate" style="animation-delay:6.3s;">е</span>
-          <span class="char-animate" style="animation-delay:6.35s;">т</span>
-          <span class="char-animate" style="animation-delay:6.4s;"> </span>
-          <span class="char-animate" style="animation-delay:6.45s;">е</span>
-          <span class="char-animate" style="animation-delay:6.5s;">г</span>
-          <span class="char-animate" style="animation-delay:6.55s;">о</span>
-          <span class="char-animate" style="animation-delay:6.6s;"> </span>
-          <span class="char-animate" style="animation-delay:6.65s;">п</span>
-          <span class="char-animate" style="animation-delay:6.7s;">о</span>
-          <span class="char-animate" style="animation-delay:6.75s;">-</span>
-          <span class="char-animate" style="animation-delay:6.8s;">н</span>
-          <span class="char-animate" style="animation-delay:6.85s;">а</span>
-          <span class="char-animate" style="animation-delay:6.9s;">с</span>
-          <span class="char-animate" style="animation-delay:6.95s;">т</span>
-          <span class="char-animate" style="animation-delay:7.0s;">о</span>
-          <span class="char-animate" style="animation-delay:7.05s;">я</span>
-          <span class="char-animate" style="animation-delay:7.1s;">щ</span>
-          <span class="char-animate" style="animation-delay:7.15s;">е</span>
-          <span class="char-animate" style="animation-delay:7.2s;">м</span>
-          <span class="char-animate" style="animation-delay:7.25s;"> </span>
-          <span class="char-animate" style="animation-delay:7.3s;">о</span>
-          <span class="char-animate" style="animation-delay:7.35s;">с</span>
-          <span class="char-animate" style="animation-delay:7.4s;">о</span>
-          <span class="char-animate" style="animation-delay:7.45s;">б</span>
-          <span class="char-animate" style="animation-delay:7.5s;">е</span>
-          <span class="char-animate" style="animation-delay:7.55s;">н</span>
-          <span class="char-animate" style="animation-delay:7.6s;">н</span>
-          <span class="char-animate" style="animation-delay:7.65s;">ы</span>
-          <span class="char-animate" style="animation-delay:7.7s;">м</span>
-          <span class="char-animate" style="animation-delay:7.75s;">.</span>
+          Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
         </p>
       </div>
 
-      <!-- FORM - блок светлый -->
-      <div class="inv-form block-light fade-in-element">
+      <!-- АНКЕТА ГОСТЯ -->
+      <div class="inv-form fade-in-element">
         <div class="form-header">
-          <span class="form-tag fade-in-element">[Анкета гостя]</span>
-          <h2 class="form-title">
-            <span class="char-animate" style="animation-delay:0.1s;">А</span>
-            <span class="char-animate" style="animation-delay:0.15s;">Н</span>
-            <span class="char-animate" style="animation-delay:0.2s;">К</span>
-            <span class="char-animate" style="animation-delay:0.25s;">Е</span>
-            <span class="char-animate" style="animation-delay:0.3s;">Т</span>
-            <span class="char-animate" style="animation-delay:0.35s;">А</span>
-            <span class="char-animate" style="animation-delay:0.4s;"> </span>
-            <span class="char-animate" style="animation-delay:0.45s;">Г</span>
-            <span class="char-animate" style="animation-delay:0.5s;">О</span>
-            <span class="char-animate" style="animation-delay:0.55s;">С</span>
-            <span class="char-animate" style="animation-delay:0.6s;">Т</span>
-            <span class="char-animate" style="animation-delay:0.65s;">Я</span>
-          </h2>
-          <p class="form-deadline">
-            <span class="char-animate" style="animation-delay:0.7s;">П</span>
-            <span class="char-animate" style="animation-delay:0.75s;">о</span>
-            <span class="char-animate" style="animation-delay:0.8s;">ж</span>
-            <span class="char-animate" style="animation-delay:0.85s;">а</span>
-            <span class="char-animate" style="animation-delay:0.9s;">л</span>
-            <span class="char-animate" style="animation-delay:0.95s;">у</span>
-            <span class="char-animate" style="animation-delay:1.0s;">й</span>
-            <span class="char-animate" style="animation-delay:1.05s;">с</span>
-            <span class="char-animate" style="animation-delay:1.1s;">т</span>
-            <span class="char-animate" style="animation-delay:1.15s;">а</span>
-            <span class="char-animate" style="animation-delay:1.2s;"> </span>
-            <span class="char-animate" style="animation-delay:1.25s;">з</span>
-            <span class="char-animate" style="animation-delay:1.3s;">а</span>
-            <span class="char-animate" style="animation-delay:1.35s;">п</span>
-            <span class="char-animate" style="animation-delay:1.4s;">о</span>
-            <span class="char-animate" style="animation-delay:1.45s;">л</span>
-            <span class="char-animate" style="animation-delay:1.5s;">н</span>
-            <span class="char-animate" style="animation-delay:1.55s;">и</span>
-            <span class="char-animate" style="animation-delay:1.6s;">т</span>
-            <span class="char-animate" style="animation-delay:1.65s;">е</span>
-            <span class="char-animate" style="animation-delay:1.7s;"> </span>
-            <span class="char-animate" style="animation-delay:1.75s;">д</span>
-            <span class="char-animate" style="animation-delay:1.8s;">о</span>
-            <span class="char-animate" style="animation-delay:1.85s;"> </span>
-            <span class="char-animate" style="animation-delay:1.9s;">1</span>
-            <span class="char-animate" style="animation-delay:1.95s;">5</span>
-            <span class="char-animate" style="animation-delay:2.0s;"> </span>
-            <span class="char-animate" style="animation-delay:2.05s;">с</span>
-            <span class="char-animate" style="animation-delay:2.1s;">е</span>
-            <span class="char-animate" style="animation-delay:2.15s;">н</span>
-            <span class="char-animate" style="animation-delay:2.2s;">т</span>
-            <span class="char-animate" style="animation-delay:2.25s;">я</span>
-            <span class="char-animate" style="animation-delay:2.3s;">б</span>
-            <span class="char-animate" style="animation-delay:2.35s;">р</span>
-            <span class="char-animate" style="animation-delay:2.4s;">я</span>
-            <span class="char-animate" style="animation-delay:2.45s;"> </span>
-            <span class="char-animate" style="animation-delay:2.5s;">2</span>
-            <span class="char-animate" style="animation-delay:2.55s;">0</span>
-            <span class="char-animate" style="animation-delay:2.6s;">2</span>
-            <span class="char-animate" style="animation-delay:2.65s;">6</span>
-          </p>
+          <span class="form-tag">[Анкета гостя]</span>
+          <h2 class="form-title">АНКЕТА<br>ГОСТЯ</h2>
+          <p class="form-deadline">📅 Пожалуйста, заполните до 15 сентября 2026</p>
         </div>
 
         <div class="form-group">
-          <label class="form-label">
-            <span class="char-animate" style="animation-delay:0.1s;">В</span>
-            <span class="char-animate" style="animation-delay:0.15s;">а</span>
-            <span class="char-animate" style="animation-delay:0.2s;">ш</span>
-            <span class="char-animate" style="animation-delay:0.25s;">е</span>
-            <span class="char-animate" style="animation-delay:0.3s;"> </span>
-            <span class="char-animate" style="animation-delay:0.35s;">и</span>
-            <span class="char-animate" style="animation-delay:0.4s;">м</span>
-            <span class="char-animate" style="animation-delay:0.45s;">я</span>
-            <span class="char-animate" style="animation-delay:0.5s;"> </span>
-            <span class="char-animate" style="animation-delay:0.55s;">и</span>
-            <span class="char-animate" style="animation-delay:0.6s;"> </span>
-            <span class="char-animate" style="animation-delay:0.65s;">ф</span>
-            <span class="char-animate" style="animation-delay:0.7s;">а</span>
-            <span class="char-animate" style="animation-delay:0.75s;">м</span>
-            <span class="char-animate" style="animation-delay:0.8s;">и</span>
-            <span class="char-animate" style="animation-delay:0.85s;">л</span>
-            <span class="char-animate" style="animation-delay:0.9s;">и</span>
-            <span class="char-animate" style="animation-delay:0.95s;">я</span>
-          </label>
+          <label class="form-label">Ваше имя и фамилия</label>
           <input type="text" class="form-input" placeholder="Иванов Иван">
         </div>
 
         <div class="form-group">
-          <label class="form-label">
-            <span class="char-animate" style="animation-delay:0.1s;">В</span>
-            <span class="char-animate" style="animation-delay:0.15s;">ы</span>
-            <span class="char-animate" style="animation-delay:0.2s;"> </span>
-            <span class="char-animate" style="animation-delay:0.25s;">п</span>
-            <span class="char-animate" style="animation-delay:0.3s;">л</span>
-            <span class="char-animate" style="animation-delay:0.35s;">а</span>
-            <span class="char-animate" style="animation-delay:0.4s;">н</span>
-            <span class="char-animate" style="animation-delay:0.45s;">и</span>
-            <span class="char-animate" style="animation-delay:0.5s;">р</span>
-            <span class="char-animate" style="animation-delay:0.55s;">у</span>
-            <span class="char-animate" style="animation-delay:0.6s;">е</span>
-            <span class="char-animate" style="animation-delay:0.65s;">т</span>
-            <span class="char-animate" style="animation-delay:0.7s;">е</span>
-            <span class="char-animate" style="animation-delay:0.75s;"> </span>
-            <span class="char-animate" style="animation-delay:0.8s;">п</span>
-            <span class="char-animate" style="animation-delay:0.85s;">р</span>
-            <span class="char-animate" style="animation-delay:0.9s;">и</span>
-            <span class="char-animate" style="animation-delay:0.95s;">с</span>
-            <span class="char-animate" style="animation-delay:1.0s;">у</span>
-            <span class="char-animate" style="animation-delay:1.05s;">т</span>
-            <span class="char-animate" style="animation-delay:1.1s;">с</span>
-            <span class="char-animate" style="animation-delay:1.15s;">т</span>
-            <span class="char-animate" style="animation-delay:1.2s;">в</span>
-            <span class="char-animate" style="animation-delay:1.25s;">о</span>
-            <span class="char-animate" style="animation-delay:1.3s;">в</span>
-            <span class="char-animate" style="animation-delay:1.35s;">а</span>
-            <span class="char-animate" style="animation-delay:1.4s;">т</span>
-            <span class="char-animate" style="animation-delay:1.45s;">ь</span>
-            <span class="char-animate" style="animation-delay:1.5s;">?</span>
-          </label>
+          <label class="form-label">Вы планируете присутствовать?</label>
           <div class="radio-group">
             <label class="radio-option"><input type="radio" name="attendance" value="yes"> Буду точно</label>
             <label class="radio-option"><input type="radio" name="attendance" value="maybe"> Не знаю</label>
@@ -1846,472 +1011,77 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">
-            <span class="char-animate" style="animation-delay:0.1s;">П</span>
-            <span class="char-animate" style="animation-delay:0.15s;">е</span>
-            <span class="char-animate" style="animation-delay:0.2s;">с</span>
-            <span class="char-animate" style="animation-delay:0.25s;">н</span>
-            <span class="char-animate" style="animation-delay:0.3s;">я</span>
-            <span class="char-animate" style="animation-delay:0.35s;">,</span>
-            <span class="char-animate" style="animation-delay:0.4s;"> </span>
-            <span class="char-animate" style="animation-delay:0.45s;">п</span>
-            <span class="char-animate" style="animation-delay:0.5s;">о</span>
-            <span class="char-animate" style="animation-delay:0.55s;">д</span>
-            <span class="char-animate" style="animation-delay:0.6s;"> </span>
-            <span class="char-animate" style="animation-delay:0.65s;">к</span>
-            <span class="char-animate" style="animation-delay:0.7s;">о</span>
-            <span class="char-animate" style="animation-delay:0.75s;">т</span>
-            <span class="char-animate" style="animation-delay:0.8s;">о</span>
-            <span class="char-animate" style="animation-delay:0.85s;">р</span>
-            <span class="char-animate" style="animation-delay:0.9s;">у</span>
-            <span class="char-animate" style="animation-delay:0.95s;">ю</span>
-            <span class="char-animate" style="animation-delay:1.0s;"> </span>
-            <span class="char-animate" style="animation-delay:1.05s;">в</span>
-            <span class="char-animate" style="animation-delay:1.1s;">ы</span>
-            <span class="char-animate" style="animation-delay:1.15s;"> </span>
-            <span class="char-animate" style="animation-delay:1.2s;">т</span>
-            <span class="char-animate" style="animation-delay:1.25s;">о</span>
-            <span class="char-animate" style="animation-delay:1.3s;">ч</span>
-            <span class="char-animate" style="animation-delay:1.35s;">н</span>
-            <span class="char-animate" style="animation-delay:1.4s;">о</span>
-            <span class="char-animate" style="animation-delay:1.45s;"> </span>
-            <span class="char-animate" style="animation-delay:1.5s;">в</span>
-            <span class="char-animate" style="animation-delay:1.55s;">ы</span>
-            <span class="char-animate" style="animation-delay:1.6s;">й</span>
-            <span class="char-animate" style="animation-delay:1.65s;">д</span>
-            <span class="char-animate" style="animation-delay:1.7s;">е</span>
-            <span class="char-animate" style="animation-delay:1.75s;">т</span>
-            <span class="char-animate" style="animation-delay:1.8s;">е</span>
-            <span class="char-animate" style="animation-delay:1.85s;"> </span>
-            <span class="char-animate" style="animation-delay:1.9s;">н</span>
-            <span class="char-animate" style="animation-delay:1.95s;">а</span>
-            <span class="char-animate" style="animation-delay:2.0s;"> </span>
-            <span class="char-animate" style="animation-delay:2.05s;">т</span>
-            <span class="char-animate" style="animation-delay:2.1s;">а</span>
-            <span class="char-animate" style="animation-delay:2.15s;">н</span>
-            <span class="char-animate" style="animation-delay:2.2s;">ц</span>
-            <span class="char-animate" style="animation-delay:2.25s;">п</span>
-            <span class="char-animate" style="animation-delay:2.3s;">о</span>
-            <span class="char-animate" style="animation-delay:2.35s;">л</span>
-          </label>
+          <label class="form-label">Количество гостей (включая вас)</label>
+          <select class="form-select" name="guestCount">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Предпочтения по напиткам</label>
+          <select class="form-select" name="drink">
+            <option value="wine">Вино</option>
+            <option value="champagne">Шампанское</option>
+            <option value="soft">Безалкогольное</option>
+            <option value="no">Не употребляю</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Песня, под которую вы точно выйдете на танцпол</label>
           <input type="text" class="form-input" placeholder="Название и исполнитель">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Особые пожелания по меню</label>
+          <textarea class="form-textarea" placeholder="Аллергии, вегетарианство, другие предпочтения..."></textarea>
         </div>
 
         <button class="form-submit">Отправить</button>
       </div>
 
-      <!-- INFO - блок тёмный -->
-      <div class="inv-info block-dark fade-in-element">
-        <h2 class="info-title">
-          <span class="char-animate" style="animation-delay:0.1s;">В</span>
-          <span class="char-animate" style="animation-delay:0.15s;">а</span>
-          <span class="char-animate" style="animation-delay:0.2s;">ж</span>
-          <span class="char-animate" style="animation-delay:0.25s;">н</span>
-          <span class="char-animate" style="animation-delay:0.3s;">а</span>
-          <span class="char-animate" style="animation-delay:0.35s;">я</span>
-          <span class="char-animate" style="animation-delay:0.4s;"> </span>
-          <span class="char-animate" style="animation-delay:0.45s;">и</span>
-          <span class="char-animate" style="animation-delay:0.5s;">н</span>
-          <span class="char-animate" style="animation-delay:0.55s;">ф</span>
-          <span class="char-animate" style="animation-delay:0.6s;">о</span>
-          <span class="char-animate" style="animation-delay:0.65s;">р</span>
-          <span class="char-animate" style="animation-delay:0.7s;">м</span>
-          <span class="char-animate" style="animation-delay:0.75s;">а</span>
-          <span class="char-animate" style="animation-delay:0.8s;">ц</span>
-          <span class="char-animate" style="animation-delay:0.85s;">и</span>
-          <span class="char-animate" style="animation-delay:0.9s;">я</span>
-        </h2>
+      <!-- ИНФО БЛОК: паспорт и подвоз -->
+      <div class="inv-info fade-in-element">
+        <h2 class="info-title">Важная информация</h2>
         <div class="info-item">
-          <div class="info-item-title">
-            <span class="char-animate" style="animation-delay:1.0s;">П</span>
-            <span class="char-animate" style="animation-delay:1.05s;">а</span>
-            <span class="char-animate" style="animation-delay:1.1s;">с</span>
-            <span class="char-animate" style="animation-delay:1.15s;">п</span>
-            <span class="char-animate" style="animation-delay:1.2s;">о</span>
-            <span class="char-animate" style="animation-delay:1.25s;">р</span>
-            <span class="char-animate" style="animation-delay:1.3s;">т</span>
-          </div>
+          <div class="info-item-title">🛂 Паспорт</div>
           <div class="info-item-text">
-            <span class="char-animate" style="animation-delay:1.4s;">Т</span>
-            <span class="char-animate" style="animation-delay:1.45s;">а</span>
-            <span class="char-animate" style="animation-delay:1.5s;">к</span>
-            <span class="char-animate" style="animation-delay:1.55s;"> </span>
-            <span class="char-animate" style="animation-delay:1.6s;">к</span>
-            <span class="char-animate" style="animation-delay:1.65s;">а</span>
-            <span class="char-animate" style="animation-delay:1.7s;">к</span>
-            <span class="char-animate" style="animation-delay:1.75s;"> </span>
-            <span class="char-animate" style="animation-delay:1.8s;">н</span>
-            <span class="char-animate" style="animation-delay:1.85s;">а</span>
-            <span class="char-animate" style="animation-delay:1.9s;">ш</span>
-            <span class="char-animate" style="animation-delay:1.95s;">а</span>
-            <span class="char-animate" style="animation-delay:2.0s;"> </span>
-            <span class="char-animate" style="animation-delay:2.05s;">с</span>
-            <span class="char-animate" style="animation-delay:2.1s;">в</span>
-            <span class="char-animate" style="animation-delay:2.15s;">а</span>
-            <span class="char-animate" style="animation-delay:2.2s;">д</span>
-            <span class="char-animate" style="animation-delay:2.25s;">ь</span>
-            <span class="char-animate" style="animation-delay:2.3s;">б</span>
-            <span class="char-animate" style="animation-delay:2.35s;">а</span>
-            <span class="char-animate" style="animation-delay:2.4s;"> </span>
-            <span class="char-animate" style="animation-delay:2.45s;">п</span>
-            <span class="char-animate" style="animation-delay:2.5s;">р</span>
-            <span class="char-animate" style="animation-delay:2.55s;">о</span>
-            <span class="char-animate" style="animation-delay:2.6s;">х</span>
-            <span class="char-animate" style="animation-delay:2.65s;">о</span>
-            <span class="char-animate" style="animation-delay:2.7s;">д</span>
-            <span class="char-animate" style="animation-delay:2.75s;">и</span>
-            <span class="char-animate" style="animation-delay:2.8s;">т</span>
-            <span class="char-animate" style="animation-delay:2.85s;"> </span>
-            <span class="char-animate" style="animation-delay:2.9s;">в</span>
-            <span class="char-animate" style="animation-delay:2.95s;"> </span>
-            <span class="char-animate" style="animation-delay:3.0s;">Б</span>
-            <span class="char-animate" style="animation-delay:3.05s;">р</span>
-            <span class="char-animate" style="animation-delay:3.1s;">е</span>
-            <span class="char-animate" style="animation-delay:3.15s;">с</span>
-            <span class="char-animate" style="animation-delay:3.2s;">т</span>
-            <span class="char-animate" style="animation-delay:3.25s;">с</span>
-            <span class="char-animate" style="animation-delay:3.3s;">к</span>
-            <span class="char-animate" style="animation-delay:3.35s;">о</span>
-            <span class="char-animate" style="animation-delay:3.4s;">й</span>
-            <span class="char-animate" style="animation-delay:3.45s;"> </span>
-            <span class="char-animate" style="animation-delay:3.5s;">о</span>
-            <span class="char-animate" style="animation-delay:3.55s;">б</span>
-            <span class="char-animate" style="animation-delay:3.6s;">л</span>
-            <span class="char-animate" style="animation-delay:3.65s;">а</span>
-            <span class="char-animate" style="animation-delay:3.7s;">с</span>
-            <span class="char-animate" style="animation-delay:3.75s;">т</span>
-            <span class="char-animate" style="animation-delay:3.8s;">и</span>
-            <span class="char-animate" style="animation-delay:3.85s;">,</span>
-            <span class="char-animate" style="animation-delay:3.9s;"> </span>
-            <span class="char-animate" style="animation-delay:3.95s;">п</span>
-            <span class="char-animate" style="animation-delay:4.0s;">р</span>
-            <span class="char-animate" style="animation-delay:4.05s;">и</span>
-            <span class="char-animate" style="animation-delay:4.1s;"> </span>
-            <span class="char-animate" style="animation-delay:4.15s;">п</span>
-            <span class="char-animate" style="animation-delay:4.2s;">р</span>
-            <span class="char-animate" style="animation-delay:4.25s;">о</span>
-            <span class="char-animate" style="animation-delay:4.3s;">е</span>
-            <span class="char-animate" style="animation-delay:4.35s;">з</span>
-            <span class="char-animate" style="animation-delay:4.4s;">д</span>
-            <span class="char-animate" style="animation-delay:4.45s;">е</span>
-            <span class="char-animate" style="animation-delay:4.5s;"> </span>
-            <span class="char-animate" style="animation-delay:4.55s;">ч</span>
-            <span class="char-animate" style="animation-delay:4.6s;">е</span>
-            <span class="char-animate" style="animation-delay:4.65s;">р</span>
-            <span class="char-animate" style="animation-delay:4.7s;">е</span>
-            <span class="char-animate" style="animation-delay:4.75s;">з</span>
-            <span class="char-animate" style="animation-delay:4.8s;"> </span>
-            <span class="char-animate" style="animation-delay:4.85s;">п</span>
-            <span class="char-animate" style="animation-delay:4.9s;">о</span>
-            <span class="char-animate" style="animation-delay:4.95s;">с</span>
-            <span class="char-animate" style="animation-delay:5.0s;">т</span>
-            <span class="char-animate" style="animation-delay:5.05s;"> </span>
-            <span class="char-animate" style="animation-delay:5.1s;">в</span>
-            <span class="char-animate" style="animation-delay:5.15s;">а</span>
-            <span class="char-animate" style="animation-delay:5.2s;">м</span>
-            <span class="char-animate" style="animation-delay:5.25s;"> </span>
-            <span class="char-animate" style="animation-delay:5.3s;">п</span>
-            <span class="char-animate" style="animation-delay:5.35s;">о</span>
-            <span class="char-animate" style="animation-delay:5.4s;">н</span>
-            <span class="char-animate" style="animation-delay:5.45s;">а</span>
-            <span class="char-animate" style="animation-delay:5.5s;">д</span>
-            <span class="char-animate" style="animation-delay:5.55s;">о</span>
-            <span class="char-animate" style="animation-delay:5.6s;">б</span>
-            <span class="char-animate" style="animation-delay:5.65s;">и</span>
-            <span class="char-animate" style="animation-delay:5.7s;">т</span>
-            <span class="char-animate" style="animation-delay:5.75s;">с</span>
-            <span class="char-animate" style="animation-delay:5.8s;">я</span>
-            <span class="char-animate" style="animation-delay:5.85s;"> </span>
-            <span class="char-animate" style="animation-delay:5.9s;">п</span>
-            <span class="char-animate" style="animation-delay:5.95s;">а</span>
-            <span class="char-animate" style="animation-delay:6.0s;">с</span>
-            <span class="char-animate" style="animation-delay:6.05s;">п</span>
-            <span class="char-animate" style="animation-delay:6.1s;">о</span>
-            <span class="char-animate" style="animation-delay:6.15s;">р</span>
-            <span class="char-animate" style="animation-delay:6.2s;">т</span>
-            <span class="char-animate" style="animation-delay:6.25s;">.</span>
-            <span class="char-animate" style="animation-delay:6.3s;"> </span>
-            <span class="char-animate" style="animation-delay:6.35s;">П</span>
-            <span class="char-animate" style="animation-delay:6.4s;">о</span>
-            <span class="char-animate" style="animation-delay:6.45s;">ж</span>
-            <span class="char-animate" style="animation-delay:6.5s;">а</span>
-            <span class="char-animate" style="animation-delay:6.55s;">л</span>
-            <span class="char-animate" style="animation-delay:6.6s;">у</span>
-            <span class="char-animate" style="animation-delay:6.65s;">й</span>
-            <span class="char-animate" style="animation-delay:6.7s;">с</span>
-            <span class="char-animate" style="animation-delay:6.75s;">т</span>
-            <span class="char-animate" style="animation-delay:6.8s;">а</span>
-            <span class="char-animate" style="animation-delay:6.85s;"> </span>
-            <span class="char-animate" style="animation-delay:6.9s;">н</span>
-            <span class="char-animate" style="animation-delay:6.95s;">е</span>
-            <span class="char-animate" style="animation-delay:7.0s;"> </span>
-            <span class="char-animate" style="animation-delay:7.05s;">з</span>
-            <span class="char-animate" style="animation-delay:7.1s;">а</span>
-            <span class="char-animate" style="animation-delay:7.15s;">б</span>
-            <span class="char-animate" style="animation-delay:7.2s;">у</span>
-            <span class="char-animate" style="animation-delay:7.25s;">д</span>
-            <span class="char-animate" style="animation-delay:7.3s;">ь</span>
-            <span class="char-animate" style="animation-delay:7.35s;">т</span>
-            <span class="char-animate" style="animation-delay:7.4s;">е</span>
-            <span class="char-animate" style="animation-delay:7.45s;"> </span>
-            <span class="char-animate" style="animation-delay:7.5s;">в</span>
-            <span class="char-animate" style="animation-delay:7.55s;">з</span>
-            <span class="char-animate" style="animation-delay:7.6s;">я</span>
-            <span class="char-animate" style="animation-delay:7.65s;">т</span>
-            <span class="char-animate" style="animation-delay:7.7s;">ь</span>
-            <span class="char-animate" style="animation-delay:7.75s;"> </span>
-            <span class="char-animate" style="animation-delay:7.8s;">е</span>
-            <span class="char-animate" style="animation-delay:7.85s;">г</span>
-            <span class="char-animate" style="animation-delay:7.9s;">о</span>
-            <span class="char-animate" style="animation-delay:7.95s;"> </span>
-            <span class="char-animate" style="animation-delay:8.0s;">с</span>
-            <span class="char-animate" style="animation-delay:8.05s;"> </span>
-            <span class="char-animate" style="animation-delay:8.1s;">с</span>
-            <span class="char-animate" style="animation-delay:8.15s;">о</span>
-            <span class="char-animate" style="animation-delay:8.2s;">б</span>
-            <span class="char-animate" style="animation-delay:8.25s;">о</span>
-            <span class="char-animate" style="animation-delay:8.3s;">й</span>
-            <span class="char-animate" style="animation-delay:8.35s;">.</span>
+            Так как наша свадьба проходит в Брестской области, при проезде через пост вам понадобится паспорт. Пожалуйста, не забудьте взять его с собой.
           </div>
         </div>
         <div class="info-item">
-          <div class="info-item-title">
-            <span class="char-animate" style="animation-delay:8.5s;">Т</span>
-            <span class="char-animate" style="animation-delay:8.55s;">р</span>
-            <span class="char-animate" style="animation-delay:8.6s;">а</span>
-            <span class="char-animate" style="animation-delay:8.65s;">н</span>
-            <span class="char-animate" style="animation-delay:8.7s;">с</span>
-            <span class="char-animate" style="animation-delay:8.75s;">ф</span>
-            <span class="char-animate" style="animation-delay:8.8s;">е</span>
-            <span class="char-animate" style="animation-delay:8.85s;">р</span>
-          </div>
+          <div class="info-item-title">🚐 Трансфер</div>
           <div class="info-item-text">
-            <span class="char-animate" style="animation-delay:8.95s;">М</span>
-            <span class="char-animate" style="animation-delay:9.0s;">ы</span>
-            <span class="char-animate" style="animation-delay:9.05s;"> </span>
-            <span class="char-animate" style="animation-delay:9.1s;">о</span>
-            <span class="char-animate" style="animation-delay:9.15s;">р</span>
-            <span class="char-animate" style="animation-delay:9.2s;">г</span>
-            <span class="char-animate" style="animation-delay:9.25s;">а</span>
-            <span class="char-animate" style="animation-delay:9.3s;">н</span>
-            <span class="char-animate" style="animation-delay:9.35s;">и</span>
-            <span class="char-animate" style="animation-delay:9.4s;">з</span>
-            <span class="char-animate" style="animation-delay:9.45s;">у</span>
-            <span class="char-animate" style="animation-delay:9.5s;">е</span>
-            <span class="char-animate" style="animation-delay:9.55s;">м</span>
-            <span class="char-animate" style="animation-delay:9.6s;"> </span>
-            <span class="char-animate" style="animation-delay:9.65s;">п</span>
-            <span class="char-animate" style="animation-delay:9.7s;">о</span>
-            <span class="char-animate" style="animation-delay:9.75s;">д</span>
-            <span class="char-animate" style="animation-delay:9.8s;">в</span>
-            <span class="char-animate" style="animation-delay:9.85s;">о</span>
-            <span class="char-animate" style="animation-delay:9.9s;">з</span>
-            <span class="char-animate" style="animation-delay:9.95s;"> </span>
-            <span class="char-animate" style="animation-delay:10.0s;">д</span>
-            <span class="char-animate" style="animation-delay:10.05s;">л</span>
-            <span class="char-animate" style="animation-delay:10.1s;">я</span>
-            <span class="char-animate" style="animation-delay:10.15s;"> </span>
-            <span class="char-animate" style="animation-delay:10.2s;">г</span>
-            <span class="char-animate" style="animation-delay:10.25s;">о</span>
-            <span class="char-animate" style="animation-delay:10.3s;">с</span>
-            <span class="char-animate" style="animation-delay:10.35s;">т</span>
-            <span class="char-animate" style="animation-delay:10.4s;">е</span>
-            <span class="char-animate" style="animation-delay:10.45s;">й</span>
-            <span class="char-animate" style="animation-delay:10.5s;">.</span>
-            <span class="char-animate" style="animation-delay:10.55s;"> </span>
-            <span class="char-animate" style="animation-delay:10.6s;">Е</span>
-            <span class="char-animate" style="animation-delay:10.65s;">с</span>
-            <span class="char-animate" style="animation-delay:10.7s;">л</span>
-            <span class="char-animate" style="animation-delay:10.75s;">и</span>
-            <span class="char-animate" style="animation-delay:10.8s;"> </span>
-            <span class="char-animate" style="animation-delay:10.85s;">в</span>
-            <span class="char-animate" style="animation-delay:10.9s;">а</span>
-            <span class="char-animate" style="animation-delay:10.95s;">м</span>
-            <span class="char-animate" style="animation-delay:11.0s;"> </span>
-            <span class="char-animate" style="animation-delay:11.05s;">н</span>
-            <span class="char-animate" style="animation-delay:11.1s;">у</span>
-            <span class="char-animate" style="animation-delay:11.15s;">ж</span>
-            <span class="char-animate" style="animation-delay:11.2s;">е</span>
-            <span class="char-animate" style="animation-delay:11.25s;">н</span>
-            <span class="char-animate" style="animation-delay:11.3s;"> </span>
-            <span class="char-animate" style="animation-delay:11.35s;">т</span>
-            <span class="char-animate" style="animation-delay:11.4s;">р</span>
-            <span class="char-animate" style="animation-delay:11.45s;">а</span>
-            <span class="char-animate" style="animation-delay:11.5s;">н</span>
-            <span class="char-animate" style="animation-delay:11.55s;">с</span>
-            <span class="char-animate" style="animation-delay:11.6s;">ф</span>
-            <span class="char-animate" style="animation-delay:11.65s;">е</span>
-            <span class="char-animate" style="animation-delay:11.7s;">р</span>
-            <span class="char-animate" style="animation-delay:11.75s;">,</span>
-            <span class="char-animate" style="animation-delay:11.8s;"> </span>
-            <span class="char-animate" style="animation-delay:11.85s;">о</span>
-            <span class="char-animate" style="animation-delay:11.9s;">т</span>
-            <span class="char-animate" style="animation-delay:11.95s;">м</span>
-            <span class="char-animate" style="animation-delay:12.0s;">е</span>
-            <span class="char-animate" style="animation-delay:12.05s;">т</span>
-            <span class="char-animate" style="animation-delay:12.1s;">ь</span>
-            <span class="char-animate" style="animation-delay:12.15s;">т</span>
-            <span class="char-animate" style="animation-delay:12.2s;">е</span>
-            <span class="char-animate" style="animation-delay:12.25s;"> </span>
-            <span class="char-animate" style="animation-delay:12.3s;">э</span>
-            <span class="char-animate" style="animation-delay:12.35s;">т</span>
-            <span class="char-animate" style="animation-delay:12.4s;">о</span>
-            <span class="char-animate" style="animation-delay:12.45s;"> </span>
-            <span class="char-animate" style="animation-delay:12.5s;">в</span>
-            <span class="char-animate" style="animation-delay:12.55s;"> </span>
-            <span class="char-animate" style="animation-delay:12.6s;">а</span>
-            <span class="char-animate" style="animation-delay:12.65s;">н</span>
-            <span class="char-animate" style="animation-delay:12.7s;">к</span>
-            <span class="char-animate" style="animation-delay:12.75s;">е</span>
-            <span class="char-animate" style="animation-delay:12.8s;">т</span>
-            <span class="char-animate" style="animation-delay:12.85s;">е</span>
-            <span class="char-animate" style="animation-delay:12.9s;">,</span>
-            <span class="char-animate" style="animation-delay:12.95s;"> </span>
-            <span class="char-animate" style="animation-delay:13.0s;">и</span>
-            <span class="char-animate" style="animation-delay:13.05s;"> </span>
-            <span class="char-animate" style="animation-delay:13.1s;">м</span>
-            <span class="char-animate" style="animation-delay:13.15s;">ы</span>
-            <span class="char-animate" style="animation-delay:13.2s;"> </span>
-            <span class="char-animate" style="animation-delay:13.25s;">с</span>
-            <span class="char-animate" style="animation-delay:13.3s;">в</span>
-            <span class="char-animate" style="animation-delay:13.35s;">я</span>
-            <span class="char-animate" style="animation-delay:13.4s;">ж</span>
-            <span class="char-animate" style="animation-delay:13.45s;">е</span>
-            <span class="char-animate" style="animation-delay:13.5s;">м</span>
-            <span class="char-animate" style="animation-delay:13.55s;">с</span>
-            <span class="char-animate" style="animation-delay:13.6s;">я</span>
-            <span class="char-animate" style="animation-delay:13.65s;"> </span>
-            <span class="char-animate" style="animation-delay:13.7s;">с</span>
-            <span class="char-animate" style="animation-delay:13.75s;"> </span>
-            <span class="char-animate" style="animation-delay:13.8s;">в</span>
-            <span class="char-animate" style="animation-delay:13.85s;">а</span>
-            <span class="char-animate" style="animation-delay:13.9s;">м</span>
-            <span class="char-animate" style="animation-delay:13.95s;">и</span>
-            <span class="char-animate" style="animation-delay:14.0s;"> </span>
-            <span class="char-animate" style="animation-delay:14.05s;">д</span>
-            <span class="char-animate" style="animation-delay:14.1s;">л</span>
-            <span class="char-animate" style="animation-delay:14.15s;">я</span>
-            <span class="char-animate" style="animation-delay:14.2s;"> </span>
-            <span class="char-animate" style="animation-delay:14.25s;">у</span>
-            <span class="char-animate" style="animation-delay:14.3s;">т</span>
-            <span class="char-animate" style="animation-delay:14.35s;">о</span>
-            <span class="char-animate" style="animation-delay:14.4s;">ч</span>
-            <span class="char-animate" style="animation-delay:14.45s;">н</span>
-            <span class="char-animate" style="animation-delay:14.5s;">е</span>
-            <span class="char-animate" style="animation-delay:14.55s;">н</span>
-            <span class="char-animate" style="animation-delay:14.6s;">и</span>
-            <span class="char-animate" style="animation-delay:14.65s;">я</span>
-            <span class="char-animate" style="animation-delay:14.7s;"> </span>
-            <span class="char-animate" style="animation-delay:14.75s;">д</span>
-            <span class="char-animate" style="animation-delay:14.8s;">е</span>
-            <span class="char-animate" style="animation-delay:14.85s;">т</span>
-            <span class="char-animate" style="animation-delay:14.9s;">а</span>
-            <span class="char-animate" style="animation-delay:14.95s;">л</span>
-            <span class="char-animate" style="animation-delay:15.0s;">е</span>
-            <span class="char-animate" style="animation-delay:15.05s;">й</span>
-            <span class="char-animate" style="animation-delay:15.1s;">.</span>
+            Мы организуем подвоз для гостей. Если вам нужен трансфер, отметьте это в анкете, и мы свяжемся с вами для уточнения деталей.
           </div>
         </div>
       </div>
 
-      <!-- CONTACTS - блок светлый -->
-      <div class="inv-contacts block-light fade-in-element">
+      <!-- КОНТАКТЫ -->
+      <div class="inv-contacts fade-in-element">
         <div class="contacts-header">
-          <span class="contacts-tag fade-in-element">[Контакты]</span>
-          <h2 class="contacts-title">
-            <span class="char-animate" style="animation-delay:0.1s;">С</span>
-            <span class="char-animate" style="animation-delay:0.15s;">В</span>
-            <span class="char-animate" style="animation-delay:0.2s;">Я</span>
-            <span class="char-animate" style="animation-delay:0.25s;">З</span>
-            <span class="char-animate" style="animation-delay:0.3s;">Ь</span>
-          </h2>
+          <span class="contacts-tag">[Контакты]</span>
+          <h2 class="contacts-title">СВЯЗЬ</h2>
         </div>
         <div class="contacts-list">
           <div class="contact-item">
-            <span class="contact-name">
-              <span class="char-animate" style="animation-delay:0.4s;">Д</span>
-              <span class="char-animate" style="animation-delay:0.45s;">и</span>
-              <span class="char-animate" style="animation-delay:0.5s;">а</span>
-              <span class="char-animate" style="animation-delay:0.55s;">н</span>
-              <span class="char-animate" style="animation-delay:0.6s;">а</span>
-            </span>
-            <span class="contact-phone">
-              <span class="char-animate" style="animation-delay:0.65s;">+</span>
-              <span class="char-animate" style="animation-delay:0.7s;">3</span>
-              <span class="char-animate" style="animation-delay:0.75s;">7</span>
-              <span class="char-animate" style="animation-delay:0.8s;">5</span>
-              <span class="char-animate" style="animation-delay:0.85s;"> </span>
-              <span class="char-animate" style="animation-delay:0.9s;">2</span>
-              <span class="char-animate" style="animation-delay:0.95s;">9</span>
-              <span class="char-animate" style="animation-delay:1.0s;"> </span>
-              <span class="char-animate" style="animation-delay:1.05s;">1</span>
-              <span class="char-animate" style="animation-delay:1.1s;">2</span>
-              <span class="char-animate" style="animation-delay:1.15s;">3</span>
-              <span class="char-animate" style="animation-delay:1.2s;">-</span>
-              <span class="char-animate" style="animation-delay:1.25s;">4</span>
-              <span class="char-animate" style="animation-delay:1.3s;">5</span>
-              <span class="char-animate" style="animation-delay:1.35s;">-</span>
-              <span class="char-animate" style="animation-delay:1.4s;">6</span>
-              <span class="char-animate" style="animation-delay:1.45s;">7</span>
-            </span>
-            <a href="https://t.me/diana_wedding" class="contact-link">Telegram: @diana_wedding</a>
+            <span class="contact-name">👰 Диана</span>
+            <span class="contact-phone">+375 29 123-45-67</span>
+            <a href="https://t.me/diana_wedding" class="contact-link">📱 Telegram: @diana_wedding</a>
           </div>
           <div class="contact-item">
-            <span class="contact-name">
-              <span class="char-animate" style="animation-delay:1.6s;">М</span>
-              <span class="char-animate" style="animation-delay:1.65s;">а</span>
-              <span class="char-animate" style="animation-delay:1.7s;">к</span>
-              <span class="char-animate" style="animation-delay:1.75s;">с</span>
-              <span class="char-animate" style="animation-delay:1.8s;">и</span>
-              <span class="char-animate" style="animation-delay:1.85s;">м</span>
-            </span>
-            <span class="contact-phone">
-              <span class="char-animate" style="animation-delay:1.9s;">+</span>
-              <span class="char-animate" style="animation-delay:1.95s;">3</span>
-              <span class="char-animate" style="animation-delay:2.0s;">7</span>
-              <span class="char-animate" style="animation-delay:2.05s;">5</span>
-              <span class="char-animate" style="animation-delay:2.1s;"> </span>
-              <span class="char-animate" style="animation-delay:2.15s;">2</span>
-              <span class="char-animate" style="animation-delay:2.2s;">9</span>
-              <span class="char-animate" style="animation-delay:2.25s;"> </span>
-              <span class="char-animate" style="animation-delay:2.3s;">7</span>
-              <span class="char-animate" style="animation-delay:2.35s;">6</span>
-              <span class="char-animate" style="animation-delay:2.4s;">5</span>
-              <span class="char-animate" style="animation-delay:2.45s;">-</span>
-              <span class="char-animate" style="animation-delay:2.5s;">4</span>
-              <span class="char-animate" style="animation-delay:2.55s;">3</span>
-              <span class="char-animate" style="animation-delay:2.6s;">-</span>
-              <span class="char-animate" style="animation-delay:2.65s;">2</span>
-              <span class="char-animate" style="animation-delay:2.7s;">1</span>
-            </span>
-            <a href="https://t.me/maxim_wedding" class="contact-link">Telegram: @maxim_wedding</a>
+            <span class="contact-name">🤵 Максим</span>
+            <span class="contact-phone">+375 29 765-43-21</span>
+            <a href="https://t.me/maxim_wedding" class="contact-link">📱 Telegram: @maxim_wedding</a>
           </div>
         </div>
       </div>
 
-      <!-- COUNTDOWN - блок тёмный -->
       <div class="countdown-section fade-in-element">
-        <div class="countdown-title">
-          <span class="char-animate" style="animation-delay:0.1s;">Д</span>
-          <span class="char-animate" style="animation-delay:0.15s;">о</span>
-          <span class="char-animate" style="animation-delay:0.2s;"> </span>
-          <span class="char-animate" style="animation-delay:0.25s;">с</span>
-          <span class="char-animate" style="animation-delay:0.3s;">в</span>
-          <span class="char-animate" style="animation-delay:0.35s;">а</span>
-          <span class="char-animate" style="animation-delay:0.4s;">д</span>
-          <span class="char-animate" style="animation-delay:0.45s;">ь</span>
-          <span class="char-animate" style="animation-delay:0.5s;">б</span>
-          <span class="char-animate" style="animation-delay:0.55s;">ы</span>
-          <span class="char-animate" style="animation-delay:0.6s;"> </span>
-          <span class="char-animate" style="animation-delay:0.65s;">о</span>
-          <span class="char-animate" style="animation-delay:0.7s;">с</span>
-          <span class="char-animate" style="animation-delay:0.75s;">т</span>
-          <span class="char-animate" style="animation-delay:0.8s;">а</span>
-          <span class="char-animate" style="animation-delay:0.85s;">л</span>
-          <span class="char-animate" style="animation-delay:0.9s;">о</span>
-          <span class="char-animate" style="animation-delay:0.95s;">с</span>
-          <span class="char-animate" style="animation-delay:1.0s;">ь</span>
-        </div>
+        <div class="countdown-title">До свадьбы осталось</div>
         <div class="countdown-row" id="countdownRow">
           <div class="countdown-item">
             <span class="countdown-number" id="days">00</span>
@@ -2348,19 +1118,19 @@
       let isDragging = false;
       let startX = 0, currentX = 0, maxSlide = 0;
       let isCallAccepted = false;
-      let musicStarted = false;
 
-      function startMusic() {
-        if (ringtone && !musicStarted) {
-          ringtone.play().catch(e => {
-            console.log('Autoplay prevented, waiting for user interaction');
-          });
-          musicStarted = true;
-        }
+      // Воспроизведение музыки при загрузке
+      if (ringtone) {
+        document.addEventListener('touchstart', function playOnFirstTouch() {
+          ringtone.play().catch(e => console.log('Autoplay prevented, waiting for user interaction'));
+          document.removeEventListener('touchstart', playOnFirstTouch);
+        }, { once: true });
+        
+        document.addEventListener('click', function playOnFirstClick() {
+          ringtone.play().catch(e => console.log('Autoplay prevented, waiting for user interaction'));
+          document.removeEventListener('click', playOnFirstClick);
+        }, { once: true });
       }
-
-      document.addEventListener('touchstart', startMusic, { once: true });
-      document.addEventListener('click', startMusic, { once: true });
 
       function updateMaxSlide() {
         if (track && btn) maxSlide = track.offsetWidth - btn.offsetWidth - 12;
@@ -2402,7 +1172,10 @@
       function acceptCall() {
         if (isCallAccepted) return;
         isCallAccepted = true;
-        
+        if (ringtone) {
+          ringtone.pause();
+          ringtone.currentTime = 0;
+        }
         setTimeout(() => {
           if (callScreen) {
             callScreen.style.opacity = '0';
@@ -2453,6 +1226,7 @@
         invScreen.addEventListener('scroll', handleScrollAnimation, { passive: true });
       }
 
+      // Таймер обратного отсчёта
       function startCountdown() {
         const weddingDate = new Date('2026-10-03T14:00:00');
         function updateTimer() {
