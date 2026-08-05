@@ -181,7 +181,7 @@
       transform: translateY(0);
     }
 
-    /* Анимация появления при прокрутке - улучшенная */
+    /* Анимация появления при прокрутке */
     .fade-in-element {
       opacity: 0;
       transform: translateY(40px);
@@ -191,26 +191,8 @@
       opacity: 1;
       transform: translateY(0);
     }
-    
-    /* Анимация для элементов с задержкой */
-    .fade-in-delay-1 { transition-delay: 0.1s; }
-    .fade-in-delay-2 { transition-delay: 0.2s; }
-    .fade-in-delay-3 { transition-delay: 0.3s; }
-    .fade-in-delay-4 { transition-delay: 0.4s; }
-    .fade-in-delay-5 { transition-delay: 0.5s; }
-    .fade-in-delay-6 { transition-delay: 0.6s; }
 
-    .fade-in-image {
-      opacity: 0;
-      transform: scale(1.05);
-      transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .fade-in-image.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* Анимация для текста - плавное появление букв */
+    /* Анимация для букв */
     .char-animate {
       opacity: 0;
       transform: translateY(20px);
@@ -274,16 +256,25 @@
       display: inline-block;
     }
 
+    /* Блоки с чередованием */
+    .block-dark {
+      background-color: #1a2a1a;
+      border-top: 1px solid #3a5a3a;
+      border-bottom: 1px solid #3a5a3a;
+    }
+    .block-light {
+      background-color: #162016;
+      border-top: 1px solid #3a5a3a;
+      border-bottom: 1px solid #3a5a3a;
+    }
+
     /* Приглашение */
     .inv-details {
       padding: 80px 30px;
-      background-color: #1e3020;
       color: #e8e0d6;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-top: 1px solid #3a5a3a;
-      border-bottom: 1px solid #3a5a3a;
     }
     .invite-tag {
       font-family: 'Cormorant Garamond', serif;
@@ -375,8 +366,17 @@
       color: #e8e0d6;
       font-weight: 700;
       position: relative;
-      border: 1.5px solid #8aaa8a;
-      border-radius: 50%;
+      font-size: 22px;
+    }
+    .wedding-day::after {
+      content: '♥';
+      position: absolute;
+      font-size: 20px;
+      color: #8aaa8a;
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.7;
     }
     .divider {
       width: 40px;
@@ -387,13 +387,11 @@
 
     /* Локация */
     .inv-location {
-      background-color: #162016;
-      color: #e8e0d6;
       padding: 80px 30px;
+      color: #e8e0d6;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-bottom: 1px solid #3a5a3a;
     }
     .location-header {
       width: 100%;
@@ -465,13 +463,11 @@
 
     /* Дресс-код */
     .inv-dresscode {
-      background-color: #1e3020;
-      color: #e8e0d6;
       padding: 80px 30px;
+      color: #e8e0d6;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-bottom: 1px solid #3a5a3a;
       text-align: center;
     }
     .dresscode-header {
@@ -516,13 +512,11 @@
 
     /* Тайминг */
     .inv-timing {
-      background-color: #162016;
-      color: #e8e0d6;
       padding: 80px 30px;
+      color: #e8e0d6;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-bottom: 1px solid #3a5a3a;
     }
     .timing-header {
       width: 100%;
@@ -586,13 +580,11 @@
 
     /* Пожелание */
     .inv-wish {
-      background-color: #1e3020;
-      color: #e8e0d6;
       padding: 60px 30px 80px;
+      color: #e8e0d6;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-bottom: 1px solid #3a5a3a;
       text-align: center;
     }
     .wish-text {
@@ -609,19 +601,18 @@
     .wish-icon {
       font-size: 40px;
       margin-bottom: 20px;
-      opacity: 0.4;
+      opacity: 0.5;
       font-family: 'Cormorant Garamond', serif;
+      color: #8aaa8a;
     }
 
     /* ----- АНКЕТА ГОСТЯ ----- */
     .inv-form {
-      background-color: #162016;
-      color: #e8e0d6;
       padding: 80px 25px;
+      color: #e8e0d6;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-bottom: 1px solid #3a5a3a;
     }
     .form-header {
       width: 100%;
@@ -700,32 +691,6 @@
     .form-input::placeholder {
       color: #5a7a5a;
     }
-    .form-select {
-      width: 100%;
-      padding: 14px 16px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      border: 1px solid #3a5a3a;
-      background: #0f1a0f;
-      outline: none;
-      transition: border 0.2s;
-      color: #e8e0d6;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238aaa8a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      background-size: 12px;
-      border-radius: 2px;
-    }
-    .form-select:focus {
-      border-color: #5a8a5a;
-    }
-    .form-select option {
-      background: #1a2a1a;
-      color: #e8e0d6;
-    }
     .radio-group {
       display: flex;
       flex-direction: column;
@@ -748,28 +713,6 @@
       accent-color: #4a7a4a;
       margin: 0;
       flex-shrink: 0;
-    }
-    .form-textarea {
-      width: 100%;
-      padding: 14px 16px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      border: 1px solid #3a5a3a;
-      background: #0f1a0f;
-      resize: vertical;
-      min-height: 80px;
-      outline: none;
-      color: #e8e0d6;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      border-radius: 2px;
-    }
-    .form-textarea:focus {
-      border-color: #5a8a5a;
-    }
-    .form-textarea::placeholder {
-      color: #5a7a5a;
     }
     .form-submit {
       width: 100%;
@@ -797,13 +740,11 @@
 
     /* ----- ИНФО БЛОК (паспорт + подвоз) ----- */
     .inv-info {
-      background-color: #1e3020;
-      color: #e8e0d6;
       padding: 60px 30px 80px;
+      color: #e8e0d6;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-bottom: 1px solid #3a5a3a;
       text-align: center;
     }
     .info-title {
@@ -850,13 +791,11 @@
 
     /* ----- КОНТАКТЫ ----- */
     .inv-contacts {
-      background-color: #162016;
-      color: #e8e0d6;
       padding: 60px 30px 80px;
+      color: #e8e0d6;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-bottom: 1px solid #3a5a3a;
     }
     .contacts-header {
       width: 100%;
@@ -932,11 +871,11 @@
 
     /* ----- ТАЙМЕР ----- */
     .countdown-section {
-      background-color: #1a2a1a;
       padding: 60px 20px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-color: #1a2a1a;
     }
     .countdown-title {
       font-family: 'Cormorant Garamond', serif;
@@ -1006,7 +945,7 @@
       .form-label {
         font-size: 18px;
       }
-      .form-input, .form-select, .form-textarea {
+      .form-input {
         font-size: 18px;
         padding: 12px 14px;
       }
@@ -1139,8 +1078,8 @@
         </div>
       </div>
 
-      <!-- INVITATION -->
-      <div class="inv-details fade-in-element">
+      <!-- INVITATION - блок тёмный -->
+      <div class="inv-details block-dark fade-in-element">
         <span class="invite-tag fade-in-element">[Детали]</span>
         <h2 class="invite-title">
           <span class="char-animate" style="animation-delay:0.1s;">I</span>
@@ -1298,8 +1237,8 @@
         <div class="divider"></div>
       </div>
 
-      <!-- LOCATION -->
-      <div class="inv-location fade-in-element">
+      <!-- LOCATION - блок светлый -->
+      <div class="inv-location block-light fade-in-element">
         <div class="location-header">
           <span class="location-tag fade-in-element">[Место]</span>
           <h2 class="location-title">
@@ -1455,8 +1394,8 @@
         </div>
       </div>
 
-      <!-- DRESS CODE -->
-      <div class="inv-dresscode fade-in-element">
+      <!-- DRESS CODE - блок тёмный -->
+      <div class="inv-dresscode block-dark fade-in-element">
         <div class="dresscode-header">
           <span class="dresscode-tag fade-in-element">[Дресс-код]</span>
           <h2 class="dresscode-title">
@@ -1585,8 +1524,8 @@
         </p>
       </div>
 
-      <!-- TIMING -->
-      <div class="inv-timing fade-in-element">
+      <!-- TIMING - блок светлый -->
+      <div class="inv-timing block-light fade-in-element">
         <div class="timing-header">
           <span class="timing-tag fade-in-element">[Расписание]</span>
           <h2 class="timing-title">
@@ -1620,8 +1559,8 @@
         </div>
       </div>
 
-      <!-- WISH -->
-      <div class="inv-wish fade-in-element">
+      <!-- WISH - блок тёмный -->
+      <div class="inv-wish block-dark fade-in-element">
         <div class="wish-icon">♥</div>
         <p class="wish-text">
           <span class="char-animate" style="animation-delay:0.1s;">С</span>
@@ -1781,8 +1720,8 @@
         </p>
       </div>
 
-      <!-- FORM -->
-      <div class="inv-form fade-in-element">
+      <!-- FORM - блок светлый -->
+      <div class="inv-form block-light fade-in-element">
         <div class="form-header">
           <span class="form-tag fade-in-element">[Анкета гостя]</span>
           <h2 class="form-title">
@@ -1909,41 +1848,6 @@
         <div class="form-group">
           <label class="form-label">
             <span class="char-animate" style="animation-delay:0.1s;">П</span>
-            <span class="char-animate" style="animation-delay:0.15s;">р</span>
-            <span class="char-animate" style="animation-delay:0.2s;">е</span>
-            <span class="char-animate" style="animation-delay:0.25s;">д</span>
-            <span class="char-animate" style="animation-delay:0.3s;">п</span>
-            <span class="char-animate" style="animation-delay:0.35s;">о</span>
-            <span class="char-animate" style="animation-delay:0.4s;">ч</span>
-            <span class="char-animate" style="animation-delay:0.45s;">т</span>
-            <span class="char-animate" style="animation-delay:0.5s;">е</span>
-            <span class="char-animate" style="animation-delay:0.55s;">н</span>
-            <span class="char-animate" style="animation-delay:0.6s;">и</span>
-            <span class="char-animate" style="animation-delay:0.65s;">я</span>
-            <span class="char-animate" style="animation-delay:0.7s;"> </span>
-            <span class="char-animate" style="animation-delay:0.75s;">п</span>
-            <span class="char-animate" style="animation-delay:0.8s;">о</span>
-            <span class="char-animate" style="animation-delay:0.85s;"> </span>
-            <span class="char-animate" style="animation-delay:0.9s;">н</span>
-            <span class="char-animate" style="animation-delay:0.95s;">а</span>
-            <span class="char-animate" style="animation-delay:1.0s;">п</span>
-            <span class="char-animate" style="animation-delay:1.05s;">и</span>
-            <span class="char-animate" style="animation-delay:1.1s;">т</span>
-            <span class="char-animate" style="animation-delay:1.15s;">к</span>
-            <span class="char-animate" style="animation-delay:1.2s;">а</span>
-            <span class="char-animate" style="animation-delay:1.25s;">м</span>
-          </label>
-          <select class="form-select" name="drink">
-            <option value="wine">Вино</option>
-            <option value="champagne">Шампанское</option>
-            <option value="soft">Безалкогольное</option>
-            <option value="no">Не употребляю</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">
-            <span class="char-animate" style="animation-delay:0.1s;">П</span>
             <span class="char-animate" style="animation-delay:0.15s;">е</span>
             <span class="char-animate" style="animation-delay:0.2s;">с</span>
             <span class="char-animate" style="animation-delay:0.25s;">н</span>
@@ -1996,8 +1900,8 @@
         <button class="form-submit">Отправить</button>
       </div>
 
-      <!-- INFO -->
-      <div class="inv-info fade-in-element">
+      <!-- INFO - блок тёмный -->
+      <div class="inv-info block-dark fade-in-element">
         <h2 class="info-title">
           <span class="char-animate" style="animation-delay:0.1s;">В</span>
           <span class="char-animate" style="animation-delay:0.15s;">а</span>
@@ -2310,8 +2214,8 @@
         </div>
       </div>
 
-      <!-- CONTACTS -->
-      <div class="inv-contacts fade-in-element">
+      <!-- CONTACTS - блок светлый -->
+      <div class="inv-contacts block-light fade-in-element">
         <div class="contacts-header">
           <span class="contacts-tag fade-in-element">[Контакты]</span>
           <h2 class="contacts-title">
@@ -2385,7 +2289,7 @@
         </div>
       </div>
 
-      <!-- COUNTDOWN -->
+      <!-- COUNTDOWN - блок тёмный -->
       <div class="countdown-section fade-in-element">
         <div class="countdown-title">
           <span class="char-animate" style="animation-delay:0.1s;">Д</span>
