@@ -6,7 +6,7 @@
   <meta name="format-detection" content="telephone=no">
   <title>Максим и Диана | Приглашение на свадьбу</title>
 
-  <!-- Open Graph для превью при отправке -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Максим и Диана | Приглашение на свадьбу" />
   <meta property="og:description" content="Приглашаем вас на нашу свадьбу! 03.10.2026, агроусадьба «Тихий Край», Брестская область." />
   <meta property="og:image" content="https://wedding-love.github.io/maksim-diana-03.10.2026/IMG_7327.JPG" />
@@ -16,7 +16,6 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Максим и Диана | Свадьба" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Максим и Диана | Приглашение на свадьбу" />
   <meta name="twitter:description" content="Приглашаем вас на нашу свадьбу! 03.10.2026, агроусадьба «Тихий Край»." />
@@ -24,7 +23,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -80,20 +79,18 @@
       color: #fff;
     }
     .caller-subtitle {
-      font-size: 18px;
+      font-size: clamp(14px, 4vw, 18px);
       letter-spacing: 2px;
       margin-bottom: 8px;
       opacity: 0.85;
       font-weight: 400;
       text-transform: uppercase;
-      font-family: 'Cormorant Garamond', serif;
       animation: fadeInDown 1s ease forwards;
     }
     .caller-name {
-      font-size: 34px;
+      font-size: clamp(26px, 8vw, 34px);
       font-weight: 600;
       letter-spacing: 4px;
-      font-family: 'Cormorant Garamond', serif;
       animation: fadeInDown 1s ease 0.2s forwards;
       opacity: 0;
     }
@@ -127,12 +124,11 @@
       position: absolute;
       width: 100%;
       text-align: center;
-      font-size: 18px;
+      font-size: clamp(14px, 4vw, 18px);
       font-weight: 500;
       letter-spacing: 3px;
       color: rgba(255, 255, 255, 0.9);
       text-transform: uppercase;
-      font-family: 'Cormorant Garamond', serif;
     }
     .slider-button {
       position: absolute;
@@ -182,7 +178,6 @@
       transform: translateY(0);
     }
 
-    /* Анимация появления при прокрутке */
     .fade-in-element {
       opacity: 0;
       transform: translateY(30px);
@@ -208,16 +203,14 @@
       flex-shrink: 0;
     }
     .hero-names {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
+      font-size: clamp(28px, 8vw, 36px);
       text-align: center;
       letter-spacing: 6px;
       text-transform: uppercase;
       font-weight: 600;
     }
     .hero-date {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(16px, 4.5vw, 20px);
       text-align: center;
       letter-spacing: 8px;
       opacity: 0.9;
@@ -229,15 +222,13 @@
       align-self: flex-end;
       text-align: right;
       max-width: 260px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(16px, 4vw, 18px);
       line-height: 1.6;
       opacity: 0.85;
-      font-weight: 400;
       font-style: italic;
     }
 
-    /* Общие стили для блоков */
+    /* Блоки */
     .block-dark {
       background-color: #1e3020;
       color: #e8e0d6;
@@ -381,7 +372,6 @@
       border-bottom-color: #8aaa8a;
     }
 
-    /* Блоки */
     .inv-details,
     .inv-location,
     .inv-timing,
@@ -390,7 +380,7 @@
     .inv-info,
     .inv-contacts,
     .countdown-section {
-      padding: 80px 30px;
+      padding: clamp(40px, 12vw, 80px) clamp(16px, 5vw, 30px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -400,32 +390,29 @@
       border-bottom-color: #8aaa8a;
     }
     .block-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
+      font-size: clamp(14px, 3.5vw, 16px);
       text-align: right;
       width: 100%;
       max-width: 320px;
-      margin-bottom: -8px;
+      margin-bottom: -4px;
       letter-spacing: 3px;
       font-weight: 600;
       text-transform: uppercase;
     }
     .block-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
+      font-size: clamp(36px, 12vw, 64px);
       line-height: 0.9;
       letter-spacing: 0px;
       text-transform: uppercase;
       font-weight: 700;
       width: 100%;
       max-width: 320px;
-      margin-bottom: 25px;
+      margin-bottom: clamp(16px, 4vw, 25px);
     }
     .block-desc {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(18px, 4.5vw, 20px);
       line-height: 1.6;
-      margin-bottom: 45px;
+      margin-bottom: clamp(30px, 8vw, 45px);
       text-align: left;
       width: 100%;
       max-width: 320px;
@@ -439,30 +426,27 @@
       max-width: 320px;
     }
     .calendar-month {
-      font-family: 'Cormorant Garamond', serif;
-      text-transform: uppercase;
+      font-size: clamp(16px, 4vw, 20px);
       letter-spacing: 6px;
-      font-size: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       font-weight: 700;
       text-align: center;
+      text-transform: uppercase;
     }
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 14px 5px;
+      gap: clamp(8px, 2vw, 14px) clamp(3px, 1vw, 5px);
       text-align: center;
     }
     .day-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
+      font-size: clamp(11px, 2.8vw, 13px);
       font-weight: 700;
       margin-bottom: 6px;
     }
     .day {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      height: 32px;
+      font-size: clamp(15px, 4vw, 18px);
+      height: clamp(26px, 7vw, 32px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -472,9 +456,8 @@
       border: 2px solid #4a7a4a;
       border-radius: 50%;
       background: transparent;
-      position: relative;
-      width: 32px;
-      height: 32px;
+      width: clamp(26px, 7vw, 32px);
+      height: clamp(26px, 7vw, 32px);
     }
     .heart-with-number {
       display: flex;
@@ -494,7 +477,7 @@
     .heart-with-number text {
       fill: #4a7a4a;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 14px;
+      font-size: clamp(11px, 3vw, 14px);
       font-weight: 700;
       text-anchor: middle;
       dominant-baseline: central;
@@ -502,7 +485,7 @@
     .divider {
       width: 40px;
       height: 1px;
-      margin-top: 50px;
+      margin-top: 40px;
     }
 
     /* Локация */
@@ -512,24 +495,21 @@
       text-align: left;
     }
     .venue-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 5vw, 24px);
       font-weight: 700;
-      font-size: 24px;
       margin-bottom: 8px;
       letter-spacing: 1px;
     }
     .venue-address {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(16px, 4vw, 18px);
       line-height: 1.5;
       font-style: italic;
     }
     .map-button {
       display: inline-block;
       margin-top: 20px;
-      padding: 12px 28px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      padding: clamp(10px, 2.5vw, 12px) clamp(20px, 5vw, 28px);
+      font-size: clamp(16px, 4vw, 20px);
       font-weight: 700;
       letter-spacing: 2px;
       border-radius: 2px;
@@ -537,6 +517,7 @@
       border: none;
       cursor: pointer;
       text-decoration: none;
+      text-align: center;
     }
     .map-button:hover {
       background: #3a7a3a;
@@ -548,33 +529,31 @@
       max-width: 320px;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: clamp(20px, 5vw, 30px);
     }
     .time-item {
       display: flex;
       align-items: baseline;
       border-bottom: 1px dashed;
       padding-bottom: 10px;
+      flex-wrap: wrap;
     }
     .time-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-size: clamp(20px, 5vw, 26px);
       font-weight: 700;
-      min-width: 85px;
+      min-width: 70px;
       letter-spacing: 1px;
     }
     .time-desc {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(16px, 4vw, 20px);
       font-weight: 500;
-      margin-left: 15px;
+      margin-left: 10px;
       font-style: italic;
     }
 
     /* Пожелание */
     .wish-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+      font-size: clamp(18px, 4.5vw, 22px);
       line-height: 1.8;
       max-width: 340px;
       font-style: italic;
@@ -585,11 +564,10 @@
     .form-header {
       width: 100%;
       max-width: 340px;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
     .form-deadline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(15px, 3.8vw, 18px);
       font-style: italic;
       margin-top: 10px;
       text-align: left;
@@ -597,29 +575,24 @@
     .form-group {
       width: 100%;
       max-width: 340px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
     .form-label {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(18px, 4.5vw, 20px);
       font-weight: 600;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       letter-spacing: 0.5px;
       font-style: italic;
     }
     .form-input {
       width: 100%;
-      padding: 14px 16px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      padding: clamp(12px, 3vw, 14px) clamp(14px, 3.5vw, 16px);
+      font-size: clamp(18px, 4.5vw, 20px);
       border: 1px solid;
       outline: none;
       transition: border 0.2s;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
       border-radius: 2px;
+      -webkit-appearance: none;
     }
     .form-input:focus {
       border-color: #5a8a5a;
@@ -627,15 +600,14 @@
     .radio-group-vertical {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       margin-top: 5px;
     }
     .radio-option {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(18px, 4.5vw, 20px);
       cursor: pointer;
       font-weight: 500;
     }
@@ -649,19 +621,15 @@
     .form-submit {
       width: 100%;
       max-width: 340px;
-      padding: 16px;
-      border: none;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+      padding: clamp(14px, 3.5vw, 16px);
+      font-size: clamp(18px, 4.5vw, 22px);
       font-weight: 700;
       letter-spacing: 3px;
+      border: none;
       cursor: pointer;
       transition: background 0.25s;
       margin-top: 20px;
       text-transform: uppercase;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
       border-radius: 2px;
     }
     .form-submit:hover {
@@ -674,23 +642,21 @@
       max-width: 320px;
     }
     .info-item {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       text-align: left;
     }
     .info-item:last-child {
       margin-bottom: 0;
     }
     .info-item-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(18px, 4.5vw, 20px);
       font-weight: 700;
       margin-bottom: 6px;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
     .info-item-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(16px, 4vw, 18px);
       line-height: 1.6;
       font-style: italic;
     }
@@ -701,7 +667,7 @@
       max-width: 340px;
       display: flex;
       flex-wrap: wrap;
-      gap: 30px 20px;
+      gap: 20px 15px;
     }
     .contact-item {
       flex: 1 1 calc(50% - 10px);
@@ -710,22 +676,21 @@
       gap: 4px;
       padding-bottom: 0;
       border-bottom: none;
+      min-width: 120px;
     }
     .contact-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(18px, 4.5vw, 20px);
       font-weight: 700;
     }
     .contact-phone {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      color: inherit; /* чтобы не было синего */
+      font-size: clamp(15px, 3.8vw, 18px);
+      color: inherit;
     }
     .contact-link {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
+      font-size: clamp(14px, 3.5vw, 16px);
       text-decoration: none;
       color: inherit;
+      word-break: break-all;
     }
     .contact-link:hover {
       color: #aacaaa;
@@ -733,10 +698,9 @@
 
     /* Таймер */
     .countdown-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-size: clamp(20px, 5.5vw, 26px);
       font-weight: 700;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       letter-spacing: 2px;
       text-align: center;
     }
@@ -744,8 +708,8 @@
       display: flex;
       align-items: baseline;
       justify-content: center;
-      gap: 8px;
-      flex-wrap: nowrap;
+      gap: clamp(4px, 1.5vw, 8px);
+      flex-wrap: wrap;
       white-space: nowrap;
     }
     .countdown-item {
@@ -754,63 +718,181 @@
       gap: 4px;
     }
     .countdown-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 52px;
+      font-size: clamp(32px, 10vw, 52px);
       font-weight: 700;
       line-height: 1;
     }
     .countdown-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(14px, 3.5vw, 18px);
       font-weight: 600;
       font-style: italic;
     }
     .countdown-separator {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
+      font-size: clamp(24px, 6vw, 40px);
       font-weight: 300;
       opacity: 0.6;
       margin: 0 2px;
       line-height: 1;
     }
 
-    @media (max-width: 400px) {
-      .block-title {
-        font-size: 54px;
-      }
-      .countdown-number {
-        font-size: 42px;
-      }
-      .countdown-separator {
-        font-size: 32px;
-      }
-      .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-form, .inv-info, .inv-contacts, .countdown-section {
-        padding: 60px 20px;
-      }
-      .form-title {
-        font-size: 48px;
-      }
-      .form-label {
-        font-size: 18px;
-      }
-      .form-input {
-        font-size: 18px;
-        padding: 12px 14px;
-      }
-      .radio-option {
-        font-size: 18px;
-        gap: 8px;
+    /* Адаптивность для узких экранов */
+    @media (max-width: 380px) {
+      .inv-hero {
+        padding: 60px 20px 40px;
       }
       .hero-names {
-        font-size: 28px;
+        font-size: 24px;
         letter-spacing: 4px;
+      }
+      .hero-date {
+        font-size: 14px;
+        letter-spacing: 6px;
+      }
+      .love-text {
+        font-size: 14px;
+        max-width: 200px;
+      }
+      .block-title {
+        font-size: 30px;
+      }
+      .block-tag {
+        font-size: 12px;
+      }
+      .block-desc {
+        font-size: 16px;
+        padding-left: 14px;
+      }
+      .time-value {
+        font-size: 18px;
+        min-width: 60px;
+      }
+      .time-desc {
+        font-size: 15px;
+        margin-left: 6px;
+      }
+      .calendar-grid {
+        gap: 6px 2px;
+      }
+      .day {
+        font-size: 13px;
+        height: 22px;
+      }
+      .wedding-day {
+        width: 22px;
+        height: 22px;
+      }
+      .heart-with-number svg {
+        stroke-width: 1.5;
+      }
+      .heart-with-number text {
+        font-size: 10px;
+      }
+      .countdown-number {
+        font-size: 28px;
+      }
+      .countdown-separator {
+        font-size: 20px;
+      }
+      .countdown-label {
+        font-size: 12px;
+      }
+      .map-button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+      .form-input {
+        font-size: 16px;
+        padding: 10px 12px;
+      }
+      .form-label {
+        font-size: 16px;
+      }
+      .radio-option {
+        font-size: 16px;
+      }
+      .form-submit {
+        font-size: 16px;
+        padding: 12px;
+      }
+      .contact-name {
+        font-size: 16px;
+      }
+      .contact-phone {
+        font-size: 14px;
+      }
+      .contact-link {
+        font-size: 13px;
+      }
+      .info-item-title {
+        font-size: 16px;
+      }
+      .info-item-text {
+        font-size: 15px;
+      }
+      .slider-track {
+        height: 60px;
+      }
+      .slider-button {
+        width: 50px;
+        height: 50px;
+        left: 5px;
+      }
+      .phone-icon {
+        width: 24px;
+        height: 24px;
+      }
+      .slider-text {
+        font-size: 14px;
+      }
+      .caller-name {
+        font-size: 24px;
+      }
+      .caller-subtitle {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 340px) {
+      .block-title {
+        font-size: 26px;
+      }
+      .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-form, .inv-info, .inv-contacts, .countdown-section {
+        padding: 30px 12px;
       }
       .contacts-list {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
       }
       .contact-item {
         flex: 1 1 auto;
+      }
+    }
+
+    /* Планшеты и маленькие ноутбуки */
+    @media (min-width: 431px) and (max-width: 768px) {
+      .app-container {
+        max-width: 100%;
+        height: 100vh;
+        height: 100dvh;
+      }
+      .block-title {
+        font-size: 56px;
+      }
+      .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-form, .inv-info, .inv-contacts, .countdown-section {
+        padding: 70px 40px;
+      }
+      .block-tag {
+        font-size: 18px;
+      }
+      .block-desc {
+        font-size: 22px;
+      }
+      .map-button {
+        font-size: 22px;
+        padding: 14px 32px;
+      }
+      .countdown-number {
+        font-size: 60px;
       }
     }
   </style>
@@ -1109,7 +1191,7 @@
         invScreen.addEventListener('scroll', handleScrollAnimation, { passive: true });
       }
 
-      // Таймер обратного отсчёта
+      // Таймер
       function startCountdown() {
         const weddingDate = new Date('2026-10-03T14:00:00');
         function updateTimer() {
