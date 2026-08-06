@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=yes">
+  <meta name="format-detection" content="telephone=no">
   <title>Максим и Диана | Приглашение на свадьбу</title>
 
   <!-- Open Graph для превью при отправке -->
@@ -15,7 +16,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Максим и Диана | Свадьба" />
 
-  <!-- Twitter Card - маленькое фото справа -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Максим и Диана | Приглашение на свадьбу" />
   <meta name="twitter:description" content="Приглашаем вас на нашу свадьбу! 03.10.2026, агроусадьба «Тихий Край»." />
@@ -242,38 +243,22 @@
       color: #e8e0d6;
     }
     .block-light {
-      background-color: #f5f0ea;
+      background-color: #ffffff;
       color: #1a2a1a;
     }
-    .block-dark .invite-tag,
-    .block-dark .location-tag,
-    .block-dark .timing-tag,
-    .block-dark .form-tag,
-    .block-dark .contacts-tag {
+    .block-dark .block-tag {
       color: #8aaa8a;
     }
-    .block-light .invite-tag,
-    .block-light .location-tag,
-    .block-light .timing-tag,
-    .block-light .form-tag,
-    .block-light .contacts-tag {
+    .block-light .block-tag {
       color: #4a6a4a;
     }
-    .block-dark .invite-title,
-    .block-dark .location-title,
-    .block-dark .timing-title,
-    .block-dark .form-title,
-    .block-dark .contacts-title {
+    .block-dark .block-title {
       color: #e8e0d6;
     }
-    .block-light .invite-title,
-    .block-light .location-title,
-    .block-light .timing-title,
-    .block-light .form-title,
-    .block-light .contacts-title {
+    .block-light .block-title {
       color: #1a2a1a;
     }
-    .block-dark .invite-desc,
+    .block-dark .block-desc,
     .block-dark .venue-address,
     .block-dark .time-desc,
     .block-dark .wish-text,
@@ -288,7 +273,7 @@
     .block-dark .day-name {
       color: #c8d0c0;
     }
-    .block-light .invite-desc,
+    .block-light .block-desc,
     .block-light .venue-address,
     .block-light .time-desc,
     .block-light .wish-text,
@@ -315,7 +300,7 @@
       color: #e8e0d6;
     }
     .block-light .form-input {
-      background: #fff;
+      background: #f5f5f5;
       border-color: #8aaa8a;
       color: #1a2a1a;
     }
@@ -331,7 +316,7 @@
     }
     .block-light .form-submit {
       background: #2a5a2a;
-      color: #f5f0ea;
+      color: #ffffff;
     }
     .block-dark .map-button {
       background: #2a5a2a;
@@ -339,7 +324,7 @@
     }
     .block-light .map-button {
       background: #2a5a2a;
-      color: #f5f0ea;
+      color: #ffffff;
     }
     .block-dark .contact-item {
       border-bottom-color: #3a5a3a;
@@ -352,12 +337,6 @@
     }
     .block-light .wedding-day {
       border-color: #4a7a4a;
-    }
-    .block-dark .wish-icon {
-      color: #8aaa8a;
-    }
-    .block-light .wish-icon {
-      color: #4a6a4a;
     }
     .block-dark .venue-name {
       color: #e8e0d6;
@@ -420,11 +399,7 @@
     .block-light {
       border-bottom-color: #8aaa8a;
     }
-    .inv-details .invite-tag,
-    .location-header .location-tag,
-    .timing-header .timing-tag,
-    .form-header .form-tag,
-    .contacts-header .contacts-tag {
+    .block-tag {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       text-align: right;
@@ -435,11 +410,7 @@
       font-weight: 600;
       text-transform: uppercase;
     }
-    .invite-title,
-    .location-title,
-    .timing-title,
-    .form-title,
-    .contacts-title {
+    .block-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 64px;
       line-height: 0.9;
@@ -450,7 +421,7 @@
       max-width: 320px;
       margin-bottom: 25px;
     }
-    .invite-desc {
+    .block-desc {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       line-height: 1.6;
@@ -500,22 +471,33 @@
     .wedding-day {
       border: 2px solid #4a7a4a;
       border-radius: 50%;
-      font-weight: 700;
       background: transparent;
       position: relative;
+      width: 32px;
+      height: 32px;
     }
-    .heart-icon {
-      display: inline-block;
-      width: 18px;
-      height: 16px;
-      margin-left: 2px;
+    .heart-with-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: relative;
     }
-    .heart-icon svg {
+    .heart-with-number svg {
       width: 100%;
       height: 100%;
       fill: none;
       stroke: #4a7a4a;
       stroke-width: 2;
+    }
+    .heart-with-number text {
+      fill: #4a7a4a;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-anchor: middle;
+      dominant-baseline: central;
     }
     .divider {
       width: 40px;
@@ -597,23 +579,6 @@
       max-width: 340px;
       font-style: italic;
       text-align: center;
-    }
-    .wish-icon {
-      font-size: 40px;
-      margin-bottom: 20px;
-      opacity: 0.6;
-      font-family: serif;
-    }
-    .wish-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-align: center;
-      width: 100%;
-      max-width: 320px;
     }
 
     /* Анкета */
@@ -704,16 +669,11 @@
     }
 
     /* Инфо */
-    .info-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 25px;
-      letter-spacing: 2px;
-      text-align: center;
+    .info-content {
+      width: 100%;
+      max-width: 320px;
     }
     .info-item {
-      max-width: 340px;
       margin-bottom: 25px;
       text-align: left;
     }
@@ -759,11 +719,13 @@
     .contact-phone {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
+      color: inherit; /* чтобы не было синего */
     }
     .contact-link {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       text-decoration: none;
+      color: inherit;
     }
     .contact-link:hover {
       color: #aacaaa;
@@ -813,7 +775,7 @@
     }
 
     @media (max-width: 400px) {
-      .location-title, .timing-title, .invite-title, .form-title, .contacts-title {
+      .block-title {
         font-size: 54px;
       }
       .countdown-number {
@@ -890,9 +852,9 @@
 
       <!-- Блок 1: Детали (тёмный) -->
       <div class="inv-details block-dark fade-in-element">
-        <span class="invite-tag">[Детали]</span>
-        <h2 class="invite-title">INVI<br>TATION</h2>
-        <p class="invite-desc">
+        <span class="block-tag">[Детали]</span>
+        <h2 class="block-title">INVITATION</h2>
+        <p class="block-desc">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </p>
         <div class="calendar-wrap">
@@ -901,10 +863,10 @@
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
             <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div>
             <div class="day wedding-day">
-              3
-              <span class="heart-icon">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              <span class="heart-with-number">
+                <svg viewBox="0 0 40 40">
+                  <path d="M20 36.4l-2.4-2.2C9.1 26.7 4 21.9 4 16.7 4 12 7.8 8 12.5 8c2.9 0 5.7 1.4 7.5 3.5C21.8 9.4 24.6 8 27.5 8 32.2 8 36 12 36 16.7c0 5.2-5.1 10-13.6 17.5L20 36.4z"/>
+                  <text x="20" y="21" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#4a7a4a">3</text>
                 </svg>
               </span>
             </div>
@@ -918,11 +880,11 @@
         <div class="divider"></div>
       </div>
 
-      <!-- Блок 2: Локация (светлый) -->
+      <!-- Блок 2: Локация (белый) -->
       <div class="inv-location block-light fade-in-element">
         <div class="location-header">
-          <span class="location-tag">[Место]</span>
-          <h2 class="location-title">LOCA<br>TION</h2>
+          <span class="block-tag">[Место]</span>
+          <h2 class="block-title">LOCATION</h2>
         </div>
         <div class="location-info">
           <p class="venue-name">Агроусадьба «Тихий Край»</p>
@@ -934,8 +896,8 @@
       <!-- Блок 3: Расписание (тёмный) -->
       <div class="inv-timing block-dark fade-in-element">
         <div class="timing-header">
-          <span class="timing-tag">[Расписание]</span>
-          <h2 class="timing-title">TIME<br>LINE</h2>
+          <span class="block-tag">[Расписание]</span>
+          <h2 class="block-title">TIMELINE</h2>
         </div>
         <div class="timeline-list">
           <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Приветственный фуршет</span></div>
@@ -945,10 +907,10 @@
         </div>
       </div>
 
-      <!-- Блок 4: Пожелание (светлый) -->
+      <!-- Блок 4: Пожелание (белый) -->
       <div class="inv-wish block-light fade-in-element">
-        <div class="wish-icon">♥</div>
-        <h2 class="wish-title">Пожелание</h2>
+        <span class="block-tag">[Пожелание]</span>
+        <h2 class="block-title">ПОЖЕЛАНИЕ</h2>
         <p class="wish-text">
           Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
         </p>
@@ -957,8 +919,8 @@
       <!-- Блок 5: Анкета гостя (тёмный) -->
       <div class="inv-form block-dark fade-in-element">
         <div class="form-header">
-          <span class="form-tag">[Анкета гостя]</span>
-          <h2 class="form-title">АНКЕТА<br>ГОСТЯ</h2>
+          <span class="block-tag">[Анкета гостя]</span>
+          <h2 class="block-title">АНКЕТА ГОСТЯ</h2>
           <p class="form-deadline">Пожалуйста, заполните до 15 сентября 2026</p>
         </div>
 
@@ -984,29 +946,30 @@
         <button class="form-submit">Отправить</button>
       </div>
 
-      <!-- Блок 6: Важная информация (светлый) -->
+      <!-- Блок 6: Важная информация (белый) -->
       <div class="inv-info block-light fade-in-element">
-        <h2 class="info-title">Важная информация</h2>
-        <div class="info-item">
-          <div class="info-item-title">Паспорт</div>
-          <div class="info-item-text">
-            Так как наша свадьба проходит в Брестской области, при проезде через пост вам понадобится паспорт. Пожалуйста, не забудьте взять его с собой.
+        <span class="block-tag">[Инфо]</span>
+        <h2 class="block-title">ИНФО</h2>
+        <div class="info-content">
+          <div class="info-item">
+            <div class="info-item-title">Паспорт</div>
+            <div class="info-item-text">
+              Так как наша свадьба проходит в Брестской области, при проезде через пост вам понадобится паспорт. Пожалуйста, не забудьте взять его с собой.
+            </div>
           </div>
-        </div>
-        <div class="info-item">
-          <div class="info-item-title">Трансфер</div>
-          <div class="info-item-text">
-            Мы организуем подвоз для гостей. Если вам нужен трансфер, отметьте это в анкете, и мы свяжемся с вами для уточнения деталей.
+          <div class="info-item">
+            <div class="info-item-title">Трансфер</div>
+            <div class="info-item-text">
+              Мы организуем подвоз для гостей. Если вам нужен трансфер, отметьте это в анкете, и мы свяжемся с вами для уточнения деталей.
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Блок 7: Контакты (тёмный) -->
       <div class="inv-contacts block-dark fade-in-element">
-        <div class="contacts-header">
-          <span class="contacts-tag">[Контакты]</span>
-          <h2 class="contacts-title">СВЯЗЬ</h2>
-        </div>
+        <span class="block-tag">[Контакты]</span>
+        <h2 class="block-title">СВЯЗЬ</h2>
         <div class="contacts-list">
           <div class="contact-item">
             <span class="contact-name">Диана</span>
@@ -1021,7 +984,7 @@
         </div>
       </div>
 
-      <!-- Блок 8: Таймер (светлый) -->
+      <!-- Блок 8: Таймер (белый) -->
       <div class="countdown-section block-light fade-in-element">
         <div class="countdown-title">До свадьбы осталось</div>
         <div class="countdown-row" id="countdownRow">
