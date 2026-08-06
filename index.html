@@ -228,7 +228,9 @@
       font-style: italic;
     }
 
-    /* Блоки */
+    /* ----------------------------------------------
+       Единый стиль для всех блоков с заголовками
+    ------------------------------------------------ */
     .block-dark {
       background-color: #1e3020;
       color: #e8e0d6;
@@ -237,145 +239,60 @@
       background-color: #ffffff;
       color: #1a2a1a;
     }
-    .block-dark .block-tag {
-      color: #8aaa8a;
-    }
-    .block-light .block-tag {
-      color: #4a6a4a;
-    }
-    .block-dark .block-title {
-      color: #e8e0d6;
-    }
-    .block-light .block-title {
-      color: #1a2a1a;
-    }
-    .block-dark .block-desc,
-    .block-dark .venue-address,
-    .block-dark .time-desc,
-    .block-dark .wish-text,
-    .block-dark .info-item-text,
-    .block-dark .contact-phone,
-    .block-dark .contact-link,
-    .block-dark .form-deadline,
-    .block-dark .form-label,
-    .block-dark .radio-option,
-    .block-dark .day,
-    .block-dark .calendar-month,
-    .block-dark .day-name {
-      color: #c8d0c0;
-    }
-    .block-light .block-desc,
-    .block-light .venue-address,
-    .block-light .time-desc,
-    .block-light .wish-text,
-    .block-light .info-item-text,
-    .block-light .contact-phone,
-    .block-light .contact-link,
-    .block-light .form-deadline,
-    .block-light .form-label,
-    .block-light .radio-option,
-    .block-light .day,
-    .block-light .calendar-month,
-    .block-light .day-name {
-      color: #2a3a2a;
-    }
-    .block-dark .divider {
-      background-color: #5a7a5a;
-    }
-    .block-light .divider {
-      background-color: #8aaa8a;
-    }
-    .block-dark .form-input {
-      background: #0f1a0f;
-      border-color: #3a5a3a;
-      color: #e8e0d6;
-    }
-    .block-light .form-input {
-      background: #f5f5f5;
-      border-color: #8aaa8a;
-      color: #1a2a1a;
-    }
-    .block-dark .form-input::placeholder {
-      color: #5a7a5a;
-    }
-    .block-light .form-input::placeholder {
-      color: #8aaa8a;
-    }
-    .block-dark .form-submit {
-      background: #2a5a2a;
-      color: #e8e0d6;
-    }
-    .block-light .form-submit {
-      background: #2a5a2a;
-      color: #ffffff;
-    }
-    .block-dark .map-button {
-      background: #2a5a2a;
-      color: #e8e0d6;
-    }
-    .block-light .map-button {
-      background: #2a5a2a;
-      color: #ffffff;
-    }
-    .block-dark .contact-item {
-      border-bottom-color: #3a5a3a;
-    }
-    .block-light .contact-item {
-      border-bottom-color: #8aaa8a;
-    }
-    .block-dark .wedding-day {
-      border-color: #4a7a4a;
-    }
-    .block-light .wedding-day {
-      border-color: #4a7a4a;
-    }
-    .block-dark .venue-name {
-      color: #e8e0d6;
-    }
-    .block-light .venue-name {
-      color: #1a2a1a;
-    }
-    .block-dark .time-value {
-      color: #e8e0d6;
-    }
-    .block-light .time-value {
-      color: #1a2a1a;
-    }
-    .block-dark .info-item-title {
-      color: #8aaa8a;
-    }
-    .block-light .info-item-title {
-      color: #4a6a4a;
-    }
-    .block-dark .countdown-number {
-      color: #e8e0d6;
-    }
-    .block-light .countdown-number {
-      color: #1a2a1a;
-    }
-    .block-dark .countdown-label {
-      color: #8aaa8a;
-    }
-    .block-light .countdown-label {
-      color: #4a6a4a;
-    }
-    .block-dark .countdown-separator {
-      color: #5a7a5a;
-    }
-    .block-light .countdown-separator {
-      color: #8aaa8a;
-    }
-    .block-dark .time-item {
-      border-bottom-color: #3a5a3a;
-    }
-    .block-light .time-item {
-      border-bottom-color: #8aaa8a;
-    }
 
+    /* Тег в правом верхнем углу */
+    .block-tag {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      text-align: right;
+      font-size: clamp(14px, 3.5vw, 16px);
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: -4px;
+    }
+    .block-dark .block-tag { color: #8aaa8a; }
+    .block-light .block-tag { color: #4a6a4a; }
+
+    /* Основной заголовок — строго слева */
+    .block-title {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      text-align: left;
+      font-size: clamp(36px, 12vw, 64px);
+      line-height: 0.9;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: clamp(16px, 4vw, 25px);
+    }
+    .block-dark .block-title { color: #e8e0d6; }
+    .block-light .block-title { color: #1a2a1a; }
+
+    /* Описание (если есть) — тоже слева */
+    .block-desc {
+      width: 100%;
+      max-width: 320px;
+      text-align: left;
+      font-size: clamp(18px, 4.5vw, 20px);
+      line-height: 1.6;
+      margin-bottom: clamp(30px, 8vw, 45px);
+      border-left: 2px solid #5a7a5a;
+      padding-left: 20px;
+      font-weight: 500;
+      font-style: italic;
+    }
+    .block-dark .block-desc { color: #c8d0c0; }
+    .block-light .block-desc { color: #2a3a2a; }
+
+    /* Все блоки имеют одинаковую структуру */
     .inv-details,
     .inv-location,
     .inv-timing,
     .inv-wish,
+    .inv-dresscode,
     .inv-form,
     .inv-info,
     .inv-contacts,
@@ -389,38 +306,17 @@
     .block-light {
       border-bottom-color: #8aaa8a;
     }
-    .block-tag {
-      font-size: clamp(14px, 3.5vw, 16px);
-      text-align: right;
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: -4px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
+
+    /* Разделитель */
+    .divider {
+      width: 40px;
+      height: 1px;
+      margin-top: 40px;
     }
-    .block-title {
-      font-size: clamp(36px, 12vw, 64px);
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: clamp(16px, 4vw, 25px);
-    }
-    .block-desc {
-      font-size: clamp(18px, 4.5vw, 20px);
-      line-height: 1.6;
-      margin-bottom: clamp(30px, 8vw, 45px);
-      text-align: left;
-      width: 100%;
-      max-width: 320px;
-      border-left: 2px solid #5a7a5a;
-      padding-left: 20px;
-      font-weight: 500;
-      font-style: italic;
-    }
+    .block-dark .divider { background-color: #5a7a5a; }
+    .block-light .divider { background-color: #8aaa8a; }
+
+    /* ----- Календарь ----- */
     .calendar-wrap {
       width: 100%;
       max-width: 320px;
@@ -433,6 +329,9 @@
       text-align: center;
       text-transform: uppercase;
     }
+    .block-dark .calendar-month { color: #c8d0c0; }
+    .block-light .calendar-month { color: #2a3a2a; }
+
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -444,6 +343,9 @@
       font-weight: 700;
       margin-bottom: 6px;
     }
+    .block-dark .day-name { color: #c8d0c0; }
+    .block-light .day-name { color: #2a3a2a; }
+
     .day {
       font-size: clamp(15px, 4vw, 18px);
       height: clamp(26px, 7vw, 32px);
@@ -452,6 +354,9 @@
       justify-content: center;
       font-weight: 500;
     }
+    .block-dark .day { color: #c8d0c0; }
+    .block-light .day { color: #2a3a2a; }
+
     .wedding-day {
       border: 2px solid #4a7a4a;
       border-radius: 50%;
@@ -482,13 +387,8 @@
       text-anchor: middle;
       dominant-baseline: central;
     }
-    .divider {
-      width: 40px;
-      height: 1px;
-      margin-top: 40px;
-    }
 
-    /* Локация */
+    /* ----- Локация ----- */
     .location-info {
       width: 100%;
       max-width: 320px;
@@ -500,11 +400,17 @@
       margin-bottom: 8px;
       letter-spacing: 1px;
     }
+    .block-dark .venue-name { color: #e8e0d6; }
+    .block-light .venue-name { color: #1a2a1a; }
+
     .venue-address {
       font-size: clamp(16px, 4vw, 18px);
       line-height: 1.5;
       font-style: italic;
     }
+    .block-dark .venue-address { color: #c8d0c0; }
+    .block-light .venue-address { color: #2a3a2a; }
+
     .map-button {
       display: inline-block;
       margin-top: 20px;
@@ -519,11 +425,19 @@
       text-decoration: none;
       text-align: center;
     }
+    .block-dark .map-button {
+      background: #2a5a2a;
+      color: #e8e0d6;
+    }
+    .block-light .map-button {
+      background: #2a5a2a;
+      color: #ffffff;
+    }
     .map-button:hover {
       background: #3a7a3a;
     }
 
-    /* Тайминг */
+    /* ----- Расписание ----- */
     .timeline-list {
       width: 100%;
       max-width: 320px;
@@ -538,29 +452,81 @@
       padding-bottom: 10px;
       flex-wrap: wrap;
     }
+    .block-dark .time-item { border-bottom-color: #3a5a3a; }
+    .block-light .time-item { border-bottom-color: #8aaa8a; }
+
     .time-value {
       font-size: clamp(20px, 5vw, 26px);
       font-weight: 700;
       min-width: 70px;
       letter-spacing: 1px;
     }
+    .block-dark .time-value { color: #e8e0d6; }
+    .block-light .time-value { color: #1a2a1a; }
+
     .time-desc {
       font-size: clamp(16px, 4vw, 20px);
       font-weight: 500;
       margin-left: 10px;
       font-style: italic;
     }
+    .block-dark .time-desc { color: #c8d0c0; }
+    .block-light .time-desc { color: #2a3a2a; }
 
-    /* Пожелание */
+    /* ----- Пожелание ----- */
     .wish-text {
+      width: 100%;
+      max-width: 340px;
       font-size: clamp(18px, 4.5vw, 22px);
       line-height: 1.8;
-      max-width: 340px;
       font-style: italic;
       text-align: center;
     }
+    .block-dark .wish-text { color: #c8d0c0; }
+    .block-light .wish-text { color: #2a3a2a; }
 
-    /* Анкета */
+    /* ----- Дресс-код ----- */
+    .dresscode-grid {
+      width: 100%;
+      max-width: 340px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(12px, 3vw, 20px);
+      margin-top: 10px;
+    }
+    .dresscode-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex: 0 0 auto;
+      width: clamp(50px, 14vw, 70px);
+    }
+    .color-square {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 4px;
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .block-dark .color-square {
+      border-color: rgba(255,255,255,0.15);
+    }
+    .block-light .color-square {
+      border-color: rgba(0,0,0,0.1);
+    }
+    .color-label {
+      font-size: clamp(12px, 3vw, 15px);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .block-dark .color-label { color: #c8d0c0; }
+    .block-light .color-label { color: #2a3a2a; }
+
+    /* ----- Анкета ----- */
     .form-header {
       width: 100%;
       max-width: 340px;
@@ -572,6 +538,9 @@
       margin-top: 10px;
       text-align: left;
     }
+    .block-dark .form-deadline { color: #c8d0c0; }
+    .block-light .form-deadline { color: #2a3a2a; }
+
     .form-group {
       width: 100%;
       max-width: 340px;
@@ -583,7 +552,11 @@
       margin-bottom: 10px;
       letter-spacing: 0.5px;
       font-style: italic;
+      display: block;
     }
+    .block-dark .form-label { color: #c8d0c0; }
+    .block-light .form-label { color: #2a3a2a; }
+
     .form-input {
       width: 100%;
       padding: clamp(12px, 3vw, 14px) clamp(14px, 3.5vw, 16px);
@@ -594,9 +567,23 @@
       border-radius: 2px;
       -webkit-appearance: none;
     }
+    .block-dark .form-input {
+      background: #0f1a0f;
+      border-color: #3a5a3a;
+      color: #e8e0d6;
+    }
+    .block-light .form-input {
+      background: #f5f5f5;
+      border-color: #8aaa8a;
+      color: #1a2a1a;
+    }
+    .block-dark .form-input::placeholder { color: #5a7a5a; }
+    .block-light .form-input::placeholder { color: #8aaa8a; }
+
     .form-input:focus {
       border-color: #5a8a5a;
     }
+
     .radio-group-vertical {
       display: flex;
       flex-direction: column;
@@ -611,6 +598,9 @@
       cursor: pointer;
       font-weight: 500;
     }
+    .block-dark .radio-option { color: #c8d0c0; }
+    .block-light .radio-option { color: #2a3a2a; }
+
     .radio-option input {
       width: 18px;
       height: 18px;
@@ -618,6 +608,7 @@
       margin: 0;
       flex-shrink: 0;
     }
+
     .form-submit {
       width: 100%;
       max-width: 340px;
@@ -632,11 +623,19 @@
       text-transform: uppercase;
       border-radius: 2px;
     }
+    .block-dark .form-submit {
+      background: #2a5a2a;
+      color: #e8e0d6;
+    }
+    .block-light .form-submit {
+      background: #2a5a2a;
+      color: #ffffff;
+    }
     .form-submit:hover {
       background: #3a7a3a;
     }
 
-    /* Инфо */
+    /* ----- Инфо ----- */
     .info-content {
       width: 100%;
       max-width: 320px;
@@ -655,13 +654,18 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
+    .block-dark .info-item-title { color: #8aaa8a; }
+    .block-light .info-item-title { color: #4a6a4a; }
+
     .info-item-text {
       font-size: clamp(16px, 4vw, 18px);
       line-height: 1.6;
       font-style: italic;
     }
+    .block-dark .info-item-text { color: #c8d0c0; }
+    .block-light .info-item-text { color: #2a3a2a; }
 
-    /* Контакты */
+    /* ----- Контакты ----- */
     .contacts-list {
       width: 100%;
       max-width: 340px;
@@ -682,6 +686,9 @@
       font-size: clamp(18px, 4.5vw, 20px);
       font-weight: 700;
     }
+    .block-dark .contact-name { color: #e8e0d6; }
+    .block-light .contact-name { color: #1a2a1a; }
+
     .contact-phone {
       font-size: clamp(15px, 3.8vw, 18px);
       color: inherit;
@@ -695,8 +702,10 @@
     .contact-link:hover {
       color: #aacaaa;
     }
+    .block-dark .contact-item { border-bottom-color: #3a5a3a; }
+    .block-light .contact-item { border-bottom-color: #8aaa8a; }
 
-    /* Таймер */
+    /* ----- Таймер ----- */
     .countdown-title {
       font-size: clamp(20px, 5.5vw, 26px);
       font-weight: 700;
@@ -704,6 +713,9 @@
       letter-spacing: 2px;
       text-align: center;
     }
+    .block-dark .countdown-title { color: #e8e0d6; }
+    .block-light .countdown-title { color: #1a2a1a; }
+
     .countdown-row {
       display: flex;
       align-items: baseline;
@@ -722,11 +734,17 @@
       font-weight: 700;
       line-height: 1;
     }
+    .block-dark .countdown-number { color: #e8e0d6; }
+    .block-light .countdown-number { color: #1a2a1a; }
+
     .countdown-label {
       font-size: clamp(14px, 3.5vw, 18px);
       font-weight: 600;
       font-style: italic;
     }
+    .block-dark .countdown-label { color: #8aaa8a; }
+    .block-light .countdown-label { color: #4a6a4a; }
+
     .countdown-separator {
       font-size: clamp(24px, 6vw, 40px);
       font-weight: 300;
@@ -734,166 +752,69 @@
       margin: 0 2px;
       line-height: 1;
     }
+    .block-dark .countdown-separator { color: #5a7a5a; }
+    .block-light .countdown-separator { color: #8aaa8a; }
 
-    /* Адаптивность для узких экранов */
+    /* ----- Адаптивность ----- */
     @media (max-width: 380px) {
-      .inv-hero {
-        padding: 60px 20px 40px;
-      }
-      .hero-names {
-        font-size: 24px;
-        letter-spacing: 4px;
-      }
-      .hero-date {
-        font-size: 14px;
-        letter-spacing: 6px;
-      }
-      .love-text {
-        font-size: 14px;
-        max-width: 200px;
-      }
-      .block-title {
-        font-size: 30px;
-      }
-      .block-tag {
-        font-size: 12px;
-      }
-      .block-desc {
-        font-size: 16px;
-        padding-left: 14px;
-      }
-      .time-value {
-        font-size: 18px;
-        min-width: 60px;
-      }
-      .time-desc {
-        font-size: 15px;
-        margin-left: 6px;
-      }
-      .calendar-grid {
-        gap: 6px 2px;
-      }
-      .day {
-        font-size: 13px;
-        height: 22px;
-      }
-      .wedding-day {
-        width: 22px;
-        height: 22px;
-      }
-      .heart-with-number svg {
-        stroke-width: 1.5;
-      }
-      .heart-with-number text {
-        font-size: 10px;
-      }
-      .countdown-number {
-        font-size: 28px;
-      }
-      .countdown-separator {
-        font-size: 20px;
-      }
-      .countdown-label {
-        font-size: 12px;
-      }
-      .map-button {
-        font-size: 14px;
-        padding: 8px 16px;
-      }
-      .form-input {
-        font-size: 16px;
-        padding: 10px 12px;
-      }
-      .form-label {
-        font-size: 16px;
-      }
-      .radio-option {
-        font-size: 16px;
-      }
-      .form-submit {
-        font-size: 16px;
-        padding: 12px;
-      }
-      .contact-name {
-        font-size: 16px;
-      }
-      .contact-phone {
-        font-size: 14px;
-      }
-      .contact-link {
-        font-size: 13px;
-      }
-      .info-item-title {
-        font-size: 16px;
-      }
-      .info-item-text {
-        font-size: 15px;
-      }
-      .slider-track {
-        height: 60px;
-      }
-      .slider-button {
-        width: 50px;
-        height: 50px;
-        left: 5px;
-      }
-      .phone-icon {
-        width: 24px;
-        height: 24px;
-      }
-      .slider-text {
-        font-size: 14px;
-      }
-      .caller-name {
-        font-size: 24px;
-      }
-      .caller-subtitle {
-        font-size: 14px;
-      }
+      .inv-hero { padding: 60px 20px 40px; }
+      .hero-names { font-size: 24px; letter-spacing: 4px; }
+      .hero-date { font-size: 14px; letter-spacing: 6px; }
+      .love-text { font-size: 14px; max-width: 200px; }
+      .block-title { font-size: 30px; }
+      .block-tag { font-size: 12px; }
+      .block-desc { font-size: 16px; padding-left: 14px; }
+      .time-value { font-size: 18px; min-width: 60px; }
+      .time-desc { font-size: 15px; margin-left: 6px; }
+      .calendar-grid { gap: 6px 2px; }
+      .day { font-size: 13px; height: 22px; }
+      .wedding-day { width: 22px; height: 22px; }
+      .heart-with-number svg { stroke-width: 1.5; }
+      .heart-with-number text { font-size: 10px; }
+      .countdown-number { font-size: 28px; }
+      .countdown-separator { font-size: 20px; }
+      .countdown-label { font-size: 12px; }
+      .map-button { font-size: 14px; padding: 8px 16px; }
+      .form-input { font-size: 16px; padding: 10px 12px; }
+      .form-label { font-size: 16px; }
+      .radio-option { font-size: 16px; }
+      .form-submit { font-size: 16px; padding: 12px; }
+      .contact-name { font-size: 16px; }
+      .contact-phone { font-size: 14px; }
+      .contact-link { font-size: 13px; }
+      .info-item-title { font-size: 16px; }
+      .info-item-text { font-size: 15px; }
+      .slider-track { height: 60px; }
+      .slider-button { width: 50px; height: 50px; left: 5px; }
+      .phone-icon { width: 24px; height: 24px; }
+      .slider-text { font-size: 14px; }
+      .caller-name { font-size: 24px; }
+      .caller-subtitle { font-size: 14px; }
+      .dresscode-item { width: 45px; }
     }
 
     @media (max-width: 340px) {
-      .block-title {
-        font-size: 26px;
-      }
-      .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-form, .inv-info, .inv-contacts, .countdown-section {
+      .block-title { font-size: 26px; }
+      .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-dresscode, .inv-form, .inv-info, .inv-contacts, .countdown-section {
         padding: 30px 12px;
       }
-      .contacts-list {
-        flex-direction: column;
-        gap: 15px;
-      }
-      .contact-item {
-        flex: 1 1 auto;
-      }
+      .contacts-list { flex-direction: column; gap: 15px; }
+      .contact-item { flex: 1 1 auto; }
+      .dresscode-grid { gap: 10px; }
+      .dresscode-item { width: 40px; }
     }
 
-    /* Планшеты и маленькие ноутбуки */
     @media (min-width: 431px) and (max-width: 768px) {
-      .app-container {
-        max-width: 100%;
-        height: 100vh;
-        height: 100dvh;
-      }
-      .block-title {
-        font-size: 56px;
-      }
-      .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-form, .inv-info, .inv-contacts, .countdown-section {
+      .app-container { max-width: 100%; height: 100vh; height: 100dvh; }
+      .block-title { font-size: 56px; }
+      .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-dresscode, .inv-form, .inv-info, .inv-contacts, .countdown-section {
         padding: 70px 40px;
       }
-      .block-tag {
-        font-size: 18px;
-      }
-      .block-desc {
-        font-size: 22px;
-      }
-      .map-button {
-        font-size: 22px;
-        padding: 14px 32px;
-      }
-      .countdown-number {
-        font-size: 60px;
-      }
+      .block-tag { font-size: 18px; }
+      .block-desc { font-size: 22px; }
+      .map-button { font-size: 22px; padding: 14px 32px; }
+      .countdown-number { font-size: 60px; }
+      .dresscode-item { width: 80px; }
     }
   </style>
 </head>
@@ -998,7 +919,35 @@
         </p>
       </div>
 
-      <!-- Блок 5: Анкета гостя (тёмный) -->
+      <!-- Блок 5: Дресс-код (тёмный) -->
+      <div class="inv-dresscode block-dark fade-in-element">
+        <span class="block-tag">[Дресс-код]</span>
+        <h2 class="block-title">ДРЕСС-КОД</h2>
+        <div class="dresscode-grid">
+          <div class="dresscode-item">
+            <div class="color-square" style="background-color: #ffffff;"></div>
+            <span class="color-label">Белый</span>
+          </div>
+          <div class="dresscode-item">
+            <div class="color-square" style="background-color: #f5e6d3;"></div>
+            <span class="color-label">Бежевый</span>
+          </div>
+          <div class="dresscode-item">
+            <div class="color-square" style="background-color: #f8d7da;"></div>
+            <span class="color-label">Розовый</span>
+          </div>
+          <div class="dresscode-item">
+            <div class="color-square" style="background-color: #d4edda;"></div>
+            <span class="color-label">Мятный</span>
+          </div>
+          <div class="dresscode-item">
+            <div class="color-square" style="background-color: #cce5ff;"></div>
+            <span class="color-label">Синий</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Блок 6: Анкета гостя (тёмный) -->
       <div class="inv-form block-dark fade-in-element">
         <div class="form-header">
           <span class="block-tag">[Анкета гостя]</span>
@@ -1028,7 +977,7 @@
         <button class="form-submit">Отправить</button>
       </div>
 
-      <!-- Блок 6: Важная информация (белый) -->
+      <!-- Блок 7: Важная информация (белый) -->
       <div class="inv-info block-light fade-in-element">
         <span class="block-tag">[Инфо]</span>
         <h2 class="block-title">ИНФО</h2>
@@ -1048,7 +997,7 @@
         </div>
       </div>
 
-      <!-- Блок 7: Контакты (тёмный) -->
+      <!-- Блок 8: Контакты (тёмный) -->
       <div class="inv-contacts block-dark fade-in-element">
         <span class="block-tag">[Контакты]</span>
         <h2 class="block-title">СВЯЗЬ</h2>
@@ -1066,7 +1015,7 @@
         </div>
       </div>
 
-      <!-- Блок 8: Таймер (белый) -->
+      <!-- Блок 9: Таймер (белый) -->
       <div class="countdown-section block-light fade-in-element">
         <div class="countdown-title">До свадьбы осталось</div>
         <div class="countdown-row" id="countdownRow">
