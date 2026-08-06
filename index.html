@@ -66,7 +66,7 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 40px 20px 50px;
-      background-image: linear-gradient(180deg, rgba(15,26,15,0.7) 0%, rgba(15,26,15,0.3) 50%, rgba(15,26,15,0.85) 100%), 
+      background-image: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.8) 100%), 
                         url('IMG_7327.JPG');
       background-size: cover;
       background-position: center;
@@ -191,22 +191,13 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .fade-in-image {
-      opacity: 0;
-      transform: scale(1.05);
-      transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .fade-in-image.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
 
     /* Hero */
     .inv-hero {
       width: 100%;
       height: 100vh;
       height: 100dvh;
-      background: linear-gradient(180deg, rgba(15,26,15,0.7) 0%, rgba(15,26,15,0.1) 30%, rgba(15,26,15,0.1) 70%, rgba(15,26,15,0.85) 100%), 
+      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0.8) 100%), 
                   url('IMG_7327.JPG') center/cover;
       display: flex;
       flex-direction: column;
@@ -284,7 +275,6 @@
     }
     .block-dark .invite-desc,
     .block-dark .venue-address,
-    .block-dark .venue-note,
     .block-dark .time-desc,
     .block-dark .wish-text,
     .block-dark .info-item-text,
@@ -300,7 +290,6 @@
     }
     .block-light .invite-desc,
     .block-light .venue-address,
-    .block-light .venue-note,
     .block-light .time-desc,
     .block-light .wish-text,
     .block-light .info-item-text,
@@ -320,33 +309,21 @@
     .block-light .divider {
       background-color: #8aaa8a;
     }
-    .block-dark .form-input,
-    .block-dark .form-select,
-    .block-dark .form-textarea {
+    .block-dark .form-input {
       background: #0f1a0f;
       border-color: #3a5a3a;
       color: #e8e0d6;
     }
-    .block-light .form-input,
-    .block-light .form-select,
-    .block-light .form-textarea {
+    .block-light .form-input {
       background: #fff;
       border-color: #8aaa8a;
       color: #1a2a1a;
     }
-    .block-dark .form-input::placeholder,
-    .block-dark .form-textarea::placeholder {
+    .block-dark .form-input::placeholder {
       color: #5a7a5a;
     }
-    .block-light .form-input::placeholder,
-    .block-light .form-textarea::placeholder {
+    .block-light .form-input::placeholder {
       color: #8aaa8a;
-    }
-    .block-dark .form-select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238aaa8a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-    }
-    .block-light .form-select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a6a4a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
     }
     .block-dark .form-submit {
       background: #2a5a2a;
@@ -372,11 +349,9 @@
     }
     .block-dark .wedding-day {
       border-color: #4a7a4a;
-      color: #e8e0d6;
     }
     .block-light .wedding-day {
       border-color: #4a7a4a;
-      color: #1a2a1a;
     }
     .block-dark .wish-icon {
       color: #8aaa8a;
@@ -389,6 +364,42 @@
     }
     .block-light .venue-name {
       color: #1a2a1a;
+    }
+    .block-dark .time-value {
+      color: #e8e0d6;
+    }
+    .block-light .time-value {
+      color: #1a2a1a;
+    }
+    .block-dark .info-item-title {
+      color: #8aaa8a;
+    }
+    .block-light .info-item-title {
+      color: #4a6a4a;
+    }
+    .block-dark .countdown-number {
+      color: #e8e0d6;
+    }
+    .block-light .countdown-number {
+      color: #1a2a1a;
+    }
+    .block-dark .countdown-label {
+      color: #8aaa8a;
+    }
+    .block-light .countdown-label {
+      color: #4a6a4a;
+    }
+    .block-dark .countdown-separator {
+      color: #5a7a5a;
+    }
+    .block-light .countdown-separator {
+      color: #8aaa8a;
+    }
+    .block-dark .time-item {
+      border-bottom-color: #3a5a3a;
+    }
+    .block-light .time-item {
+      border-bottom-color: #8aaa8a;
     }
 
     /* Блоки */
@@ -491,6 +502,20 @@
       border-radius: 50%;
       font-weight: 700;
       background: transparent;
+      position: relative;
+    }
+    .heart-icon {
+      display: inline-block;
+      width: 18px;
+      height: 16px;
+      margin-left: 2px;
+    }
+    .heart-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: #4a7a4a;
+      stroke-width: 2;
     }
     .divider {
       width: 40px;
@@ -502,7 +527,6 @@
     .location-info {
       width: 100%;
       max-width: 320px;
-      margin-bottom: 25px;
       text-align: left;
     }
     .venue-name {
@@ -547,11 +571,8 @@
     .time-item {
       display: flex;
       align-items: baseline;
-      border-bottom: 1px dashed #3a5a3a;
+      border-bottom: 1px dashed;
       padding-bottom: 10px;
-    }
-    .block-light .time-item {
-      border-bottom-color: #8aaa8a;
     }
     .time-value {
       font-family: 'Cormorant Garamond', serif;
@@ -559,12 +580,6 @@
       font-weight: 700;
       min-width: 85px;
       letter-spacing: 1px;
-    }
-    .block-dark .time-value {
-      color: #e8e0d6;
-    }
-    .block-light .time-value {
-      color: #1a2a1a;
     }
     .time-desc {
       font-family: 'Cormorant Garamond', serif;
@@ -713,12 +728,6 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    .block-dark .info-item-title {
-      color: #8aaa8a;
-    }
-    .block-light .info-item-title {
-      color: #4a6a4a;
-    }
     .info-item-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
@@ -788,23 +797,11 @@
       font-weight: 700;
       line-height: 1;
     }
-    .block-dark .countdown-number {
-      color: #e8e0d6;
-    }
-    .block-light .countdown-number {
-      color: #1a2a1a;
-    }
     .countdown-label {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       font-weight: 600;
       font-style: italic;
-    }
-    .block-dark .countdown-label {
-      color: #8aaa8a;
-    }
-    .block-light .countdown-label {
-      color: #4a6a4a;
     }
     .countdown-separator {
       font-family: 'Cormorant Garamond', serif;
@@ -813,12 +810,6 @@
       opacity: 0.6;
       margin: 0 2px;
       line-height: 1;
-    }
-    .block-dark .countdown-separator {
-      color: #5a7a5a;
-    }
-    .block-light .countdown-separator {
-      color: #8aaa8a;
     }
 
     @media (max-width: 400px) {
@@ -840,7 +831,7 @@
       .form-label {
         font-size: 18px;
       }
-      .form-input, .form-select, .form-textarea {
+      .form-input {
         font-size: 18px;
         padding: 12px 14px;
       }
@@ -908,7 +899,16 @@
           <div class="calendar-month">Октябрь 2026</div>
           <div class="calendar-grid">
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
-            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day wedding-day">3 ♥</div><div class="day">4</div>
+            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div>
+            <div class="day wedding-day">
+              3
+              <span class="heart-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </span>
+            </div>
+            <div class="day">4</div>
             <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
             <div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
             <div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div>
@@ -938,7 +938,7 @@
           <h2 class="timing-title">TIME<br>LINE</h2>
         </div>
         <div class="timeline-list">
-          <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Приветственный фуршет (Welcome)</span></div>
+          <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Приветственный фуршет</span></div>
           <div class="time-item"><span class="time-value">14:30</span><span class="time-desc">Торжественная церемония</span></div>
           <div class="time-item"><span class="time-value">15:30</span><span class="time-desc">Свадебный банкет</span></div>
           <div class="time-item"><span class="time-value">00:00</span><span class="time-desc">Завершение вечера</span></div>
@@ -1135,16 +1135,8 @@
 
       function handleScrollAnimation() {
         const fadeElements = document.querySelectorAll('.fade-in-element:not(.visible)');
-        const fadeImages = document.querySelectorAll('.fade-in-image:not(.visible)');
-        
         fadeElements.forEach(el => {
           if (isElementInViewport(el, 0.2)) {
-            el.classList.add('visible');
-          }
-        });
-        
-        fadeImages.forEach(el => {
-          if (isElementInViewport(el, 0.25)) {
             el.classList.add('visible');
           }
         });
