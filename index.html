@@ -229,7 +229,7 @@
     }
 
     /* ----------------------------------------------
-       Единый стиль для всех блоков с заголовками
+       Единый стиль для всех блоков
     ------------------------------------------------ */
     .block-dark {
       background-color: #1e3020;
@@ -240,27 +240,17 @@
       color: #1a2a1a;
     }
 
-    /* Тег в правом верхнем углу */
+    /* Тег скрыт */
     .block-tag {
-      display: block;
-      width: 100%;
-      max-width: 320px;
-      text-align: right;
-      font-size: clamp(14px, 3.5vw, 16px);
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-      margin-bottom: -4px;
+      display: none;
     }
-    .block-dark .block-tag { color: #8aaa8a; }
-    .block-light .block-tag { color: #4a6a4a; }
 
-    /* Основной заголовок — строго слева */
+    /* Основной заголовок — по центру, белый на тёмном фоне */
     .block-title {
       display: block;
       width: 100%;
       max-width: 320px;
-      text-align: left;
+      text-align: center;
       font-size: clamp(36px, 12vw, 64px);
       line-height: 0.9;
       letter-spacing: 0px;
@@ -268,19 +258,19 @@
       font-weight: 700;
       margin-bottom: clamp(16px, 4vw, 25px);
     }
-    .block-dark .block-title { color: #e8e0d6; }
+    .block-dark .block-title { color: #ffffff; }
     .block-light .block-title { color: #1a2a1a; }
 
-    /* Описание (если есть) — тоже слева */
+    /* Описание (если есть) — тоже по центру, без рамки */
     .block-desc {
       width: 100%;
       max-width: 320px;
-      text-align: left;
+      text-align: center;
       font-size: clamp(18px, 4.5vw, 20px);
       line-height: 1.6;
       margin-bottom: clamp(30px, 8vw, 45px);
-      border-left: 2px solid #5a7a5a;
-      padding-left: 20px;
+      padding-left: 0;
+      border-left: none;
       font-weight: 500;
       font-style: italic;
     }
@@ -392,7 +382,7 @@
     .location-info {
       width: 100%;
       max-width: 320px;
-      text-align: left;
+      text-align: center;
     }
     .venue-name {
       font-size: clamp(20px, 5vw, 24px);
@@ -451,6 +441,7 @@
       border-bottom: 1px dashed;
       padding-bottom: 10px;
       flex-wrap: wrap;
+      justify-content: center;
     }
     .block-dark .time-item { border-bottom-color: #3a5a3a; }
     .block-light .time-item { border-bottom-color: #8aaa8a; }
@@ -485,7 +476,7 @@
     .block-dark .wish-text { color: #c8d0c0; }
     .block-light .wish-text { color: #2a3a2a; }
 
-    /* ----- Дресс-код с фотографиями вместо квадратов ----- */
+    /* ----- Дресс-код с фотографиями ----- */
     .dresscode-grid {
       width: 100%;
       max-width: 340px;
@@ -528,7 +519,6 @@
     .block-dark .color-label { color: #c8d0c0; }
     .block-light .color-label { color: #2a3a2a; }
 
-    /* Пояснительный текст перед фотографиями */
     .dresscode-intro {
       width: 100%;
       max-width: 340px;
@@ -565,7 +555,7 @@
       font-size: clamp(15px, 3.8vw, 18px);
       font-style: italic;
       margin-top: 10px;
-      text-align: left;
+      text-align: center;
     }
     .block-dark .form-deadline { color: #c8d0c0; }
     .block-light .form-deadline { color: #2a3a2a; }
@@ -582,6 +572,7 @@
       letter-spacing: 0.5px;
       font-style: italic;
       display: block;
+      text-align: center;
     }
     .block-dark .form-label { color: #c8d0c0; }
     .block-light .form-label { color: #2a3a2a; }
@@ -618,6 +609,7 @@
       flex-direction: column;
       gap: 10px;
       margin-top: 5px;
+      align-items: center;
     }
     .radio-option {
       display: flex;
@@ -671,7 +663,7 @@
     }
     .info-item {
       margin-bottom: 20px;
-      text-align: left;
+      text-align: center;
     }
     .info-item:last-child {
       margin-bottom: 0;
@@ -701,6 +693,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 20px 15px;
+      justify-content: center;
     }
     .contact-item {
       flex: 1 1 calc(50% - 10px);
@@ -710,6 +703,8 @@
       padding-bottom: 0;
       border-bottom: none;
       min-width: 120px;
+      align-items: center;
+      text-align: center;
     }
     .contact-name {
       font-size: clamp(18px, 4.5vw, 20px);
@@ -791,8 +786,7 @@
       .hero-date { font-size: 14px; letter-spacing: 6px; }
       .love-text { font-size: 14px; max-width: 200px; }
       .block-title { font-size: 30px; }
-      .block-tag { font-size: 12px; }
-      .block-desc { font-size: 16px; padding-left: 14px; }
+      .block-desc { font-size: 16px; }
       .time-value { font-size: 18px; min-width: 60px; }
       .time-desc { font-size: 15px; margin-left: 6px; }
       .calendar-grid { gap: 6px 2px; }
@@ -841,7 +835,6 @@
       .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-dresscode, .inv-form, .inv-info, .inv-contacts, .countdown-section {
         padding: 70px 40px;
       }
-      .block-tag { font-size: 18px; }
       .block-desc { font-size: 22px; }
       .map-button { font-size: 22px; padding: 14px 32px; }
       .countdown-number { font-size: 60px; }
@@ -854,6 +847,7 @@
     <!-- Экран звонка -->
     <div class="call-screen" id="callScreen">
       <audio id="ringtone" loop preload="auto">
+        <!-- Убедитесь, что файл лежит рядом с HTML или укажите правильный путь -->
         <source src="Spokojjnaya_fonovaya_muzyka_onovaya_muzyka_Muzyka_dlya_sna_Rasslablyayushhaya_Muzyka_dlya_Sna_Spokojjnaya_muzyka_dlya_sna_-_Muzyka_dlya_garmonii_i_ljogkogo_vechernego_otdykha_80052187 (1).mp3" type="audio/mpeg">
       </audio>
       <div class="caller-info">
@@ -884,10 +878,9 @@
         </div>
       </div>
 
-      <!-- Блок 1: Детали (тёмный) -->
+      <!-- Блок 1: Приглашение (тёмный) -->
       <div class="inv-details block-dark fade-in-element">
-        <span class="block-tag">[Детали]</span>
-        <h2 class="block-title">INVITATION</h2>
+        <h2 class="block-title">ПРИГЛАШЕНИЕ</h2>
         <p class="block-desc">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </p>
@@ -914,12 +907,9 @@
         <div class="divider"></div>
       </div>
 
-      <!-- Блок 2: Локация (белый) -->
+      <!-- Блок 2: Место (белый) -->
       <div class="inv-location block-light fade-in-element">
-        <div class="location-header">
-          <span class="block-tag">[Место]</span>
-          <h2 class="block-title">LOCATION</h2>
-        </div>
+        <h2 class="block-title">МЕСТО</h2>
         <div class="location-info">
           <p class="venue-name">Агроусадьба «Тихий Край»</p>
           <p class="venue-address">Брестская область, Липово, ул. Суворова 17</p>
@@ -927,12 +917,9 @@
         </div>
       </div>
 
-      <!-- Блок 3: Расписание (тёмный) -->
+      <!-- Блок 3: Программа дня (тёмный) -->
       <div class="inv-timing block-dark fade-in-element">
-        <div class="timing-header">
-          <span class="block-tag">[Расписание]</span>
-          <h2 class="block-title">TIMELINE</h2>
-        </div>
+        <h2 class="block-title">ПРОГРАММА ДНЯ</h2>
         <div class="timeline-list">
           <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Приветственный фуршет</span></div>
           <div class="time-item"><span class="time-value">14:30</span><span class="time-desc">Торжественная церемония</span></div>
@@ -943,7 +930,6 @@
 
       <!-- Блок 4: Пожелание (белый) -->
       <div class="inv-wish block-light fade-in-element">
-        <span class="block-tag">[Пожелание]</span>
         <h2 class="block-title">ПОЖЕЛАНИЕ</h2>
         <p class="wish-text">
           Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
@@ -952,7 +938,6 @@
 
       <!-- Блок 5: Дресс-код (тёмный) с фотографиями -->
       <div class="inv-dresscode block-dark fade-in-element">
-        <span class="block-tag">[Дресс-код]</span>
         <h2 class="block-title">ДРЕСС-КОД</h2>
         <p class="dresscode-intro">Вдохновляйтесь образами и поддерживайте нашу палитру:</p>
         <div class="dresscode-grid">
@@ -1007,7 +992,6 @@
       <!-- Блок 6: Анкета гостя (тёмный) -->
       <div class="inv-form block-dark fade-in-element">
         <div class="form-header">
-          <span class="block-tag">[Анкета гостя]</span>
           <h2 class="block-title">АНКЕТА ГОСТЯ</h2>
           <p class="form-deadline">Пожалуйста, заполните до 15 сентября 2026</p>
         </div>
@@ -1036,7 +1020,6 @@
 
       <!-- Блок 7: Важная информация (белый) -->
       <div class="inv-info block-light fade-in-element">
-        <span class="block-tag">[Инфо]</span>
         <h2 class="block-title">ИНФО</h2>
         <div class="info-content">
           <div class="info-item">
@@ -1056,7 +1039,6 @@
 
       <!-- Блок 8: Контакты (тёмный) -->
       <div class="inv-contacts block-dark fade-in-element">
-        <span class="block-tag">[Контакты]</span>
         <h2 class="block-title">СВЯЗЬ</h2>
         <div class="contacts-list">
           <div class="contact-item">
