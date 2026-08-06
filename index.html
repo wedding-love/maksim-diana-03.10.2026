@@ -88,11 +88,12 @@
       animation: fadeInDown 1s ease forwards;
     }
     .caller-name {
-      font-size: clamp(26px, 8vw, 34px);
+      font-size: clamp(24px, 5vw, 30px);
       font-weight: 600;
       letter-spacing: 4px;
       animation: fadeInDown 1s ease 0.2s forwards;
       opacity: 0;
+      white-space: nowrap;
     }
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-20px); }
@@ -203,11 +204,12 @@
       flex-shrink: 0;
     }
     .hero-names {
-      font-size: clamp(28px, 8vw, 36px);
+      font-size: clamp(28px, 6vw, 36px);
       text-align: center;
       letter-spacing: 6px;
       text-transform: uppercase;
       font-weight: 600;
+      white-space: nowrap;
     }
     .hero-date {
       font-size: clamp(16px, 4.5vw, 20px);
@@ -245,23 +247,24 @@
       display: none;
     }
 
-    /* Основной заголовок — по центру, белый на тёмном фоне */
+    /* Основной заголовок — по центру, белый на тёмном фоне, единый размер */
     .block-title {
       display: block;
       width: 100%;
       max-width: 320px;
       text-align: center;
-      font-size: clamp(36px, 12vw, 64px);
-      line-height: 0.9;
-      letter-spacing: 0px;
+      font-size: clamp(28px, 6vw, 38px);
+      line-height: 1.1;
+      letter-spacing: 1px;
       text-transform: uppercase;
       font-weight: 700;
       margin-bottom: clamp(16px, 4vw, 25px);
+      white-space: nowrap;
     }
     .block-dark .block-title { color: #ffffff; }
     .block-light .block-title { color: #1a2a1a; }
 
-    /* Описание (если есть) — тоже по центру, без рамки */
+    /* Описание (если есть) — по центру, без рамки */
     .block-desc {
       width: 100%;
       max-width: 320px;
@@ -476,7 +479,7 @@
     .block-dark .wish-text { color: #c8d0c0; }
     .block-light .wish-text { color: #2a3a2a; }
 
-    /* ----- Дресс-код с фотографиями ----- */
+    /* ----- Дресс-код с фотографиями, без подписей ----- */
     .dresscode-grid {
       width: 100%;
       max-width: 340px;
@@ -490,7 +493,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 0; /* убрали отступ, подписи нет */
       flex: 0 0 auto;
       width: clamp(60px, 16vw, 80px);
     }
@@ -509,15 +512,10 @@
     .block-light .dresscode-photo {
       border-color: rgba(0,0,0,0.1);
     }
-    .color-label {
-      font-size: clamp(12px, 3vw, 15px);
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-align: center;
+    /* Убираем подписи */
+    .dresscode-item .color-label {
+      display: none;
     }
-    .block-dark .color-label { color: #c8d0c0; }
-    .block-light .color-label { color: #2a3a2a; }
 
     .dresscode-intro {
       width: 100%;
@@ -545,7 +543,7 @@
     .block-dark .dresscode-note { color: #c8d0c0; }
     .block-light .dresscode-note { color: #2a3a2a; }
 
-    /* ----- Анкета ----- */
+    /* ----- Анкета гостя (восстановлена адаптивность) ----- */
     .form-header {
       width: 100%;
       max-width: 340px;
@@ -564,6 +562,9 @@
       width: 100%;
       max-width: 340px;
       margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .form-label {
       font-size: clamp(18px, 4.5vw, 20px);
@@ -571,8 +572,8 @@
       margin-bottom: 10px;
       letter-spacing: 0.5px;
       font-style: italic;
-      display: block;
       text-align: center;
+      width: 100%;
     }
     .block-dark .form-label { color: #c8d0c0; }
     .block-light .form-label { color: #2a3a2a; }
@@ -610,6 +611,7 @@
       gap: 10px;
       margin-top: 5px;
       align-items: center;
+      width: 100%;
     }
     .radio-option {
       display: flex;
@@ -618,6 +620,8 @@
       font-size: clamp(18px, 4.5vw, 20px);
       cursor: pointer;
       font-weight: 500;
+      width: 100%;
+      justify-content: center;
     }
     .block-dark .radio-option { color: #c8d0c0; }
     .block-light .radio-option { color: #2a3a2a; }
@@ -782,10 +786,10 @@
     /* ----- Адаптивность ----- */
     @media (max-width: 380px) {
       .inv-hero { padding: 60px 20px 40px; }
-      .hero-names { font-size: 24px; letter-spacing: 4px; }
+      .hero-names { font-size: 22px; letter-spacing: 4px; }
       .hero-date { font-size: 14px; letter-spacing: 6px; }
       .love-text { font-size: 14px; max-width: 200px; }
-      .block-title { font-size: 30px; }
+      .block-title { font-size: 22px; }
       .block-desc { font-size: 16px; }
       .time-value { font-size: 18px; min-width: 60px; }
       .time-desc { font-size: 15px; margin-left: 6px; }
@@ -811,7 +815,7 @@
       .slider-button { width: 50px; height: 50px; left: 5px; }
       .phone-icon { width: 24px; height: 24px; }
       .slider-text { font-size: 14px; }
-      .caller-name { font-size: 24px; }
+      .caller-name { font-size: 20px; }
       .caller-subtitle { font-size: 14px; }
       .dresscode-item { width: 50px; }
       .dresscode-intro { font-size: 15px; }
@@ -819,7 +823,7 @@
     }
 
     @media (max-width: 340px) {
-      .block-title { font-size: 26px; }
+      .block-title { font-size: 20px; }
       .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-dresscode, .inv-form, .inv-info, .inv-contacts, .countdown-section {
         padding: 30px 12px;
       }
@@ -831,7 +835,7 @@
 
     @media (min-width: 431px) and (max-width: 768px) {
       .app-container { max-width: 100%; height: 100vh; height: 100dvh; }
-      .block-title { font-size: 56px; }
+      .block-title { font-size: 36px; }
       .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-dresscode, .inv-form, .inv-info, .inv-contacts, .countdown-section {
         padding: 70px 40px;
       }
@@ -936,54 +940,43 @@
         </p>
       </div>
 
-      <!-- Блок 5: Дресс-код (тёмный) с фотографиями -->
+      <!-- Блок 5: Дресс-код (тёмный) с фотографиями, подписи убраны -->
       <div class="inv-dresscode block-dark fade-in-element">
         <h2 class="block-title">ДРЕСС-КОД</h2>
         <p class="dresscode-intro">Вдохновляйтесь образами и поддерживайте нашу палитру:</p>
         <div class="dresscode-grid">
           <div class="dresscode-item">
             <img src="IMG_9109.JPG" alt="Белый" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Белый</span>
           </div>
           <div class="dresscode-item">
             <img src="IMG_9110.JPG" alt="Бежевый" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Бежевый</span>
           </div>
           <div class="dresscode-item">
             <img src="IMG_9111.JPG" alt="Розовый" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Розовый</span>
           </div>
           <div class="dresscode-item">
             <img src="IMG_9112.JPG" alt="Мятный" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Мятный</span>
           </div>
           <div class="dresscode-item">
             <img src="IMG_9113.JPG" alt="Синий" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Синий</span>
           </div>
           <div class="dresscode-item">
             <img src="IMG_9114.JPG" alt="Лаванда" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Лаванда</span>
           </div>
           <div class="dresscode-item">
             <img src="IMG_9115.JPG" alt="Коралл" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Коралл</span>
           </div>
           <div class="dresscode-item">
             <img src="IMG_9116.JPG" alt="Золото" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Золото</span>
           </div>
           <div class="dresscode-item">
             <img src="IMG_9117.JPG" alt="Оливковый" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Оливковый</span>
           </div>
           <div class="dresscode-item">
             <img src="IMG_9118.JPG" alt="Пудра" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Пудра</span>
           </div>
           <div class="dresscode-item">
             <img src="IMG_9119.JPG" alt="Терракота" class="dresscode-photo" loading="lazy">
-            <span class="color-label">Терракота</span>
           </div>
         </div>
         <p class="dresscode-note">Будем благодарны, если поддержите нашу цветовую палитру</p>
