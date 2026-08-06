@@ -245,18 +245,175 @@
       font-style: italic;
     }
 
-    /* Приглашение */
-    .inv-details {
-      padding: 80px 30px;
+    /* Общие стили для блоков */
+    .block-dark {
       background-color: #1e3020;
       color: #e8e0d6;
+    }
+    .block-light {
+      background-color: #f5f0ea;
+      color: #1a2a1a;
+    }
+    .block-dark .invite-tag,
+    .block-dark .location-tag,
+    .block-dark .timing-tag,
+    .block-dark .form-tag,
+    .block-dark .contacts-tag {
+      color: #8aaa8a;
+    }
+    .block-light .invite-tag,
+    .block-light .location-tag,
+    .block-light .timing-tag,
+    .block-light .form-tag,
+    .block-light .contacts-tag {
+      color: #4a6a4a;
+    }
+    .block-dark .invite-title,
+    .block-dark .location-title,
+    .block-dark .timing-title,
+    .block-dark .form-title,
+    .block-dark .contacts-title {
+      color: #e8e0d6;
+    }
+    .block-light .invite-title,
+    .block-light .location-title,
+    .block-light .timing-title,
+    .block-light .form-title,
+    .block-light .contacts-title {
+      color: #1a2a1a;
+    }
+    .block-dark .invite-desc,
+    .block-dark .venue-address,
+    .block-dark .venue-note,
+    .block-dark .time-desc,
+    .block-dark .wish-text,
+    .block-dark .info-item-text,
+    .block-dark .contact-phone,
+    .block-dark .contact-link,
+    .block-dark .form-deadline,
+    .block-dark .form-label,
+    .block-dark .radio-option,
+    .block-dark .day,
+    .block-dark .calendar-month,
+    .block-dark .day-name {
+      color: #c8d0c0;
+    }
+    .block-light .invite-desc,
+    .block-light .venue-address,
+    .block-light .venue-note,
+    .block-light .time-desc,
+    .block-light .wish-text,
+    .block-light .info-item-text,
+    .block-light .contact-phone,
+    .block-light .contact-link,
+    .block-light .form-deadline,
+    .block-light .form-label,
+    .block-light .radio-option,
+    .block-light .day,
+    .block-light .calendar-month,
+    .block-light .day-name {
+      color: #2a3a2a;
+    }
+    .block-dark .divider {
+      background-color: #5a7a5a;
+    }
+    .block-light .divider {
+      background-color: #8aaa8a;
+    }
+    .block-dark .form-input,
+    .block-dark .form-select,
+    .block-dark .form-textarea {
+      background: #0f1a0f;
+      border-color: #3a5a3a;
+      color: #e8e0d6;
+    }
+    .block-light .form-input,
+    .block-light .form-select,
+    .block-light .form-textarea {
+      background: #fff;
+      border-color: #8aaa8a;
+      color: #1a2a1a;
+    }
+    .block-dark .form-input::placeholder,
+    .block-dark .form-textarea::placeholder {
+      color: #5a7a5a;
+    }
+    .block-light .form-input::placeholder,
+    .block-light .form-textarea::placeholder {
+      color: #8aaa8a;
+    }
+    .block-dark .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238aaa8a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    }
+    .block-light .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a6a4a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    }
+    .block-dark .form-submit {
+      background: #2a5a2a;
+      color: #e8e0d6;
+    }
+    .block-light .form-submit {
+      background: #2a5a2a;
+      color: #f5f0ea;
+    }
+    .block-dark .map-button {
+      background: #2a5a2a;
+      color: #e8e0d6;
+    }
+    .block-light .map-button {
+      background: #2a5a2a;
+      color: #f5f0ea;
+    }
+    .block-dark .contact-item {
+      border-bottom-color: #3a5a3a;
+    }
+    .block-light .contact-item {
+      border-bottom-color: #8aaa8a;
+    }
+    .block-dark .wedding-day {
+      border-color: #4a7a4a;
+      color: #e8e0d6;
+    }
+    .block-light .wedding-day {
+      border-color: #4a7a4a;
+      color: #1a2a1a;
+    }
+    .block-dark .wish-icon {
+      color: #8aaa8a;
+    }
+    .block-light .wish-icon {
+      color: #4a6a4a;
+    }
+    .block-dark .venue-name {
+      color: #e8e0d6;
+    }
+    .block-light .venue-name {
+      color: #1a2a1a;
+    }
+
+    /* Блоки */
+    .inv-details,
+    .inv-location,
+    .inv-timing,
+    .inv-wish,
+    .inv-form,
+    .inv-info,
+    .inv-contacts,
+    .countdown-section {
+      padding: 80px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-top: 1px solid #3a5a3a;
       border-bottom: 1px solid #3a5a3a;
     }
-    .invite-tag {
+    .block-light {
+      border-bottom-color: #8aaa8a;
+    }
+    .inv-details .invite-tag,
+    .location-header .location-tag,
+    .timing-header .timing-tag,
+    .form-header .form-tag,
+    .contacts-header .contacts-tag {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       text-align: right;
@@ -264,22 +421,23 @@
       max-width: 320px;
       margin-bottom: -8px;
       letter-spacing: 3px;
-      color: #8aaa8a;
       font-weight: 600;
       text-transform: uppercase;
     }
-    .invite-title {
+    .invite-title,
+    .location-title,
+    .timing-title,
+    .form-title,
+    .contacts-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 64px;
       line-height: 0.9;
       letter-spacing: 0px;
       text-transform: uppercase;
       font-weight: 700;
-      text-align: left;
       width: 100%;
       max-width: 320px;
       margin-bottom: 25px;
-      color: #e8e0d6;
     }
     .invite-desc {
       font-family: 'Cormorant Garamond', serif;
@@ -291,7 +449,6 @@
       max-width: 320px;
       border-left: 2px solid #5a7a5a;
       padding-left: 20px;
-      color: #c8d0c0;
       font-weight: 500;
       font-style: italic;
     }
@@ -307,7 +464,6 @@
       margin-bottom: 25px;
       font-weight: 700;
       text-align: center;
-      color: #e8e0d6;
     }
     .calendar-grid {
       display: grid;
@@ -319,7 +475,6 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 13px;
       font-weight: 700;
-      color: #8aaa8a;
       margin-bottom: 6px;
     }
     .day {
@@ -329,57 +484,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #e8e0d6;
       font-weight: 500;
     }
     .wedding-day {
       border: 2px solid #4a7a4a;
       border-radius: 50%;
       font-weight: 700;
-      color: #e8e0d6;
       background: transparent;
     }
     .divider {
       width: 40px;
       height: 1px;
-      background-color: #5a7a5a;
       margin-top: 50px;
     }
 
     /* Локация */
-    .inv-location {
-      background-color: #162016;
-      color: #e8e0d6;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-bottom: 1px solid #3a5a3a;
-    }
-    .location-header {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 35px;
-    }
-    .location-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: #8aaa8a;
-    }
-    .location-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 72px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #e8e0d6;
-    }
     .location-info {
       width: 100%;
       max-width: 320px;
@@ -392,32 +511,17 @@
       font-size: 24px;
       margin-bottom: 8px;
       letter-spacing: 1px;
-      color: #e8e0d6;
     }
     .venue-address {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       line-height: 1.5;
-      color: #a0b8a0;
       font-style: italic;
-    }
-    .venue-note {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      line-height: 1.5;
-      color: #8aaa8a;
-      font-style: italic;
-      margin-top: 6px;
-      border-top: 1px dashed #3a5a3a;
-      padding-top: 10px;
     }
     .map-button {
       display: inline-block;
       margin-top: 20px;
       padding: 12px 28px;
-      background: #2a5a2a;
-      color: #e8e0d6;
-      text-decoration: none;
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       font-weight: 700;
@@ -426,45 +530,13 @@
       transition: background 0.25s;
       border: none;
       cursor: pointer;
+      text-decoration: none;
     }
     .map-button:hover {
       background: #3a7a3a;
     }
 
     /* Тайминг */
-    .inv-timing {
-      background-color: #1e3020;
-      color: #e8e0d6;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-bottom: 1px solid #3a5a3a;
-    }
-    .timing-header {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 40px;
-    }
-    .timing-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: #8aaa8a;
-    }
-    .timing-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #e8e0d6;
-    }
     .timeline-list {
       width: 100%;
       max-width: 320px;
@@ -478,13 +550,21 @@
       border-bottom: 1px dashed #3a5a3a;
       padding-bottom: 10px;
     }
+    .block-light .time-item {
+      border-bottom-color: #8aaa8a;
+    }
     .time-value {
       font-family: 'Cormorant Garamond', serif;
       font-size: 26px;
       font-weight: 700;
       min-width: 85px;
       letter-spacing: 1px;
+    }
+    .block-dark .time-value {
       color: #e8e0d6;
+    }
+    .block-light .time-value {
+      color: #1a2a1a;
     }
     .time-desc {
       font-family: 'Cormorant Garamond', serif;
@@ -492,27 +572,16 @@
       font-weight: 500;
       margin-left: 15px;
       font-style: italic;
-      color: #c8d0c0;
     }
 
     /* Пожелание */
-    .inv-wish {
-      background-color: #162016;
-      color: #e8e0d6;
-      padding: 60px 30px 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-bottom: 1px solid #3a5a3a;
-      text-align: center;
-    }
     .wish-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
       line-height: 1.8;
       max-width: 340px;
       font-style: italic;
-      color: #c8d0c0;
+      text-align: center;
     }
     .wish-icon {
       font-size: 40px;
@@ -520,46 +589,28 @@
       opacity: 0.6;
       font-family: serif;
     }
-
-    /* ----- АНКЕТА ГОСТЯ ----- */
-    .inv-form {
-      background-color: #1a2a1a;
-      color: #e8e0d6;
-      padding: 80px 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-bottom: 1px solid #3a5a3a;
+    .wish-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      width: 100%;
+      max-width: 320px;
     }
+
+    /* Анкета */
     .form-header {
       width: 100%;
       max-width: 340px;
       margin-bottom: 35px;
     }
-    .form-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: #8aaa8a;
-    }
-    .form-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 58px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #e8e0d6;
-    }
     .form-deadline {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       font-style: italic;
-      color: #8aaa8a;
       margin-top: 10px;
       text-align: left;
     }
@@ -576,18 +627,15 @@
       margin-bottom: 12px;
       letter-spacing: 0.5px;
       font-style: italic;
-      color: #e8e0d6;
     }
     .form-input {
       width: 100%;
       padding: 14px 16px;
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
-      border: 1px solid #3a5a3a;
-      background: #0f1a0f;
+      border: 1px solid;
       outline: none;
       transition: border 0.2s;
-      color: #e8e0d6;
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
@@ -596,39 +644,10 @@
     .form-input:focus {
       border-color: #5a8a5a;
     }
-    .form-input::placeholder {
-      color: #5a7a5a;
-    }
-    .form-select {
-      width: 100%;
-      padding: 14px 16px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      border: 1px solid #3a5a3a;
-      background: #0f1a0f;
-      outline: none;
-      transition: border 0.2s;
-      color: #e8e0d6;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238aaa8a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      background-size: 12px;
-      border-radius: 2px;
-    }
-    .form-select:focus {
-      border-color: #5a8a5a;
-    }
-    .form-select option {
-      background: #1a2a1a;
-      color: #e8e0d6;
-    }
-    .radio-group {
+    .radio-group-vertical {
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+      flex-direction: column;
+      gap: 12px;
       margin-top: 5px;
     }
     .radio-option {
@@ -638,7 +657,6 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       cursor: pointer;
-      color: #e8e0d6;
       font-weight: 500;
     }
     .radio-option input {
@@ -648,34 +666,10 @@
       margin: 0;
       flex-shrink: 0;
     }
-    .form-textarea {
-      width: 100%;
-      padding: 14px 16px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      border: 1px solid #3a5a3a;
-      background: #0f1a0f;
-      resize: vertical;
-      min-height: 80px;
-      outline: none;
-      color: #e8e0d6;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      border-radius: 2px;
-    }
-    .form-textarea:focus {
-      border-color: #5a8a5a;
-    }
-    .form-textarea::placeholder {
-      color: #5a7a5a;
-    }
     .form-submit {
       width: 100%;
       max-width: 340px;
       padding: 16px;
-      background: #2a5a2a;
-      color: #e8e0d6;
       border: none;
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
@@ -694,24 +688,14 @@
       background: #3a7a3a;
     }
 
-    /* ----- ИНФО БЛОК (паспорт + подвоз) ----- */
-    .inv-info {
-      background-color: #162016;
-      color: #e8e0d6;
-      padding: 60px 30px 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-bottom: 1px solid #3a5a3a;
-      text-align: center;
-    }
+    /* Инфо */
     .info-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 25px;
       letter-spacing: 2px;
-      color: #e8e0d6;
+      text-align: center;
     }
     .info-item {
       max-width: 340px;
@@ -725,107 +709,64 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       font-weight: 700;
-      color: #8aaa8a;
       margin-bottom: 6px;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+    .block-dark .info-item-title {
+      color: #8aaa8a;
+    }
+    .block-light .info-item-title {
+      color: #4a6a4a;
     }
     .info-item-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       line-height: 1.6;
-      color: #c8d0c0;
       font-style: italic;
     }
 
-    /* ----- КОНТАКТЫ ----- */
-    .inv-contacts {
-      background-color: #1a2a1a;
-      color: #e8e0d6;
-      padding: 60px 30px 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-bottom: 1px solid #3a5a3a;
-    }
-    .contacts-header {
-      width: 100%;
-      max-width: 340px;
-      margin-bottom: 35px;
-    }
-    .contacts-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: #8aaa8a;
-    }
-    .contacts-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 58px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #e8e0d6;
-    }
+    /* Контакты */
     .contacts-list {
       width: 100%;
       max-width: 340px;
       display: flex;
-      flex-direction: column;
-      gap: 25px;
+      flex-wrap: wrap;
+      gap: 30px 20px;
     }
     .contact-item {
+      flex: 1 1 calc(50% - 10px);
       display: flex;
       flex-direction: column;
       gap: 4px;
-      padding-bottom: 15px;
-      border-bottom: 1px dashed #3a5a3a;
-    }
-    .contact-item:last-child {
-      border-bottom: none;
       padding-bottom: 0;
+      border-bottom: none;
     }
     .contact-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       font-weight: 700;
-      color: #e8e0d6;
     }
     .contact-phone {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
-      color: #c8d0c0;
     }
     .contact-link {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
-      color: #8aaa8a;
       text-decoration: none;
     }
     .contact-link:hover {
       color: #aacaaa;
     }
 
-    /* ----- ТАЙМЕР ----- */
-    .countdown-section {
-      background-color: #162016;
-      padding: 60px 20px 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    /* Таймер */
     .countdown-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 26px;
       font-weight: 700;
       margin-bottom: 25px;
       letter-spacing: 2px;
-      color: #e8e0d6;
       text-align: center;
     }
     .countdown-row {
@@ -846,27 +787,42 @@
       font-size: 52px;
       font-weight: 700;
       line-height: 1;
+    }
+    .block-dark .countdown-number {
       color: #e8e0d6;
+    }
+    .block-light .countdown-number {
+      color: #1a2a1a;
     }
     .countdown-label {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       font-weight: 600;
-      color: #8aaa8a;
       font-style: italic;
+    }
+    .block-dark .countdown-label {
+      color: #8aaa8a;
+    }
+    .block-light .countdown-label {
+      color: #4a6a4a;
     }
     .countdown-separator {
       font-family: 'Cormorant Garamond', serif;
       font-size: 40px;
       font-weight: 300;
-      color: #5a7a5a;
       opacity: 0.6;
       margin: 0 2px;
       line-height: 1;
     }
+    .block-dark .countdown-separator {
+      color: #5a7a5a;
+    }
+    .block-light .countdown-separator {
+      color: #8aaa8a;
+    }
 
     @media (max-width: 400px) {
-      .location-title, .timing-title, .invite-title {
+      .location-title, .timing-title, .invite-title, .form-title, .contacts-title {
         font-size: 54px;
       }
       .countdown-number {
@@ -875,7 +831,7 @@
       .countdown-separator {
         font-size: 32px;
       }
-      .inv-form {
+      .inv-details, .inv-location, .inv-timing, .inv-wish, .inv-form, .inv-info, .inv-contacts, .countdown-section {
         padding: 60px 20px;
       }
       .form-title {
@@ -892,12 +848,16 @@
         font-size: 18px;
         gap: 8px;
       }
-      .contacts-title {
-        font-size: 48px;
-      }
       .hero-names {
         font-size: 28px;
         letter-spacing: 4px;
+      }
+      .contacts-list {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .contact-item {
+        flex: 1 1 auto;
       }
     }
   </style>
@@ -937,7 +897,8 @@
         </div>
       </div>
 
-      <div class="inv-details fade-in-element">
+      <!-- Блок 1: Детали (тёмный) -->
+      <div class="inv-details block-dark fade-in-element">
         <span class="invite-tag">[Детали]</span>
         <h2 class="invite-title">INVI<br>TATION</h2>
         <p class="invite-desc">
@@ -957,7 +918,8 @@
         <div class="divider"></div>
       </div>
 
-      <div class="inv-location fade-in-element">
+      <!-- Блок 2: Локация (светлый) -->
+      <div class="inv-location block-light fade-in-element">
         <div class="location-header">
           <span class="location-tag">[Место]</span>
           <h2 class="location-title">LOCA<br>TION</h2>
@@ -965,12 +927,12 @@
         <div class="location-info">
           <p class="venue-name">Агроусадьба «Тихий Край»</p>
           <p class="venue-address">Брестская область, Липово, ул. Суворова 17</p>
-          <p class="venue-note">Вход со стороны двора, ориентир — большие ворота с кованым декором</p>
           <a href="https://maps.google.com/maps?q=Брестская+область+Липово+ул.+Суворова+17" target="_blank" class="map-button">Посмотреть на карте</a>
         </div>
       </div>
 
-      <div class="inv-timing fade-in-element">
+      <!-- Блок 3: Расписание (тёмный) -->
+      <div class="inv-timing block-dark fade-in-element">
         <div class="timing-header">
           <span class="timing-tag">[Расписание]</span>
           <h2 class="timing-title">TIME<br>LINE</h2>
@@ -983,15 +945,17 @@
         </div>
       </div>
 
-      <div class="inv-wish fade-in-element">
+      <!-- Блок 4: Пожелание (светлый) -->
+      <div class="inv-wish block-light fade-in-element">
         <div class="wish-icon">♥</div>
+        <h2 class="wish-title">Пожелание</h2>
         <p class="wish-text">
           Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
         </p>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ -->
-      <div class="inv-form fade-in-element">
+      <!-- Блок 5: Анкета гостя (тёмный) -->
+      <div class="inv-form block-dark fade-in-element">
         <div class="form-header">
           <span class="form-tag">[Анкета гостя]</span>
           <h2 class="form-title">АНКЕТА<br>ГОСТЯ</h2>
@@ -1005,7 +969,7 @@
 
         <div class="form-group">
           <label class="form-label">Вы планируете присутствовать?</label>
-          <div class="radio-group">
+          <div class="radio-group-vertical">
             <label class="radio-option"><input type="radio" name="attendance" value="yes"> Буду точно</label>
             <label class="radio-option"><input type="radio" name="attendance" value="maybe"> Не знаю</label>
             <label class="radio-option"><input type="radio" name="attendance" value="no"> Не буду</label>
@@ -1013,40 +977,15 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Количество гостей (включая вас)</label>
-          <select class="form-select" name="guestCount">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Предпочтения по напиткам</label>
-          <select class="form-select" name="drink">
-            <option value="wine">Вино</option>
-            <option value="champagne">Шампанское</option>
-            <option value="soft">Безалкогольное</option>
-            <option value="no">Не употребляю</option>
-          </select>
-        </div>
-
-        <div class="form-group">
           <label class="form-label">Песня, под которую вы точно выйдете на танцпол</label>
           <input type="text" class="form-input" placeholder="Название и исполнитель">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Особые пожелания по меню</label>
-          <textarea class="form-textarea" placeholder="Аллергии, вегетарианство, другие предпочтения..."></textarea>
         </div>
 
         <button class="form-submit">Отправить</button>
       </div>
 
-      <!-- ИНФО БЛОК: паспорт и подвоз -->
-      <div class="inv-info fade-in-element">
+      <!-- Блок 6: Важная информация (светлый) -->
+      <div class="inv-info block-light fade-in-element">
         <h2 class="info-title">Важная информация</h2>
         <div class="info-item">
           <div class="info-item-title">Паспорт</div>
@@ -1062,8 +1001,8 @@
         </div>
       </div>
 
-      <!-- КОНТАКТЫ -->
-      <div class="inv-contacts fade-in-element">
+      <!-- Блок 7: Контакты (тёмный) -->
+      <div class="inv-contacts block-dark fade-in-element">
         <div class="contacts-header">
           <span class="contacts-tag">[Контакты]</span>
           <h2 class="contacts-title">СВЯЗЬ</h2>
@@ -1082,7 +1021,8 @@
         </div>
       </div>
 
-      <div class="countdown-section fade-in-element">
+      <!-- Блок 8: Таймер (светлый) -->
+      <div class="countdown-section block-light fade-in-element">
         <div class="countdown-title">До свадьбы осталось</div>
         <div class="countdown-row" id="countdownRow">
           <div class="countdown-item">
