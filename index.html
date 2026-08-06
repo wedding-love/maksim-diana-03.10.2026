@@ -357,10 +357,10 @@
     .block-dark .day { color: #c8d0c0; }
     .block-light .day { color: #2a3a2a; }
 
+    /* Только сердце, без круга, цифра 3 белая */
     .wedding-day {
-      border: 2px solid #4a7a4a;
-      border-radius: 50%;
       background: transparent;
+      border: none;
       width: clamp(26px, 7vw, 32px);
       height: clamp(26px, 7vw, 32px);
     }
@@ -380,7 +380,7 @@
       stroke-width: 2;
     }
     .heart-with-number text {
-      fill: #4a7a4a;
+      fill: #ffffff; /* цифра 3 белая */
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(11px, 3vw, 14px);
       font-weight: 700;
@@ -485,7 +485,7 @@
     .block-dark .wish-text { color: #c8d0c0; }
     .block-light .wish-text { color: #2a3a2a; }
 
-    /* ----- Дресс-код ----- */
+    /* ----- Дресс-код (добавлен текст) ----- */
     .dresscode-grid {
       width: 100%;
       max-width: 340px;
@@ -525,6 +525,20 @@
     }
     .block-dark .color-label { color: #c8d0c0; }
     .block-light .color-label { color: #2a3a2a; }
+
+    /* Дополнительный текст под палитрой */
+    .dresscode-note {
+      width: 100%;
+      max-width: 340px;
+      text-align: center;
+      margin-top: 18px;
+      font-size: clamp(16px, 4vw, 20px);
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .block-dark .dresscode-note { color: #c8d0c0; }
+    .block-light .dresscode-note { color: #2a3a2a; }
 
     /* ----- Анкета ----- */
     .form-header {
@@ -791,6 +805,7 @@
       .caller-name { font-size: 24px; }
       .caller-subtitle { font-size: 14px; }
       .dresscode-item { width: 45px; }
+      .dresscode-note { font-size: 14px; }
     }
 
     @media (max-width: 340px) {
@@ -869,7 +884,7 @@
               <span class="heart-with-number">
                 <svg viewBox="0 0 40 40">
                   <path d="M20 36.4l-2.4-2.2C9.1 26.7 4 21.9 4 16.7 4 12 7.8 8 12.5 8c2.9 0 5.7 1.4 7.5 3.5C21.8 9.4 24.6 8 27.5 8 32.2 8 36 12 36 16.7c0 5.2-5.1 10-13.6 17.5L20 36.4z"/>
-                  <text x="20" y="21" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#4a7a4a">3</text>
+                  <text x="20" y="21" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#ffffff">3</text>
                 </svg>
               </span>
             </div>
@@ -919,7 +934,7 @@
         </p>
       </div>
 
-      <!-- Блок 5: Дресс-код (тёмный) -->
+      <!-- Блок 5: Дресс-код (тёмный) + добавленный текст -->
       <div class="inv-dresscode block-dark fade-in-element">
         <span class="block-tag">[Дресс-код]</span>
         <h2 class="block-title">ДРЕСС-КОД</h2>
@@ -945,6 +960,7 @@
             <span class="color-label">Синий</span>
           </div>
         </div>
+        <p class="dresscode-note">Будем благодарны, если поддержите нашу цветовую палитру</p>
       </div>
 
       <!-- Блок 6: Анкета гостя (тёмный) -->
