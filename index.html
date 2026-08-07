@@ -202,7 +202,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       text-align: left;
-      margin-bottom: -8px;
+      margin-bottom: 4px; /* увеличен отступ между тегом и заголовком */
       letter-spacing: 3px;
       font-weight: 600;
       text-transform: uppercase;
@@ -210,7 +210,7 @@
 
     .block-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 56px;
+      font-size: 48px; /* уменьшен с 56px */
       line-height: 1;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -226,26 +226,25 @@
       text-align: left;
       width: 100%;
       max-width: 320px;
-      border-left: 2px solid #1E1E1E;
+      border-left: 2px solid;
       padding-left: 20px;
       font-weight: 500;
       font-style: italic;
-      color: #2B2B2B;
     }
 
     /* Цветовые варианты */
-    .bg-beige {
-      background-color: #EAE3D9;
-      color: #1E1E1E;
+    .bg-green {
+      background-color: #1E3D2E;
+      color: #F5F0E8;
     }
     .bg-white {
       background-color: #FFFFFF;
       color: #000000;
     }
 
-    .bg-beige .block-tag { color: #4A3F35; }
-    .bg-beige .block-title { color: #1E1E1E; }
-    .bg-beige .block-text { border-left-color: #1E1E1E; color: #2B2B2B; }
+    .bg-green .block-tag { color: #B8C9B0; }
+    .bg-green .block-title { color: #F5F0E8; }
+    .bg-green .block-text { border-left-color: #B8C9B0; color: #F5F0E8; }
 
     .bg-white .block-tag { color: #4A3F35; }
     .bg-white .block-title { color: #1E1E1E; }
@@ -265,8 +264,10 @@
       margin-bottom: 25px;
       font-weight: 700;
       text-align: center;
-      color: #1E1E1E;
     }
+
+    .bg-green .calendar-month { color: #F5F0E8; }
+    .bg-white .calendar-month { color: #1E1E1E; }
 
     .calendar-grid {
       display: grid;
@@ -279,9 +280,11 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 13px;
       font-weight: 700;
-      color: #6B5E53;
       margin-bottom: 6px;
     }
+
+    .bg-green .day-name { color: #B8C9B0; }
+    .bg-white .day-name { color: #6B5E53; }
 
     .day {
       font-family: 'Cormorant Garamond', serif;
@@ -290,9 +293,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #1E1E1E;
       font-weight: 500;
     }
+
+    .bg-green .day { color: #F5F0E8; }
+    .bg-white .day { color: #1E1E1E; }
 
     .wedding-heart {
       position: relative;
@@ -313,7 +318,12 @@
       pointer-events: none;
     }
 
-    .wedding-heart svg path {
+    .bg-green .wedding-heart svg path {
+      fill: none;
+      stroke: #F5F0E8;
+      stroke-width: 1.2;
+    }
+    .bg-white .wedding-heart svg path {
       fill: none;
       stroke: #1E1E1E;
       stroke-width: 1.2;
@@ -324,9 +334,11 @@
       z-index: 1;
       font-size: 22px;
       font-weight: 600;
-      color: #1E1E1E;
       line-height: 1;
     }
+
+    .bg-green .wedding-heart .day-number { color: #F5F0E8; }
+    .bg-white .wedding-heart .day-number { color: #1E1E1E; }
 
     @keyframes pulse-heart {
       0% { transform: scale(1); }
@@ -337,9 +349,11 @@
     .divider {
       width: 40px;
       height: 1px;
-      background-color: #1E1E1E;
       margin-top: 50px;
     }
+
+    .bg-green .divider { background-color: #B8C9B0; }
+    .bg-white .divider { background-color: #1E1E1E; }
 
     /* Локация */
     .location-info {
@@ -357,13 +371,18 @@
       letter-spacing: 1px;
     }
 
+    .bg-green .venue-name { color: #F5F0E8; }
+    .bg-white .venue-name { color: #1E1E1E; }
+
     .venue-address {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       line-height: 1.5;
-      color: #333;
       font-style: italic;
     }
+
+    .bg-green .venue-address { color: #D4CFC7; }
+    .bg-white .venue-address { color: #333; }
 
     .map-button {
       display: inline-block;
@@ -404,9 +423,12 @@
     .time-item {
       display: flex;
       align-items: baseline;
-      border-bottom: 1px dashed #B8A99A;
+      border-bottom: 1px dashed;
       padding-bottom: 10px;
     }
+
+    .bg-green .time-item { border-color: #B8C9B0; }
+    .bg-white .time-item { border-color: #B8A99A; }
 
     .time-value {
       font-family: 'Cormorant Garamond', serif;
@@ -416,6 +438,9 @@
       letter-spacing: 1px;
     }
 
+    .bg-green .time-value { color: #F5F0E8; }
+    .bg-white .time-value { color: #1E1E1E; }
+
     .time-desc {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
@@ -424,7 +449,10 @@
       font-style: italic;
     }
 
-    /* Квадратики цветов — 3 ряда: 4+4+3, увеличенные */
+    .bg-green .time-desc { color: #D4CFC7; }
+    .bg-white .time-desc { color: #2B2B2B; }
+
+    /* Квадратики цветов */
     .color-swatches {
       display: flex;
       flex-wrap: wrap;
@@ -528,8 +556,8 @@
       flex-direction: column;
       align-items: center;
     }
-    .inv-form.bg-beige { background-color: #EAE3D9; }
-    .inv-form.bg-white { background-color: #FFFFFF; }
+    .inv-form.bg-green { background-color: #1E3D2E; color: #F5F0E8; }
+    .inv-form.bg-white { background-color: #FFFFFF; color: #000000; }
 
     .form-header {
       width: 100%;
@@ -541,24 +569,28 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       text-align: left;
-      margin-bottom: -8px;
+      margin-bottom: 4px;
       letter-spacing: 3px;
       font-weight: 600;
       text-transform: uppercase;
-      color: #4A3F35;
     }
+
+    .inv-form.bg-green .form-tag { color: #B8C9B0; }
+    .inv-form.bg-white .form-tag { color: #4A3F35; }
 
     .form-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 56px;
+      font-size: 48px;
       line-height: 1;
       letter-spacing: 2px;
       text-transform: uppercase;
       font-weight: 700;
       white-space: nowrap;
-      color: #1E1E1E;
       text-align: left;
     }
+
+    .inv-form.bg-green .form-title { color: #F5F0E8; }
+    .inv-form.bg-white .form-title { color: #1E1E1E; }
 
     .form-group {
       width: 100%;
@@ -574,8 +606,10 @@
       margin-bottom: 12px;
       letter-spacing: 0.5px;
       font-style: italic;
-      color: #1E1E1E;
     }
+
+    .inv-form.bg-green .form-label { color: #F5F0E8; }
+    .inv-form.bg-white .form-label { color: #1E1E1E; }
 
     .form-input,
     .form-textarea {
@@ -612,9 +646,11 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       cursor: pointer;
-      color: #1E1E1E;
       font-weight: 500;
     }
+
+    .inv-form.bg-green .radio-option { color: #F5F0E8; }
+    .inv-form.bg-white .radio-option { color: #1E1E1E; }
 
     .radio-option input {
       width: 18px;
@@ -635,13 +671,15 @@
       text-align: center;
       font-weight: 600;
       font-style: italic;
-      color: #1E1E1E;
       margin-top: 10px;
       margin-bottom: 20px;
       width: 100%;
       max-width: 340px;
       letter-spacing: 1px;
     }
+
+    .inv-form.bg-green .confirm-text { color: #F5F0E8; }
+    .inv-form.bg-white .confirm-text { color: #1E1E1E; }
 
     .form-submit {
       width: 100%;
@@ -677,7 +715,7 @@
       display: block;
     }
 
-    /* ----- ТАЙМЕР (белый блок) ----- */
+    /* ----- ТАЙМЕР (белый) ----- */
     .countdown-section {
       padding: 60px 30px 80px;
       display: flex;
@@ -685,7 +723,7 @@
       align-items: center;
     }
     .countdown-section.bg-white { background-color: #FFFFFF; }
-    .countdown-section.bg-beige { background-color: #EAE3D9; }
+    .countdown-section.bg-green { background-color: #1E3D2E; }
 
     .countdown-title {
       font-family: 'Cormorant Garamond', serif;
@@ -693,9 +731,11 @@
       font-weight: 700;
       margin-bottom: 25px;
       letter-spacing: 2px;
-      color: #1E1E1E;
       text-align: center;
     }
+
+    .bg-white .countdown-title { color: #1E1E1E; }
+    .bg-green .countdown-title { color: #F5F0E8; }
 
     .countdown-row {
       display: flex;
@@ -717,31 +757,37 @@
       font-size: 52px;
       font-weight: 700;
       line-height: 1;
-      color: #1E1E1E;
     }
+
+    .bg-white .countdown-number { color: #1E1E1E; }
+    .bg-green .countdown-number { color: #F5F0E8; }
 
     .countdown-label {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       font-weight: 600;
-      color: #6B5E53;
       font-style: italic;
     }
+
+    .bg-white .countdown-label { color: #6B5E53; }
+    .bg-green .countdown-label { color: #B8C9B0; }
 
     .countdown-separator {
       font-family: 'Cormorant Garamond', serif;
       font-size: 40px;
       font-weight: 300;
-      color: #1E1E1E;
       opacity: 0.6;
       margin: 0 2px;
       line-height: 1;
     }
 
+    .bg-white .countdown-separator { color: #1E1E1E; }
+    .bg-green .countdown-separator { color: #F5F0E8; }
+
     @media (max-width: 400px) {
       .block-title,
       .form-title {
-        font-size: 44px;
+        font-size: 38px;
       }
       .countdown-number {
         font-size: 42px;
@@ -833,7 +879,7 @@
         padding: 8px 18px;
       }
       .block-title {
-        font-size: 38px;
+        font-size: 32px;
       }
       .block-text {
         font-size: 16px;
@@ -884,8 +930,8 @@
         </div>
       </div>
 
-      <!-- INVITATION (бежевый) -->
-      <div class="block-wrapper bg-beige fade-in-element">
+      <!-- ПРИГЛАШЕНИЕ (зелёный) -->
+      <div class="block-wrapper bg-green fade-in-element">
         <div class="block-header">
           <div class="block-tag">[Details]</div>
           <div class="block-title">ПРИГЛАШЕНИЕ</div>
@@ -914,7 +960,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- LOCATION (белый) -->
+      <!-- МЕСТО (белый) -->
       <div class="block-wrapper bg-white fade-in-element">
         <div class="block-header">
           <div class="block-tag">[Location]</div>
@@ -928,8 +974,8 @@
         <div class="divider"></div>
       </div>
 
-      <!-- TIMELINE (бежевый) -->
-      <div class="block-wrapper bg-beige fade-in-element">
+      <!-- РАСПИСАНИЕ (зелёный) -->
+      <div class="block-wrapper bg-green fade-in-element">
         <div class="block-header">
           <div class="block-tag">[Timeline]</div>
           <div class="block-title">РАСПИСАНИЕ</div>
@@ -969,8 +1015,8 @@
         </div>
       </div>
 
-      <!-- PASSPORT (бежевый) -->
-      <div class="block-wrapper bg-beige fade-in-element">
+      <!-- ПАСПОРТ (зелёный) -->
+      <div class="block-wrapper bg-green fade-in-element">
         <div class="block-header">
           <div class="block-tag">[Important]</div>
           <div class="block-title">ПАСПОРТ</div>
@@ -981,7 +1027,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- DRESS-CODE (белый) -->
+      <!-- ДРЕСС-КОД (белый) -->
       <div class="block-wrapper bg-white fade-in-element">
         <div class="block-header">
           <div class="block-tag">[Dress code]</div>
@@ -1006,8 +1052,8 @@
         <div class="divider"></div>
       </div>
 
-      <!-- WISHES (бежевый) -->
-      <div class="block-wrapper bg-beige fade-in-element">
+      <!-- ПОЖЕЛАНИЯ (зелёный) -->
+      <div class="block-wrapper bg-green fade-in-element">
         <div class="block-header">
           <div class="block-tag">[Wishes]</div>
           <div class="block-title">ПОЖЕЛАНИЯ</div>
@@ -1018,7 +1064,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- CONTACTS (белый) -->
+      <!-- КОНТАКТЫ (белый) -->
       <div class="block-wrapper bg-white fade-in-element">
         <div class="block-header">
           <div class="block-tag">[Contacts]</div>
@@ -1049,8 +1095,8 @@
         <div class="divider"></div>
       </div>
 
-      <!-- RSVP (бежевый) -->
-      <div class="inv-form bg-beige fade-in-element">
+      <!-- АНКЕТА ГОСТЯ (зелёный) -->
+      <div class="inv-form bg-green fade-in-element">
         <div class="form-header">
           <div class="form-tag">[RSVP]</div>
           <div class="form-title">АНКЕТА ГОСТЯ</div>
