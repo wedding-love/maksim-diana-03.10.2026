@@ -127,13 +127,14 @@
       transform: translateY(0);
     }
 
-    /* Анимация появления — только для содержимого */
-    .fade-in-element {
+    /* ----- Анимация появления для блоков и их содержимого ----- */
+    .fade-block .fade-in-element {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1), transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+      transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
     }
-    .fade-in-element.visible {
+
+    .fade-block.visible .fade-in-element {
       opacity: 1;
       transform: translateY(0);
     }
@@ -235,7 +236,7 @@
 
     /* Цветовые варианты */
     .bg-green {
-      background-color: #1a3a28; /* ещё темнее */
+      background-color: #1a3a28; /* тёмный травяной */
       color: #F5F0E8;
     }
     .bg-white {
@@ -385,10 +386,11 @@
     .bg-green .venue-address { color: #D4CFC7; }
     .bg-white .venue-address { color: #333; }
 
+    /* Кнопка "Показать на карте" — темнее */
     .map-button {
       display: inline-block;
       padding: 12px 30px;
-      background-color: #2E8B57;
+      background-color: #1e6b3a;
       color: #FFFFFF;
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
@@ -405,7 +407,7 @@
     }
 
     .map-button:hover {
-      background: #1E6B3A;
+      background: #15532e;
     }
 
     .map-button:active {
@@ -512,7 +514,7 @@
 
     .contact-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 14px rgba(46, 139, 87, 0.15);
+      box-shadow: 0 4px 14px rgba(30, 107, 58, 0.15);
     }
 
     .contact-card .icon {
@@ -539,7 +541,7 @@
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #2E8B57;
+      color: #1e6b3a;
     }
 
     .contact-card .username {
@@ -630,7 +632,7 @@
 
     .form-input:focus,
     .form-textarea:focus {
-      border-color: #2E8B57;
+      border-color: #1e6b3a;
     }
 
     .radio-group-vertical {
@@ -657,7 +659,7 @@
     .checkbox-option input[type="checkbox"] {
       width: 18px;
       height: 18px;
-      accent-color: #2E8B57;
+      accent-color: #1e6b3a;
       margin: 0;
       flex-shrink: 0;
       cursor: pointer;
@@ -684,11 +686,12 @@
     .inv-form.bg-green .confirm-text { color: #F5F0E8; }
     .inv-form.bg-white .confirm-text { color: #1E1E1E; }
 
+    /* Кнопка "Отправить" — темнее */
     .form-submit {
       width: 100%;
       max-width: 340px;
       padding: 16px;
-      background: #2E8B57;
+      background: #1e6b3a;
       color: #FFFFFF;
       border: none;
       font-family: 'Cormorant Garamond', serif;
@@ -704,7 +707,7 @@
     }
 
     .form-submit:hover {
-      background: #1E6B3A;
+      background: #15532e;
     }
 
     .sub-block {
@@ -934,9 +937,9 @@
       </div>
 
       <!-- ПРИГЛАШЕНИЕ (зелёный) -->
-      <div class="block-wrapper bg-green">
+      <div class="block-wrapper bg-green fade-block">
         <div class="block-header">
-          <div class="block-tag">[Details]</div>
+          <div class="block-tag fade-in-element">[Details]</div>
           <div class="block-title fade-in-element">ПРИГЛАШЕНИЕ</div>
         </div>
         <div class="block-text fade-in-element">
@@ -960,13 +963,13 @@
             <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div>
           </div>
         </div>
-        <div class="divider"></div>
+        <div class="divider fade-in-element"></div>
       </div>
 
       <!-- МЕСТО (белый) -->
-      <div class="block-wrapper bg-white">
+      <div class="block-wrapper bg-white fade-block">
         <div class="block-header">
-          <div class="block-tag">[Location]</div>
+          <div class="block-tag fade-in-element">[Location]</div>
           <div class="block-title fade-in-element">МЕСТО</div>
         </div>
         <div class="location-info fade-in-element">
@@ -974,13 +977,13 @@
           <p class="venue-address">ул. Суворова 17, Липово,<br />Брестская область</p>
         </div>
         <a href="https://yandex.ru/maps/?text=ул. Суворова 17, Липово, Брестская область" target="_blank" class="map-button fade-in-element">Показать на карте</a>
-        <div class="divider"></div>
+        <div class="divider fade-in-element"></div>
       </div>
 
       <!-- РАСПИСАНИЕ (зелёный) -->
-      <div class="block-wrapper bg-green">
+      <div class="block-wrapper bg-green fade-block">
         <div class="block-header">
-          <div class="block-tag">[Timeline]</div>
+          <div class="block-tag fade-in-element">[Timeline]</div>
           <div class="block-title fade-in-element">РАСПИСАНИЕ</div>
         </div>
         <div class="timeline-list fade-in-element">
@@ -989,11 +992,11 @@
           <div class="time-item"><span class="time-value">15:30</span><span class="time-desc">Начало банкета</span></div>
           <div class="time-item"><span class="time-value">00:00</span><span class="time-desc">Завершение</span></div>
         </div>
-        <div class="divider"></div>
+        <div class="divider fade-in-element"></div>
       </div>
 
       <!-- ТАЙМЕР (белый) -->
-      <div class="countdown-section bg-white">
+      <div class="countdown-section bg-white fade-block">
         <div class="countdown-title fade-in-element">До свадьбы осталось</div>
         <div class="countdown-row fade-in-element" id="countdownRow">
           <div class="countdown-item">
@@ -1019,21 +1022,21 @@
       </div>
 
       <!-- ПАСПОРТ (зелёный) -->
-      <div class="block-wrapper bg-green">
+      <div class="block-wrapper bg-green fade-block">
         <div class="block-header">
-          <div class="block-tag">[Important]</div>
+          <div class="block-tag fade-in-element">[Important]</div>
           <div class="block-title fade-in-element">ПАСПОРТ</div>
         </div>
         <div class="block-text fade-in-element">
           Для проезда через пост в Брестской области при себе необходимо иметь паспорт. Убедитесь, пожалуйста, что он действителен.
         </div>
-        <div class="divider"></div>
+        <div class="divider fade-in-element"></div>
       </div>
 
       <!-- ДРЕСС-КОД (белый) -->
-      <div class="block-wrapper bg-white">
+      <div class="block-wrapper bg-white fade-block">
         <div class="block-header">
-          <div class="block-tag">[Dress code]</div>
+          <div class="block-tag fade-in-element">[Dress code]</div>
           <div class="block-title fade-in-element">ДРЕСС-КОД</div>
         </div>
         <div class="block-text fade-in-element">
@@ -1052,25 +1055,25 @@
           <div class="swatch"><img src="IMG_9110.JPG" alt="цвет" /></div>
           <div class="swatch"><img src="IMG_9109.JPG" alt="цвет" /></div>
         </div>
-        <div class="divider"></div>
+        <div class="divider fade-in-element"></div>
       </div>
 
       <!-- ПОЖЕЛАНИЯ (зелёный) -->
-      <div class="block-wrapper bg-green">
+      <div class="block-wrapper bg-green fade-block">
         <div class="block-header">
-          <div class="block-tag">[Wishes]</div>
+          <div class="block-tag fade-in-element">[Wishes]</div>
           <div class="block-title fade-in-element">ПОЖЕЛАНИЯ</div>
         </div>
         <div class="block-text fade-in-element">
           Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
         </div>
-        <div class="divider"></div>
+        <div class="divider fade-in-element"></div>
       </div>
 
       <!-- КОНТАКТЫ (белый) -->
-      <div class="block-wrapper bg-white">
+      <div class="block-wrapper bg-white fade-block">
         <div class="block-header">
-          <div class="block-tag">[Contacts]</div>
+          <div class="block-tag fade-in-element">[Contacts]</div>
           <div class="block-title fade-in-element">КОНТАКТЫ</div>
         </div>
         <div class="contacts-list fade-in-element">
@@ -1095,13 +1098,13 @@
             <span class="username">@dianaromanyuk31</span>
           </a>
         </div>
-        <div class="divider"></div>
+        <div class="divider fade-in-element"></div>
       </div>
 
       <!-- АНКЕТА ГОСТЯ (зелёный) -->
-      <div class="inv-form bg-green">
+      <div class="inv-form bg-green fade-block">
         <div class="form-header">
-          <div class="form-tag">[RSVP]</div>
+          <div class="form-tag fade-in-element">[RSVP]</div>
           <div class="form-title fade-in-element">АНКЕТА ГОСТЯ</div>
         </div>
 
@@ -1171,12 +1174,14 @@
 
         setTimeout(function() {
           invScreen.classList.add('active');
+          // После открытия экрана проверяем видимость блоков
           requestAnimationFrame(function() {
             handleScrollAnimation();
           });
         }, 400);
       });
 
+      // Функция проверки видимости блока
       function isElementInViewport(el, offset) {
         offset = offset || 0.15;
         const rect = el.getBoundingClientRect();
@@ -1184,30 +1189,22 @@
         return rect.top <= windowHeight * (1 - offset) && rect.bottom >= 0;
       }
 
+      // Функция активации анимации для всех блоков
       function handleScrollAnimation() {
-        const fadeElements = document.querySelectorAll('.fade-in-element:not(.visible)');
-        fadeElements.forEach(function(el) {
-          if (isElementInViewport(el, 0.2)) {
-            // Находим родительский блок-контейнер (блок, который содержит этот элемент)
-            const parentBlock = el.closest('.block-wrapper, .inv-form, .countdown-section');
-            if (parentBlock) {
-              // Добавляем класс visible всем fade-in-element внутри этого блока
-              const children = parentBlock.querySelectorAll('.fade-in-element');
-              children.forEach(function(child) {
-                child.classList.add('visible');
-              });
-            } else {
-              // Если родитель не найден, добавляем только этому элементу
-              el.classList.add('visible');
-            }
+        const blocks = document.querySelectorAll('.fade-block');
+        blocks.forEach(function(block) {
+          if (isElementInViewport(block, 0.2) && !block.classList.contains('visible')) {
+            block.classList.add('visible');
           }
         });
       }
 
+      // Подписка на событие скролла
       if (invScreen) {
         invScreen.addEventListener('scroll', handleScrollAnimation, { passive: true });
       }
 
+      // Таймер обратного отсчёта
       function startCountdown() {
         const weddingDate = new Date('2026-10-03T14:00:00');
 
@@ -1240,6 +1237,7 @@
 
       startCountdown();
 
+      // Первая проверка видимости после открытия
       setTimeout(function() {
         if (invScreen.classList.contains('active')) {
           handleScrollAnimation();
