@@ -130,12 +130,10 @@
     /* ----- Анимация только для текста (плавное появление) ----- */
     .fade-text {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition: opacity 0.5s ease;
     }
     .fade-text.visible {
       opacity: 1;
-      transform: translateY(0);
     }
 
     /* Hero */
@@ -300,14 +298,14 @@
     .bg-green .day { color: #F5F0E8; }
     .bg-white .day { color: #1E1E1E; }
 
+    /* Сердце без анимации, увеличенное */
     .wedding-heart {
       position: relative;
-      width: 44px;
-      height: 44px;
+      width: 52px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: pulse-heart 1.8s ease-in-out infinite;
     }
 
     .wedding-heart svg {
@@ -333,19 +331,13 @@
     .wedding-heart .day-number {
       position: relative;
       z-index: 1;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 600;
       line-height: 1;
     }
 
     .bg-green .wedding-heart .day-number { color: #F5F0E8; }
     .bg-white .wedding-heart .day-number { color: #1E1E1E; }
-
-    @keyframes pulse-heart {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
 
     .divider {
       width: 40px;
@@ -635,7 +627,7 @@
       display: block;
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
-      font-weight: 700; /* жирный */
+      font-weight: 700;
       margin-bottom: 12px;
       letter-spacing: 0.5px;
       font-style: italic;
@@ -862,11 +854,11 @@
         font-size: 16px;
       }
       .wedding-heart {
-        width: 38px;
-        height: 38px;
+        width: 44px;
+        height: 44px;
       }
       .wedding-heart .day-number {
-        font-size: 18px;
+        font-size: 20px;
       }
       .color-swatches .swatch {
         width: 66px;
@@ -913,11 +905,11 @@
         font-size: 14px;
       }
       .wedding-heart {
-        width: 34px;
-        height: 34px;
+        width: 40px;
+        height: 40px;
       }
       .wedding-heart .day-number {
-        font-size: 16px;
+        font-size: 18px;
       }
       .color-swatches .swatch {
         width: 56px;
@@ -1181,14 +1173,13 @@
 
         setTimeout(function() {
           invScreen.classList.add('active');
-          // Запускаем анимацию для уже видимых элементов
           setTimeout(function() {
             observeTextElements();
           }, 300);
         }, 400);
       });
 
-      // Анимация текста при скролле
+      // Анимация текста при скролле — только появление
       const textObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -1207,14 +1198,13 @@
         });
       }
 
-      // Наблюдаем за новыми текстовыми элементами при прокрутке
       if (invScreen) {
         invScreen.addEventListener('scroll', function() {
           observeTextElements();
         }, { passive: true });
       }
 
-      // Таймер обратного отсчёта
+      // Таймер
       function startCountdown() {
         const weddingDate = new Date('2026-10-03T14:00:00');
 
@@ -1247,7 +1237,7 @@
 
       startCountdown();
 
-      // Логика подвоза
+      // Подвоз
       const pickupRadios = document.querySelectorAll('input[name="need_pickup"]');
       const pickupBlock = document.getElementById('pickupBlock');
 
@@ -1263,7 +1253,6 @@
 
       pickupBlock.classList.remove('active');
 
-      // Запускаем наблюдение за текстами после открытия
       setTimeout(function() {
         if (invScreen.classList.contains('active')) {
           observeTextElements();
