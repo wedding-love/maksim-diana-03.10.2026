@@ -38,7 +38,7 @@
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
     }
 
-    /* ----- Экран-заставка: фон + изображение-кнопка внизу с подписью ----- */
+    /* ----- Экран-заставка ----- */
     .call-screen {
       position: absolute;
       top: 0;
@@ -54,19 +54,18 @@
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
-      padding-bottom: 30px; /* уменьшен отступ снизу, чтобы поднять блок чуть выше */
+      padding-bottom: 15px;
     }
 
-    /* Кликабельная область (изображение + подпись) */
     .clickable-area {
       cursor: pointer;
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 40%; /* увеличено с 30% */
-      max-width: 160px; /* увеличено с 120px */
-      min-width: 100px; /* увеличено с 80px */
-      margin-bottom: 10px; /* небольшой отступ снизу */
+      width: 40%;
+      max-width: 160px;
+      min-width: 100px;
+      margin-bottom: 5px;
       transition: transform 0.2s ease;
       -webkit-tap-highlight-color: transparent;
       text-decoration: none;
@@ -89,7 +88,7 @@
       font-weight: 400;
       color: #ffffff;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-      margin-top: 12px; /* увеличен отступ сверху */
+      margin-top: 12px;
       text-align: center;
       background: transparent;
       box-shadow: none;
@@ -128,7 +127,6 @@
       transform: translateY(0);
     }
 
-    /* Анимация появления при прокрутке */
     .fade-in-element {
       opacity: 0;
       transform: translateY(30px);
@@ -148,7 +146,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 80px 30px 60px;
+      padding: 60px 30px 60px;
       color: #fff;
       flex-shrink: 0;
     }
@@ -280,18 +278,21 @@
       font-weight: 500;
     }
 
-    /* Сердце в календаре вместо кружка */
     .wedding-heart {
       background-color: #1E1E1E;
-      color: #EAE3D9;
       border-radius: 50%;
       width: 32px;
       height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      line-height: 1;
+    }
+
+    .wedding-heart svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      fill: #EAE3D9;
     }
 
     .divider {
@@ -339,7 +340,7 @@
     .location-info {
       width: 100%;
       max-width: 320px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       text-align: left;
     }
 
@@ -357,6 +358,33 @@
       line-height: 1.5;
       color: #333;
       font-style: italic;
+    }
+
+    .map-button {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #1E1E1E;
+      color: #EAE3D9;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      border-radius: 30px;
+      transition: background 0.25s, transform 0.2s;
+      cursor: pointer;
+      margin-top: 10px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .map-button:hover {
+      background: #4A3F35;
+    }
+
+    .map-button:active {
+      transform: scale(0.96);
     }
 
     /* Тайминг */
@@ -439,7 +467,7 @@
     .form-header {
       width: 100%;
       max-width: 340px;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
     }
 
     .form-tag {
@@ -459,6 +487,18 @@
       letter-spacing: 0px;
       text-transform: uppercase;
       font-weight: 700;
+    }
+
+    .confirm-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      letter-spacing: 1px;
+      color: #4A3F35;
+      margin-top: 8px;
+      text-align: right;
+      width: 100%;
+      max-width: 340px;
+      font-style: italic;
     }
 
     .form-group {
@@ -508,10 +548,10 @@
       background-size: 12px;
     }
 
-    .radio-group {
+    .radio-group-vertical {
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+      flex-direction: column;
+      gap: 12px;
       margin-top: 5px;
     }
 
@@ -561,6 +601,18 @@
 
     .form-submit:hover {
       background: #4A3F35;
+    }
+
+    /* Доп. блок для подвоза */
+    .sub-block {
+      margin-top: 10px;
+      padding-left: 10px;
+      border-left: 2px solid #D6C7B8;
+      display: none;
+    }
+
+    .sub-block.active {
+      display: block;
     }
 
     /* ----- ТАЙМЕР ----- */
@@ -668,6 +720,13 @@
         font-size: 28px;
         letter-spacing: 4px;
       }
+      .inv-hero {
+        padding-top: 50px;
+      }
+      .map-button {
+        font-size: 16px;
+        padding: 10px 24px;
+      }
     }
 
     @media (max-width: 360px) {
@@ -684,12 +743,19 @@
         font-size: 24px;
         letter-spacing: 3px;
       }
+      .inv-hero {
+        padding-top: 40px;
+      }
+      .map-button {
+        font-size: 14px;
+        padding: 8px 18px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="app-container">
-    <!-- Экран-заставка: фон + кликабельное изображение с подписью -->
+    <!-- Экран-заставка -->
     <div class="call-screen" id="callScreen">
       <div class="clickable-area" id="clickableArea">
         <img src="d6ca4999-029e-4063-bc51-e6956b22e83f.png" alt="Открыть приглашение" />
@@ -720,7 +786,11 @@
           <div class="calendar-grid">
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
             <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div>
-            <div class="day wedding-heart">❤️</div>
+            <div class="day wedding-heart">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </div>
             <div class="day">4</div>
             <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
             <div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
@@ -737,10 +807,10 @@
           <h2 class="location-title">LOCA<br />TION</h2>
         </div>
         <div class="location-info">
-          <p class="venue-name">Ресторан-усадьба «Вайт Холл»</p>
-          <p class="venue-address">Беларусь, Минский р-н,<br />д. Волковичи, ул. Полевая, 1А</p>
+          <p class="venue-name">«Тихий Край»</p>
+          <p class="venue-address">ул. Суворова 17, Липово,<br />Брестская область</p>
         </div>
-        <!-- фото убрано -->
+        <a href="https://yandex.ru/maps/?text=ул. Суворова 17, Липово, Брестская область" target="_blank" class="map-button">Показать на карте</a>
       </div>
 
       <div class="inv-timing fade-in-element">
@@ -749,12 +819,10 @@
           <h2 class="timing-title">TIME<br />LINE</h2>
         </div>
         <div class="timeline-list">
-          <div class="time-item"><span class="time-value">15:00</span><span class="time-desc">Сбор гостей, приветственный фуршет</span></div>
-          <div class="time-item"><span class="time-value">16:00</span><span class="time-desc">Церемония бракосочетания</span></div>
-          <div class="time-item"><span class="time-value">17:30</span><span class="time-desc">Свадебный ужин</span></div>
-          <div class="time-item"><span class="time-value">19:00</span><span class="time-desc">Танцы и развлечения</span></div>
-          <div class="time-item"><span class="time-value">22:00</span><span class="time-desc">Праздничный торт</span></div>
-          <div class="time-item"><span class="time-value">23:00</span><span class="time-desc">Завершение вечера</span></div>
+          <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
+          <div class="time-item"><span class="time-value">14:30</span><span class="time-desc">Церемония</span></div>
+          <div class="time-item"><span class="time-value">15:30</span><span class="time-desc">Начало банкета</span></div>
+          <div class="time-item"><span class="time-value">00:00</span><span class="time-desc">Завершение</span></div>
         </div>
       </div>
 
@@ -763,6 +831,7 @@
         <div class="form-header">
           <span class="form-tag">[Анкета гостя]</span>
           <h2 class="form-title">АНКЕТА<br />ГОСТЯ</h2>
+          <div class="confirm-date">Подтверждение до 15.09.2026</div>
         </div>
 
         <div class="form-group">
@@ -772,9 +841,10 @@
 
         <div class="form-group">
           <label class="form-label">Вы планируете присутствовать?</label>
-          <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="attendance" value="yes" /> Да, с радостью</label>
-            <label class="radio-option"><input type="radio" name="attendance" value="no" /> К сожалению, нет</label>
+          <div class="radio-group-vertical">
+            <label class="radio-option"><input type="radio" name="attendance" value="yes" /> Буду точно</label>
+            <label class="radio-option"><input type="radio" name="attendance" value="maybe" /> Не знаю</label>
+            <label class="radio-option"><input type="radio" name="attendance" value="no" /> Не буду</label>
           </div>
         </div>
 
@@ -789,19 +859,19 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Нужен ли вам трансфер?</label>
-          <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="transfer" value="yes" /> Да</label>
-            <label class="radio-option"><input type="radio" name="transfer" value="no" /> Нет</label>
+          <label class="form-label">Как вы планируете добраться?</label>
+          <div class="radio-group-vertical">
+            <label class="radio-option"><input type="radio" name="transport" value="own" checked /> На своём транспорте</label>
+            <label class="radio-option"><input type="radio" name="transport" value="need" /> Нужен подвоз</label>
           </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Предпочтения по напиткам</label>
-          <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="drink" value="wine" /> Вино</label>
-            <label class="radio-option"><input type="radio" name="drink" value="champagne" /> Шампанское</label>
-            <label class="radio-option"><input type="radio" name="drink" value="soft" /> Безалкогольное</label>
+          <div class="sub-block" id="pickupBlock">
+            <div style="margin-top: 12px;">
+              <label class="form-label" style="font-size:18px; font-style:italic; margin-bottom:8px;">Откуда нужен подвоз?</label>
+              <div class="radio-group-vertical">
+                <label class="radio-option"><input type="radio" name="pickup_from" value="groom" /> Сторона жениха (Радостово)</label>
+                <label class="radio-option"><input type="radio" name="pickup_from" value="bride" /> Сторона невесты (Повитье)</label>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -816,7 +886,7 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Песня, под которую вы точно выйдете на танцпол</label>
+          <label class="form-label">Ваша любимая песня для танца</label>
           <input type="text" class="form-input" placeholder="Название и исполнитель" />
         </div>
 
@@ -850,7 +920,7 @@
     </div>
   </div>
 
-  <!-- Аудио для фоновой музыки -->
+  <!-- Аудио -->
   <audio id="bgMusic" loop preload="auto">
     <source src="Spokojjnaya_fonovaya_muzyka_onovaya_muzyka_Muzyka_dlya_sna_Rasslablyayushhaya_Muzyka_dlya_Sna_Spokojjnaya_muzyka_dlya_sna_-_Muzyka_dlya_garmonii_i_ljogkogo_vechernego_otdykha_80052187 (1).mp3" type="audio/mpeg" />
   </audio>
@@ -862,7 +932,6 @@
       const bgMusic = document.getElementById('bgMusic');
       const clickableArea = document.getElementById('clickableArea');
 
-      // Клик только по области clickableArea (изображение + подпись)
       clickableArea.addEventListener('click', function(e) {
         e.stopPropagation();
         bgMusic.play().catch(function(e) {
@@ -880,7 +949,6 @@
         }, 400);
       });
 
-      // Функция проверки видимости элемента
       function isElementInViewport(el, offset) {
         offset = offset || 0.15;
         const rect = el.getBoundingClientRect();
@@ -888,7 +956,6 @@
         return rect.top <= windowHeight * (1 - offset) && rect.bottom >= 0;
       }
 
-      // Функция активации анимации при скролле
       function handleScrollAnimation() {
         const fadeElements = document.querySelectorAll('.fade-in-element:not(.visible)');
         fadeElements.forEach(function(el) {
@@ -902,9 +969,8 @@
         invScreen.addEventListener('scroll', handleScrollAnimation, { passive: true });
       }
 
-      // Таймер обратного отсчёта до 03.10.2026 15:00
       function startCountdown() {
-        const weddingDate = new Date('2026-10-03T15:00:00');
+        const weddingDate = new Date('2026-10-03T14:00:00');
 
         function updateTimer() {
           const now = new Date();
@@ -940,6 +1006,28 @@
           handleScrollAnimation();
         }
       }, 500);
+
+      // Логика показа/скрытия блока "подвоз"
+      const transportRadios = document.querySelectorAll('input[name="transport"]');
+      const pickupBlock = document.getElementById('pickupBlock');
+
+      transportRadios.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+          if (this.value === 'need') {
+            pickupBlock.classList.add('active');
+          } else {
+            pickupBlock.classList.remove('active');
+          }
+        });
+      });
+
+      // При загрузке проверить, что выбрано
+      const checkedTransport = document.querySelector('input[name="transport"]:checked');
+      if (checkedTransport && checkedTransport.value === 'need') {
+        pickupBlock.classList.add('active');
+      } else {
+        pickupBlock.classList.remove('active');
+      }
     })();
   </script>
 </body>
