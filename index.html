@@ -201,7 +201,7 @@
     .block-tag {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
-      text-align: left; /* выровнено по левому краю, как и заголовок */
+      text-align: left;
       margin-bottom: -8px;
       letter-spacing: 3px;
       font-weight: 600;
@@ -216,7 +216,7 @@
       text-transform: uppercase;
       font-weight: 700;
       white-space: nowrap;
-      text-align: left; /* явно по левому краю */
+      text-align: left;
     }
 
     .block-text {
@@ -523,13 +523,13 @@
 
     /* ----- АНКЕТА ----- */
     .inv-form {
-      background-color: #FFFFFF;
-      color: #000000;
       padding: 80px 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+    .inv-form.bg-beige { background-color: #EAE3D9; }
+    .inv-form.bg-white { background-color: #FFFFFF; }
 
     .form-header {
       width: 100%;
@@ -677,14 +677,15 @@
       display: block;
     }
 
-    /* ----- ТАЙМЕР (перенесён после TIMELINE) ----- */
+    /* ----- ТАЙМЕР (белый блок) ----- */
     .countdown-section {
-      background-color: #EAE3D9;
       padding: 60px 30px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+    .countdown-section.bg-white { background-color: #FFFFFF; }
+    .countdown-section.bg-beige { background-color: #EAE3D9; }
 
     .countdown-title {
       font-family: 'Cormorant Garamond', serif;
@@ -883,11 +884,11 @@
         </div>
       </div>
 
-      <!-- INVITATION -->
+      <!-- INVITATION (бежевый) -->
       <div class="block-wrapper bg-beige fade-in-element">
         <div class="block-header">
-          <div class="block-tag">[Детали]</div>
-          <div class="block-title">INVITATION</div>
+          <div class="block-tag">[Details]</div>
+          <div class="block-title">ПРИГЛАШЕНИЕ</div>
         </div>
         <div class="block-text">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
@@ -913,11 +914,11 @@
         <div class="divider"></div>
       </div>
 
-      <!-- LOCATION -->
+      <!-- LOCATION (белый) -->
       <div class="block-wrapper bg-white fade-in-element">
         <div class="block-header">
-          <div class="block-tag">[Место]</div>
-          <div class="block-title">LOCATION</div>
+          <div class="block-tag">[Location]</div>
+          <div class="block-title">МЕСТО</div>
         </div>
         <div class="location-info">
           <p class="venue-name">«Тихий Край»</p>
@@ -927,11 +928,11 @@
         <div class="divider"></div>
       </div>
 
-      <!-- TIMELINE -->
+      <!-- TIMELINE (бежевый) -->
       <div class="block-wrapper bg-beige fade-in-element">
         <div class="block-header">
-          <div class="block-tag">[Расписание]</div>
-          <div class="block-title">TIMELINE</div>
+          <div class="block-tag">[Timeline]</div>
+          <div class="block-title">РАСПИСАНИЕ</div>
         </div>
         <div class="timeline-list">
           <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
@@ -942,8 +943,8 @@
         <div class="divider"></div>
       </div>
 
-      <!-- ТАЙМЕР ПЕРЕНЕСЁН СЮДА (после TIMELINE) -->
-      <div class="countdown-section fade-in-element">
+      <!-- ТАЙМЕР (белый) -->
+      <div class="countdown-section bg-white fade-in-element">
         <div class="countdown-title">До свадьбы осталось</div>
         <div class="countdown-row" id="countdownRow">
           <div class="countdown-item">
@@ -968,11 +969,11 @@
         </div>
       </div>
 
-      <!-- PASSPORT -->
-      <div class="block-wrapper bg-white fade-in-element">
+      <!-- PASSPORT (бежевый) -->
+      <div class="block-wrapper bg-beige fade-in-element">
         <div class="block-header">
-          <div class="block-tag">[Важно]</div>
-          <div class="block-title">PASSPORT</div>
+          <div class="block-tag">[Important]</div>
+          <div class="block-title">ПАСПОРТ</div>
         </div>
         <div class="block-text">
           Для проезда через пост в Брестской области при себе необходимо иметь паспорт. Убедитесь, пожалуйста, что он действителен.
@@ -980,11 +981,11 @@
         <div class="divider"></div>
       </div>
 
-      <!-- DRESS-CODE + ЦВЕТА -->
-      <div class="block-wrapper bg-beige fade-in-element">
+      <!-- DRESS-CODE (белый) -->
+      <div class="block-wrapper bg-white fade-in-element">
         <div class="block-header">
-          <div class="block-tag">[Дресс-код]</div>
-          <div class="block-title">DRESS-CODE</div>
+          <div class="block-tag">[Dress code]</div>
+          <div class="block-title">ДРЕСС-КОД</div>
         </div>
         <div class="block-text">
           Будем признательны, если вы поддержите цветовую гамму нашего праздника.
@@ -1005,11 +1006,11 @@
         <div class="divider"></div>
       </div>
 
-      <!-- WISHES -->
-      <div class="block-wrapper bg-white fade-in-element">
+      <!-- WISHES (бежевый) -->
+      <div class="block-wrapper bg-beige fade-in-element">
         <div class="block-header">
-          <div class="block-tag">[Пожелания]</div>
-          <div class="block-title">WISHES</div>
+          <div class="block-tag">[Wishes]</div>
+          <div class="block-title">ПОЖЕЛАНИЯ</div>
         </div>
         <div class="block-text">
           Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
@@ -1017,11 +1018,11 @@
         <div class="divider"></div>
       </div>
 
-      <!-- CONTACTS -->
-      <div class="block-wrapper bg-beige fade-in-element">
+      <!-- CONTACTS (белый) -->
+      <div class="block-wrapper bg-white fade-in-element">
         <div class="block-header">
-          <div class="block-tag">[Контакты]</div>
-          <div class="block-title">CONTACTS</div>
+          <div class="block-tag">[Contacts]</div>
+          <div class="block-title">КОНТАКТЫ</div>
         </div>
         <div class="contacts-list">
           <a href="https://t.me/maxsuh99" target="_blank" class="contact-card">
@@ -1048,11 +1049,11 @@
         <div class="divider"></div>
       </div>
 
-      <!-- RSVP (Анкета) -->
-      <div class="inv-form fade-in-element">
+      <!-- RSVP (бежевый) -->
+      <div class="inv-form bg-beige fade-in-element">
         <div class="form-header">
-          <div class="form-tag">[Анкета гостя]</div>
-          <div class="form-title">RSVP</div>
+          <div class="form-tag">[RSVP]</div>
+          <div class="form-title">АНКЕТА ГОСТЯ</div>
         </div>
 
         <div class="form-group">
