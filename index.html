@@ -127,17 +127,6 @@
       transform: translateY(0);
     }
 
-    /* ----- Анимация появления для отдельных элементов ----- */
-    .fade-in-element {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1), transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .fade-in-element.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* Hero */
     .inv-hero {
       width: 100%;
@@ -385,6 +374,19 @@
     .bg-green .venue-address { color: #D4CFC7; }
     .bg-white .venue-address { color: #333; }
 
+    /* Информация о паспорте в блоке Место */
+    .passport-info {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed #B8A99A;
+    }
+
+    .bg-green .passport-info { color: #D4CFC7; border-top-color: #A8D5BA; }
+    .bg-white .passport-info { color: #333; border-top-color: #B8A99A; }
+
     /* Кнопки — темные */
     .map-button {
       display: inline-block;
@@ -594,6 +596,22 @@
     .inv-form.bg-green .form-title { color: #F5F0E8; }
     .inv-form.bg-white .form-title { color: #1E1E1E; }
 
+    /* Текст подтверждения в начале анкеты */
+    .confirm-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      text-align: center;
+      font-weight: 600;
+      font-style: italic;
+      margin-bottom: 25px;
+      width: 100%;
+      max-width: 340px;
+      letter-spacing: 1px;
+    }
+
+    .inv-form.bg-green .confirm-text { color: #F5F0E8; }
+    .inv-form.bg-white .confirm-text { color: #1E1E1E; }
+
     .form-group {
       width: 100%;
       max-width: 340px;
@@ -669,23 +687,6 @@
       min-height: 80px;
     }
 
-    .confirm-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      text-align: center;
-      font-weight: 600;
-      font-style: italic;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      width: 100%;
-      max-width: 340px;
-      letter-spacing: 1px;
-    }
-
-    .inv-form.bg-green .confirm-text { color: #F5F0E8; }
-    .inv-form.bg-white .confirm-text { color: #1E1E1E; }
-
-    /* Кнопка "Отправить" — темная */
     .form-submit {
       width: 100%;
       max-width: 340px;
@@ -859,6 +860,7 @@
       }
       .confirm-text {
         font-size: 18px;
+        margin-bottom: 20px;
       }
     }
 
@@ -909,6 +911,7 @@
       }
       .confirm-text {
         font-size: 16px;
+        margin-bottom: 16px;
       }
     }
   </style>
@@ -938,13 +941,13 @@
       <!-- ПРИГЛАШЕНИЕ (зелёный) -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
-          <div class="block-tag fade-in-element">[Details]</div>
-          <div class="block-title fade-in-element">ПРИГЛАШЕНИЕ</div>
+          <div class="block-tag">[Details]</div>
+          <div class="block-title">ПРИГЛАШЕНИЕ</div>
         </div>
-        <div class="block-text fade-in-element">
+        <div class="block-text">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </div>
-        <div class="calendar-wrap fade-in-element" style="margin-top: 30px;">
+        <div class="calendar-wrap" style="margin-top: 30px;">
           <div class="calendar-month">Октябрь 2026</div>
           <div class="calendar-grid">
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
@@ -962,42 +965,45 @@
             <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div>
           </div>
         </div>
-        <div class="divider fade-in-element"></div>
+        <div class="divider"></div>
       </div>
 
-      <!-- МЕСТО (белый) -->
+      <!-- МЕСТО (белый) + информация о паспорте -->
       <div class="block-wrapper bg-white">
         <div class="block-header">
-          <div class="block-tag fade-in-element">[Location]</div>
-          <div class="block-title fade-in-element">МЕСТО</div>
+          <div class="block-tag">[Location]</div>
+          <div class="block-title">МЕСТО</div>
         </div>
-        <div class="location-info fade-in-element">
+        <div class="location-info">
           <p class="venue-name">«Тихий Край»</p>
           <p class="venue-address">ул. Суворова 17, Липово,<br />Брестская область</p>
+          <div class="passport-info">
+            Для проезда через пост в Брестской области при себе необходимо иметь паспорт. Убедитесь, пожалуйста, что он действителен.
+          </div>
         </div>
-        <a href="https://yandex.ru/maps/?text=ул. Суворова 17, Липово, Брестская область" target="_blank" class="map-button fade-in-element">Показать на карте</a>
-        <div class="divider fade-in-element"></div>
+        <a href="https://yandex.ru/maps/?text=ул. Суворова 17, Липово, Брестская область" target="_blank" class="map-button">Показать на карте</a>
+        <div class="divider"></div>
       </div>
 
       <!-- РАСПИСАНИЕ (зелёный) -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
-          <div class="block-tag fade-in-element">[Timeline]</div>
-          <div class="block-title fade-in-element">РАСПИСАНИЕ</div>
+          <div class="block-tag">[Timeline]</div>
+          <div class="block-title">РАСПИСАНИЕ</div>
         </div>
         <div class="timeline-list">
-          <div class="time-item fade-in-element"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
-          <div class="time-item fade-in-element"><span class="time-value">14:30</span><span class="time-desc">Церемония</span></div>
-          <div class="time-item fade-in-element"><span class="time-value">15:30</span><span class="time-desc">Начало банкета</span></div>
-          <div class="time-item fade-in-element"><span class="time-value">00:00</span><span class="time-desc">Завершение</span></div>
+          <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
+          <div class="time-item"><span class="time-value">14:30</span><span class="time-desc">Церемония</span></div>
+          <div class="time-item"><span class="time-value">15:30</span><span class="time-desc">Начало банкета</span></div>
+          <div class="time-item"><span class="time-value">00:00</span><span class="time-desc">Завершение</span></div>
         </div>
-        <div class="divider fade-in-element"></div>
+        <div class="divider"></div>
       </div>
 
       <!-- ТАЙМЕР (белый) -->
       <div class="countdown-section bg-white">
-        <div class="countdown-title fade-in-element">До свадьбы осталось</div>
-        <div class="countdown-row fade-in-element" id="countdownRow">
+        <div class="countdown-title">До свадьбы осталось</div>
+        <div class="countdown-row" id="countdownRow">
           <div class="countdown-item">
             <span class="countdown-number" id="days">00</span>
             <span class="countdown-label">дн</span>
@@ -1020,28 +1026,16 @@
         </div>
       </div>
 
-      <!-- ПАСПОРТ (зелёный) -->
-      <div class="block-wrapper bg-green">
-        <div class="block-header">
-          <div class="block-tag fade-in-element">[Important]</div>
-          <div class="block-title fade-in-element">ПАСПОРТ</div>
-        </div>
-        <div class="block-text fade-in-element">
-          Для проезда через пост в Брестской области при себе необходимо иметь паспорт. Убедитесь, пожалуйста, что он действителен.
-        </div>
-        <div class="divider fade-in-element"></div>
-      </div>
-
-      <!-- ДРЕСС-КОД (белый) -->
+      <!-- ДРЕСС-КОД (белый) - оставляем белым, т.к. после удаления паспорта чередование: зелёный, белый, зелёный, белый, белый, зелёный... допустим -->
       <div class="block-wrapper bg-white">
         <div class="block-header">
-          <div class="block-tag fade-in-element">[Dress code]</div>
-          <div class="block-title fade-in-element">ДРЕСС-КОД</div>
+          <div class="block-tag">[Dress code]</div>
+          <div class="block-title">ДРЕСС-КОД</div>
         </div>
-        <div class="block-text fade-in-element">
+        <div class="block-text">
           Будем признательны, если вы поддержите цветовую гамму нашего праздника.
         </div>
-        <div class="color-swatches fade-in-element">
+        <div class="color-swatches">
           <div class="swatch"><img src="IMG_9119.JPG" alt="цвет" /></div>
           <div class="swatch"><img src="IMG_9118.JPG" alt="цвет" /></div>
           <div class="swatch"><img src="IMG_9117.JPG" alt="цвет" /></div>
@@ -1054,28 +1048,28 @@
           <div class="swatch"><img src="IMG_9110.JPG" alt="цвет" /></div>
           <div class="swatch"><img src="IMG_9109.JPG" alt="цвет" /></div>
         </div>
-        <div class="divider fade-in-element"></div>
+        <div class="divider"></div>
       </div>
 
       <!-- ПОЖЕЛАНИЯ (зелёный) -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
-          <div class="block-tag fade-in-element">[Wishes]</div>
-          <div class="block-title fade-in-element">ПОЖЕЛАНИЯ</div>
+          <div class="block-tag">[Wishes]</div>
+          <div class="block-title">ПОЖЕЛАНИЯ</div>
         </div>
-        <div class="block-text fade-in-element">
+        <div class="block-text">
           Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
         </div>
-        <div class="divider fade-in-element"></div>
+        <div class="divider"></div>
       </div>
 
       <!-- КОНТАКТЫ (белый) -->
       <div class="block-wrapper bg-white">
         <div class="block-header">
-          <div class="block-tag fade-in-element">[Contacts]</div>
-          <div class="block-title fade-in-element">КОНТАКТЫ</div>
+          <div class="block-tag">[Contacts]</div>
+          <div class="block-title">КОНТАКТЫ</div>
         </div>
-        <div class="contacts-list fade-in-element">
+        <div class="contacts-list">
           <a href="https://t.me/maxsuh99" target="_blank" class="contact-card">
             <span class="icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="#1a3a28" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1097,22 +1091,25 @@
             <span class="username">@dianaromanyuk31</span>
           </a>
         </div>
-        <div class="divider fade-in-element"></div>
+        <div class="divider"></div>
       </div>
 
       <!-- АНКЕТА ГОСТЯ (зелёный) -->
       <div class="inv-form bg-green">
         <div class="form-header">
-          <div class="form-tag fade-in-element">[RSVP]</div>
-          <div class="form-title fade-in-element">АНКЕТА ГОСТЯ</div>
+          <div class="form-tag">[RSVP]</div>
+          <div class="form-title">АНКЕТА ГОСТЯ</div>
         </div>
 
-        <div class="form-group fade-in-element">
+        <!-- Текст подтверждения перенесён сюда -->
+        <div class="confirm-text">Пожалуйста, подтвердите присутствие до 15.09.2026</div>
+
+        <div class="form-group">
           <label class="form-label">Ваше имя и фамилия</label>
           <input type="text" class="form-input" placeholder="Иван Петров" />
         </div>
 
-        <div class="form-group fade-in-element">
+        <div class="form-group">
           <label class="form-label">Вы планируете присутствовать?</label>
           <div class="radio-group-vertical">
             <label class="radio-option"><input type="radio" name="attendance" value="yes" /> Буду точно</label>
@@ -1121,7 +1118,7 @@
           </div>
         </div>
 
-        <div class="form-group fade-in-element">
+        <div class="form-group">
           <label class="form-label">Нужен ли вам подвоз?</label>
           <div class="radio-group-vertical">
             <label class="radio-option"><input type="radio" name="need_pickup" value="yes" /> Да</label>
@@ -1138,14 +1135,14 @@
           </div>
         </div>
 
-        <div class="form-group fade-in-element">
+        <div class="form-group">
           <label class="form-label">Ваша любимая песня для танца</label>
           <input type="text" class="form-input" placeholder="Название и исполнитель" />
         </div>
 
-        <div class="confirm-text fade-in-element">Пожалуйста, подтвердите присутствие до 15.09.2026</div>
+        <!-- Убран confirm-text отсюда -->
 
-        <button class="form-submit fade-in-element">Отправить</button>
+        <button class="form-submit">Отправить</button>
       </div>
     </div>
   </div>
@@ -1173,32 +1170,10 @@
 
         setTimeout(function() {
           invScreen.classList.add('active');
-          requestAnimationFrame(function() {
-            handleScrollAnimation();
-          });
         }, 400);
       });
 
-      function isElementInViewport(el, offset) {
-        offset = offset || 0.15;
-        const rect = el.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        return rect.top <= windowHeight * (1 - offset) && rect.bottom >= 0;
-      }
-
-      function handleScrollAnimation() {
-        const fadeElements = document.querySelectorAll('.fade-in-element:not(.visible)');
-        fadeElements.forEach(function(el) {
-          if (isElementInViewport(el, 0.2)) {
-            el.classList.add('visible');
-          }
-        });
-      }
-
-      if (invScreen) {
-        invScreen.addEventListener('scroll', handleScrollAnimation, { passive: true });
-      }
-
+      // Таймер обратного отсчёта
       function startCountdown() {
         const weddingDate = new Date('2026-10-03T14:00:00');
 
@@ -1230,12 +1205,6 @@
       }
 
       startCountdown();
-
-      setTimeout(function() {
-        if (invScreen.classList.contains('active')) {
-          handleScrollAnimation();
-        }
-      }, 500);
 
       // Логика подвоза
       const pickupRadios = document.querySelectorAll('input[name="need_pickup"]');
