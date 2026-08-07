@@ -308,13 +308,13 @@
       align-items: center;
       justify-content: center;
       font-weight: 500;
-      overflow: visible; /* разрешаем выход за пределы */
+      overflow: visible;
     }
 
     .bg-green .day { color: #F5F0E8; }
     .bg-white .day { color: #1E1E1E; }
 
-    /* Сердце: контейнер 32px, SVG масштабируется в 2 раза */
+    /* Сердце: контейнер 32px, SVG масштабируется в 1.7 раза */
     .wedding-heart {
       position: relative;
       width: 32px;
@@ -329,7 +329,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(2); /* масштабируем в 2 раза */
+      transform: translate(-50%, -50%) scale(1.7);
       width: 32px;
       height: 32px;
       pointer-events: none;
