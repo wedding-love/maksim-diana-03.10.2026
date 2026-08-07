@@ -127,6 +127,7 @@
       transform: translateY(0);
     }
 
+    /* Анимация появления при прокрутке — только для содержимого блоков */
     .fade-in-element {
       opacity: 0;
       transform: translateY(30px);
@@ -184,7 +185,7 @@
       font-style: italic;
     }
 
-    /* Общие стили для блоков с заголовками */
+    /* Общие стили для блоков */
     .block-wrapper {
       padding: 80px 30px;
       display: flex;
@@ -202,7 +203,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       text-align: left;
-      margin-bottom: 4px; /* увеличен отступ между тегом и заголовком */
+      margin-bottom: 4px;
       letter-spacing: 3px;
       font-weight: 600;
       text-transform: uppercase;
@@ -210,7 +211,7 @@
 
     .block-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 48px; /* уменьшен с 56px */
+      font-size: 48px;
       line-height: 1;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -234,7 +235,7 @@
 
     /* Цветовые варианты */
     .bg-green {
-      background-color: #1E3D2E;
+      background-color: #1E5A3A; /* травяной зелёный */
       color: #F5F0E8;
     }
     .bg-white {
@@ -242,9 +243,9 @@
       color: #000000;
     }
 
-    .bg-green .block-tag { color: #B8C9B0; }
+    .bg-green .block-tag { color: #A8D5BA; }
     .bg-green .block-title { color: #F5F0E8; }
-    .bg-green .block-text { border-left-color: #B8C9B0; color: #F5F0E8; }
+    .bg-green .block-text { border-left-color: #A8D5BA; color: #F5F0E8; }
 
     .bg-white .block-tag { color: #4A3F35; }
     .bg-white .block-title { color: #1E1E1E; }
@@ -283,7 +284,7 @@
       margin-bottom: 6px;
     }
 
-    .bg-green .day-name { color: #B8C9B0; }
+    .bg-green .day-name { color: #A8D5BA; }
     .bg-white .day-name { color: #6B5E53; }
 
     .day {
@@ -352,7 +353,7 @@
       margin-top: 50px;
     }
 
-    .bg-green .divider { background-color: #B8C9B0; }
+    .bg-green .divider { background-color: #A8D5BA; }
     .bg-white .divider { background-color: #1E1E1E; }
 
     /* Локация */
@@ -384,11 +385,12 @@
     .bg-green .venue-address { color: #D4CFC7; }
     .bg-white .venue-address { color: #333; }
 
+    /* Кнопка "Показать на карте" — зелёная */
     .map-button {
       display: inline-block;
       padding: 12px 30px;
-      background-color: #1E1E1E;
-      color: #EAE3D9;
+      background-color: #2E8B57; /* зелёный */
+      color: #FFFFFF;
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       font-weight: 600;
@@ -404,7 +406,7 @@
     }
 
     .map-button:hover {
-      background: #4A3F35;
+      background: #1E6B3A;
     }
 
     .map-button:active {
@@ -427,7 +429,7 @@
       padding-bottom: 10px;
     }
 
-    .bg-green .time-item { border-color: #B8C9B0; }
+    .bg-green .time-item { border-color: #A8D5BA; }
     .bg-white .time-item { border-color: #B8A99A; }
 
     .time-value {
@@ -478,7 +480,7 @@
       object-fit: cover;
     }
 
-    /* Контакты — карточки */
+    /* Контакты — карточки с зелёной обводкой */
     .contacts-list {
       width: 100%;
       max-width: 320px;
@@ -492,7 +494,7 @@
 
     .contact-card {
       background: #FFFFFF;
-      border: 1px solid #D6C7B8;
+      border: 1px solid #2E8B57; /* зелёная обводка */
       border-radius: 12px;
       padding: 14px 16px;
       text-align: center;
@@ -511,7 +513,7 @@
 
     .contact-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 14px rgba(46, 139, 87, 0.15);
     }
 
     .contact-card .icon {
@@ -528,7 +530,7 @@
       width: 100%;
       height: 100%;
       fill: none;
-      stroke: #1E1E1E;
+      stroke: #1E5A3A; /* зелёный */
       stroke-width: 1.8;
     }
 
@@ -538,7 +540,7 @@
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #4A3F35;
+      color: #2E8B57;
     }
 
     .contact-card .username {
@@ -556,7 +558,7 @@
       flex-direction: column;
       align-items: center;
     }
-    .inv-form.bg-green { background-color: #1E3D2E; color: #F5F0E8; }
+    .inv-form.bg-green { background-color: #1E5A3A; color: #F5F0E8; }
     .inv-form.bg-white { background-color: #FFFFFF; color: #000000; }
 
     .form-header {
@@ -575,7 +577,7 @@
       text-transform: uppercase;
     }
 
-    .inv-form.bg-green .form-tag { color: #B8C9B0; }
+    .inv-form.bg-green .form-tag { color: #A8D5BA; }
     .inv-form.bg-white .form-tag { color: #4A3F35; }
 
     .form-title {
@@ -629,7 +631,7 @@
 
     .form-input:focus,
     .form-textarea:focus {
-      border-color: #4A3F35;
+      border-color: #2E8B57; /* зелёный акцент */
     }
 
     .radio-group-vertical {
@@ -652,12 +654,15 @@
     .inv-form.bg-green .radio-option { color: #F5F0E8; }
     .inv-form.bg-white .radio-option { color: #1E1E1E; }
 
-    .radio-option input {
+    /* Зелёные чекбоксы и радио */
+    .radio-option input[type="radio"],
+    .checkbox-option input[type="checkbox"] {
       width: 18px;
       height: 18px;
-      accent-color: #4A3F35;
+      accent-color: #2E8B57;
       margin: 0;
       flex-shrink: 0;
+      cursor: pointer;
     }
 
     .form-textarea {
@@ -681,12 +686,13 @@
     .inv-form.bg-green .confirm-text { color: #F5F0E8; }
     .inv-form.bg-white .confirm-text { color: #1E1E1E; }
 
+    /* Кнопка "Отправить" — зелёная */
     .form-submit {
       width: 100%;
       max-width: 340px;
       padding: 16px;
-      background: #1E1E1E;
-      color: #EAE3D9;
+      background: #2E8B57;
+      color: #FFFFFF;
       border: none;
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
@@ -701,7 +707,7 @@
     }
 
     .form-submit:hover {
-      background: #4A3F35;
+      background: #1E6B3A;
     }
 
     .sub-block {
@@ -715,7 +721,7 @@
       display: block;
     }
 
-    /* ----- ТАЙМЕР (белый) ----- */
+    /* ----- ТАЙМЕР ----- */
     .countdown-section {
       padding: 60px 30px 80px;
       display: flex;
@@ -723,7 +729,7 @@
       align-items: center;
     }
     .countdown-section.bg-white { background-color: #FFFFFF; }
-    .countdown-section.bg-green { background-color: #1E3D2E; }
+    .countdown-section.bg-green { background-color: #1E5A3A; }
 
     .countdown-title {
       font-family: 'Cormorant Garamond', serif;
@@ -770,7 +776,7 @@
     }
 
     .bg-white .countdown-label { color: #6B5E53; }
-    .bg-green .countdown-label { color: #B8C9B0; }
+    .bg-green .countdown-label { color: #A8D5BA; }
 
     .countdown-separator {
       font-family: 'Cormorant Garamond', serif;
@@ -1073,7 +1079,7 @@
         <div class="contacts-list">
           <a href="https://t.me/maxsuh99" target="_blank" class="contact-card">
             <span class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1E5A3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
                 <path d="M22 2L11 13" />
               </svg>
@@ -1083,7 +1089,7 @@
           </a>
           <a href="https://t.me/dianaromanyuk31" target="_blank" class="contact-card">
             <span class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1E5A3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
                 <path d="M22 2L11 13" />
               </svg>
