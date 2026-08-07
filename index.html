@@ -308,26 +308,32 @@
       align-items: center;
       justify-content: center;
       font-weight: 500;
+      overflow: visible; /* разрешаем выход за пределы */
     }
 
     .bg-green .day { color: #F5F0E8; }
     .bg-white .day { color: #1E1E1E; }
 
-    /* Сердце большое, пульсирует, цифра 3 по центру */
+    /* Сердце: контейнер 32px, SVG масштабируется в 2 раза */
     .wedding-heart {
       position: relative;
-      width: 64px;
-      height: 64px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       animation: pulse-heart 1.8s ease-in-out infinite;
     }
 
     .wedding-heart svg {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(2); /* масштабируем в 2 раза */
+      width: 32px;
+      height: 32px;
       pointer-events: none;
+      transform-origin: center;
     }
 
     .bg-green .wedding-heart svg path {
@@ -342,22 +348,17 @@
     }
 
     .wedding-heart .day-number {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
+      z-index: 1;
       font-size: 18px;
       font-weight: 500;
       line-height: 1;
-      z-index: 1;
+      color: inherit;
     }
-
-    .bg-green .wedding-heart .day-number { color: #F5F0E8; }
-    .bg-white .wedding-heart .day-number { color: #1E1E1E; }
 
     @keyframes pulse-heart {
       0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      50% { transform: scale(1.08); }
       100% { transform: scale(1); }
     }
 
@@ -875,10 +876,6 @@
       .contact-card .username {
         font-size: 16px;
       }
-      .wedding-heart {
-        width: 56px;
-        height: 56px;
-      }
       .color-swatches .swatch {
         width: 66px;
         height: 66px;
@@ -922,10 +919,6 @@
       }
       .contact-card .username {
         font-size: 14px;
-      }
-      .wedding-heart {
-        width: 48px;
-        height: 48px;
       }
       .color-swatches .swatch {
         width: 56px;
