@@ -209,9 +209,9 @@
 
     .invite-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
-      line-height: 0.9;
-      letter-spacing: 0px;
+      font-size: 56px;
+      line-height: 1;
+      letter-spacing: 2px;
       text-transform: uppercase;
       font-weight: 700;
       text-align: left;
@@ -219,6 +219,7 @@
       max-width: 320px;
       margin-bottom: 25px;
       color: #1E1E1E;
+      white-space: nowrap;
     }
 
     .invite-desc {
@@ -278,17 +279,15 @@
       font-weight: 500;
     }
 
-    /* Сердце как обводка, внутри цифра 3 */
+    /* Сердце с пульсацией */
     .wedding-heart {
       position: relative;
-      width: 32px;
-      height: 32px;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      font-weight: 500;
-      color: #1E1E1E;
+      animation: pulse-heart 1.8s ease-in-out infinite;
     }
 
     .wedding-heart svg {
@@ -303,16 +302,22 @@
     .wedding-heart svg path {
       fill: none;
       stroke: #1E1E1E;
-      stroke-width: 1.5;
+      stroke-width: 2;
     }
 
     .wedding-heart .day-number {
       position: relative;
       z-index: 1;
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 22px;
+      font-weight: 600;
       color: #1E1E1E;
       line-height: 1;
+    }
+
+    @keyframes pulse-heart {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
     }
 
     .divider {
@@ -350,11 +355,12 @@
 
     .location-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 72px;
-      line-height: 0.9;
-      letter-spacing: 0px;
+      font-size: 56px;
+      line-height: 1;
+      letter-spacing: 2px;
       text-transform: uppercase;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .location-info {
@@ -435,11 +441,12 @@
 
     .timing-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
-      line-height: 0.9;
-      letter-spacing: 0px;
+      font-size: 56px;
+      line-height: 1;
+      letter-spacing: 2px;
       text-transform: uppercase;
       font-weight: 700;
+      white-space: nowrap;
       color: #1E1E1E;
     }
 
@@ -474,7 +481,7 @@
       font-style: italic;
     }
 
-    /* ----- Новые блоки: Важно, Дресс-код, Пожелания, Контакты ----- */
+    /* ----- Новые блоки ----- */
     .info-block-light {
       background-color: #FFFFFF;
       color: #000000;
@@ -511,11 +518,12 @@
 
     .info-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
-      line-height: 0.9;
-      letter-spacing: 0px;
+      font-size: 56px;
+      line-height: 1;
+      letter-spacing: 2px;
       text-transform: uppercase;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .info-text {
@@ -558,26 +566,58 @@
       color: #1E1E1E;
     }
 
-    /* Контакты: без смайлов */
+    /* Квадратики цветов в дресс-коде */
+    .color-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 20px;
+      max-width: 320px;
+    }
+
+    .color-swatches .swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      flex-shrink: 0;
+    }
+
+    .color-swatches .swatch img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Контакты в две колонки */
     .contacts-list {
       width: 100%;
       max-width: 320px;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       gap: 20px;
       margin-top: 10px;
+      flex-wrap: wrap;
     }
 
     .contact-item {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 4px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 600;
       text-decoration: none;
       color: #1E1E1E;
       transition: opacity 0.2s;
+      text-align: center;
+      flex: 1 1 0;
+      min-width: 120px;
     }
 
     .contact-item:hover {
@@ -587,14 +627,17 @@
     .contact-item .label {
       font-style: italic;
       font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 1px;
     }
 
     .contact-item .username {
       font-weight: 700;
       letter-spacing: 0.5px;
+      font-size: 18px;
     }
 
-    /* ----- АНКЕТА ГОСТЯ (обновлённая) ----- */
+    /* ----- АНКЕТА ----- */
     .inv-form {
       background-color: #FFFFFF;
       color: #000000;
@@ -622,11 +665,12 @@
 
     .form-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 58px;
-      line-height: 0.9;
-      letter-spacing: 0px;
+      font-size: 56px;
+      line-height: 1;
+      letter-spacing: 2px;
       text-transform: uppercase;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .confirm-date {
@@ -734,7 +778,6 @@
       background: #4A3F35;
     }
 
-    /* Доп. блок для подвоза */
     .sub-block {
       margin-top: 10px;
       padding-left: 10px;
@@ -810,8 +853,9 @@
       .location-title,
       .timing-title,
       .info-title,
-      .invite-title {
-        font-size: 54px;
+      .invite-title,
+      .form-title {
+        font-size: 44px;
       }
       .countdown-number {
         font-size: 42px;
@@ -821,9 +865,6 @@
       }
       .inv-form {
         padding: 60px 20px;
-      }
-      .form-title {
-        font-size: 48px;
       }
       .form-label {
         font-size: 18px;
@@ -862,7 +903,17 @@
         font-size: 18px;
       }
       .contact-item {
-        font-size: 20px;
+        font-size: 16px;
+      }
+      .contact-item .username {
+        font-size: 16px;
+      }
+      .wedding-heart {
+        width: 38px;
+        height: 38px;
+      }
+      .wedding-heart .day-number {
+        font-size: 18px;
       }
     }
 
@@ -888,13 +939,23 @@
         padding: 8px 18px;
       }
       .info-title {
-        font-size: 44px;
+        font-size: 38px;
       }
       .info-text {
         font-size: 16px;
       }
       .contact-item {
-        font-size: 18px;
+        font-size: 14px;
+      }
+      .contact-item .username {
+        font-size: 14px;
+      }
+      .wedding-heart {
+        width: 34px;
+        height: 34px;
+      }
+      .wedding-heart .day-number {
+        font-size: 16px;
       }
     }
   </style>
@@ -921,9 +982,10 @@
         </div>
       </div>
 
+      <!-- INVITATION -->
       <div class="inv-details fade-in-element">
-        <span class="invite-tag">[Детали]</span>
-        <h2 class="invite-title">INVI<br />TATION</h2>
+        <span class="invite-tag">«Детали»</span>
+        <h2 class="invite-title">INVITATION</h2>
         <p class="invite-desc">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </p>
@@ -948,10 +1010,11 @@
         <div class="divider"></div>
       </div>
 
+      <!-- LOCATION -->
       <div class="inv-location fade-in-element">
         <div class="location-header">
-          <span class="location-tag">[Место]</span>
-          <h2 class="location-title">LOCA<br />TION</h2>
+          <span class="location-tag">«Место»</span>
+          <h2 class="location-title">LOCATION</h2>
         </div>
         <div class="location-info">
           <p class="venue-name">«Тихий Край»</p>
@@ -960,10 +1023,11 @@
         <a href="https://yandex.ru/maps/?text=ул. Суворова 17, Липово, Брестская область" target="_blank" class="map-button">Показать на карте</a>
       </div>
 
+      <!-- TIME LINE -->
       <div class="inv-timing fade-in-element">
         <div class="timing-header">
-          <span class="timing-tag">[Расписание]</span>
-          <h2 class="timing-title">TIME<br />LINE</h2>
+          <span class="timing-tag">«Расписание»</span>
+          <h2 class="timing-title">TIME LINE</h2>
         </div>
         <div class="timeline-list">
           <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
@@ -973,62 +1037,75 @@
         </div>
       </div>
 
-      <!-- ВАЖНАЯ ИНФОРМАЦИЯ -->
+      <!-- PASSPORT -->
       <div class="info-block-light fade-in-element">
         <div class="info-header">
-          <span class="info-tag">[Важно]</span>
-          <h2 class="info-title">ПАС<br />ПОРТ</h2>
+          <span class="info-tag">«Важно»</span>
+          <h2 class="info-title">PASSPORT</h2>
         </div>
         <div class="info-text">
           Для проезда через пост в Брестской области при себе необходимо иметь паспорт. Убедитесь, пожалуйста, что он действителен.
         </div>
       </div>
 
-      <!-- ДРЕСС-КОД -->
+      <!-- DRESS CODE + ЦВЕТА -->
       <div class="info-block-beige fade-in-element">
         <div class="info-header">
-          <span class="info-tag">[Дресс-код]</span>
-          <h2 class="info-title">DRESS<br />CODE</h2>
+          <span class="info-tag">«Дресс-код»</span>
+          <h2 class="info-title">DRESS CODE</h2>
         </div>
         <div class="info-text">
           Будем признательны, если вы поддержите цветовую гамму нашего праздника.
         </div>
+        <div class="color-swatches">
+          <div class="swatch"><img src="IMG_9119.JPG" alt="цвет" /></div>
+          <div class="swatch"><img src="IMG_9118.JPG" alt="цвет" /></div>
+          <div class="swatch"><img src="IMG_9117.JPG" alt="цвет" /></div>
+          <div class="swatch"><img src="IMG_9116.JPG" alt="цвет" /></div>
+          <div class="swatch"><img src="IMG_9115.JPG" alt="цвет" /></div>
+          <div class="swatch"><img src="IMG_9114.JPG" alt="цвет" /></div>
+          <div class="swatch"><img src="IMG_9113.JPG" alt="цвет" /></div>
+          <div class="swatch"><img src="IMG_9112.JPG" alt="цвет" /></div>
+          <div class="swatch"><img src="IMG_9111.JPG" alt="цвет" /></div>
+          <div class="swatch"><img src="IMG_9110.JPG" alt="цвет" /></div>
+          <div class="swatch"><img src="IMG_9109.JPG" alt="цвет" /></div>
+        </div>
       </div>
 
-      <!-- ПОЖЕЛАНИЯ -->
+      <!-- WISHES -->
       <div class="info-block-light fade-in-element">
         <div class="info-header">
-          <span class="info-tag">[Пожелания]</span>
-          <h2 class="info-title">ПОЖЕ<br />ЛАНИЯ</h2>
+          <span class="info-tag">«Пожелания»</span>
+          <h2 class="info-title">WISHES</h2>
         </div>
         <div class="info-text">
           Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
         </div>
       </div>
 
-      <!-- КОНТАКТЫ -->
+      <!-- CONTACTS (две колонки) -->
       <div class="info-block-beige fade-in-element">
         <div class="info-header">
-          <span class="info-tag">[Контакты]</span>
-          <h2 class="info-title">СВЯЗЬ</h2>
+          <span class="info-tag">«Контакты»</span>
+          <h2 class="info-title">CONTACTS</h2>
         </div>
         <div class="contacts-list">
-          <a href="https://t.me/dianaromanyuk31" target="_blank" class="contact-item">
-            <span class="label">Telegram невесты:</span>
-            <span class="username">@dianaromanyuk31</span>
-          </a>
           <a href="https://t.me/maxsuh99" target="_blank" class="contact-item">
-            <span class="label">Telegram жениха:</span>
+            <span class="label">Жених</span>
             <span class="username">@maxsuh99</span>
+          </a>
+          <a href="https://t.me/dianaromanyuk31" target="_blank" class="contact-item">
+            <span class="label">Невеста</span>
+            <span class="username">@dianaromanyuk31</span>
           </a>
         </div>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ (обновлённая) -->
+      <!-- RSVP -->
       <div class="inv-form fade-in-element">
         <div class="form-header">
-          <span class="form-tag">[Анкета гостя]</span>
-          <h2 class="form-title">АНКЕТА<br />ГОСТЯ</h2>
+          <span class="form-tag">«Анкета гостя»</span>
+          <h2 class="form-title">RSVP</h2>
           <div class="confirm-date">Подтверждение до 15.09.2026</div>
         </div>
 
@@ -1185,7 +1262,7 @@
         }
       }, 500);
 
-      // Логика показа/скрытия блока "подвоз"
+      // Логика подвоза
       const pickupRadios = document.querySelectorAll('input[name="need_pickup"]');
       const pickupBlock = document.getElementById('pickupBlock');
 
@@ -1199,7 +1276,6 @@
         });
       });
 
-      // Изначально блок скрыт (ничего не выбрано)
       pickupBlock.classList.remove('active');
     })();
   </script>
