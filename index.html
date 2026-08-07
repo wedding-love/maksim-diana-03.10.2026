@@ -201,7 +201,7 @@
     .block-tag {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
-      text-align: right;
+      text-align: left; /* выровнено по левому краю, как и заголовок */
       margin-bottom: -8px;
       letter-spacing: 3px;
       font-weight: 600;
@@ -216,6 +216,7 @@
       text-transform: uppercase;
       font-weight: 700;
       white-space: nowrap;
+      text-align: left; /* явно по левому краю */
     }
 
     .block-text {
@@ -539,7 +540,7 @@
     .form-tag {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
-      text-align: right;
+      text-align: left;
       margin-bottom: -8px;
       letter-spacing: 3px;
       font-weight: 600;
@@ -556,9 +557,8 @@
       font-weight: 700;
       white-space: nowrap;
       color: #1E1E1E;
+      text-align: left;
     }
-
-    /* Убрали confirm-date из шапки */
 
     .form-group {
       width: 100%;
@@ -629,7 +629,6 @@
       min-height: 80px;
     }
 
-    /* Текст подтверждения по центру */
     .confirm-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
@@ -678,10 +677,10 @@
       display: block;
     }
 
-    /* ----- ТАЙМЕР ----- */
+    /* ----- ТАЙМЕР (перенесён после TIMELINE) ----- */
     .countdown-section {
       background-color: #EAE3D9;
-      padding: 60px 20px 80px;
+      padding: 60px 30px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -943,6 +942,32 @@
         <div class="divider"></div>
       </div>
 
+      <!-- ТАЙМЕР ПЕРЕНЕСЁН СЮДА (после TIMELINE) -->
+      <div class="countdown-section fade-in-element">
+        <div class="countdown-title">До свадьбы осталось</div>
+        <div class="countdown-row" id="countdownRow">
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">00</span>
+            <span class="countdown-label">дн</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">00</span>
+            <span class="countdown-label">ч</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">00</span>
+            <span class="countdown-label">мин</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">00</span>
+            <span class="countdown-label">сек</span>
+          </div>
+        </div>
+      </div>
+
       <!-- PASSPORT -->
       <div class="block-wrapper bg-white fade-in-element">
         <div class="block-header">
@@ -955,7 +980,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- DRESS-CODE + ЦВЕТА (3 ряда: 4+4+3) -->
+      <!-- DRESS-CODE + ЦВЕТА -->
       <div class="block-wrapper bg-beige fade-in-element">
         <div class="block-header">
           <div class="block-tag">[Дресс-код]</div>
@@ -1028,7 +1053,6 @@
         <div class="form-header">
           <div class="form-tag">[Анкета гостя]</div>
           <div class="form-title">RSVP</div>
-          <!-- Убрали confirm-date -->
         </div>
 
         <div class="form-group">
@@ -1067,35 +1091,9 @@
           <input type="text" class="form-input" placeholder="Название и исполнитель" />
         </div>
 
-        <!-- Текст подтверждения по центру -->
         <div class="confirm-text">Пожалуйста, подтвердите присутствие до 15.09.2026</div>
 
         <button class="form-submit">Отправить</button>
-      </div>
-
-      <div class="countdown-section fade-in-element">
-        <div class="countdown-title">До свадьбы осталось</div>
-        <div class="countdown-row" id="countdownRow">
-          <div class="countdown-item">
-            <span class="countdown-number" id="days">00</span>
-            <span class="countdown-label">дн</span>
-          </div>
-          <span class="countdown-separator">:</span>
-          <div class="countdown-item">
-            <span class="countdown-number" id="hours">00</span>
-            <span class="countdown-label">ч</span>
-          </div>
-          <span class="countdown-separator">:</span>
-          <div class="countdown-item">
-            <span class="countdown-number" id="minutes">00</span>
-            <span class="countdown-label">мин</span>
-          </div>
-          <span class="countdown-separator">:</span>
-          <div class="countdown-item">
-            <span class="countdown-number" id="seconds">00</span>
-            <span class="countdown-label">сек</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
