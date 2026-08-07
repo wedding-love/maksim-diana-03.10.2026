@@ -278,21 +278,41 @@
       font-weight: 500;
     }
 
+    /* Сердце как обводка, внутри цифра 3 */
     .wedding-heart {
-      background-color: #1E1E1E;
-      border-radius: 50%;
+      position: relative;
       width: 32px;
       height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 18px;
+      font-weight: 500;
+      color: #1E1E1E;
     }
 
     .wedding-heart svg {
-      display: block;
-      width: 20px;
-      height: 20px;
-      fill: #EAE3D9;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .wedding-heart svg path {
+      fill: none;
+      stroke: #1E1E1E;
+      stroke-width: 1.5;
+    }
+
+    .wedding-heart .day-number {
+      position: relative;
+      z-index: 1;
+      font-size: 18px;
+      font-weight: 500;
+      color: #1E1E1E;
+      line-height: 1;
     }
 
     .divider {
@@ -454,7 +474,127 @@
       font-style: italic;
     }
 
-    /* ----- АНКЕТА ГОСТЯ ----- */
+    /* ----- Новые блоки: Важно, Дресс-код, Пожелания, Контакты ----- */
+    .info-block-light {
+      background-color: #FFFFFF;
+      color: #000000;
+      padding: 80px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .info-block-beige {
+      background-color: #EAE3D9;
+      color: #1E1E1E;
+      padding: 80px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .info-header {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 30px;
+    }
+
+    .info-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      text-align: right;
+      margin-bottom: -8px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .info-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      line-height: 0.9;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .info-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      line-height: 1.6;
+      text-align: left;
+      width: 100%;
+      max-width: 320px;
+      border-left: 2px solid #1E1E1E;
+      padding-left: 20px;
+      font-weight: 500;
+      font-style: italic;
+      color: #2B2B2B;
+    }
+
+    .info-block-light .info-text {
+      border-left-color: #1E1E1E;
+      color: #2B2B2B;
+    }
+
+    .info-block-light .info-tag {
+      color: #4A3F35;
+    }
+
+    .info-block-light .info-title {
+      color: #1E1E1E;
+    }
+
+    .info-block-beige .info-text {
+      border-left-color: #1E1E1E;
+      color: #2B2B2B;
+    }
+
+    .info-block-beige .info-tag {
+      color: #4A3F35;
+    }
+
+    .info-block-beige .info-title {
+      color: #1E1E1E;
+    }
+
+    /* Контакты: без смайлов */
+    .contacts-list {
+      width: 100%;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #1E1E1E;
+      transition: opacity 0.2s;
+    }
+
+    .contact-item:hover {
+      opacity: 0.7;
+    }
+
+    .contact-item .label {
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .contact-item .username {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* ----- АНКЕТА ГОСТЯ (обновлённая) ----- */
     .inv-form {
       background-color: #FFFFFF;
       color: #000000;
@@ -519,7 +659,6 @@
     }
 
     .form-input,
-    .form-select,
     .form-textarea {
       width: 100%;
       padding: 14px 16px;
@@ -536,16 +675,8 @@
     }
 
     .form-input:focus,
-    .form-select:focus,
     .form-textarea:focus {
       border-color: #4A3F35;
-    }
-
-    .form-select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231E1E1E' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      background-size: 12px;
     }
 
     .radio-group-vertical {
@@ -678,6 +809,7 @@
     @media (max-width: 400px) {
       .location-title,
       .timing-title,
+      .info-title,
       .invite-title {
         font-size: 54px;
       }
@@ -697,7 +829,6 @@
         font-size: 18px;
       }
       .form-input,
-      .form-select,
       .form-textarea {
         font-size: 18px;
         padding: 12px 14px;
@@ -727,6 +858,12 @@
         font-size: 16px;
         padding: 10px 24px;
       }
+      .info-text {
+        font-size: 18px;
+      }
+      .contact-item {
+        font-size: 20px;
+      }
     }
 
     @media (max-width: 360px) {
@@ -749,6 +886,15 @@
       .map-button {
         font-size: 14px;
         padding: 8px 18px;
+      }
+      .info-title {
+        font-size: 44px;
+      }
+      .info-text {
+        font-size: 16px;
+      }
+      .contact-item {
+        font-size: 18px;
       }
     }
   </style>
@@ -787,9 +933,10 @@
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
             <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div>
             <div class="day wedding-heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              <svg viewBox="0 0 32 32">
+                <path d="M16 28.2l-1.9-1.7C7.2 20.5 3 16.4 3 11.3 3 7.2 6.2 4 10.3 4c2.3 0 4.5 1.1 5.7 2.8C17.2 5.1 19.4 4 21.7 4 25.8 4 29 7.2 29 11.3c0 5.1-4.2 9.2-11.1 15.2L16 28.2z" />
               </svg>
+              <span class="day-number">3</span>
             </div>
             <div class="day">4</div>
             <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
@@ -826,7 +973,58 @@
         </div>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ -->
+      <!-- ВАЖНАЯ ИНФОРМАЦИЯ -->
+      <div class="info-block-light fade-in-element">
+        <div class="info-header">
+          <span class="info-tag">[Важно]</span>
+          <h2 class="info-title">ПАС<br />ПОРТ</h2>
+        </div>
+        <div class="info-text">
+          Для проезда через пост в Брестской области при себе необходимо иметь паспорт. Убедитесь, пожалуйста, что он действителен.
+        </div>
+      </div>
+
+      <!-- ДРЕСС-КОД -->
+      <div class="info-block-beige fade-in-element">
+        <div class="info-header">
+          <span class="info-tag">[Дресс-код]</span>
+          <h2 class="info-title">DRESS<br />CODE</h2>
+        </div>
+        <div class="info-text">
+          Будем признательны, если вы поддержите цветовую гамму нашего праздника.
+        </div>
+      </div>
+
+      <!-- ПОЖЕЛАНИЯ -->
+      <div class="info-block-light fade-in-element">
+        <div class="info-header">
+          <span class="info-tag">[Пожелания]</span>
+          <h2 class="info-title">ПОЖЕ<br />ЛАНИЯ</h2>
+        </div>
+        <div class="info-text">
+          Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
+        </div>
+      </div>
+
+      <!-- КОНТАКТЫ -->
+      <div class="info-block-beige fade-in-element">
+        <div class="info-header">
+          <span class="info-tag">[Контакты]</span>
+          <h2 class="info-title">СВЯЗЬ</h2>
+        </div>
+        <div class="contacts-list">
+          <a href="https://t.me/dianaromanyuk31" target="_blank" class="contact-item">
+            <span class="label">Telegram невесты:</span>
+            <span class="username">@dianaromanyuk31</span>
+          </a>
+          <a href="https://t.me/maxsuh99" target="_blank" class="contact-item">
+            <span class="label">Telegram жениха:</span>
+            <span class="username">@maxsuh99</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- АНКЕТА ГОСТЯ (обновлённая) -->
       <div class="inv-form fade-in-element">
         <div class="form-header">
           <span class="form-tag">[Анкета гостя]</span>
@@ -849,20 +1047,10 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Количество гостей (включая вас)</label>
-          <select class="form-select" name="guestCount">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Как вы планируете добраться?</label>
+          <label class="form-label">Нужен ли вам подвоз?</label>
           <div class="radio-group-vertical">
-            <label class="radio-option"><input type="radio" name="transport" value="own" checked /> На своём транспорте</label>
-            <label class="radio-option"><input type="radio" name="transport" value="need" /> Нужен подвоз</label>
+            <label class="radio-option"><input type="radio" name="need_pickup" value="yes" /> Да</label>
+            <label class="radio-option"><input type="radio" name="need_pickup" value="no" /> Нет</label>
           </div>
           <div class="sub-block" id="pickupBlock">
             <div style="margin-top: 12px;">
@@ -873,16 +1061,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">С кем хотели бы сидеть рядом?</label>
-          <input type="text" class="form-input" placeholder="Укажите имена гостей" />
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Особые пожелания по меню</label>
-          <textarea class="form-textarea" placeholder="Аллергии, вегетарианство, другие предпочтения..."></textarea>
         </div>
 
         <div class="form-group">
@@ -1008,12 +1186,12 @@
       }, 500);
 
       // Логика показа/скрытия блока "подвоз"
-      const transportRadios = document.querySelectorAll('input[name="transport"]');
+      const pickupRadios = document.querySelectorAll('input[name="need_pickup"]');
       const pickupBlock = document.getElementById('pickupBlock');
 
-      transportRadios.forEach(function(radio) {
+      pickupRadios.forEach(function(radio) {
         radio.addEventListener('change', function() {
-          if (this.value === 'need') {
+          if (this.value === 'yes') {
             pickupBlock.classList.add('active');
           } else {
             pickupBlock.classList.remove('active');
@@ -1021,13 +1199,8 @@
         });
       });
 
-      // При загрузке проверить, что выбрано
-      const checkedTransport = document.querySelector('input[name="transport"]:checked');
-      if (checkedTransport && checkedTransport.value === 'need') {
-        pickupBlock.classList.add('active');
-      } else {
-        pickupBlock.classList.remove('active');
-      }
+      // Изначально блок скрыт (ничего не выбрано)
+      pickupBlock.classList.remove('active');
     })();
   </script>
 </body>
