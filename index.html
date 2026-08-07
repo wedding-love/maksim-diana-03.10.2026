@@ -127,6 +127,17 @@
       transform: translateY(0);
     }
 
+    /* ----- Анимация появления при скролле ----- */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Hero */
     .inv-hero {
       width: 100%;
@@ -599,7 +610,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       text-align: center;
-      font-weight: 600;
+      font-weight: 400;
       font-style: italic;
       margin-bottom: 25px;
       width: 100%;
@@ -620,7 +631,7 @@
       display: block;
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
-      font-weight: 600;
+      font-weight: 400;
       margin-bottom: 12px;
       letter-spacing: 0.5px;
       font-style: italic;
@@ -635,10 +646,10 @@
       padding: 14px 16px;
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
-      border: 1px solid #D6C7B8;
+      border: 1px solid #15532e; /* зелёная обводка */
       background: #FAFAFA;
       outline: none;
-      transition: border 0.2s;
+      transition: border 0.2s, box-shadow 0.2s;
       color: #1E1E1E;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -647,7 +658,8 @@
 
     .form-input:focus,
     .form-textarea:focus {
-      border-color: #15532e;
+      border-color: #2E8B57;
+      box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2);
     }
 
     .radio-group-vertical {
@@ -664,7 +676,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       cursor: pointer;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     .inv-form.bg-green .radio-option { color: #F5F0E8; }
@@ -708,10 +720,11 @@
       background: #0e3f22;
     }
 
+    /* Блок подвоза — зелёная полоска */
     .sub-block {
       margin-top: 10px;
       padding-left: 10px;
-      border-left: 2px solid #D6C7B8;
+      border-left: 2px solid #15532e; /* зелёная полоска */
       display: none;
     }
 
@@ -937,7 +950,7 @@
       </div>
 
       <!-- ПРИГЛАШЕНИЕ (зелёный) -->
-      <div class="block-wrapper bg-green">
+      <div class="block-wrapper bg-green fade-up">
         <div class="block-header">
           <div class="block-tag">[Details]</div>
           <div class="block-title">ПРИГЛАШЕНИЕ</div>
@@ -967,7 +980,7 @@
       </div>
 
       <!-- МЕСТО (белый) + информация о паспорте -->
-      <div class="block-wrapper bg-white">
+      <div class="block-wrapper bg-white fade-up">
         <div class="block-header">
           <div class="block-tag">[Location]</div>
           <div class="block-title">МЕСТО</div>
@@ -984,7 +997,7 @@
       </div>
 
       <!-- РАСПИСАНИЕ (зелёный) -->
-      <div class="block-wrapper bg-green">
+      <div class="block-wrapper bg-green fade-up">
         <div class="block-header">
           <div class="block-tag">[Timeline]</div>
           <div class="block-title">РАСПИСАНИЕ</div>
@@ -999,7 +1012,7 @@
       </div>
 
       <!-- ТАЙМЕР (белый) -->
-      <div class="countdown-section bg-white">
+      <div class="countdown-section bg-white fade-up">
         <div class="countdown-title">До свадьбы осталось</div>
         <div class="countdown-row" id="countdownRow">
           <div class="countdown-item">
@@ -1025,7 +1038,7 @@
       </div>
 
       <!-- ДРЕСС-КОД (зелёный) -->
-      <div class="block-wrapper bg-green">
+      <div class="block-wrapper bg-green fade-up">
         <div class="block-header">
           <div class="block-tag">[Dress code]</div>
           <div class="block-title">ДРЕСС-КОД</div>
@@ -1050,7 +1063,7 @@
       </div>
 
       <!-- ПОЖЕЛАНИЯ (белый) -->
-      <div class="block-wrapper bg-white">
+      <div class="block-wrapper bg-white fade-up">
         <div class="block-header">
           <div class="block-tag">[Wishes]</div>
           <div class="block-title">ПОЖЕЛАНИЯ</div>
@@ -1062,7 +1075,7 @@
       </div>
 
       <!-- КОНТАКТЫ (зелёный) -->
-      <div class="block-wrapper bg-green">
+      <div class="block-wrapper bg-green fade-up">
         <div class="block-header">
           <div class="block-tag">[Contacts]</div>
           <div class="block-title">КОНТАКТЫ</div>
@@ -1093,7 +1106,7 @@
       </div>
 
       <!-- АНКЕТА ГОСТЯ (белая) -->
-      <div class="inv-form bg-white">
+      <div class="inv-form bg-white fade-up">
         <div class="form-header">
           <div class="form-tag">[RSVP]</div>
           <div class="form-title">АНКЕТА ГОСТЯ</div>
@@ -1165,8 +1178,38 @@
 
         setTimeout(function() {
           invScreen.classList.add('active');
+          // Запускаем анимацию для уже видимых блоков
+          setTimeout(function() {
+            observeBlocks();
+          }, 300);
         }, 400);
       });
+
+      // Анимация при скролле
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      function observeBlocks() {
+        const blocks = document.querySelectorAll('.fade-up:not(.visible)');
+        blocks.forEach(function(block) {
+          observer.observe(block);
+        });
+      }
+
+      // Наблюдаем за новыми блоками при прокрутке
+      if (invScreen) {
+        invScreen.addEventListener('scroll', function() {
+          observeBlocks();
+        }, { passive: true });
+      }
 
       // Таймер обратного отсчёта
       function startCountdown() {
@@ -1216,6 +1259,13 @@
       });
 
       pickupBlock.classList.remove('active');
+
+      // Наблюдаем за блоками при загрузке
+      setTimeout(function() {
+        if (invScreen.classList.contains('active')) {
+          observeBlocks();
+        }
+      }, 600);
     })();
   </script>
 </body>
