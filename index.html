@@ -184,59 +184,73 @@
       font-style: italic;
     }
 
-    /* Приглашение */
-    .inv-details {
+    /* Общие стили для блоков с заголовками */
+    .block-wrapper {
       padding: 80px 30px;
-      background-color: #EAE3D9;
-      color: #1E1E1E;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .invite-tag {
+    .block-header {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 30px;
+    }
+
+    .block-tag {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       text-align: right;
-      width: 100%;
-      max-width: 320px;
       margin-bottom: -8px;
       letter-spacing: 3px;
-      color: #4A3F35;
       font-weight: 600;
       text-transform: uppercase;
     }
 
-    .invite-title {
+    .block-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 56px;
       line-height: 1;
       letter-spacing: 2px;
       text-transform: uppercase;
       font-weight: 700;
-      text-align: left;
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 25px;
-      color: #1E1E1E;
       white-space: nowrap;
     }
 
-    .invite-desc {
+    .block-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       line-height: 1.6;
-      margin-bottom: 45px;
       text-align: left;
       width: 100%;
       max-width: 320px;
       border-left: 2px solid #1E1E1E;
       padding-left: 20px;
-      color: #2B2B2B;
       font-weight: 500;
       font-style: italic;
+      color: #2B2B2B;
     }
 
+    /* Цветовые варианты */
+    .bg-beige {
+      background-color: #EAE3D9;
+      color: #1E1E1E;
+    }
+    .bg-white {
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+
+    .bg-beige .block-tag { color: #4A3F35; }
+    .bg-beige .block-title { color: #1E1E1E; }
+    .bg-beige .block-text { border-left-color: #1E1E1E; color: #2B2B2B; }
+
+    .bg-white .block-tag { color: #4A3F35; }
+    .bg-white .block-title { color: #1E1E1E; }
+    .bg-white .block-text { border-left-color: #1E1E1E; color: #2B2B2B; }
+
+    /* Календарь */
     .calendar-wrap {
       width: 100%;
       max-width: 320px;
@@ -279,7 +293,6 @@
       font-weight: 500;
     }
 
-    /* Сердце с пульсацией, тонкая обводка */
     .wedding-heart {
       position: relative;
       width: 44px;
@@ -328,41 +341,6 @@
     }
 
     /* Локация */
-    .inv-location {
-      background-color: #FFFFFF;
-      color: #000000;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .location-header {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 35px;
-    }
-
-    .location-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .location-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 56px;
-      line-height: 1;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
     .location-info {
       width: 100%;
       max-width: 320px;
@@ -414,42 +392,6 @@
     }
 
     /* Тайминг */
-    .inv-timing {
-      background-color: #EAE3D9;
-      color: #1E1E1E;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .timing-header {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 40px;
-    }
-
-    .timing-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .timing-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 56px;
-      line-height: 1;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 700;
-      white-space: nowrap;
-      color: #1E1E1E;
-    }
-
     .timeline-list {
       width: 100%;
       max-width: 320px;
@@ -481,104 +423,19 @@
       font-style: italic;
     }
 
-    /* ----- Новые блоки ----- */
-    .info-block-light {
-      background-color: #FFFFFF;
-      color: #000000;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .info-block-beige {
-      background-color: #EAE3D9;
-      color: #1E1E1E;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .info-header {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 30px;
-    }
-
-    .info-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .info-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 56px;
-      line-height: 1;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .info-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      line-height: 1.6;
-      text-align: left;
-      width: 100%;
-      max-width: 320px;
-      border-left: 2px solid #1E1E1E;
-      padding-left: 20px;
-      font-weight: 500;
-      font-style: italic;
-      color: #2B2B2B;
-    }
-
-    .info-block-light .info-text {
-      border-left-color: #1E1E1E;
-      color: #2B2B2B;
-    }
-
-    .info-block-light .info-tag {
-      color: #4A3F35;
-    }
-
-    .info-block-light .info-title {
-      color: #1E1E1E;
-    }
-
-    .info-block-beige .info-text {
-      border-left-color: #1E1E1E;
-      color: #2B2B2B;
-    }
-
-    .info-block-beige .info-tag {
-      color: #4A3F35;
-    }
-
-    .info-block-beige .info-title {
-      color: #1E1E1E;
-    }
-
-    /* Квадратики цветов — два ряда: 6 и 5, увеличенные */
+    /* Квадратики цветов — 3 ряда */
     .color-swatches {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       margin-top: 20px;
       max-width: 340px;
     }
 
     .color-swatches .swatch {
-      width: 52px;
-      height: 52px;
+      width: 64px;
+      height: 64px;
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid #ccc;
@@ -592,61 +449,75 @@
       object-fit: cover;
     }
 
-    /* Контакты — карточки в стиле сайта */
+    /* Контакты — карточки с обводкой и иконкой Telegram */
     .contacts-list {
       width: 100%;
       max-width: 320px;
       display: flex;
       flex-direction: row;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       margin-top: 10px;
       flex-wrap: wrap;
     }
 
     .contact-card {
       background: #FFFFFF;
+      border: 1px solid #D6C7B8;
       border-radius: 12px;
-      padding: 18px 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      padding: 14px 16px;
       text-align: center;
       flex: 1 1 0;
-      min-width: 120px;
+      min-width: 110px;
       max-width: 160px;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       text-decoration: none;
       color: #1E1E1E;
-      border: 1px solid #E0D6C8;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
     }
 
     .contact-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-card .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 2px;
+    }
+
+    .contact-card .icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: #1E1E1E;
+      stroke-width: 1.8;
     }
 
     .contact-card .label {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: #4A3F35;
-      display: block;
-      margin-bottom: 4px;
     }
 
     .contact-card .username {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       letter-spacing: 0.5px;
       color: #1E1E1E;
-    }
-
-    .contact-card .icon {
-      font-size: 28px;
-      line-height: 1;
-      margin-bottom: 4px;
-      display: block;
     }
 
     /* ----- АНКЕТА ----- */
@@ -673,6 +544,7 @@
       letter-spacing: 3px;
       font-weight: 600;
       text-transform: uppercase;
+      color: #4A3F35;
     }
 
     .form-title {
@@ -683,6 +555,7 @@
       text-transform: uppercase;
       font-weight: 700;
       white-space: nowrap;
+      color: #1E1E1E;
     }
 
     .confirm-date {
@@ -691,7 +564,7 @@
       letter-spacing: 1px;
       color: #4A3F35;
       margin-top: 8px;
-      text-align: center;  /* выровнено по центру */
+      text-align: center;
       width: 100%;
       max-width: 340px;
       font-style: italic;
@@ -759,6 +632,27 @@
       accent-color: #4A3F35;
       margin: 0;
       flex-shrink: 0;
+    }
+
+    /* Чекбокс подтверждения */
+    .checkbox-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      cursor: pointer;
+      color: #1E1E1E;
+      font-weight: 500;
+      margin-top: 5px;
+    }
+
+    .checkbox-option input {
+      width: 20px;
+      height: 20px;
+      accent-color: #4A3F35;
+      flex-shrink: 0;
+      cursor: pointer;
     }
 
     .form-textarea {
@@ -862,10 +756,7 @@
     }
 
     @media (max-width: 400px) {
-      .location-title,
-      .timing-title,
-      .info-title,
-      .invite-title,
+      .block-title,
       .form-title {
         font-size: 44px;
       }
@@ -890,6 +781,10 @@
         font-size: 18px;
         gap: 8px;
       }
+      .checkbox-option {
+        font-size: 18px;
+        gap: 10px;
+      }
       .clickable-area {
         width: 38%;
         max-width: 140px;
@@ -911,15 +806,15 @@
         font-size: 16px;
         padding: 10px 24px;
       }
-      .info-text {
+      .block-text {
         font-size: 18px;
       }
       .contact-card {
-        padding: 14px 16px;
+        padding: 12px 14px;
         min-width: 100px;
       }
       .contact-card .username {
-        font-size: 18px;
+        font-size: 16px;
       }
       .wedding-heart {
         width: 38px;
@@ -929,8 +824,8 @@
         font-size: 18px;
       }
       .color-swatches .swatch {
-        width: 44px;
-        height: 44px;
+        width: 54px;
+        height: 54px;
       }
     }
 
@@ -955,18 +850,18 @@
         font-size: 14px;
         padding: 8px 18px;
       }
-      .info-title {
+      .block-title {
         font-size: 38px;
       }
-      .info-text {
+      .block-text {
         font-size: 16px;
       }
       .contact-card {
-        padding: 12px 14px;
+        padding: 10px 12px;
         min-width: 90px;
       }
       .contact-card .username {
-        font-size: 16px;
+        font-size: 14px;
       }
       .wedding-heart {
         width: 34px;
@@ -976,8 +871,8 @@
         font-size: 16px;
       }
       .color-swatches .swatch {
-        width: 38px;
-        height: 38px;
+        width: 46px;
+        height: 46px;
       }
     }
   </style>
@@ -1005,13 +900,15 @@
       </div>
 
       <!-- INVITATION -->
-      <div class="inv-details fade-in-element">
-        <span class="invite-tag">[Детали]</span>
-        <h2 class="invite-title">INVITATION</h2>
-        <p class="invite-desc">
+      <div class="block-wrapper bg-beige fade-in-element">
+        <div class="block-header">
+          <div class="block-tag">[Детали]</div>
+          <div class="block-title">INVITATION</div>
+        </div>
+        <div class="block-text">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
-        </p>
-        <div class="calendar-wrap">
+        </div>
+        <div class="calendar-wrap" style="margin-top: 30px;">
           <div class="calendar-month">Октябрь 2026</div>
           <div class="calendar-grid">
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
@@ -1033,23 +930,24 @@
       </div>
 
       <!-- LOCATION -->
-      <div class="inv-location fade-in-element">
-        <div class="location-header">
-          <span class="location-tag">[Место]</span>
-          <h2 class="location-title">LOCATION</h2>
+      <div class="block-wrapper bg-white fade-in-element">
+        <div class="block-header">
+          <div class="block-tag">[Место]</div>
+          <div class="block-title">LOCATION</div>
         </div>
         <div class="location-info">
           <p class="venue-name">«Тихий Край»</p>
           <p class="venue-address">ул. Суворова 17, Липово,<br />Брестская область</p>
         </div>
         <a href="https://yandex.ru/maps/?text=ул. Суворова 17, Липово, Брестская область" target="_blank" class="map-button">Показать на карте</a>
+        <div class="divider"></div>
       </div>
 
-      <!-- TIMELINE (слитно) -->
-      <div class="inv-timing fade-in-element">
-        <div class="timing-header">
-          <span class="timing-tag">[Расписание]</span>
-          <h2 class="timing-title">TIMELINE</h2>
+      <!-- TIMELINE -->
+      <div class="block-wrapper bg-beige fade-in-element">
+        <div class="block-header">
+          <div class="block-tag">[Расписание]</div>
+          <div class="block-title">TIMELINE</div>
         </div>
         <div class="timeline-list">
           <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
@@ -1057,26 +955,28 @@
           <div class="time-item"><span class="time-value">15:30</span><span class="time-desc">Начало банкета</span></div>
           <div class="time-item"><span class="time-value">00:00</span><span class="time-desc">Завершение</span></div>
         </div>
+        <div class="divider"></div>
       </div>
 
       <!-- PASSPORT -->
-      <div class="info-block-light fade-in-element">
-        <div class="info-header">
-          <span class="info-tag">[Важно]</span>
-          <h2 class="info-title">PASSPORT</h2>
+      <div class="block-wrapper bg-white fade-in-element">
+        <div class="block-header">
+          <div class="block-tag">[Важно]</div>
+          <div class="block-title">PASSPORT</div>
         </div>
-        <div class="info-text">
+        <div class="block-text">
           Для проезда через пост в Брестской области при себе необходимо иметь паспорт. Убедитесь, пожалуйста, что он действителен.
         </div>
+        <div class="divider"></div>
       </div>
 
-      <!-- DRESS-CODE (через дефис) + ЦВЕТА -->
-      <div class="info-block-beige fade-in-element">
-        <div class="info-header">
-          <span class="info-tag">[Дресс-код]</span>
-          <h2 class="info-title">DRESS-CODE</h2>
+      <!-- DRESS-CODE + ЦВЕТА -->
+      <div class="block-wrapper bg-beige fade-in-element">
+        <div class="block-header">
+          <div class="block-tag">[Дресс-код]</div>
+          <div class="block-title">DRESS-CODE</div>
         </div>
-        <div class="info-text">
+        <div class="block-text">
           Будем признательны, если вы поддержите цветовую гамму нашего праздника.
         </div>
         <div class="color-swatches">
@@ -1092,44 +992,57 @@
           <div class="swatch"><img src="IMG_9110.JPG" alt="цвет" /></div>
           <div class="swatch"><img src="IMG_9109.JPG" alt="цвет" /></div>
         </div>
+        <div class="divider"></div>
       </div>
 
       <!-- WISHES -->
-      <div class="info-block-light fade-in-element">
-        <div class="info-header">
-          <span class="info-tag">[Пожелания]</span>
-          <h2 class="info-title">WISHES</h2>
+      <div class="block-wrapper bg-white fade-in-element">
+        <div class="block-header">
+          <div class="block-tag">[Пожелания]</div>
+          <div class="block-title">WISHES</div>
         </div>
-        <div class="info-text">
+        <div class="block-text">
           Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
         </div>
+        <div class="divider"></div>
       </div>
 
-      <!-- CONTACTS — карточки -->
-      <div class="info-block-beige fade-in-element">
-        <div class="info-header">
-          <span class="info-tag">[Контакты]</span>
-          <h2 class="info-title">CONTACTS</h2>
+      <!-- CONTACTS -->
+      <div class="block-wrapper bg-beige fade-in-element">
+        <div class="block-header">
+          <div class="block-tag">[Контакты]</div>
+          <div class="block-title">CONTACTS</div>
         </div>
         <div class="contacts-list">
           <a href="https://t.me/maxsuh99" target="_blank" class="contact-card">
-            <span class="icon">💬</span>
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                <path d="M22 2L11 13" />
+              </svg>
+            </span>
             <span class="label">Жених</span>
             <span class="username">@maxsuh99</span>
           </a>
           <a href="https://t.me/dianaromanyuk31" target="_blank" class="contact-card">
-            <span class="icon">💬</span>
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                <path d="M22 2L11 13" />
+              </svg>
+            </span>
             <span class="label">Невеста</span>
             <span class="username">@dianaromanyuk31</span>
           </a>
         </div>
+        <div class="divider"></div>
       </div>
 
       <!-- RSVP -->
       <div class="inv-form fade-in-element">
         <div class="form-header">
-          <span class="form-tag">[Анкета гостя]</span>
-          <h2 class="form-title">RSVP</h2>
+          <div class="form-tag">[Анкета гостя]</div>
+          <div class="form-title">RSVP</div>
           <div class="confirm-date">Подтверждение до 15.09.2026</div>
         </div>
 
@@ -1167,6 +1080,14 @@
         <div class="form-group">
           <label class="form-label">Ваша любимая песня для танца</label>
           <input type="text" class="form-input" placeholder="Название и исполнитель" />
+        </div>
+
+        <!-- НОВЫЙ ЧЕКБОКС ПОДТВЕРЖДЕНИЯ -->
+        <div class="form-group">
+          <label class="checkbox-option">
+            <input type="checkbox" required />
+            Пожалуйста, подтвердите ваше присутствие
+          </label>
         </div>
 
         <button class="form-submit">Отправить</button>
