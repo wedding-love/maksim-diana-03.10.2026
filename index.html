@@ -54,7 +54,7 @@
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
-      padding-bottom: 40px;
+      padding-bottom: 30px; /* уменьшен отступ снизу, чтобы поднять блок чуть выше */
     }
 
     /* Кликабельная область (изображение + подпись) */
@@ -63,9 +63,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 30%; /* уменьшено в 3 раза (было 80-90%) */
-      max-width: 120px; /* ограничение для больших экранов */
-      min-width: 80px; /* минимум для маленьких экранов */
+      width: 40%; /* увеличено с 30% */
+      max-width: 160px; /* увеличено с 120px */
+      min-width: 100px; /* увеличено с 80px */
+      margin-bottom: 10px; /* небольшой отступ снизу */
       transition: transform 0.2s ease;
       -webkit-tap-highlight-color: transparent;
       text-decoration: none;
@@ -88,14 +89,14 @@
       font-weight: 400;
       color: #ffffff;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-      margin-top: 10px;
+      margin-top: 12px; /* увеличен отступ сверху */
       text-align: center;
       background: transparent;
       box-shadow: none;
       padding: 0;
       line-height: 1.2;
       pointer-events: none;
-      white-space: nowrap; /* строго в одну строку */
+      white-space: nowrap;
     }
 
     .clickable-area:active {
@@ -159,6 +160,7 @@
       letter-spacing: 6px;
       text-transform: uppercase;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .hero-date {
@@ -278,11 +280,18 @@
       font-weight: 500;
     }
 
-    .wedding-day {
+    /* Сердце в календаре вместо кружка */
+    .wedding-heart {
       background-color: #1E1E1E;
       color: #EAE3D9;
-      font-weight: 700;
       border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      line-height: 1;
     }
 
     .divider {
@@ -646,24 +655,34 @@
         gap: 8px;
       }
       .clickable-area {
-        width: 28%;
-        max-width: 100px;
-        min-width: 70px;
+        width: 38%;
+        max-width: 140px;
+        min-width: 90px;
       }
       .clickable-area .caption {
         font-size: 14px;
         letter-spacing: 1px;
+        margin-top: 10px;
+      }
+      .hero-names {
+        font-size: 28px;
+        letter-spacing: 4px;
       }
     }
 
     @media (max-width: 360px) {
       .clickable-area {
-        width: 25%;
-        min-width: 60px;
+        width: 35%;
+        min-width: 80px;
       }
       .clickable-area .caption {
         font-size: 12px;
         letter-spacing: 0.5px;
+        margin-top: 8px;
+      }
+      .hero-names {
+        font-size: 24px;
+        letter-spacing: 3px;
       }
     }
   </style>
@@ -700,7 +719,9 @@
           <div class="calendar-month">Октябрь 2026</div>
           <div class="calendar-grid">
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
-            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div><div class="day wedding-day">3</div><div class="day">4</div>
+            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div>
+            <div class="day wedding-heart">❤️</div>
+            <div class="day">4</div>
             <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
             <div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
             <div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div>
