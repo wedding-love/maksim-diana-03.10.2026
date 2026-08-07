@@ -62,9 +62,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 40%;
-      max-width: 160px;
-      min-width: 100px;
+      width: 30%;
+      max-width: 130px;
+      min-width: 80px;
       margin-bottom: 5px;
       transition: transform 0.2s ease;
       -webkit-tap-highlight-color: transparent;
@@ -374,7 +374,6 @@
     .bg-green .venue-address { color: #D4CFC7; }
     .bg-white .venue-address { color: #333; }
 
-    /* Информация о паспорте в блоке Место */
     .passport-info {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
@@ -596,7 +595,6 @@
     .inv-form.bg-green .form-title { color: #F5F0E8; }
     .inv-form.bg-white .form-title { color: #1E1E1E; }
 
-    /* Текст подтверждения в начале анкеты */
     .confirm-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
@@ -817,9 +815,9 @@
         gap: 8px;
       }
       .clickable-area {
-        width: 38%;
-        max-width: 140px;
-        min-width: 90px;
+        width: 28%;
+        max-width: 110px;
+        min-width: 70px;
       }
       .clickable-area .caption {
         font-size: 14px;
@@ -866,8 +864,8 @@
 
     @media (max-width: 360px) {
       .clickable-area {
-        width: 35%;
-        min-width: 80px;
+        width: 25%;
+        min-width: 60px;
       }
       .clickable-area .caption {
         font-size: 12px;
@@ -922,7 +920,7 @@
     <div class="call-screen" id="callScreen">
       <div class="clickable-area" id="clickableArea">
         <img src="d6ca4999-029e-4063-bc51-e6956b22e83f.png" alt="Открыть приглашение" />
-        <span class="caption">нажмите, чтобы открыть приглашение</span>
+        <span class="caption">НАЖМИТЕ, ЧТОБЫ ОТКРЫТЬ ПРИГЛАШЕНИЕ</span>
       </div>
     </div>
 
@@ -1026,8 +1024,8 @@
         </div>
       </div>
 
-      <!-- ДРЕСС-КОД (белый) - оставляем белым, т.к. после удаления паспорта чередование: зелёный, белый, зелёный, белый, белый, зелёный... допустим -->
-      <div class="block-wrapper bg-white">
+      <!-- ДРЕСС-КОД (зелёный) -->
+      <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Dress code]</div>
           <div class="block-title">ДРЕСС-КОД</div>
@@ -1051,8 +1049,8 @@
         <div class="divider"></div>
       </div>
 
-      <!-- ПОЖЕЛАНИЯ (зелёный) -->
-      <div class="block-wrapper bg-green">
+      <!-- ПОЖЕЛАНИЯ (белый) -->
+      <div class="block-wrapper bg-white">
         <div class="block-header">
           <div class="block-tag">[Wishes]</div>
           <div class="block-title">ПОЖЕЛАНИЯ</div>
@@ -1063,8 +1061,8 @@
         <div class="divider"></div>
       </div>
 
-      <!-- КОНТАКТЫ (белый) -->
-      <div class="block-wrapper bg-white">
+      <!-- КОНТАКТЫ (зелёный) -->
+      <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Contacts]</div>
           <div class="block-title">КОНТАКТЫ</div>
@@ -1094,14 +1092,13 @@
         <div class="divider"></div>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ (зелёный) -->
-      <div class="inv-form bg-green">
+      <!-- АНКЕТА ГОСТЯ (белая) -->
+      <div class="inv-form bg-white">
         <div class="form-header">
           <div class="form-tag">[RSVP]</div>
           <div class="form-title">АНКЕТА ГОСТЯ</div>
         </div>
 
-        <!-- Текст подтверждения перенесён сюда -->
         <div class="confirm-text">Пожалуйста, подтвердите присутствие до 15.09.2026</div>
 
         <div class="form-group">
@@ -1139,8 +1136,6 @@
           <label class="form-label">Ваша любимая песня для танца</label>
           <input type="text" class="form-input" placeholder="Название и исполнитель" />
         </div>
-
-        <!-- Убран confirm-text отсюда -->
 
         <button class="form-submit">Отправить</button>
       </div>
