@@ -127,15 +127,6 @@
       transform: translateY(0);
     }
 
-    /* ----- Анимация для обычного текста (плавное появление) ----- */
-    .fade-text {
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    .fade-text.visible {
-      opacity: 1;
-    }
-
     /* ----- Анимация для последовательных элементов (расписание, цвета) ----- */
     .fade-sequential {
       opacity: 0;
@@ -321,11 +312,11 @@
     .bg-green .day { color: #F5F0E8; }
     .bg-white .day { color: #1E1E1E; }
 
-    /* Сердце без анимации, такого же размера как ячейки */
+    /* Сердце увеличенное, цифра 3 по центру */
     .wedding-heart {
       position: relative;
-      width: 32px;
-      height: 32px;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -354,7 +345,7 @@
     .wedding-heart .day-number {
       position: relative;
       z-index: 1;
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 600;
       line-height: 1;
     }
@@ -876,6 +867,13 @@
       .contact-card .username {
         font-size: 16px;
       }
+      .wedding-heart {
+        width: 38px;
+        height: 38px;
+      }
+      .wedding-heart .day-number {
+        font-size: 19px;
+      }
       .color-swatches .swatch {
         width: 66px;
         height: 66px;
@@ -920,6 +918,13 @@
       .contact-card .username {
         font-size: 14px;
       }
+      .wedding-heart {
+        width: 34px;
+        height: 34px;
+      }
+      .wedding-heart .day-number {
+        font-size: 17px;
+      }
       .color-swatches .swatch {
         width: 56px;
         height: 56px;
@@ -954,13 +959,13 @@
       <!-- ПРИГЛАШЕНИЕ (зелёный) -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
-          <div class="block-tag fade-text">[Details]</div>
-          <div class="block-title fade-text">ПРИГЛАШЕНИЕ</div>
+          <div class="block-tag">[Details]</div>
+          <div class="block-title">ПРИГЛАШЕНИЕ</div>
         </div>
-        <div class="block-text fade-text">
+        <div class="block-text">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </div>
-        <div class="calendar-wrap fade-text" style="margin-top: 30px;">
+        <div class="calendar-wrap" style="margin-top: 30px;">
           <div class="calendar-month">Октябрь 2026</div>
           <div class="calendar-grid">
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
@@ -978,31 +983,31 @@
             <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div>
           </div>
         </div>
-        <div class="divider fade-text"></div>
+        <div class="divider"></div>
       </div>
 
       <!-- МЕСТО (белый) + информация о паспорте -->
       <div class="block-wrapper bg-white">
         <div class="block-header">
-          <div class="block-tag fade-text">[Location]</div>
-          <div class="block-title fade-text">МЕСТО</div>
+          <div class="block-tag">[Location]</div>
+          <div class="block-title">МЕСТО</div>
         </div>
-        <div class="location-info fade-text">
+        <div class="location-info">
           <p class="venue-name">«Тихий Край»</p>
           <p class="venue-address">ул. Суворова 17, Липово,<br />Брестская область</p>
           <div class="passport-info">
             Для проезда через пост в Брестской области при себе необходимо иметь паспорт. Убедитесь, пожалуйста, что он действителен.
           </div>
         </div>
-        <a href="https://yandex.ru/maps/?text=ул. Суворова 17, Липово, Брестская область" target="_blank" class="map-button fade-text">Показать на карте</a>
-        <div class="divider fade-text"></div>
+        <a href="https://yandex.ru/maps/?text=ул. Суворова 17, Липово, Брестская область" target="_blank" class="map-button">Показать на карте</a>
+        <div class="divider"></div>
       </div>
 
       <!-- РАСПИСАНИЕ (зелёный) — последовательная анимация -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
-          <div class="block-tag fade-text">[Timeline]</div>
-          <div class="block-title fade-text">РАСПИСАНИЕ</div>
+          <div class="block-tag">[Timeline]</div>
+          <div class="block-title">РАСПИСАНИЕ</div>
         </div>
         <div class="timeline-list sequential-container" id="timelineContainer">
           <div class="time-item fade-sequential"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
@@ -1010,13 +1015,13 @@
           <div class="time-item fade-sequential"><span class="time-value">15:30</span><span class="time-desc">Начало банкета</span></div>
           <div class="time-item fade-sequential"><span class="time-value">00:00</span><span class="time-desc">Завершение</span></div>
         </div>
-        <div class="divider fade-text"></div>
+        <div class="divider"></div>
       </div>
 
       <!-- ТАЙМЕР (белый) -->
       <div class="countdown-section bg-white">
-        <div class="countdown-title fade-text">До свадьбы осталось</div>
-        <div class="countdown-row fade-text" id="countdownRow">
+        <div class="countdown-title">До свадьбы осталось</div>
+        <div class="countdown-row" id="countdownRow">
           <div class="countdown-item">
             <span class="countdown-number" id="days">00</span>
             <span class="countdown-label">дн</span>
@@ -1042,10 +1047,10 @@
       <!-- ДРЕСС-КОД (зелёный) — последовательная анимация для картинок -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
-          <div class="block-tag fade-text">[Dress code]</div>
-          <div class="block-title fade-text">ДРЕСС-КОД</div>
+          <div class="block-tag">[Dress code]</div>
+          <div class="block-title">ДРЕСС-КОД</div>
         </div>
-        <div class="block-text fade-text">
+        <div class="block-text">
           Будем признательны, если вы поддержите цветовую гамму нашего праздника.
         </div>
         <div class="color-swatches sequential-container" id="colorContainer">
@@ -1061,28 +1066,28 @@
           <div class="swatch fade-sequential"><img src="IMG_9110.JPG" alt="цвет" /></div>
           <div class="swatch fade-sequential"><img src="IMG_9109.JPG" alt="цвет" /></div>
         </div>
-        <div class="divider fade-text"></div>
+        <div class="divider"></div>
       </div>
 
       <!-- ПОЖЕЛАНИЯ (белый) -->
       <div class="block-wrapper bg-white">
         <div class="block-header">
-          <div class="block-tag fade-text">[Wishes]</div>
-          <div class="block-title fade-text">ПОЖЕЛАНИЯ</div>
+          <div class="block-tag">[Wishes]</div>
+          <div class="block-title">ПОЖЕЛАНИЯ</div>
         </div>
-        <div class="block-text fade-text">
+        <div class="block-text">
           Самый ценный подарок для нас — это ваше присутствие, ваши улыбки и тёплые слова. Видеть вас рядом в этот день — вот что делает его по-настоящему особенным.
         </div>
-        <div class="divider fade-text"></div>
+        <div class="divider"></div>
       </div>
 
       <!-- КОНТАКТЫ (зелёный) -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
-          <div class="block-tag fade-text">[Contacts]</div>
-          <div class="block-title fade-text">КОНТАКТЫ</div>
+          <div class="block-tag">[Contacts]</div>
+          <div class="block-title">КОНТАКТЫ</div>
         </div>
-        <div class="contacts-list fade-text">
+        <div class="contacts-list">
           <a href="https://t.me/maxsuh99" target="_blank" class="contact-card">
             <span class="icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="#1a3a28" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1104,55 +1109,55 @@
             <span class="username">@dianaromanyuk31</span>
           </a>
         </div>
-        <div class="divider fade-text"></div>
+        <div class="divider"></div>
       </div>
 
       <!-- АНКЕТА ГОСТЯ (белая) -->
       <div class="inv-form bg-white">
         <div class="form-header">
-          <div class="form-tag fade-text">[RSVP]</div>
-          <div class="form-title fade-text">АНКЕТА ГОСТЯ</div>
+          <div class="form-tag">[RSVP]</div>
+          <div class="form-title">АНКЕТА ГОСТЯ</div>
         </div>
 
-        <div class="confirm-text fade-text">Пожалуйста, подтвердите присутствие до <span class="bold-date">15.09.2026</span></div>
+        <div class="confirm-text">Пожалуйста, подтвердите присутствие до <span class="bold-date">15.09.2026</span></div>
 
         <div class="form-group">
-          <label class="form-label fade-text">Ваше имя и фамилия</label>
+          <label class="form-label">Ваше имя и фамилия</label>
           <input type="text" class="form-input" placeholder="Иван Петров" />
         </div>
 
         <div class="form-group">
-          <label class="form-label fade-text">Вы планируете присутствовать?</label>
+          <label class="form-label">Вы планируете присутствовать?</label>
           <div class="radio-group-vertical">
-            <label class="radio-option fade-text"><input type="radio" name="attendance" value="yes" /> Буду точно</label>
-            <label class="radio-option fade-text"><input type="radio" name="attendance" value="maybe" /> Не знаю</label>
-            <label class="radio-option fade-text"><input type="radio" name="attendance" value="no" /> Не буду</label>
+            <label class="radio-option"><input type="radio" name="attendance" value="yes" /> Буду точно</label>
+            <label class="radio-option"><input type="radio" name="attendance" value="maybe" /> Не знаю</label>
+            <label class="radio-option"><input type="radio" name="attendance" value="no" /> Не буду</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label fade-text">Нужен ли вам подвоз?</label>
+          <label class="form-label">Нужен ли вам подвоз?</label>
           <div class="radio-group-vertical">
-            <label class="radio-option fade-text"><input type="radio" name="need_pickup" value="yes" /> Да</label>
-            <label class="radio-option fade-text"><input type="radio" name="need_pickup" value="no" /> Нет</label>
+            <label class="radio-option"><input type="radio" name="need_pickup" value="yes" /> Да</label>
+            <label class="radio-option"><input type="radio" name="need_pickup" value="no" /> Нет</label>
           </div>
           <div class="sub-block" id="pickupBlock">
             <div style="margin-top: 12px;">
               <label class="form-label" style="font-size:18px; font-style:italic; margin-bottom:8px; font-weight:700;">Откуда нужен подвоз?</label>
               <div class="radio-group-vertical">
-                <label class="radio-option fade-text"><input type="radio" name="pickup_from" value="groom" /> Сторона жениха (Радостово)</label>
-                <label class="radio-option fade-text"><input type="radio" name="pickup_from" value="bride" /> Сторона невесты (Повитье)</label>
+                <label class="radio-option"><input type="radio" name="pickup_from" value="groom" /> Сторона жениха (Радостово)</label>
+                <label class="radio-option"><input type="radio" name="pickup_from" value="bride" /> Сторона невесты (Повитье)</label>
               </div>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label fade-text">Ваша любимая песня для танца</label>
+          <label class="form-label">Ваша любимая песня для танца</label>
           <input type="text" class="form-input" placeholder="Название и исполнитель" />
         </div>
 
-        <button class="form-submit fade-text">Отправить</button>
+        <button class="form-submit">Отправить</button>
       </div>
     </div>
   </div>
@@ -1202,31 +1207,12 @@
           const text = 'Любовь — это когда весь мир помещается в одном человеке.';
           typeWriter(loveText, text, 60);
 
+          // После открытия запускаем наблюдение за последовательными контейнерами
           setTimeout(function() {
-            observeTextElements();
             observeSequentialContainers();
           }, 300);
         }, 400);
       });
-
-      // Анимация обычного текста (fade-text)
-      const textObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -30px 0px'
-      });
-
-      function observeTextElements() {
-        const texts = document.querySelectorAll('.fade-text:not(.visible)');
-        texts.forEach(function(el) {
-          textObserver.observe(el);
-        });
-      }
 
       // Анимация последовательных элементов (расписание, цвета)
       const sequentialObserver = new IntersectionObserver(function(entries) {
@@ -1237,9 +1223,8 @@
             children.forEach(function(child, index) {
               setTimeout(function() {
                 child.classList.add('visible');
-              }, index * 150); // задержка 150 мс между элементами
+              }, index * 150);
             });
-            // Отключаем наблюдение после запуска
             sequentialObserver.unobserve(container);
           }
         });
@@ -1258,7 +1243,6 @@
 
       if (invScreen) {
         invScreen.addEventListener('scroll', function() {
-          observeTextElements();
           observeSequentialContainers();
         }, { passive: true });
       }
@@ -1314,7 +1298,6 @@
 
       setTimeout(function() {
         if (invScreen.classList.contains('active')) {
-          observeTextElements();
           observeSequentialContainers();
         }
       }, 600);
