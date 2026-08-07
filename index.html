@@ -423,19 +423,19 @@
       font-style: italic;
     }
 
-    /* Квадратики цветов — 3 ряда */
+    /* Квадратики цветов — 3 ряда: 4+4+3, увеличенные */
     .color-swatches {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       margin-top: 20px;
-      max-width: 340px;
+      max-width: 370px;
     }
 
     .color-swatches .swatch {
-      width: 64px;
-      height: 64px;
+      width: 80px;
+      height: 80px;
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid #ccc;
@@ -449,7 +449,7 @@
       object-fit: cover;
     }
 
-    /* Контакты — карточки с обводкой и иконкой Telegram */
+    /* Контакты — карточки */
     .contacts-list {
       width: 100%;
       max-width: 320px;
@@ -558,17 +558,7 @@
       color: #1E1E1E;
     }
 
-    .confirm-date {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      letter-spacing: 1px;
-      color: #4A3F35;
-      margin-top: 8px;
-      text-align: center;
-      width: 100%;
-      max-width: 340px;
-      font-style: italic;
-    }
+    /* Убрали confirm-date из шапки */
 
     .form-group {
       width: 100%;
@@ -634,30 +624,24 @@
       flex-shrink: 0;
     }
 
-    /* Чекбокс подтверждения */
-    .checkbox-option {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      cursor: pointer;
-      color: #1E1E1E;
-      font-weight: 500;
-      margin-top: 5px;
-    }
-
-    .checkbox-option input {
-      width: 20px;
-      height: 20px;
-      accent-color: #4A3F35;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-
     .form-textarea {
       resize: vertical;
       min-height: 80px;
+    }
+
+    /* Текст подтверждения по центру */
+    .confirm-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      text-align: center;
+      font-weight: 600;
+      font-style: italic;
+      color: #1E1E1E;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 340px;
+      letter-spacing: 1px;
     }
 
     .form-submit {
@@ -673,7 +657,6 @@
       letter-spacing: 3px;
       cursor: pointer;
       transition: background 0.25s;
-      margin-top: 20px;
       text-transform: uppercase;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -781,10 +764,6 @@
         font-size: 18px;
         gap: 8px;
       }
-      .checkbox-option {
-        font-size: 18px;
-        gap: 10px;
-      }
       .clickable-area {
         width: 38%;
         max-width: 140px;
@@ -824,8 +803,11 @@
         font-size: 18px;
       }
       .color-swatches .swatch {
-        width: 54px;
-        height: 54px;
+        width: 66px;
+        height: 66px;
+      }
+      .confirm-text {
+        font-size: 18px;
       }
     }
 
@@ -871,8 +853,11 @@
         font-size: 16px;
       }
       .color-swatches .swatch {
-        width: 46px;
-        height: 46px;
+        width: 56px;
+        height: 56px;
+      }
+      .confirm-text {
+        font-size: 16px;
       }
     }
   </style>
@@ -970,7 +955,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- DRESS-CODE + ЦВЕТА -->
+      <!-- DRESS-CODE + ЦВЕТА (3 ряда: 4+4+3) -->
       <div class="block-wrapper bg-beige fade-in-element">
         <div class="block-header">
           <div class="block-tag">[Дресс-код]</div>
@@ -1038,12 +1023,12 @@
         <div class="divider"></div>
       </div>
 
-      <!-- RSVP -->
+      <!-- RSVP (Анкета) -->
       <div class="inv-form fade-in-element">
         <div class="form-header">
           <div class="form-tag">[Анкета гостя]</div>
           <div class="form-title">RSVP</div>
-          <div class="confirm-date">Подтверждение до 15.09.2026</div>
+          <!-- Убрали confirm-date -->
         </div>
 
         <div class="form-group">
@@ -1082,13 +1067,8 @@
           <input type="text" class="form-input" placeholder="Название и исполнитель" />
         </div>
 
-        <!-- НОВЫЙ ЧЕКБОКС ПОДТВЕРЖДЕНИЯ -->
-        <div class="form-group">
-          <label class="checkbox-option">
-            <input type="checkbox" required />
-            Пожалуйста, подтвердите ваше присутствие
-          </label>
-        </div>
+        <!-- Текст подтверждения по центру -->
+        <div class="confirm-text">Пожалуйста, подтвердите присутствие до 15.09.2026</div>
 
         <button class="form-submit">Отправить</button>
       </div>
