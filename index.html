@@ -127,12 +127,21 @@
       transform: translateY(0);
     }
 
-    /* ----- Анимация только для текста (плавное появление) ----- */
+    /* ----- Анимация для обычного текста (плавное появление) ----- */
     .fade-text {
       opacity: 0;
       transition: opacity 0.5s ease;
     }
     .fade-text.visible {
+      opacity: 1;
+    }
+
+    /* ----- Анимация для последовательных элементов (расписание, цвета) ----- */
+    .fade-sequential {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .fade-sequential.visible {
       opacity: 1;
     }
 
@@ -181,6 +190,20 @@
       opacity: 0.85;
       font-weight: 400;
       font-style: italic;
+      min-height: 60px;
+    }
+    .love-text .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      background-color: #fff;
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 0.8s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     /* Общие стили для блоков */
@@ -298,11 +321,11 @@
     .bg-green .day { color: #F5F0E8; }
     .bg-white .day { color: #1E1E1E; }
 
-    /* Сердце без анимации, увеличенное */
+    /* Сердце без анимации, такого же размера как ячейки */
     .wedding-heart {
       position: relative;
-      width: 52px;
-      height: 52px;
+      width: 32px;
+      height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -331,7 +354,7 @@
     .wedding-heart .day-number {
       position: relative;
       z-index: 1;
-      font-size: 24px;
+      font-size: 18px;
       font-weight: 600;
       line-height: 1;
     }
@@ -853,13 +876,6 @@
       .contact-card .username {
         font-size: 16px;
       }
-      .wedding-heart {
-        width: 44px;
-        height: 44px;
-      }
-      .wedding-heart .day-number {
-        font-size: 20px;
-      }
       .color-swatches .swatch {
         width: 66px;
         height: 66px;
@@ -904,13 +920,6 @@
       .contact-card .username {
         font-size: 14px;
       }
-      .wedding-heart {
-        width: 40px;
-        height: 40px;
-      }
-      .wedding-heart .day-number {
-        font-size: 18px;
-      }
       .color-swatches .swatch {
         width: 56px;
         height: 56px;
@@ -939,9 +948,7 @@
           <div class="hero-names">МАКСИМ И ДИАНА</div>
           <div class="hero-date">03.10.2026</div>
         </div>
-        <div class="love-text">
-          Любовь — это когда весь мир помещается в одном человеке.
-        </div>
+        <div class="love-text" id="loveText"></div>
       </div>
 
       <!-- ПРИГЛАШЕНИЕ (зелёный) -->
@@ -991,17 +998,17 @@
         <div class="divider fade-text"></div>
       </div>
 
-      <!-- РАСПИСАНИЕ (зелёный) -->
+      <!-- РАСПИСАНИЕ (зелёный) — последовательная анимация -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag fade-text">[Timeline]</div>
           <div class="block-title fade-text">РАСПИСАНИЕ</div>
         </div>
-        <div class="timeline-list fade-text">
-          <div class="time-item"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
-          <div class="time-item"><span class="time-value">14:30</span><span class="time-desc">Церемония</span></div>
-          <div class="time-item"><span class="time-value">15:30</span><span class="time-desc">Начало банкета</span></div>
-          <div class="time-item"><span class="time-value">00:00</span><span class="time-desc">Завершение</span></div>
+        <div class="timeline-list sequential-container" id="timelineContainer">
+          <div class="time-item fade-sequential"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
+          <div class="time-item fade-sequential"><span class="time-value">14:30</span><span class="time-desc">Церемония</span></div>
+          <div class="time-item fade-sequential"><span class="time-value">15:30</span><span class="time-desc">Начало банкета</span></div>
+          <div class="time-item fade-sequential"><span class="time-value">00:00</span><span class="time-desc">Завершение</span></div>
         </div>
         <div class="divider fade-text"></div>
       </div>
@@ -1032,7 +1039,7 @@
         </div>
       </div>
 
-      <!-- ДРЕСС-КОД (зелёный) -->
+      <!-- ДРЕСС-КОД (зелёный) — последовательная анимация для картинок -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag fade-text">[Dress code]</div>
@@ -1041,18 +1048,18 @@
         <div class="block-text fade-text">
           Будем признательны, если вы поддержите цветовую гамму нашего праздника.
         </div>
-        <div class="color-swatches fade-text">
-          <div class="swatch"><img src="IMG_9119.JPG" alt="цвет" /></div>
-          <div class="swatch"><img src="IMG_9118.JPG" alt="цвет" /></div>
-          <div class="swatch"><img src="IMG_9117.JPG" alt="цвет" /></div>
-          <div class="swatch"><img src="IMG_9116.JPG" alt="цвет" /></div>
-          <div class="swatch"><img src="IMG_9115.JPG" alt="цвет" /></div>
-          <div class="swatch"><img src="IMG_9114.JPG" alt="цвет" /></div>
-          <div class="swatch"><img src="IMG_9113.JPG" alt="цвет" /></div>
-          <div class="swatch"><img src="IMG_9112.JPG" alt="цвет" /></div>
-          <div class="swatch"><img src="IMG_9111.JPG" alt="цвет" /></div>
-          <div class="swatch"><img src="IMG_9110.JPG" alt="цвет" /></div>
-          <div class="swatch"><img src="IMG_9109.JPG" alt="цвет" /></div>
+        <div class="color-swatches sequential-container" id="colorContainer">
+          <div class="swatch fade-sequential"><img src="IMG_9119.JPG" alt="цвет" /></div>
+          <div class="swatch fade-sequential"><img src="IMG_9118.JPG" alt="цвет" /></div>
+          <div class="swatch fade-sequential"><img src="IMG_9117.JPG" alt="цвет" /></div>
+          <div class="swatch fade-sequential"><img src="IMG_9116.JPG" alt="цвет" /></div>
+          <div class="swatch fade-sequential"><img src="IMG_9115.JPG" alt="цвет" /></div>
+          <div class="swatch fade-sequential"><img src="IMG_9114.JPG" alt="цвет" /></div>
+          <div class="swatch fade-sequential"><img src="IMG_9113.JPG" alt="цвет" /></div>
+          <div class="swatch fade-sequential"><img src="IMG_9112.JPG" alt="цвет" /></div>
+          <div class="swatch fade-sequential"><img src="IMG_9111.JPG" alt="цвет" /></div>
+          <div class="swatch fade-sequential"><img src="IMG_9110.JPG" alt="цвет" /></div>
+          <div class="swatch fade-sequential"><img src="IMG_9109.JPG" alt="цвет" /></div>
         </div>
         <div class="divider fade-text"></div>
       </div>
@@ -1150,7 +1157,7 @@
     </div>
   </div>
 
-  <!-- Аудио -->
+  <!-- Аудио с loop -->
   <audio id="bgMusic" loop preload="auto">
     <source src="Spokojjnaya_fonovaya_muzyka_onovaya_muzyka_Muzyka_dlya_sna_Rasslablyayushhaya_Muzyka_dlya_Sna_Spokojjnaya_muzyka_dlya_sna_-_Muzyka_dlya_garmonii_i_ljogkogo_vechernego_otdykha_80052187 (1).mp3" type="audio/mpeg" />
   </audio>
@@ -1161,6 +1168,24 @@
       const invScreen = document.getElementById('invScreen');
       const bgMusic = document.getElementById('bgMusic');
       const clickableArea = document.getElementById('clickableArea');
+
+      // Эффект печатающей машинки для love-text
+      function typeWriter(element, text, speed) {
+        let i = 0;
+        element.textContent = '';
+        function type() {
+          if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          } else {
+            const cursor = document.createElement('span');
+            cursor.className = 'cursor';
+            element.appendChild(cursor);
+          }
+        }
+        type();
+      }
 
       clickableArea.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -1173,13 +1198,18 @@
 
         setTimeout(function() {
           invScreen.classList.add('active');
+          const loveText = document.getElementById('loveText');
+          const text = 'Любовь — это когда весь мир помещается в одном человеке.';
+          typeWriter(loveText, text, 60);
+
           setTimeout(function() {
             observeTextElements();
+            observeSequentialContainers();
           }, 300);
         }, 400);
       });
 
-      // Анимация текста при скролле — только появление
+      // Анимация обычного текста (fade-text)
       const textObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -1198,9 +1228,38 @@
         });
       }
 
+      // Анимация последовательных элементов (расписание, цвета)
+      const sequentialObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const container = entry.target;
+            const children = container.querySelectorAll('.fade-sequential');
+            children.forEach(function(child, index) {
+              setTimeout(function() {
+                child.classList.add('visible');
+              }, index * 150); // задержка 150 мс между элементами
+            });
+            // Отключаем наблюдение после запуска
+            sequentialObserver.unobserve(container);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      function observeSequentialContainers() {
+        const containers = document.querySelectorAll('.sequential-container:not(.observed)');
+        containers.forEach(function(container) {
+          container.classList.add('observed');
+          sequentialObserver.observe(container);
+        });
+      }
+
       if (invScreen) {
         invScreen.addEventListener('scroll', function() {
           observeTextElements();
+          observeSequentialContainers();
         }, { passive: true });
       }
 
@@ -1256,6 +1315,7 @@
       setTimeout(function() {
         if (invScreen.classList.contains('active')) {
           observeTextElements();
+          observeSequentialContainers();
         }
       }, 600);
     })();
