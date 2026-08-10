@@ -866,7 +866,7 @@
       .slider-text { font-size: 15px; }
     }
 
-    /* ----- ТОСТ (всплывающее уведомление) — центрирован, с крестиком ----- */
+    /* ----- ТОСТ (всплывающее уведомление) — центрирован по экрану, без смайлов ----- */
     .toast {
       position: fixed;
       top: 50%;
@@ -876,7 +876,7 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       color: #fff;
-      padding: 20px 48px 20px 32px; /* добавили отступ справа для крестика */
+      padding: 20px 32px;
       border-radius: 16px;
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(18px, 3.5vw, 24px);
@@ -890,7 +890,6 @@
       max-width: 90%;
       border: 1px solid rgba(255,255,255,0.12);
       transition: opacity 0.4s ease, transform 0.4s ease;
-      position: relative;
     }
     .toast.show {
       opacity: 1;
@@ -899,29 +898,6 @@
     }
     .toast.success { border-left: 5px solid #34c759; }
     .toast.error { border-left: 5px solid #ff3b30; }
-
-    /* Кнопка закрытия */
-    .toast-close {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      background: none;
-      border: none;
-      color: rgba(255,255,255,0.7);
-      font-size: 28px;
-      line-height: 1;
-      cursor: pointer;
-      transition: color 0.2s;
-      padding: 0 4px;
-      font-weight: 300;
-      pointer-events: auto;
-    }
-    .toast-close:hover {
-      color: #fff;
-    }
-    .toast-close:focus {
-      outline: none;
-    }
   </style>
 </head>
 <body>
@@ -1005,7 +981,7 @@
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Timeline]</div>
-          <div class="block-title">РАСПИСАНИЕ</div>
+          <div class="block-title">ТАЙМИНГ</div>
         </div>
         <div class="timeline-list sequential-container" id="timelineContainer">
           <div class="time-item fade-sequential"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
@@ -1308,54 +1284,32 @@
       pickupBlock.classList.remove('active');
 
       // ============================================================
-      // ********** ОТПРАВКА АНКЕТЫ **********
+      // ********** ОТПРАВКА АНКЕТЫ (исправлено) **********
       // ============================================================
 
-      // --- Вспомогательная функция показа тоста (с крестиком) ---
+      // --- Вспомогательная функция показа тоста (центрирован, без смайлов) ---
       function showToast(message, type = 'success') {
         const oldToast = document.querySelector('.toast');
         if (oldToast) oldToast.remove();
 
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
-
-        // Текст сообщения
-        const textSpan = document.createElement('span');
-        textSpan.textContent = message;
-        toast.appendChild(textSpan);
-
-        // Кнопка закрытия
-        const closeBtn = document.createElement('button');
-        closeBtn.className = 'toast-close';
-        closeBtn.innerHTML = '×';
-        closeBtn.setAttribute('aria-label', 'Закрыть уведомление');
-        closeBtn.addEventListener('click', function() {
-          toast.classList.remove('show');
-          setTimeout(() => toast.remove(), 500);
-        });
-        toast.appendChild(closeBtn);
-
+        toast.textContent = message;
         document.body.appendChild(toast);
 
-        // Показываем с анимацией
         requestAnimationFrame(() => {
           toast.classList.add('show');
         });
 
-        // Автоматическое скрытие через 4 секунды
-        const timer = setTimeout(() => {
+        setTimeout(() => {
           toast.classList.remove('show');
           setTimeout(() => toast.remove(), 500);
         }, 4000);
-
-        // Если пользователь наведёт курсор или коснётся, таймер сбрасывается (удобно для чтения)
-        toast.addEventListener('mouseenter', () => clearTimeout(timer));
-        toast.addEventListener('touchstart', () => clearTimeout(timer));
       }
 
       // --- Обработчик отправки ---
       const submitBtn = document.getElementById('submitBtn');
-      const FORM_ENDPOINT = 'https://formspree.io/f/xqpzpkge';
+      const FORM_ENDPOINT = 'https://formspree.io/f/xqpzpkge'; // указан нужный endpoint
 
       submitBtn.addEventListener('click', function(e) {
         e.preventDefault();
