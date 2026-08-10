@@ -506,7 +506,7 @@
     .bg-green .time-desc { color: #D4CFC7; }
     .bg-white .time-desc { color: #2B2B2B; }
 
-    /* Дресс-код — 3 ряда: 4, 4, 3 */
+    /* Дресс-код — 3 ряда: 4, 4, 3 (третий по центру) */
     .color-swatches {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -534,23 +534,35 @@
       object-fit: cover;
     }
 
-    /* Явно указываем ряды */
+    /* 1-й ряд: 4 элемента */
     .color-swatches .swatch:nth-child(1),
     .color-swatches .swatch:nth-child(2),
     .color-swatches .swatch:nth-child(3),
     .color-swatches .swatch:nth-child(4) {
       grid-row: 1;
     }
+    /* 2-й ряд: 4 элемента */
     .color-swatches .swatch:nth-child(5),
     .color-swatches .swatch:nth-child(6),
     .color-swatches .swatch:nth-child(7),
     .color-swatches .swatch:nth-child(8) {
       grid-row: 2;
     }
-    .color-swatches .swatch:nth-child(9),
-    .color-swatches .swatch:nth-child(10),
+    /* 3-й ряд: 3 элемента со сдвигом для центрирования */
+    .color-swatches .swatch:nth-child(9) {
+      grid-row: 3;
+      grid-column: 1 / 2;
+      justify-self: end;
+    }
+    .color-swatches .swatch:nth-child(10) {
+      grid-row: 3;
+      grid-column: 2 / 3;
+      justify-self: center;
+    }
     .color-swatches .swatch:nth-child(11) {
       grid-row: 3;
+      grid-column: 3 / 4;
+      justify-self: start;
     }
 
     /* Контакты */
@@ -971,7 +983,7 @@
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Timeline]</div>
-          <div class="block-title">РАСПИСАНИЕ</div>
+          <div class="block-title">ТАЙМИНГ</div>
         </div>
         <div class="timeline-list sequential-container" id="timelineContainer">
           <div class="time-item fade-sequential"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
@@ -996,7 +1008,7 @@
         </div>
       </div>
 
-      <!-- ДРЕСС-КОД (3 ряда: 4, 4, 3) -->
+      <!-- ДРЕСС-КОД (3 ряда: 4, 4, 3 — третий по центру) -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Dress code]</div>
