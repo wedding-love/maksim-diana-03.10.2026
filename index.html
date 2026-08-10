@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
-    /* --- Все стили полностью из ПЕРВОГО вашего кода (без изменений) --- */
+    /* --- Полностью стили из ПЕРВОГО кода (без изменений) --- */
     * {
       margin: 0;
       padding: 0;
@@ -443,7 +443,6 @@
     .bg-green .passport-info { color: #D4CFC7; border-top-color: #A8D5BA; }
     .bg-white .passport-info { color: #333; border-top-color: #B8A99A; }
 
-    /* Кнопки */
     .map-button {
       display: inline-block;
       padding: 12px 30px;
@@ -507,7 +506,7 @@
     .bg-green .time-desc { color: #D4CFC7; }
     .bg-white .time-desc { color: #2B2B2B; }
 
-    /* Дресс-код — ИЗНАЧАЛЬНЫЙ ВИД (flex-wrap) */
+    /* Квадратики цветов (как в первом коде) */
     .color-swatches {
       display: flex;
       flex-wrap: wrap;
@@ -604,7 +603,7 @@
       color: #1E1E1E;
     }
 
-    /* АНКЕТА — ИЗНАЧАЛЬНЫЙ ВИД (как в первом коде) */
+    /* ----- АНКЕТА (как в первом коде) ----- */
     .inv-form {
       padding: 80px 25px;
       display: flex;
@@ -769,7 +768,7 @@
 
     .sub-block.active { display: block; }
 
-    /* ТАЙМЕР */
+    /* ----- ТАЙМЕР ----- */
     .countdown-section {
       padding: 60px 30px 80px;
       display: flex;
@@ -838,72 +837,6 @@
     .bg-white .countdown-separator { color: #1E1E1E; }
     .bg-green .countdown-separator { color: #F5F0E8; }
 
-    /* Уведомление об успешной отправке */
-    .form-success-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
-    }
-    .form-success-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    .form-success-card {
-      background: #F2EBE3;
-      padding: 40px 30px;
-      border-radius: 16px;
-      max-width: 340px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      transform: scale(0.9);
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .form-success-overlay.active .form-success-card {
-      transform: scale(1);
-    }
-    .form-success-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: #1a3a28;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-    }
-    .form-success-card p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      color: #2B2B2B;
-      line-height: 1.5;
-      font-style: italic;
-    }
-    .form-success-progress {
-      margin-top: 24px;
-      height: 4px;
-      background: #D4CFC7;
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .form-success-progress .bar {
-      height: 100%;
-      width: 0%;
-      background: #15532e;
-      border-radius: 2px;
-      transition: width 0.1s linear;
-    }
-
-    /* Медиа-адаптация */
     @media (max-width: 400px) {
       .block-wrapper, .inv-form { padding: 60px 20px; }
       .inv-hero { padding: 40px 20px 40px; }
@@ -915,6 +848,7 @@
       .phone-icon { width: 26px; height: 26px; }
       .caller-name { font-size: 28px; }
     }
+
     @media (max-width: 360px) {
       .hero-names { font-size: clamp(20px, 5vw, 26px); letter-spacing: 0.1em; }
       .block-title, .form-title { font-size: clamp(28px, 7vw, 38px); }
@@ -1035,7 +969,7 @@
         </div>
       </div>
 
-      <!-- ДРЕСС-КОД (ИЗНАЧАЛЬНЫЙ ВИД) -->
+      <!-- ДРЕСС-КОД -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Dress code]</div>
@@ -1103,64 +1037,51 @@
         <div class="divider"></div>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ (ИЗНАЧАЛЬНЫЙ ВИД) -->
-      <div class="inv-form bg-white" id="rsvpForm">
+      <!-- АНКЕТА ГОСТЯ -->
+      <div class="inv-form bg-white">
         <div class="form-header">
           <div class="form-tag">[RSVP]</div>
           <div class="form-title">АНКЕТА ГОСТЯ</div>
         </div>
         <div class="confirm-text">Пожалуйста, подтвердите присутствие до <span class="bold-date">15.09.2026</span></div>
 
-        <form id="weddingForm" action="https://formspree.io/f/xqpzpkge" method="POST">
-          <div class="form-group">
-            <label class="form-label">Ваше имя и фамилия</label>
-            <input type="text" class="form-input" name="name" placeholder="Иван Петров" required />
-          </div>
+        <div class="form-group">
+          <label class="form-label">Ваше имя и фамилия</label>
+          <input type="text" class="form-input" placeholder="Иван Петров" />
+        </div>
 
-          <div class="form-group">
-            <label class="form-label">Вы планируете присутствовать?</label>
-            <div class="radio-group-vertical">
-              <label class="radio-option"><input type="radio" name="attendance" value="Буду точно" required /> Буду точно</label>
-              <label class="radio-option"><input type="radio" name="attendance" value="Не знаю" /> Не знаю</label>
-              <label class="radio-option"><input type="radio" name="attendance" value="Не буду" /> Не буду</label>
-            </div>
+        <div class="form-group">
+          <label class="form-label">Вы планируете присутствовать?</label>
+          <div class="radio-group-vertical">
+            <label class="radio-option"><input type="radio" name="attendance" value="yes" /> Буду точно</label>
+            <label class="radio-option"><input type="radio" name="attendance" value="maybe" /> Не знаю</label>
+            <label class="radio-option"><input type="radio" name="attendance" value="no" /> Не буду</label>
           </div>
+        </div>
 
-          <div class="form-group">
-            <label class="form-label">Нужен ли вам подвоз?</label>
-            <div class="radio-group-vertical">
-              <label class="radio-option"><input type="radio" name="need_pickup" value="Да" /> Да</label>
-              <label class="radio-option"><input type="radio" name="need_pickup" value="Нет" /> Нет</label>
-            </div>
-            <div class="sub-block" id="pickupBlock">
-              <div style="margin-top:12px;">
-                <label class="form-label" style="font-size:clamp(16px,3vw,20px); font-style:italic; margin-bottom:8px; font-weight:700;">Откуда нужен подвоз?</label>
-                <div class="radio-group-vertical">
-                  <label class="radio-option"><input type="radio" name="pickup_from" value="Сторона жениха (Радостово)" /> Сторона жениха (Радостово)</label>
-                  <label class="radio-option"><input type="radio" name="pickup_from" value="Сторона невесты (Повитье)" /> Сторона невесты (Повитье)</label>
-                </div>
+        <div class="form-group">
+          <label class="form-label">Нужен ли вам подвоз?</label>
+          <div class="radio-group-vertical">
+            <label class="radio-option"><input type="radio" name="need_pickup" value="yes" /> Да</label>
+            <label class="radio-option"><input type="radio" name="need_pickup" value="no" /> Нет</label>
+          </div>
+          <div class="sub-block" id="pickupBlock">
+            <div style="margin-top: 12px;">
+              <label class="form-label" style="font-size:clamp(16px,3vw,20px); font-style:italic; margin-bottom:8px; font-weight:700;">Откуда нужен подвоз?</label>
+              <div class="radio-group-vertical">
+                <label class="radio-option"><input type="radio" name="pickup_from" value="groom" /> Сторона жениха (Радостово)</label>
+                <label class="radio-option"><input type="radio" name="pickup_from" value="bride" /> Сторона невесты (Повитье)</label>
               </div>
             </div>
           </div>
-
-          <div class="form-group">
-            <label class="form-label">Ваша любимая песня для танца</label>
-            <input type="text" class="form-input" name="song" placeholder="Название и исполнитель" />
-          </div>
-
-          <button type="submit" class="form-submit">Отправить</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Уведомление об успешной отправке -->
-    <div class="form-success-overlay" id="successOverlay">
-      <div class="form-success-card">
-        <h3>Готово</h3>
-        <p>Ваш ответ успешно отправлен. Спасибо</p>
-        <div class="form-success-progress">
-          <div class="bar" id="progressBar"></div>
         </div>
+
+        <div class="form-group">
+          <label class="form-label">Ваша любимая песня для танца</label>
+          <input type="text" class="form-input" placeholder="Название и исполнитель" />
+        </div>
+
+        <button class="form-submit">Отправить</button>
       </div>
     </div>
   </div>
@@ -1320,91 +1241,12 @@
       const pickupBlock = document.getElementById('pickupBlock');
       pickupRadios.forEach(function(radio) {
         radio.addEventListener('change', function() {
-          if (this.value === 'Да') pickupBlock.classList.add('active');
+          if (this.value === 'yes') pickupBlock.classList.add('active');
           else pickupBlock.classList.remove('active');
         });
       });
       pickupBlock.classList.remove('active');
 
-      // --- ОТПРАВКА ФОРМЫ НА FORMSPREE ---
-      const form = document.getElementById('weddingForm');
-      const overlay = document.getElementById('successOverlay');
-      const progressBar = document.getElementById('progressBar');
-      let progressInterval = null;
-      let closeTimeout = null;
-
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-
-        // Проверка, что выбран вариант присутствия
-        if (!data.attendance) {
-          alert('Пожалуйста, выберите вариант присутствия.');
-          return;
-        }
-
-        try {
-          const response = await fetch('https://formspree.io/f/xqpzpkge', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(data)
-          });
-
-          if (response.ok) {
-            showSuccessMessage();
-            form.reset();
-            document.getElementById('pickupBlock').classList.remove('active');
-          } else {
-            const errorData = await response.json();
-            alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
-            console.error('Formspree error:', errorData);
-          }
-        } catch (error) {
-          alert('Не удалось отправить форму. Проверьте подключение к интернету.');
-          console.error('Network error:', error);
-        }
-      });
-
-      function showSuccessMessage() {
-        overlay.classList.add('active');
-        
-        let progress = 0;
-        progressBar.style.width = '0%';
-        if (progressInterval) clearInterval(progressInterval);
-        
-        progressInterval = setInterval(function() {
-          progress += 1;
-          progressBar.style.width = progress + '%';
-          if (progress >= 100) {
-            clearInterval(progressInterval);
-            progressInterval = null;
-          }
-        }, 50);
-
-        if (closeTimeout) clearTimeout(closeTimeout);
-        closeTimeout = setTimeout(function() {
-          overlay.classList.remove('active');
-          progressBar.style.width = '0%';
-          if (progressInterval) {
-            clearInterval(progressInterval);
-            progressInterval = null;
-          }
-        }, 5000);
-      }
-
-      // Если пользователь кликнет на оверлей, он не закроется
-      overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) {
-          // Не закрываем
-        }
-      });
-
-      // Дополнительная проверка при загрузке
       setTimeout(function() {
         if (invScreen.classList.contains('active')) observeSequentialContainers();
       }, 600);
