@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
+    /* --- Все стили полностью из ПЕРВОГО вашего кода (без изменений) --- */
     * {
       margin: 0;
       padding: 0;
@@ -38,7 +39,7 @@
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
     }
 
-    /* ----- Экран звонка ----- */
+    /* ----- Экран звонка (из примера) ----- */
     .call-screen {
       position: absolute;
       top: 0;
@@ -159,7 +160,7 @@
       transform: translateY(0);
     }
 
-    /* ----- Анимация для последовательных элементов ----- */
+    /* ----- Анимация для последовательных элементов (расписание, цвета) ----- */
     .fade-sequential {
       opacity: 0;
       transition: opacity 0.4s ease;
@@ -229,7 +230,7 @@
       50% { opacity: 0; }
     }
 
-    /* Общие стили для блоков */
+    /* Общие стили для блоков (как в первом коде) */
     .block-wrapper {
       padding: 80px 30px;
       display: flex;
@@ -506,44 +507,22 @@
     .bg-green .time-desc { color: #D4CFC7; }
     .bg-white .time-desc { color: #2B2B2B; }
 
-    /* Дресс-код — 3 ряда по 3, 4, 4 элемента */
+    /* Дресс-код — ИЗНАЧАЛЬНЫЙ ВИД (flex-wrap) */
     .color-swatches {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
-      justify-items: center;
-      max-width: 370px;
-      width: 100%;
       margin-top: 20px;
-    }
-    /* Первые 3 элемента занимают 1-й ряд */
-    .color-swatches .swatch:nth-child(1),
-    .color-swatches .swatch:nth-child(2),
-    .color-swatches .swatch:nth-child(3) {
-      grid-row: 1;
-    }
-    /* Следующие 4 — 2-й ряд */
-    .color-swatches .swatch:nth-child(4),
-    .color-swatches .swatch:nth-child(5),
-    .color-swatches .swatch:nth-child(6),
-    .color-swatches .swatch:nth-child(7) {
-      grid-row: 2;
-    }
-    /* Последние 4 — 3-й ряд */
-    .color-swatches .swatch:nth-child(8),
-    .color-swatches .swatch:nth-child(9),
-    .color-swatches .swatch:nth-child(10),
-    .color-swatches .swatch:nth-child(11) {
-      grid-row: 3;
+      max-width: 370px;
     }
 
     .color-swatches .swatch {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      max-width: 80px;
+      width: clamp(56px, 12vw, 80px);
+      height: clamp(56px, 12vw, 80px);
       border-radius: 6px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid #ccc;
       flex-shrink: 0;
     }
 
@@ -625,12 +604,12 @@
       color: #1E1E1E;
     }
 
-    /* АНКЕТА — все элементы по левому краю */
+    /* АНКЕТА — ИЗНАЧАЛЬНЫЙ ВИД (как в первом коде) */
     .inv-form {
       padding: 80px 25px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
     }
     .inv-form.bg-green { background-color: #1a3a28; color: #F5F0E8; }
     .inv-form.bg-white { background-color: #FFFFFF; color: #000000; }
@@ -639,7 +618,6 @@
       width: 100%;
       max-width: 340px;
       margin-bottom: 25px;
-      text-align: left;
     }
 
     .form-tag {
@@ -672,7 +650,7 @@
     .confirm-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(17px, 3.5vw, 22px);
-      text-align: left;
+      text-align: center;
       font-weight: 400;
       font-style: italic;
       margin-bottom: 25px;
@@ -690,7 +668,6 @@
       width: 100%;
       max-width: 340px;
       margin-bottom: 28px;
-      text-align: left;
     }
 
     .form-label {
@@ -701,7 +678,6 @@
       margin-bottom: 12px;
       letter-spacing: 0.5px;
       font-style: italic;
-      text-align: left;
     }
 
     .inv-form.bg-green .form-label { color: #F5F0E8; }
@@ -721,7 +697,6 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      text-align: left;
     }
 
     .form-input:focus,
@@ -735,7 +710,6 @@
       flex-direction: column;
       gap: 12px;
       margin-top: 5px;
-      align-items: flex-start;
     }
 
     .radio-option {
@@ -746,7 +720,6 @@
       font-size: clamp(18px, 3.5vw, 22px);
       cursor: pointer;
       font-weight: 400;
-      text-align: left;
     }
 
     .inv-form.bg-green .radio-option { color: #F5F0E8; }
@@ -783,7 +756,6 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      text-align: center;
     }
 
     .form-submit:hover { background: #0e3f22; }
@@ -793,7 +765,6 @@
       padding-left: 10px;
       border-left: 2px solid #15532e;
       display: none;
-      text-align: left;
     }
 
     .sub-block.active { display: block; }
@@ -943,7 +914,6 @@
       .slider-track { height: 66px; }
       .phone-icon { width: 26px; height: 26px; }
       .caller-name { font-size: 28px; }
-      .color-swatches .swatch { max-width: 64px; }
     }
     @media (max-width: 360px) {
       .hero-names { font-size: clamp(20px, 5vw, 26px); letter-spacing: 0.1em; }
@@ -952,15 +922,10 @@
       .time-desc { font-size: clamp(15px, 3vw, 18px); margin-left: 10px; }
       .contact-card { min-width: 90px; padding: 10px 12px; }
       .contact-card .username { font-size: clamp(13px, 2.5vw, 15px); }
-      .color-swatches .swatch { max-width: 56px; }
+      .color-swatches .swatch { width: 48px; height: 48px; }
       .slider-button { width: 48px; height: 48px; }
       .slider-track { height: 58px; }
       .slider-text { font-size: 15px; }
-    }
-    /* Для очень маленьких экранов уменьшаем отступы в сетке */
-    @media (max-width: 340px) {
-      .color-swatches { gap: 8px; }
-      .color-swatches .swatch { max-width: 48px; }
     }
   </style>
 </head>
@@ -1070,7 +1035,7 @@
         </div>
       </div>
 
-      <!-- ДРЕСС-КОД (3 ряда: 3, 4, 4) -->
+      <!-- ДРЕСС-КОД (ИЗНАЧАЛЬНЫЙ ВИД) -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Dress code]</div>
@@ -1138,7 +1103,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ (все элементы по левому краю) -->
+      <!-- АНКЕТА ГОСТЯ (ИЗНАЧАЛЬНЫЙ ВИД) -->
       <div class="inv-form bg-white" id="rsvpForm">
         <div class="form-header">
           <div class="form-tag">[RSVP]</div>
