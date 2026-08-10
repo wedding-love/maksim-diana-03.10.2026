@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
-    /* ---- Все стили (как в последней версии) ---- */
+    /* ... все стили без изменений (как в предыдущем ответе) ... */
     * {
       margin: 0;
       padding: 0;
@@ -36,7 +36,6 @@
       overflow: hidden;
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
     }
-    /* ----- Экран звонка ----- */
     .call-screen {
       position: absolute;
       top: 0;
@@ -131,7 +130,6 @@
       height: 30px;
       fill: #fff;
     }
-    /* ----- Экран приглашения ----- */
     .invitation-screen {
       position: absolute;
       top: 0;
@@ -441,7 +439,6 @@
     }
     .bg-green .time-desc { color: #D4CFC7; }
     .bg-white .time-desc { color: #2B2B2B; }
-    /* Дресс-код — адаптивная компоновка */
     .color-swatches {
       display: flex;
       flex-wrap: wrap;
@@ -538,7 +535,6 @@
       letter-spacing: 0.5px;
       color: #1E1E1E;
     }
-    /* АНКЕТА */
     .inv-form {
       padding: 80px 25px;
       display: flex;
@@ -675,7 +671,6 @@
       display: none;
     }
     .sub-block.active { display: block; }
-    /* ТАЙМЕР */
     .countdown-section {
       padding: 60px 30px 80px;
       display: flex;
@@ -734,7 +729,6 @@
     .bg-white .countdown-separator { color: #1E1E1E; }
     .bg-green .countdown-separator { color: #F5F0E8; }
 
-    /* Уведомление об успешной отправке */
     .form-success-overlay {
       position: fixed;
       top: 0;
@@ -997,7 +991,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ с формой -->
+      <!-- АНКЕТА ГОСТЯ (форма) -->
       <div class="inv-form bg-white" id="rsvpForm">
         <div class="form-header">
           <div class="form-tag">[RSVP]</div>
@@ -1005,16 +999,16 @@
         </div>
         <div class="confirm-text">Пожалуйста, подтвердите присутствие до <span class="bold-date">15.09.2026</span></div>
 
-        <form id="weddingForm" action="https://formspree.io/f/xqpzpkge" method="POST">
+        <form id="weddingForm" action="https://formspree.io/f/xqpzpkge" method="POST" novalidate>
           <div class="form-group">
             <label class="form-label">Ваше имя и фамилия</label>
-            <input type="text" class="form-input" name="name" placeholder="Иван Петров" required />
+            <input type="text" class="form-input" name="name" placeholder="Иван Петров" />
           </div>
 
           <div class="form-group">
             <label class="form-label">Вы планируете присутствовать?</label>
             <div class="radio-group-vertical">
-              <label class="radio-option"><input type="radio" name="attendance" value="Буду точно" required /> Буду точно</label>
+              <label class="radio-option"><input type="radio" name="attendance" value="Буду точно" /> Буду точно</label>
               <label class="radio-option"><input type="radio" name="attendance" value="Не знаю" /> Не знаю</label>
               <label class="radio-option"><input type="radio" name="attendance" value="Не буду" /> Не буду</label>
             </div>
@@ -1042,7 +1036,7 @@
             <input type="text" class="form-input" name="song" placeholder="Название и исполнитель" />
           </div>
 
-          <button type="submit" class="form-submit">Отправить</button>
+          <button type="submit" class="form-submit" formnovalidate>Отправить</button>
         </form>
       </div>
     </div>
@@ -1219,7 +1213,7 @@
       });
       pickupBlock.classList.remove('active');
 
-      // --- ОТПРАВКА ФОРМЫ НА FORMSPREE (без перенаправления) ---
+      // --- ОТПРАВКА ФОРМЫ (ручная валидация) ---
       const form = document.getElementById('weddingForm');
       const overlay = document.getElementById('successOverlay');
       const progressBar = document.getElementById('progressBar');
@@ -1229,14 +1223,33 @@
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+        // Ручная проверка
+        const name = form.querySelector('input[name="name"]').value.trim();
+        const attendance = form.querySelector('input[name="attendance"]:checked');
+        const pickup = form.querySelector('input[name="need_pickup"]:checked');
+        const pickupFrom = form.querySelector('input[name="pickup_from"]:checked');
 
-        // Проверка, что выбран вариант присутствия
-        if (!data.attendance) {
+        if (!name) {
+          alert('Пожалуйста, укажите ваше имя и фамилию.');
+          return;
+        }
+        if (!attendance) {
           alert('Пожалуйста, выберите вариант присутствия.');
           return;
         }
+        if (pickup && pickup.value === 'Да' && !pickupFrom) {
+          alert('Пожалуйста, укажите, откуда нужен подвоз.');
+          return;
+        }
+
+        // Собираем данные
+        const data = {
+          name: name,
+          attendance: attendance.value,
+          need_pickup: pickup ? pickup.value : 'Не выбрано',
+          pickup_from: pickupFrom ? pickupFrom.value : 'Не указано',
+          song: form.querySelector('input[name="song"]').value.trim()
+        };
 
         try {
           const response = await fetch('https://formspree.io/f/xqpzpkge', {
@@ -1265,7 +1278,6 @@
 
       function showSuccessMessage() {
         overlay.classList.add('active');
-        
         let progress = 0;
         progressBar.style.width = '0%';
         if (progressInterval) clearInterval(progressInterval);
@@ -1277,7 +1289,7 @@
             clearInterval(progressInterval);
             progressInterval = null;
           }
-        }, 50); // 50мс * 100 = 5 секунд
+        }, 50);
 
         if (closeTimeout) clearTimeout(closeTimeout);
         closeTimeout = setTimeout(function() {
@@ -1290,7 +1302,6 @@
         }, 5000);
       }
 
-      // Не закрываем оверлей при клике на фон
       overlay.addEventListener('click', function(e) {
         if (e.target === overlay) {
           // ничего не делаем
