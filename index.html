@@ -38,68 +38,101 @@
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
     }
 
-    /* ----- Экран-заставка ----- */
+    /* ----- Экран звонка (новый) ----- */
     .call-screen {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 20px 50px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%), 
+                  url('IMG_7327.JPG') center/cover;
       z-index: 20;
-      background-image: url('IMG_7327.JPG');
-      background-size: cover;
-      background-position: center;
       transition: opacity 0.6s ease, visibility 0.6s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      padding-bottom: 15px;
     }
-
-    .clickable-area {
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 30%;
-      max-width: 130px;
-      min-width: 80px;
-      margin-bottom: 5px;
-      transition: transform 0.2s ease;
-      -webkit-tap-highlight-color: transparent;
-      text-decoration: none;
-      user-select: none;
-    }
-
-    .clickable-area img {
-      display: block;
-      width: 100%;
-      height: auto;
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-
-    .clickable-area .caption {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      letter-spacing: 1.5px;
-      font-weight: 400;
-      color: #ffffff;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-      margin-top: 12px;
+    .caller-info {
       text-align: center;
-      background: transparent;
-      box-shadow: none;
-      padding: 0;
-      line-height: 1.2;
-      pointer-events: none;
-      white-space: nowrap;
+      margin-top: 20px;
+      color: #fff;
     }
-
-    .clickable-area:active {
-      transform: scale(0.95);
+    .caller-subtitle {
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      opacity: 0.85;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-family: 'Cormorant Garamond', serif;
+      animation: fadeInDown 1s ease forwards;
+    }
+    .caller-name {
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      font-family: 'Cormorant Garamond', serif;
+      animation: fadeInDown 1s ease 0.2s forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slider-container {
+      width: 100%;
+      padding: 0 10px;
+      animation: fadeInUp 1s ease 0.4s forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slider-track {
+      position: relative;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .slider-text {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .slider-button {
+      position: absolute;
+      left: 6px;
+      width: 64px;
+      height: 64px;
+      background-color: #34c759;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
+      touch-action: none;
+    }
+    .phone-icon {
+      width: 30px;
+      height: 30px;
+      fill: #fff;
     }
 
     /* ----- Экран приглашения ----- */
@@ -120,14 +153,13 @@
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
     }
-
     .invitation-screen.active {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
 
-    /* ----- Анимация для последовательных элементов (расписание, цвета) ----- */
+    /* ----- Адаптивные шрифты и общие элементы ----- */
     .fade-sequential {
       opacity: 0;
       transition: opacity 0.4s ease;
@@ -152,9 +184,9 @@
 
     .hero-names {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
+      font-size: clamp(28px, 6vw, 40px);
       text-align: center;
-      letter-spacing: 6px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       font-weight: 600;
       white-space: nowrap;
@@ -162,9 +194,9 @@
 
     .hero-date {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(18px, 4vw, 24px);
       text-align: center;
-      letter-spacing: 8px;
+      letter-spacing: 0.2em;
       opacity: 0.9;
       margin-top: 12px;
       font-weight: 400;
@@ -176,7 +208,7 @@
       text-align: right;
       max-width: 260px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(16px, 3.5vw, 20px);
       line-height: 1.6;
       opacity: 0.85;
       font-weight: 400;
@@ -197,44 +229,40 @@
       50% { opacity: 0; }
     }
 
-    /* Общие стили для блоков */
+    /* Блоки */
     .block-wrapper {
       padding: 80px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
     .block-header {
       width: 100%;
       max-width: 320px;
       margin-bottom: 30px;
     }
-
     .block-tag {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
+      font-size: clamp(14px, 2.5vw, 18px);
       text-align: left;
       margin-bottom: 4px;
       letter-spacing: 3px;
       font-weight: 600;
       text-transform: uppercase;
     }
-
     .block-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
+      font-size: clamp(36px, 9vw, 56px);
       line-height: 1;
-      letter-spacing: 2px;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       font-weight: 700;
       white-space: nowrap;
       text-align: left;
     }
-
     .block-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(17px, 3.5vw, 22px);
       line-height: 1.6;
       text-align: left;
       width: 100%;
@@ -245,7 +273,6 @@
       font-style: italic;
     }
 
-    /* Цветовые варианты */
     .bg-green {
       background-color: #1a3a28;
       color: #F5F0E8;
@@ -254,12 +281,9 @@
       background-color: #FFFFFF;
       color: #000000;
     }
-
-    /* Заголовки на зелёном фоне — белые */
     .bg-green .block-tag { color: #FFFFFF; }
     .bg-green .block-title { color: #FFFFFF; }
     .bg-green .block-text { border-left-color: #A8D5BA; color: #F5F0E8; }
-
     .bg-white .block-tag { color: #4A3F35; }
     .bg-white .block-title { color: #1E1E1E; }
     .bg-white .block-text { border-left-color: #1E1E1E; color: #2B2B2B; }
@@ -269,17 +293,15 @@
       width: 100%;
       max-width: 320px;
     }
-
     .calendar-month {
       font-family: 'Cormorant Garamond', serif;
       text-transform: uppercase;
       letter-spacing: 6px;
-      font-size: 20px;
+      font-size: clamp(18px, 4vw, 22px);
       margin-bottom: 25px;
       font-weight: 700;
       text-align: center;
     }
-
     .bg-green .calendar-month { color: #F5F0E8; }
     .bg-white .calendar-month { color: #1E1E1E; }
 
@@ -289,32 +311,27 @@
       gap: 14px 5px;
       text-align: center;
     }
-
     .day-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
+      font-size: clamp(11px, 2vw, 14px);
       font-weight: 700;
       margin-bottom: 6px;
     }
-
     .bg-green .day-name { color: #A8D5BA; }
     .bg-white .day-name { color: #6B5E53; }
 
     .day {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(15px, 3vw, 20px);
       height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 500;
-      overflow: visible;
     }
-
     .bg-green .day { color: #F5F0E8; }
     .bg-white .day { color: #1E1E1E; }
 
-    /* Сердце: контейнер 32px, SVG масштабируется в 1.5 раза */
     .wedding-heart {
       position: relative;
       width: 32px;
@@ -324,7 +341,6 @@
       justify-content: center;
       animation: pulse-heart 1.8s ease-in-out infinite;
     }
-
     .wedding-heart svg {
       position: absolute;
       top: 50%;
@@ -335,27 +351,16 @@
       pointer-events: none;
       transform-origin: center;
     }
-
-    .bg-green .wedding-heart svg path {
-      fill: none;
-      stroke: #F5F0E8;
-      stroke-width: 1.2;
-    }
-    .bg-white .wedding-heart svg path {
-      fill: none;
-      stroke: #1E1E1E;
-      stroke-width: 1.2;
-    }
-
+    .bg-green .wedding-heart svg path { fill: none; stroke: #F5F0E8; stroke-width: 1.2; }
+    .bg-white .wedding-heart svg path { fill: none; stroke: #1E1E1E; stroke-width: 1.2; }
     .wedding-heart .day-number {
       position: relative;
       z-index: 1;
-      font-size: 18px;
+      font-size: clamp(15px, 3vw, 20px);
       font-weight: 500;
       line-height: 1;
       color: inherit;
     }
-
     @keyframes pulse-heart {
       0% { transform: scale(1); }
       50% { transform: scale(1.08); }
@@ -367,7 +372,6 @@
       height: 1px;
       margin-top: 50px;
     }
-
     .bg-green .divider { background-color: #A8D5BA; }
     .bg-white .divider { background-color: #1E1E1E; }
 
@@ -378,48 +382,43 @@
       margin-bottom: 20px;
       text-align: left;
     }
-
     .venue-name {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 700;
-      font-size: 20px;
+      font-size: clamp(18px, 3.5vw, 22px);
       margin-bottom: 6px;
       letter-spacing: 1px;
     }
-
     .bg-green .venue-name { color: #F5F0E8; }
     .bg-white .venue-name { color: #1E1E1E; }
 
     .venue-address {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(16px, 3vw, 20px);
       line-height: 1.5;
       font-style: italic;
     }
-
     .bg-green .venue-address { color: #D4CFC7; }
     .bg-white .venue-address { color: #333; }
 
     .passport-info {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(16px, 3vw, 20px);
       font-style: italic;
       margin-top: 12px;
       padding-top: 12px;
       border-top: 1px dashed #B8A99A;
     }
-
     .bg-green .passport-info { color: #D4CFC7; border-top-color: #A8D5BA; }
     .bg-white .passport-info { color: #333; border-top-color: #B8A99A; }
 
-    /* Кнопки — темные */
     .map-button {
       display: inline-block;
       padding: 12px 30px;
       background-color: #15532e;
       color: #FFFFFF;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(15px, 2.8vw, 18px);
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -431,14 +430,8 @@
       margin-top: 10px;
       -webkit-tap-highlight-color: transparent;
     }
-
-    .map-button:hover {
-      background: #0e3f22;
-    }
-
-    .map-button:active {
-      transform: scale(0.96);
-    }
+    .map-button:hover { background: #0e3f22; }
+    .map-button:active { transform: scale(0.96); }
 
     /* Тайминг */
     .timeline-list {
@@ -448,40 +441,36 @@
       flex-direction: column;
       gap: 30px;
     }
-
     .time-item {
       display: flex;
       align-items: baseline;
       border-bottom: 1px dashed;
       padding-bottom: 10px;
     }
-
     .bg-green .time-item { border-color: #A8D5BA; }
     .bg-white .time-item { border-color: #B8A99A; }
 
     .time-value {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-size: clamp(22px, 4.5vw, 28px);
       font-weight: 700;
-      min-width: 85px;
+      min-width: 75px;
       letter-spacing: 1px;
     }
-
     .bg-green .time-value { color: #F5F0E8; }
     .bg-white .time-value { color: #1E1E1E; }
 
     .time-desc {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(17px, 3.5vw, 22px);
       font-weight: 500;
       margin-left: 15px;
       font-style: italic;
     }
-
     .bg-green .time-desc { color: #D4CFC7; }
     .bg-white .time-desc { color: #2B2B2B; }
 
-    /* Квадратики цветов */
+    /* Цвета */
     .color-swatches {
       display: flex;
       flex-wrap: wrap;
@@ -490,16 +479,14 @@
       margin-top: 20px;
       max-width: 370px;
     }
-
     .color-swatches .swatch {
-      width: 80px;
-      height: 80px;
+      width: clamp(56px, 12vw, 80px);
+      height: clamp(56px, 12vw, 80px);
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid #ccc;
       flex-shrink: 0;
     }
-
     .color-swatches .swatch img {
       display: block;
       width: 100%;
@@ -507,7 +494,7 @@
       object-fit: cover;
     }
 
-    /* Контакты — карточки с зелёной обводкой */
+    /* Контакты */
     .contacts-list {
       width: 100%;
       max-width: 320px;
@@ -518,7 +505,6 @@
       margin-top: 10px;
       flex-wrap: wrap;
     }
-
     .contact-card {
       background: #FFFFFF;
       border: 1px solid #2E8B57;
@@ -537,12 +523,10 @@
       align-items: center;
       gap: 4px;
     }
-
     .contact-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 14px rgba(21, 83, 46, 0.15);
     }
-
     .contact-card .icon {
       display: flex;
       align-items: center;
@@ -551,7 +535,6 @@
       height: 28px;
       margin-bottom: 2px;
     }
-
     .contact-card .icon svg {
       display: block;
       width: 100%;
@@ -560,25 +543,23 @@
       stroke: #1a3a28;
       stroke-width: 1.8;
     }
-
     .contact-card .label {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 15px;
+      font-size: clamp(13px, 2.5vw, 16px);
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: #15532e;
     }
-
     .contact-card .username {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(15px, 3vw, 19px);
       font-weight: 700;
       letter-spacing: 0.5px;
       color: #1E1E1E;
     }
 
-    /* ----- АНКЕТА ----- */
+    /* АНКЕТА */
     .inv-form {
       padding: 80px 25px;
       display: flex;
@@ -593,37 +574,34 @@
       max-width: 340px;
       margin-bottom: 25px;
     }
-
     .form-tag {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
+      font-size: clamp(14px, 2.5vw, 18px);
       text-align: left;
       margin-bottom: 4px;
       letter-spacing: 3px;
       font-weight: 600;
       text-transform: uppercase;
     }
-
     .inv-form.bg-green .form-tag { color: #A8D5BA; }
     .inv-form.bg-white .form-tag { color: #4A3F35; }
 
     .form-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
+      font-size: clamp(36px, 9vw, 56px);
       line-height: 1;
-      letter-spacing: 2px;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       font-weight: 700;
       white-space: nowrap;
       text-align: left;
     }
-
     .inv-form.bg-green .form-title { color: #FFFFFF; }
     .inv-form.bg-white .form-title { color: #1E1E1E; }
 
     .confirm-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(17px, 3.5vw, 22px);
       text-align: center;
       font-weight: 400;
       font-style: italic;
@@ -632,30 +610,24 @@
       max-width: 340px;
       letter-spacing: 1px;
     }
-
     .inv-form.bg-green .confirm-text { color: #F5F0E8; }
     .inv-form.bg-white .confirm-text { color: #1E1E1E; }
 
-    .bold-date {
-      font-weight: 700;
-    }
-
+    .bold-date { font-weight: 700; }
     .form-group {
       width: 100%;
       max-width: 340px;
       margin-bottom: 28px;
     }
-
     .form-label {
       display: block;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(18px, 3.5vw, 22px);
       font-weight: 700;
       margin-bottom: 12px;
       letter-spacing: 0.5px;
       font-style: italic;
     }
-
     .inv-form.bg-green .form-label { color: #F5F0E8; }
     .inv-form.bg-white .form-label { color: #1E1E1E; }
 
@@ -664,7 +636,7 @@
       width: 100%;
       padding: 14px 16px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(18px, 3.5vw, 22px);
       border: 1px solid #15532e;
       background: #FAFAFA;
       outline: none;
@@ -674,30 +646,26 @@
       -moz-appearance: none;
       appearance: none;
     }
-
     .form-input:focus,
     .form-textarea:focus {
       border-color: #2E8B57;
       box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2);
     }
-
     .radio-group-vertical {
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-top: 5px;
     }
-
     .radio-option {
       display: flex;
       align-items: center;
       gap: 10px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: clamp(18px, 3.5vw, 22px);
       cursor: pointer;
       font-weight: 400;
     }
-
     .inv-form.bg-green .radio-option { color: #F5F0E8; }
     .inv-form.bg-white .radio-option { color: #1E1E1E; }
 
@@ -710,12 +678,10 @@
       flex-shrink: 0;
       cursor: pointer;
     }
-
     .form-textarea {
       resize: vertical;
       min-height: 80px;
     }
-
     .form-submit {
       width: 100%;
       max-width: 340px;
@@ -724,7 +690,7 @@
       color: #FFFFFF;
       border: none;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+      font-size: clamp(20px, 4vw, 24px);
       font-weight: 700;
       letter-spacing: 3px;
       cursor: pointer;
@@ -734,23 +700,16 @@
       -moz-appearance: none;
       appearance: none;
     }
-
-    .form-submit:hover {
-      background: #0e3f22;
-    }
-
+    .form-submit:hover { background: #0e3f22; }
     .sub-block {
       margin-top: 10px;
       padding-left: 10px;
       border-left: 2px solid #15532e;
       display: none;
     }
+    .sub-block.active { display: block; }
 
-    .sub-block.active {
-      display: block;
-    }
-
-    /* ----- ТАЙМЕР ----- */
+    /* ТАЙМЕР */
     .countdown-section {
       padding: 60px 30px 80px;
       display: flex;
@@ -762,13 +721,12 @@
 
     .countdown-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-size: clamp(22px, 4.5vw, 28px);
       font-weight: 700;
       margin-bottom: 25px;
       letter-spacing: 2px;
       text-align: center;
     }
-
     .bg-white .countdown-title { color: #1E1E1E; }
     .bg-green .countdown-title { color: #FFFFFF; }
 
@@ -780,164 +738,83 @@
       flex-wrap: nowrap;
       white-space: nowrap;
     }
-
     .countdown-item {
       display: flex;
       align-items: baseline;
       gap: 4px;
     }
-
     .countdown-number {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 52px;
+      font-size: clamp(38px, 10vw, 56px);
       font-weight: 700;
       line-height: 1;
     }
-
     .bg-white .countdown-number { color: #1E1E1E; }
     .bg-green .countdown-number { color: #F5F0E8; }
 
     .countdown-label {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: clamp(14px, 3vw, 18px);
       font-weight: 600;
       font-style: italic;
     }
-
     .bg-white .countdown-label { color: #6B5E53; }
     .bg-green .countdown-label { color: #A8D5BA; }
 
     .countdown-separator {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
+      font-size: clamp(30px, 7vw, 44px);
       font-weight: 300;
       opacity: 0.6;
       margin: 0 2px;
       line-height: 1;
     }
-
     .bg-white .countdown-separator { color: #1E1E1E; }
     .bg-green .countdown-separator { color: #F5F0E8; }
 
+    /* Медиа-адаптация для очень маленьких экранов */
     @media (max-width: 400px) {
-      .block-title,
-      .form-title {
-        font-size: 38px;
-      }
-      .countdown-number {
-        font-size: 42px;
-      }
-      .countdown-separator {
-        font-size: 32px;
-      }
-      .inv-form {
-        padding: 60px 20px;
-      }
-      .form-label {
-        font-size: 18px;
-      }
-      .form-input,
-      .form-textarea {
-        font-size: 18px;
-        padding: 12px 14px;
-      }
-      .radio-option {
-        font-size: 18px;
-        gap: 8px;
-      }
-      .clickable-area {
-        width: 28%;
-        max-width: 110px;
-        min-width: 70px;
-      }
-      .clickable-area .caption {
-        font-size: 14px;
-        letter-spacing: 1px;
-        margin-top: 10px;
-      }
-      .hero-names {
-        font-size: 28px;
-        letter-spacing: 4px;
-      }
-      .inv-hero {
-        padding-top: 50px;
-      }
-      .map-button {
-        font-size: 16px;
-        padding: 10px 24px;
-      }
-      .block-text {
-        font-size: 18px;
-      }
-      .contact-card {
-        padding: 12px 14px;
-        min-width: 100px;
-      }
-      .contact-card .username {
-        font-size: 16px;
-      }
-      .color-swatches .swatch {
-        width: 66px;
-        height: 66px;
-      }
-      .confirm-text {
-        font-size: 18px;
-        margin-bottom: 20px;
-      }
+      .block-wrapper, .inv-form { padding: 60px 20px; }
+      .inv-hero { padding: 40px 20px 40px; }
+      .block-header, .calendar-wrap, .location-info, .timeline-list, .contacts-list, .form-group { max-width: 100%; }
+      .block-text { padding-left: 14px; }
+      .time-value { min-width: 60px; }
+      .slider-button { width: 54px; height: 54px; }
+      .slider-track { height: 66px; }
+      .phone-icon { width: 26px; height: 26px; }
+      .caller-name { font-size: 28px; }
     }
-
     @media (max-width: 360px) {
-      .clickable-area {
-        width: 25%;
-        min-width: 60px;
-      }
-      .clickable-area .caption {
-        font-size: 12px;
-        letter-spacing: 0.5px;
-        margin-top: 8px;
-      }
-      .hero-names {
-        font-size: 24px;
-        letter-spacing: 3px;
-      }
-      .inv-hero {
-        padding-top: 40px;
-      }
-      .map-button {
-        font-size: 14px;
-        padding: 8px 18px;
-      }
-      .block-title {
-        font-size: 32px;
-      }
-      .block-text {
-        font-size: 16px;
-      }
-      .contact-card {
-        padding: 10px 12px;
-        min-width: 90px;
-      }
-      .contact-card .username {
-        font-size: 14px;
-      }
-      .color-swatches .swatch {
-        width: 56px;
-        height: 56px;
-      }
-      .confirm-text {
-        font-size: 16px;
-        margin-bottom: 16px;
-      }
+      .hero-names { font-size: clamp(20px, 5vw, 26px); letter-spacing: 0.1em; }
+      .block-title, .form-title { font-size: clamp(28px, 7vw, 38px); }
+      .time-value { min-width: 50px; font-size: clamp(18px, 4vw, 22px); }
+      .time-desc { font-size: clamp(15px, 3vw, 18px); margin-left: 10px; }
+      .contact-card { min-width: 90px; padding: 10px 12px; }
+      .contact-card .username { font-size: clamp(13px, 2.5vw, 15px); }
+      .color-swatches .swatch { width: 48px; height: 48px; }
+      .slider-button { width: 48px; height: 48px; }
+      .slider-track { height: 58px; }
+      .slider-text { font-size: 15px; }
     }
   </style>
 </head>
 <body>
   <div class="app-container">
-    <!-- Экран-заставка -->
+    <!-- Экран звонка (новый стиль) -->
     <div class="call-screen" id="callScreen">
-      <div class="clickable-area" id="clickableArea">
-        <img src="d6ca4999-029e-4063-bc51-e6956b22e83f.png" alt="Открыть приглашение" />
-        <span class="caption">НАЖМИТЕ, ЧТОБЫ ОТКРЫТЬ ПРИГЛАШЕНИЕ</span>
+      <div class="caller-info">
+        <div class="caller-subtitle">входящий вызов</div>
+        <div class="caller-name">Максим и Диана</div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-track" id="sliderTrack">
+          <div class="slider-text">ответьте</div>
+          <div class="slider-button" id="sliderBtn">
+            <svg class="phone-icon" viewBox="0 0 24 24">
+              <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -951,7 +828,7 @@
         <div class="love-text" id="loveText"></div>
       </div>
 
-      <!-- ПРИГЛАШЕНИЕ (зелёный) -->
+      <!-- ПРИГЛАШЕНИЕ -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Details]</div>
@@ -960,7 +837,7 @@
         <div class="block-text">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </div>
-        <div class="calendar-wrap" style="margin-top: 30px;">
+        <div class="calendar-wrap" style="margin-top:30px;">
           <div class="calendar-month">Октябрь 2026</div>
           <div class="calendar-grid">
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
@@ -981,7 +858,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- МЕСТО (белый) + информация о паспорте -->
+      <!-- МЕСТО -->
       <div class="block-wrapper bg-white">
         <div class="block-header">
           <div class="block-tag">[Location]</div>
@@ -998,7 +875,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- РАСПИСАНИЕ (зелёный) — последовательная анимация -->
+      <!-- РАСПИСАНИЕ -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Timeline]</div>
@@ -1013,33 +890,21 @@
         <div class="divider"></div>
       </div>
 
-      <!-- ТАЙМЕР (белый) -->
+      <!-- ТАЙМЕР -->
       <div class="countdown-section bg-white">
         <div class="countdown-title">До свадьбы осталось</div>
         <div class="countdown-row" id="countdownRow">
-          <div class="countdown-item">
-            <span class="countdown-number" id="days">00</span>
-            <span class="countdown-label">дн</span>
-          </div>
+          <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">дн</span></div>
           <span class="countdown-separator">:</span>
-          <div class="countdown-item">
-            <span class="countdown-number" id="hours">00</span>
-            <span class="countdown-label">ч</span>
-          </div>
+          <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">ч</span></div>
           <span class="countdown-separator">:</span>
-          <div class="countdown-item">
-            <span class="countdown-number" id="minutes">00</span>
-            <span class="countdown-label">мин</span>
-          </div>
+          <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">мин</span></div>
           <span class="countdown-separator">:</span>
-          <div class="countdown-item">
-            <span class="countdown-number" id="seconds">00</span>
-            <span class="countdown-label">сек</span>
-          </div>
+          <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">сек</span></div>
         </div>
       </div>
 
-      <!-- ДРЕСС-КОД (зелёный) — последовательная анимация для картинок -->
+      <!-- ДРЕСС-КОД -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Dress code]</div>
@@ -1064,7 +929,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- ПОЖЕЛАНИЯ (белый) -->
+      <!-- ПОЖЕЛАНИЯ -->
       <div class="block-wrapper bg-white">
         <div class="block-header">
           <div class="block-tag">[Wishes]</div>
@@ -1076,7 +941,7 @@
         <div class="divider"></div>
       </div>
 
-      <!-- КОНТАКТЫ (зелёный) -->
+      <!-- КОНТАКТЫ -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Contacts]</div>
@@ -1107,13 +972,12 @@
         <div class="divider"></div>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ (белая) -->
+      <!-- АНКЕТА -->
       <div class="inv-form bg-white">
         <div class="form-header">
           <div class="form-tag">[RSVP]</div>
           <div class="form-title">АНКЕТА ГОСТЯ</div>
         </div>
-
         <div class="confirm-text">Пожалуйста, подтвердите присутствие до <span class="bold-date">15.09.2026</span></div>
 
         <div class="form-group">
@@ -1137,8 +1001,8 @@
             <label class="radio-option"><input type="radio" name="need_pickup" value="no" /> Нет</label>
           </div>
           <div class="sub-block" id="pickupBlock">
-            <div style="margin-top: 12px;">
-              <label class="form-label" style="font-size:18px; font-style:italic; margin-bottom:8px; font-weight:700;">Откуда нужен подвоз?</label>
+            <div style="margin-top:12px;">
+              <label class="form-label" style="font-size:clamp(16px,3vw,20px); font-style:italic; margin-bottom:8px; font-weight:700;">Откуда нужен подвоз?</label>
               <div class="radio-group-vertical">
                 <label class="radio-option"><input type="radio" name="pickup_from" value="groom" /> Сторона жениха (Радостово)</label>
                 <label class="radio-option"><input type="radio" name="pickup_from" value="bride" /> Сторона невесты (Повитье)</label>
@@ -1157,7 +1021,7 @@
     </div>
   </div>
 
-  <!-- Аудио с loop -->
+  <!-- Аудио -->
   <audio id="bgMusic" loop preload="auto">
     <source src="Spokojjnaya_fonovaya_muzyka_onovaya_muzyka_Muzyka_dlya_sna_Rasslablyayushhaya_Muzyka_dlya_Sna_Spokojjnaya_muzyka_dlya_sna_-_Muzyka_dlya_garmonii_i_ljogkogo_vechernego_otdykha_80052187 (1).mp3" type="audio/mpeg" />
   </audio>
@@ -1167,9 +1031,74 @@
       const callScreen = document.getElementById('callScreen');
       const invScreen = document.getElementById('invScreen');
       const bgMusic = document.getElementById('bgMusic');
-      const clickableArea = document.getElementById('clickableArea');
+      
+      // Слайдер
+      const track = document.getElementById('sliderTrack');
+      const btn = document.getElementById('sliderBtn');
+      let isDragging = false;
+      let startX = 0, currentX = 0, maxSlide = 0;
 
-      // Эффект печатающей машинки для love-text
+      function updateMaxSlide() {
+        if (track && btn) maxSlide = track.offsetWidth - btn.offsetWidth - 12;
+      }
+      window.addEventListener('load', updateMaxSlide);
+      window.addEventListener('resize', updateMaxSlide);
+
+      function getX(e) {
+        return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+      }
+
+      function onDragStart(e) {
+        e.preventDefault();
+        isDragging = true;
+        startX = getX(e);
+        btn.style.transition = 'none';
+      }
+      function onDragMove(e) {
+        if (!isDragging) return;
+        if (e.type === 'touchmove') e.preventDefault();
+        let walk = getX(e) - startX;
+        if (walk < 0) walk = 0;
+        if (walk > maxSlide) walk = maxSlide;
+        currentX = walk;
+        btn.style.transform = `translateX(${currentX}px)`;
+      }
+      function onDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        if (currentX >= maxSlide - 20) {
+          btn.style.transition = 'transform 0.2s ease-out';
+          btn.style.transform = `translateX(${maxSlide}px)`;
+          acceptCall();
+        } else {
+          btn.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
+          btn.style.transform = 'translateX(0px)';
+          currentX = 0;
+        }
+      }
+      function acceptCall() {
+        bgMusic.play().catch(function(e) { console.warn('Автовоспроизведение заблокировано:', e); });
+        setTimeout(() => {
+          callScreen.style.opacity = '0';
+          callScreen.style.visibility = 'hidden';
+          setTimeout(() => {
+            invScreen.classList.add('active');
+            const loveText = document.getElementById('loveText');
+            const text = 'Любовь — это когда весь мир помещается в одном человеке.';
+            typeWriter(loveText, text, 60);
+            setTimeout(() => { observeSequentialContainers(); }, 300);
+          }, 400);
+        }, 150);
+      }
+
+      btn.addEventListener('touchstart', onDragStart, {passive: false});
+      document.addEventListener('touchmove', onDragMove, {passive: false});
+      document.addEventListener('touchend', onDragEnd);
+      btn.addEventListener('mousedown', onDragStart);
+      document.addEventListener('mousemove', onDragMove);
+      document.addEventListener('mouseup', onDragEnd);
+
+      // Печатающий текст
       function typeWriter(element, text, speed) {
         let i = 0;
         element.textContent = '';
@@ -1187,45 +1116,19 @@
         type();
       }
 
-      clickableArea.addEventListener('click', function(e) {
-        e.stopPropagation();
-        bgMusic.play().catch(function(e) {
-          console.warn('Автовоспроизведение заблокировано:', e);
-        });
-
-        callScreen.style.opacity = '0';
-        callScreen.style.visibility = 'hidden';
-
-        setTimeout(function() {
-          invScreen.classList.add('active');
-          const loveText = document.getElementById('loveText');
-          const text = 'Любовь — это когда весь мир помещается в одном человеке.';
-          typeWriter(loveText, text, 60);
-
-          setTimeout(function() {
-            observeSequentialContainers();
-          }, 300);
-        }, 400);
-      });
-
-      // Анимация последовательных элементов (расписание, цвета)
+      // Последовательная анимация
       const sequentialObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             const container = entry.target;
             const children = container.querySelectorAll('.fade-sequential');
             children.forEach(function(child, index) {
-              setTimeout(function() {
-                child.classList.add('visible');
-              }, index * 150);
+              setTimeout(function() { child.classList.add('visible'); }, index * 150);
             });
             sequentialObserver.unobserve(container);
           }
         });
-      }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -30px 0px'
-      });
+      }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
 
       function observeSequentialContainers() {
         const containers = document.querySelectorAll('.sequential-container:not(.observed)');
@@ -1236,19 +1139,15 @@
       }
 
       if (invScreen) {
-        invScreen.addEventListener('scroll', function() {
-          observeSequentialContainers();
-        }, { passive: true });
+        invScreen.addEventListener('scroll', function() { observeSequentialContainers(); }, { passive: true });
       }
 
       // Таймер
       function startCountdown() {
         const weddingDate = new Date('2026-10-03T14:00:00');
-
         function updateTimer() {
           const now = new Date();
           const diff = weddingDate - now;
-
           if (diff <= 0) {
             document.getElementById('days').textContent = '00';
             document.getElementById('hours').textContent = '00';
@@ -1256,44 +1155,33 @@
             document.getElementById('seconds').textContent = '00';
             return;
           }
-
           const days = Math.floor(diff / (1000 * 60 * 60 * 24));
           const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
           const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
           const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
           document.getElementById('days').textContent = days < 10 ? '0' + days : days;
           document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
           document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
           document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
         }
-
         updateTimer();
         setInterval(updateTimer, 1000);
       }
-
       startCountdown();
 
       // Подвоз
       const pickupRadios = document.querySelectorAll('input[name="need_pickup"]');
       const pickupBlock = document.getElementById('pickupBlock');
-
       pickupRadios.forEach(function(radio) {
         radio.addEventListener('change', function() {
-          if (this.value === 'yes') {
-            pickupBlock.classList.add('active');
-          } else {
-            pickupBlock.classList.remove('active');
-          }
+          if (this.value === 'yes') pickupBlock.classList.add('active');
+          else pickupBlock.classList.remove('active');
         });
       });
-
       pickupBlock.classList.remove('active');
 
       setTimeout(function() {
-        if (invScreen.classList.contains('active')) {
-          observeSequentialContainers();
-        }
+        if (invScreen.classList.contains('active')) observeSequentialContainers();
       }, 600);
     })();
   </script>
