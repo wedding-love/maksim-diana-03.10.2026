@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
-    /* --- Все стили полностью сохранены (без изменений) --- */
+    /* --- Все стили сохранены, изменён только тост --- */
     * {
       margin: 0;
       padding: 0;
@@ -866,39 +866,38 @@
       .slider-text { font-size: 15px; }
     }
 
-    /* ----- Стили для всплывающего уведомления (тоста) ----- */
+    /* ----- ТОСТ (всплывающее уведомление) — центрирован по экрану, без смайлов ----- */
     .toast {
       position: fixed;
-      top: 30px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.85);
+      transform: translate(-50%, -50%) scale(0.9);
+      background: rgba(0,0,0,0.88);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       color: #fff;
-      padding: 16px 28px;
-      border-radius: 40px;
+      padding: 20px 32px;
+      border-radius: 16px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(18px, 3.5vw, 22px);
+      font-size: clamp(18px, 3.5vw, 24px);
       font-weight: 500;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       z-index: 999;
       opacity: 0;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      transform: translateX(-50%) translateY(-20px);
       pointer-events: none;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
       text-align: center;
       max-width: 90%;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
     .toast.show {
       opacity: 1;
-      transform: translateX(-50%) translateY(0);
+      transform: translate(-50%, -50%) scale(1);
       pointer-events: auto;
     }
-    .toast.success { border-left: 4px solid #34c759; }
-    .toast.error { border-left: 4px solid #ff3b30; }
+    .toast.success { border-left: 5px solid #34c759; }
+    .toast.error { border-left: 5px solid #ff3b30; }
   </style>
 </head>
 <body>
@@ -1083,7 +1082,6 @@
         </div>
         <div class="confirm-text">Пожалуйста, подтвердите присутствие до <span class="bold-date">15.09.2026</span></div>
 
-        <!-- Форма (без тега <form>, но мы добавим обработчик на кнопку) -->
         <div class="form-group">
           <label class="form-label">Ваше имя и фамилия</label>
           <input type="text" class="form-input" id="guestName" placeholder="Иван Петров" />
@@ -1286,12 +1284,11 @@
       pickupBlock.classList.remove('active');
 
       // ============================================================
-      // ********** НОВАЯ ЛОГИКА ОТПРАВКИ АНКЕТЫ **********
+      // ********** ОТПРАВКА АНКЕТЫ (исправлено) **********
       // ============================================================
 
-      // --- Вспомогательная функция показа тоста ---
+      // --- Вспомогательная функция показа тоста (центрирован, без смайлов) ---
       function showToast(message, type = 'success') {
-        // Удаляем старый тост, если есть
         const oldToast = document.querySelector('.toast');
         if (oldToast) oldToast.remove();
 
@@ -1300,12 +1297,10 @@
         toast.textContent = message;
         document.body.appendChild(toast);
 
-        // Принудительный reflow для анимации
         requestAnimationFrame(() => {
           toast.classList.add('show');
         });
 
-        // Автоматически скрыть через 4 секунды
         setTimeout(() => {
           toast.classList.remove('show');
           setTimeout(() => toast.remove(), 500);
@@ -1314,19 +1309,14 @@
 
       // --- Обработчик отправки ---
       const submitBtn = document.getElementById('submitBtn');
-
-      // Укажите свой endpoint для отправки (например, Formspree)
-      // Если оставить пустым, данные будут просто показаны в консоли и появится уведомление
-      const FORM_ENDPOINT = ''; // например, 'https://formspree.io/f/ваш_ид'
+      const FORM_ENDPOINT = 'https://formspree.io/f/xqpzpkge'; // указан нужный endpoint
 
       submitBtn.addEventListener('click', function(e) {
         e.preventDefault();
 
-        // Собираем данные
         const nameInput = document.getElementById('guestName');
         const name = nameInput ? nameInput.value.trim() : '';
 
-        // Проверка имени (обязательное поле)
         if (name === '') {
           showToast('Пожалуйста, укажите ваше имя и фамилию.', 'error');
           nameInput.focus();
@@ -1358,7 +1348,6 @@
         const pickupLabel = needPickup === 'yes' ? 'Да' :
                             needPickup === 'no' ? 'Нет' : 'Не указано';
 
-        // Откуда подвоз (если нужно)
         let pickupFrom = '';
         if (needPickup === 'yes') {
           const fromRadios = document.querySelectorAll('input[name="pickup_from"]');
@@ -1371,11 +1360,9 @@
           }
         }
 
-        // Любимая песня
         const songInput = document.getElementById('favoriteSong');
         const song = songInput ? songInput.value.trim() : '';
 
-        // Формируем объект данных
         const formData = {
           name: name,
           attendance: attendanceLabel,
@@ -1384,40 +1371,27 @@
           song: song
         };
 
-        // Если указан endpoint – отправляем, иначе просто показываем уведомление
-        if (FORM_ENDPOINT) {
-          // Отправка через fetch
-          fetch(FORM_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-          })
-          .then(response => {
-            if (response.ok) {
-              showToast('Спасибо! Ваша анкета успешно отправлена 💌', 'success');
-              // Очищаем поля
-              nameInput.value = '';
-              if (songInput) songInput.value = '';
-              // Сбрасываем радиокнопки
-              document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-              pickupBlock.classList.remove('active');
-            } else {
-              showToast('Произошла ошибка при отправке. Попробуйте позже.', 'error');
-            }
-          })
-          .catch(() => {
-            showToast('Ошибка сети. Проверьте подключение.', 'error');
-          });
-        } else {
-          // Режим демонстрации (без отправки) – просто показываем данные в консоли и уведомление
-          console.log('📋 Данные анкеты:', formData);
-          showToast('✅ Анкета заполнена! (демо-режим, данные не отправлены)', 'success');
-          // Очищаем поля для удобства
-          nameInput.value = '';
-          if (songInput) songInput.value = '';
-          document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-          pickupBlock.classList.remove('active');
-        }
+        // Отправка на указанный endpoint
+        fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        })
+        .then(response => {
+          if (response.ok) {
+            showToast('Ваша анкета успешно отправлена.', 'success');
+            // Очистка полей
+            nameInput.value = '';
+            if (songInput) songInput.value = '';
+            document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+            pickupBlock.classList.remove('active');
+          } else {
+            showToast('Произошла ошибка при отправке. Попробуйте позже.', 'error');
+          }
+        })
+        .catch(() => {
+          showToast('Ошибка сети. Проверьте подключение.', 'error');
+        });
       });
 
       // --- Автоматическое наблюдение за контейнерами после загрузки ---
