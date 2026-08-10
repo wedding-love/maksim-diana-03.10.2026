@@ -506,22 +506,24 @@
     .bg-green .time-desc { color: #D4CFC7; }
     .bg-white .time-desc { color: #2B2B2B; }
 
-    /* Квадратики цветов (как в первом коде) */
+    /* Дресс-код — 3 ряда: 4, 4, 3 */
     .color-swatches {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-      margin-top: 20px;
+      justify-items: center;
       max-width: 370px;
+      width: 100%;
+      margin-top: 20px;
     }
 
     .color-swatches .swatch {
-      width: clamp(56px, 12vw, 80px);
-      height: clamp(56px, 12vw, 80px);
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-width: 80px;
       border-radius: 6px;
       overflow: hidden;
-      border: 1px solid #ccc;
+      border: 1px solid rgba(255,255,255,0.2);
       flex-shrink: 0;
     }
 
@@ -530,6 +532,25 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    /* Явно указываем ряды */
+    .color-swatches .swatch:nth-child(1),
+    .color-swatches .swatch:nth-child(2),
+    .color-swatches .swatch:nth-child(3),
+    .color-swatches .swatch:nth-child(4) {
+      grid-row: 1;
+    }
+    .color-swatches .swatch:nth-child(5),
+    .color-swatches .swatch:nth-child(6),
+    .color-swatches .swatch:nth-child(7),
+    .color-swatches .swatch:nth-child(8) {
+      grid-row: 2;
+    }
+    .color-swatches .swatch:nth-child(9),
+    .color-swatches .swatch:nth-child(10),
+    .color-swatches .swatch:nth-child(11) {
+      grid-row: 3;
     }
 
     /* Контакты */
@@ -847,6 +868,7 @@
       .slider-track { height: 66px; }
       .phone-icon { width: 26px; height: 26px; }
       .caller-name { font-size: 28px; }
+      .color-swatches .swatch { max-width: 64px; }
     }
 
     @media (max-width: 360px) {
@@ -856,10 +878,15 @@
       .time-desc { font-size: clamp(15px, 3vw, 18px); margin-left: 10px; }
       .contact-card { min-width: 90px; padding: 10px 12px; }
       .contact-card .username { font-size: clamp(13px, 2.5vw, 15px); }
-      .color-swatches .swatch { width: 48px; height: 48px; }
+      .color-swatches .swatch { max-width: 56px; }
       .slider-button { width: 48px; height: 48px; }
       .slider-track { height: 58px; }
       .slider-text { font-size: 15px; }
+    }
+
+    @media (max-width: 340px) {
+      .color-swatches { gap: 8px; }
+      .color-swatches .swatch { max-width: 48px; }
     }
   </style>
 </head>
@@ -969,7 +996,7 @@
         </div>
       </div>
 
-      <!-- ДРЕСС-КОД -->
+      <!-- ДРЕСС-КОД (3 ряда: 4, 4, 3) -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Dress code]</div>
