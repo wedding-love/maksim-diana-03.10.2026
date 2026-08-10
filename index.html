@@ -506,23 +506,31 @@
     .bg-green .time-desc { color: #D4CFC7; }
     .bg-white .time-desc { color: #2B2B2B; }
 
-    /* Дресс-код — возвращаем flex-wrap с центрированием */
+    /* Дресс-код — адаптивная компоновка с центрированием третьего ряда */
     .color-swatches {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
       margin-top: 20px;
       max-width: 370px;
+      width: 100%;
     }
 
     .color-swatches .swatch {
-      width: clamp(56px, 12vw, 80px);
-      height: clamp(56px, 12vw, 80px);
-      border-radius: 6px;
+      width: clamp(60px, 14vw, 80px);
+      height: clamp(60px, 14vw, 80px);
+      border-radius: 8px;
       overflow: hidden;
-      border: 1px solid #ccc;
+      border: 1px solid rgba(255,255,255,0.25);
       flex-shrink: 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .color-swatches .swatch:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
     .color-swatches .swatch img {
@@ -530,6 +538,17 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    /* Уменьшаем gap на очень маленьких экранах */
+    @media (max-width: 380px) {
+      .color-swatches {
+        gap: 10px;
+      }
+      .color-swatches .swatch {
+        width: clamp(48px, 12vw, 60px);
+        height: clamp(48px, 12vw, 60px);
+      }
     }
 
     /* Контакты */
@@ -847,7 +866,6 @@
       .slider-track { height: 66px; }
       .phone-icon { width: 26px; height: 26px; }
       .caller-name { font-size: 28px; }
-      .color-swatches .swatch { width: 64px; height: 64px; }
     }
 
     @media (max-width: 360px) {
@@ -857,14 +875,9 @@
       .time-desc { font-size: clamp(15px, 3vw, 18px); margin-left: 10px; }
       .contact-card { min-width: 90px; padding: 10px 12px; }
       .contact-card .username { font-size: clamp(13px, 2.5vw, 15px); }
-      .color-swatches .swatch { width: 56px; height: 56px; }
       .slider-button { width: 48px; height: 48px; }
       .slider-track { height: 58px; }
       .slider-text { font-size: 15px; }
-    }
-
-    @media (max-width: 340px) {
-      .color-swatches .swatch { width: 48px; height: 48px; }
     }
   </style>
 </head>
@@ -974,7 +987,7 @@
         </div>
       </div>
 
-      <!-- ДРЕСС-КОД (flex-wrap с центрированием) -->
+      <!-- ДРЕСС-КОД (адаптивная компоновка с центрированием) -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Dress code]</div>
