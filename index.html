@@ -8,13 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
-    /* --- Все стили полностью из ПЕРВОГО вашего кода (без изменений) --- */
+    /* ---- Все стили (как в последней версии) ---- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       background-color: #000;
       display: flex;
@@ -27,7 +26,6 @@
       -webkit-tap-highlight-color: transparent;
       -webkit-overflow-scrolling: touch;
     }
-
     .app-container {
       width: 100%;
       max-width: 430px;
@@ -38,8 +36,7 @@
       overflow: hidden;
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
     }
-
-    /* ----- Экран звонка (из примера) ----- */
+    /* ----- Экран звонка ----- */
     .call-screen {
       position: absolute;
       top: 0;
@@ -50,8 +47,7 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 60px 20px 50px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%), 
-                  url('IMG_7327.JPG') center/cover;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%), url('IMG_7327.JPG') center/cover;
       z-index: 20;
       transition: opacity 0.6s ease, visibility 0.6s ease;
     }
@@ -135,7 +131,6 @@
       height: 30px;
       fill: #fff;
     }
-
     /* ----- Экран приглашения ----- */
     .invitation-screen {
       position: absolute;
@@ -159,8 +154,6 @@
       visibility: visible;
       transform: translateY(0);
     }
-
-    /* ----- Анимация для последовательных элементов (расписание, цвета) ----- */
     .fade-sequential {
       opacity: 0;
       transition: opacity 0.4s ease;
@@ -168,8 +161,6 @@
     .fade-sequential.visible {
       opacity: 1;
     }
-
-    /* Hero */
     .inv-hero {
       width: 100%;
       height: 100vh;
@@ -182,7 +173,6 @@
       color: #fff;
       flex-shrink: 0;
     }
-
     .hero-names {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(28px, 6vw, 40px);
@@ -192,7 +182,6 @@
       font-weight: 600;
       white-space: nowrap;
     }
-
     .hero-date {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(18px, 4vw, 24px);
@@ -203,7 +192,6 @@
       font-weight: 400;
       text-transform: uppercase;
     }
-
     .love-text {
       align-self: flex-end;
       text-align: right;
@@ -229,21 +217,17 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
-
-    /* Общие стили для блоков (как в первом коде) */
     .block-wrapper {
       padding: 80px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
     .block-header {
       width: 100%;
       max-width: 320px;
       margin-bottom: 30px;
     }
-
     .block-tag {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(14px, 2.5vw, 18px);
@@ -253,7 +237,6 @@
       font-weight: 600;
       text-transform: uppercase;
     }
-
     .block-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(36px, 9vw, 56px);
@@ -264,7 +247,6 @@
       white-space: nowrap;
       text-align: left;
     }
-
     .block-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(17px, 3.5vw, 22px);
@@ -277,8 +259,6 @@
       font-weight: 500;
       font-style: italic;
     }
-
-    /* Цветовые варианты */
     .bg-green {
       background-color: #1a3a28;
       color: #F5F0E8;
@@ -287,21 +267,16 @@
       background-color: #FFFFFF;
       color: #000000;
     }
-
     .bg-green .block-tag { color: #FFFFFF; }
     .bg-green .block-title { color: #FFFFFF; }
     .bg-green .block-text { border-left-color: #A8D5BA; color: #F5F0E8; }
-
     .bg-white .block-tag { color: #4A3F35; }
     .bg-white .block-title { color: #1E1E1E; }
     .bg-white .block-text { border-left-color: #1E1E1E; color: #2B2B2B; }
-
-    /* Календарь */
     .calendar-wrap {
       width: 100%;
       max-width: 320px;
     }
-
     .calendar-month {
       font-family: 'Cormorant Garamond', serif;
       text-transform: uppercase;
@@ -311,27 +286,22 @@
       font-weight: 700;
       text-align: center;
     }
-
     .bg-green .calendar-month { color: #F5F0E8; }
     .bg-white .calendar-month { color: #1E1E1E; }
-
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 14px 5px;
       text-align: center;
     }
-
     .day-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(11px, 2vw, 14px);
       font-weight: 700;
       margin-bottom: 6px;
     }
-
     .bg-green .day-name { color: #A8D5BA; }
     .bg-white .day-name { color: #6B5E53; }
-
     .day {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(15px, 3vw, 20px);
@@ -342,10 +312,8 @@
       font-weight: 500;
       overflow: visible;
     }
-
     .bg-green .day { color: #F5F0E8; }
     .bg-white .day { color: #1E1E1E; }
-
     .wedding-heart {
       position: relative;
       width: 32px;
@@ -355,7 +323,6 @@
       justify-content: center;
       animation: pulse-heart 1.8s ease-in-out infinite;
     }
-
     .wedding-heart svg {
       position: absolute;
       top: 50%;
@@ -366,18 +333,8 @@
       pointer-events: none;
       transform-origin: center;
     }
-
-    .bg-green .wedding-heart svg path {
-      fill: none;
-      stroke: #F5F0E8;
-      stroke-width: 1.2;
-    }
-    .bg-white .wedding-heart svg path {
-      fill: none;
-      stroke: #1E1E1E;
-      stroke-width: 1.2;
-    }
-
+    .bg-green .wedding-heart svg path { fill: none; stroke: #F5F0E8; stroke-width: 1.2; }
+    .bg-white .wedding-heart svg path { fill: none; stroke: #1E1E1E; stroke-width: 1.2; }
     .wedding-heart .day-number {
       position: relative;
       z-index: 1;
@@ -386,30 +343,24 @@
       line-height: 1;
       color: inherit;
     }
-
     @keyframes pulse-heart {
       0% { transform: scale(1); }
       50% { transform: scale(1.08); }
       100% { transform: scale(1); }
     }
-
     .divider {
       width: 40px;
       height: 1px;
       margin-top: 50px;
     }
-
     .bg-green .divider { background-color: #A8D5BA; }
     .bg-white .divider { background-color: #1E1E1E; }
-
-    /* Локация */
     .location-info {
       width: 100%;
       max-width: 320px;
       margin-bottom: 20px;
       text-align: left;
     }
-
     .venue-name {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 700;
@@ -417,20 +368,16 @@
       margin-bottom: 6px;
       letter-spacing: 1px;
     }
-
     .bg-green .venue-name { color: #F5F0E8; }
     .bg-white .venue-name { color: #1E1E1E; }
-
     .venue-address {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(16px, 3vw, 20px);
       line-height: 1.5;
       font-style: italic;
     }
-
     .bg-green .venue-address { color: #D4CFC7; }
     .bg-white .venue-address { color: #333; }
-
     .passport-info {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(16px, 3vw, 20px);
@@ -439,10 +386,8 @@
       padding-top: 12px;
       border-top: 1px dashed #B8A99A;
     }
-
     .bg-green .passport-info { color: #D4CFC7; border-top-color: #A8D5BA; }
     .bg-white .passport-info { color: #333; border-top-color: #B8A99A; }
-
     .map-button {
       display: inline-block;
       padding: 12px 30px;
@@ -461,11 +406,8 @@
       margin-top: 10px;
       -webkit-tap-highlight-color: transparent;
     }
-
     .map-button:hover { background: #0e3f22; }
     .map-button:active { transform: scale(0.96); }
-
-    /* Тайминг */
     .timeline-list {
       width: 100%;
       max-width: 320px;
@@ -473,17 +415,14 @@
       flex-direction: column;
       gap: 30px;
     }
-
     .time-item {
       display: flex;
       align-items: baseline;
       border-bottom: 1px dashed;
       padding-bottom: 10px;
     }
-
     .bg-green .time-item { border-color: #A8D5BA; }
     .bg-white .time-item { border-color: #B8A99A; }
-
     .time-value {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(22px, 4.5vw, 28px);
@@ -491,10 +430,8 @@
       min-width: 75px;
       letter-spacing: 1px;
     }
-
     .bg-green .time-value { color: #F5F0E8; }
     .bg-white .time-value { color: #1E1E1E; }
-
     .time-desc {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(17px, 3.5vw, 22px);
@@ -502,11 +439,9 @@
       margin-left: 15px;
       font-style: italic;
     }
-
     .bg-green .time-desc { color: #D4CFC7; }
     .bg-white .time-desc { color: #2B2B2B; }
-
-    /* Дресс-код — адаптивная компоновка с центрированием третьего ряда */
+    /* Дресс-код — адаптивная компоновка */
     .color-swatches {
       display: flex;
       flex-wrap: wrap;
@@ -516,7 +451,6 @@
       max-width: 370px;
       width: 100%;
     }
-
     .color-swatches .swatch {
       width: clamp(60px, 14vw, 80px);
       height: clamp(60px, 14vw, 80px);
@@ -527,31 +461,20 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-
     .color-swatches .swatch:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
-
     .color-swatches .swatch img {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
-    /* Уменьшаем gap на очень маленьких экранах */
     @media (max-width: 380px) {
-      .color-swatches {
-        gap: 10px;
-      }
-      .color-swatches .swatch {
-        width: clamp(48px, 12vw, 60px);
-        height: clamp(48px, 12vw, 60px);
-      }
+      .color-swatches { gap: 10px; }
+      .color-swatches .swatch { width: clamp(48px, 12vw, 60px); height: clamp(48px, 12vw, 60px); }
     }
-
-    /* Контакты */
     .contacts-list {
       width: 100%;
       max-width: 320px;
@@ -562,7 +485,6 @@
       margin-top: 10px;
       flex-wrap: wrap;
     }
-
     .contact-card {
       background: #FFFFFF;
       border: 1px solid #2E8B57;
@@ -581,12 +503,10 @@
       align-items: center;
       gap: 4px;
     }
-
     .contact-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 14px rgba(21, 83, 46, 0.15);
     }
-
     .contact-card .icon {
       display: flex;
       align-items: center;
@@ -595,7 +515,6 @@
       height: 28px;
       margin-bottom: 2px;
     }
-
     .contact-card .icon svg {
       display: block;
       width: 100%;
@@ -604,7 +523,6 @@
       stroke: #1a3a28;
       stroke-width: 1.8;
     }
-
     .contact-card .label {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(13px, 2.5vw, 16px);
@@ -613,7 +531,6 @@
       text-transform: uppercase;
       color: #15532e;
     }
-
     .contact-card .username {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(15px, 3vw, 19px);
@@ -621,8 +538,7 @@
       letter-spacing: 0.5px;
       color: #1E1E1E;
     }
-
-    /* ----- АНКЕТА (как в первом коде) ----- */
+    /* АНКЕТА */
     .inv-form {
       padding: 80px 25px;
       display: flex;
@@ -631,13 +547,11 @@
     }
     .inv-form.bg-green { background-color: #1a3a28; color: #F5F0E8; }
     .inv-form.bg-white { background-color: #FFFFFF; color: #000000; }
-
     .form-header {
       width: 100%;
       max-width: 340px;
       margin-bottom: 25px;
     }
-
     .form-tag {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(14px, 2.5vw, 18px);
@@ -647,10 +561,8 @@
       font-weight: 600;
       text-transform: uppercase;
     }
-
     .inv-form.bg-green .form-tag { color: #A8D5BA; }
     .inv-form.bg-white .form-tag { color: #4A3F35; }
-
     .form-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(36px, 9vw, 56px);
@@ -661,10 +573,8 @@
       white-space: nowrap;
       text-align: left;
     }
-
     .inv-form.bg-green .form-title { color: #FFFFFF; }
     .inv-form.bg-white .form-title { color: #1E1E1E; }
-
     .confirm-text {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(17px, 3.5vw, 22px);
@@ -676,18 +586,14 @@
       max-width: 340px;
       letter-spacing: 1px;
     }
-
     .inv-form.bg-green .confirm-text { color: #F5F0E8; }
     .inv-form.bg-white .confirm-text { color: #1E1E1E; }
-
     .bold-date { font-weight: 700; }
-
     .form-group {
       width: 100%;
       max-width: 340px;
       margin-bottom: 28px;
     }
-
     .form-label {
       display: block;
       font-family: 'Cormorant Garamond', serif;
@@ -697,12 +603,9 @@
       letter-spacing: 0.5px;
       font-style: italic;
     }
-
     .inv-form.bg-green .form-label { color: #F5F0E8; }
     .inv-form.bg-white .form-label { color: #1E1E1E; }
-
-    .form-input,
-    .form-textarea {
+    .form-input, .form-textarea {
       width: 100%;
       padding: 14px 16px;
       font-family: 'Cormorant Garamond', serif;
@@ -716,20 +619,16 @@
       -moz-appearance: none;
       appearance: none;
     }
-
-    .form-input:focus,
-    .form-textarea:focus {
+    .form-input:focus, .form-textarea:focus {
       border-color: #2E8B57;
       box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2);
     }
-
     .radio-group-vertical {
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-top: 5px;
     }
-
     .radio-option {
       display: flex;
       align-items: center;
@@ -739,10 +638,8 @@
       cursor: pointer;
       font-weight: 400;
     }
-
     .inv-form.bg-green .radio-option { color: #F5F0E8; }
     .inv-form.bg-white .radio-option { color: #1E1E1E; }
-
     .radio-option input[type="radio"] {
       width: 18px;
       height: 18px;
@@ -751,12 +648,7 @@
       flex-shrink: 0;
       cursor: pointer;
     }
-
-    .form-textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-
+    .form-textarea { resize: vertical; min-height: 80px; }
     .form-submit {
       width: 100%;
       max-width: 340px;
@@ -775,19 +667,15 @@
       -moz-appearance: none;
       appearance: none;
     }
-
     .form-submit:hover { background: #0e3f22; }
-
     .sub-block {
       margin-top: 10px;
       padding-left: 10px;
       border-left: 2px solid #15532e;
       display: none;
     }
-
     .sub-block.active { display: block; }
-
-    /* ----- ТАЙМЕР ----- */
+    /* ТАЙМЕР */
     .countdown-section {
       padding: 60px 30px 80px;
       display: flex;
@@ -796,7 +684,6 @@
     }
     .countdown-section.bg-white { background-color: #FFFFFF; }
     .countdown-section.bg-green { background-color: #1a3a28; }
-
     .countdown-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(22px, 4.5vw, 28px);
@@ -805,10 +692,8 @@
       letter-spacing: 2px;
       text-align: center;
     }
-
     .bg-white .countdown-title { color: #1E1E1E; }
     .bg-green .countdown-title { color: #FFFFFF; }
-
     .countdown-row {
       display: flex;
       align-items: baseline;
@@ -817,33 +702,27 @@
       flex-wrap: nowrap;
       white-space: nowrap;
     }
-
     .countdown-item {
       display: flex;
       align-items: baseline;
       gap: 4px;
     }
-
     .countdown-number {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(38px, 10vw, 56px);
       font-weight: 700;
       line-height: 1;
     }
-
     .bg-white .countdown-number { color: #1E1E1E; }
     .bg-green .countdown-number { color: #F5F0E8; }
-
     .countdown-label {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(14px, 3vw, 18px);
       font-weight: 600;
       font-style: italic;
     }
-
     .bg-white .countdown-label { color: #6B5E53; }
     .bg-green .countdown-label { color: #A8D5BA; }
-
     .countdown-separator {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(30px, 7vw, 44px);
@@ -852,9 +731,73 @@
       margin: 0 2px;
       line-height: 1;
     }
-
     .bg-white .countdown-separator { color: #1E1E1E; }
     .bg-green .countdown-separator { color: #F5F0E8; }
+
+    /* Уведомление об успешной отправке */
+    .form-success-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    .form-success-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .form-success-card {
+      background: #F2EBE3;
+      padding: 40px 30px;
+      border-radius: 16px;
+      max-width: 340px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      transform: scale(0.9);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .form-success-overlay.active .form-success-card {
+      transform: scale(1);
+    }
+    .form-success-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a3a28;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .form-success-card p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: #2B2B2B;
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .form-success-progress {
+      margin-top: 24px;
+      height: 4px;
+      background: #D4CFC7;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .form-success-progress .bar {
+      height: 100%;
+      width: 0%;
+      background: #15532e;
+      border-radius: 2px;
+      transition: width 0.1s linear;
+    }
 
     @media (max-width: 400px) {
       .block-wrapper, .inv-form { padding: 60px 20px; }
@@ -867,7 +810,6 @@
       .phone-icon { width: 26px; height: 26px; }
       .caller-name { font-size: 28px; }
     }
-
     @media (max-width: 360px) {
       .hero-names { font-size: clamp(20px, 5vw, 26px); letter-spacing: 0.1em; }
       .block-title, .form-title { font-size: clamp(28px, 7vw, 38px); }
@@ -962,7 +904,7 @@
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Timeline]</div>
-          <div class="block-title">ТАЙМИНГ</div>
+          <div class="block-title">РАСПИСАНИЕ</div>
         </div>
         <div class="timeline-list sequential-container" id="timelineContainer">
           <div class="time-item fade-sequential"><span class="time-value">14:00</span><span class="time-desc">Сбор гостей (фуршет)</span></div>
@@ -987,7 +929,7 @@
         </div>
       </div>
 
-      <!-- ДРЕСС-КОД (адаптивная компоновка с центрированием) -->
+      <!-- ДРЕСС-КОД -->
       <div class="block-wrapper bg-green">
         <div class="block-header">
           <div class="block-tag">[Dress code]</div>
@@ -1055,51 +997,64 @@
         <div class="divider"></div>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ -->
-      <div class="inv-form bg-white">
+      <!-- АНКЕТА ГОСТЯ с формой -->
+      <div class="inv-form bg-white" id="rsvpForm">
         <div class="form-header">
           <div class="form-tag">[RSVP]</div>
           <div class="form-title">АНКЕТА ГОСТЯ</div>
         </div>
         <div class="confirm-text">Пожалуйста, подтвердите присутствие до <span class="bold-date">15.09.2026</span></div>
 
-        <div class="form-group">
-          <label class="form-label">Ваше имя и фамилия</label>
-          <input type="text" class="form-input" placeholder="Иван Петров" />
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Вы планируете присутствовать?</label>
-          <div class="radio-group-vertical">
-            <label class="radio-option"><input type="radio" name="attendance" value="yes" /> Буду точно</label>
-            <label class="radio-option"><input type="radio" name="attendance" value="maybe" /> Не знаю</label>
-            <label class="radio-option"><input type="radio" name="attendance" value="no" /> Не буду</label>
+        <form id="weddingForm" action="https://formspree.io/f/xqpzpkge" method="POST">
+          <div class="form-group">
+            <label class="form-label">Ваше имя и фамилия</label>
+            <input type="text" class="form-input" name="name" placeholder="Иван Петров" required />
           </div>
-        </div>
 
-        <div class="form-group">
-          <label class="form-label">Нужен ли вам подвоз?</label>
-          <div class="radio-group-vertical">
-            <label class="radio-option"><input type="radio" name="need_pickup" value="yes" /> Да</label>
-            <label class="radio-option"><input type="radio" name="need_pickup" value="no" /> Нет</label>
+          <div class="form-group">
+            <label class="form-label">Вы планируете присутствовать?</label>
+            <div class="radio-group-vertical">
+              <label class="radio-option"><input type="radio" name="attendance" value="Буду точно" required /> Буду точно</label>
+              <label class="radio-option"><input type="radio" name="attendance" value="Не знаю" /> Не знаю</label>
+              <label class="radio-option"><input type="radio" name="attendance" value="Не буду" /> Не буду</label>
+            </div>
           </div>
-          <div class="sub-block" id="pickupBlock">
-            <div style="margin-top: 12px;">
-              <label class="form-label" style="font-size:clamp(16px,3vw,20px); font-style:italic; margin-bottom:8px; font-weight:700;">Откуда нужен подвоз?</label>
-              <div class="radio-group-vertical">
-                <label class="radio-option"><input type="radio" name="pickup_from" value="groom" /> Сторона жениха (Радостово)</label>
-                <label class="radio-option"><input type="radio" name="pickup_from" value="bride" /> Сторона невесты (Повитье)</label>
+
+          <div class="form-group">
+            <label class="form-label">Нужен ли вам подвоз?</label>
+            <div class="radio-group-vertical">
+              <label class="radio-option"><input type="radio" name="need_pickup" value="Да" /> Да</label>
+              <label class="radio-option"><input type="radio" name="need_pickup" value="Нет" /> Нет</label>
+            </div>
+            <div class="sub-block" id="pickupBlock">
+              <div style="margin-top:12px;">
+                <label class="form-label" style="font-size:clamp(16px,3vw,20px); font-style:italic; margin-bottom:8px; font-weight:700;">Откуда нужен подвоз?</label>
+                <div class="radio-group-vertical">
+                  <label class="radio-option"><input type="radio" name="pickup_from" value="Сторона жениха (Радостово)" /> Сторона жениха (Радостово)</label>
+                  <label class="radio-option"><input type="radio" name="pickup_from" value="Сторона невесты (Повитье)" /> Сторона невесты (Повитье)</label>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label class="form-label">Ваша любимая песня для танца</label>
-          <input type="text" class="form-input" placeholder="Название и исполнитель" />
-        </div>
+          <div class="form-group">
+            <label class="form-label">Ваша любимая песня для танца</label>
+            <input type="text" class="form-input" name="song" placeholder="Название и исполнитель" />
+          </div>
 
-        <button class="form-submit">Отправить</button>
+          <button type="submit" class="form-submit">Отправить</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Уведомление об успешной отправке -->
+    <div class="form-success-overlay" id="successOverlay">
+      <div class="form-success-card">
+        <h3>Готово</h3>
+        <p>Ваш ответ успешно отправлен. Спасибо</p>
+        <div class="form-success-progress">
+          <div class="bar" id="progressBar"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1174,7 +1129,6 @@
           callScreen.style.visibility = 'hidden';
           setTimeout(function() {
             invScreen.classList.add('active');
-            // Печатающий текст
             const loveText = document.getElementById('loveText');
             const text = 'Любовь — это когда весь мир помещается в одном человеке.';
             typeWriter(loveText, text, 60);
@@ -1259,11 +1213,89 @@
       const pickupBlock = document.getElementById('pickupBlock');
       pickupRadios.forEach(function(radio) {
         radio.addEventListener('change', function() {
-          if (this.value === 'yes') pickupBlock.classList.add('active');
+          if (this.value === 'Да') pickupBlock.classList.add('active');
           else pickupBlock.classList.remove('active');
         });
       });
       pickupBlock.classList.remove('active');
+
+      // --- ОТПРАВКА ФОРМЫ НА FORMSPREE (без перенаправления) ---
+      const form = document.getElementById('weddingForm');
+      const overlay = document.getElementById('successOverlay');
+      const progressBar = document.getElementById('progressBar');
+      let progressInterval = null;
+      let closeTimeout = null;
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // Проверка, что выбран вариант присутствия
+        if (!data.attendance) {
+          alert('Пожалуйста, выберите вариант присутствия.');
+          return;
+        }
+
+        try {
+          const response = await fetch('https://formspree.io/f/xqpzpkge', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (response.ok) {
+            showSuccessMessage();
+            form.reset();
+            document.getElementById('pickupBlock').classList.remove('active');
+          } else {
+            const errorData = await response.json();
+            alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+            console.error('Formspree error:', errorData);
+          }
+        } catch (error) {
+          alert('Не удалось отправить форму. Проверьте подключение к интернету.');
+          console.error('Network error:', error);
+        }
+      });
+
+      function showSuccessMessage() {
+        overlay.classList.add('active');
+        
+        let progress = 0;
+        progressBar.style.width = '0%';
+        if (progressInterval) clearInterval(progressInterval);
+        
+        progressInterval = setInterval(function() {
+          progress += 1;
+          progressBar.style.width = progress + '%';
+          if (progress >= 100) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+          }
+        }, 50); // 50мс * 100 = 5 секунд
+
+        if (closeTimeout) clearTimeout(closeTimeout);
+        closeTimeout = setTimeout(function() {
+          overlay.classList.remove('active');
+          progressBar.style.width = '0%';
+          if (progressInterval) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+          }
+        }, 5000);
+      }
+
+      // Не закрываем оверлей при клике на фон
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          // ничего не делаем
+        }
+      });
 
       setTimeout(function() {
         if (invScreen.classList.contains('active')) observeSequentialContainers();
